@@ -773,7 +773,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   name="phone_number"
                 />
                   {hirephoneerror &&(
-          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}test error</span>
+          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}</span>
           )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
