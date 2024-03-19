@@ -1,6 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
-import BlogCard from "./blogCard";
+
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchBlogs } from "~/graphql/queries";
@@ -8,6 +8,7 @@ import { List, Select, Skeleton } from "antd";
 import CustomDrawer from "~/utils/customDrawer";
 import DropDownIcon from "../case-study/arrow";
 import { success } from "~/utils/notifications";
+import CaseCard from "./caseStudyCard";
 const Container = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -303,7 +304,7 @@ const Container = () => {
               />
               <div className=" max-w-7xl blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {caseData.map((casestudy: IBlogMedia) => (
-                  <BlogCard key={casestudy.id} blog={casestudy} blogData={caseData} />
+                  <CaseCard key={casestudy.id} blog={casestudy} blogData={caseData} />
                 ))}
               </div>
             </>
