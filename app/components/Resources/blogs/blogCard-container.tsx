@@ -11,39 +11,7 @@ import { success } from "~/utils/notifications";
 const BlogCardContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  useEffect(() => {
-    // No need to update selected values here; already handled by state variables
-  }, []); // Empty dependency array
-  const handleApplyFilters = () => {
-    setCategory(selectedCategory);
-    setTag(selectedTag);
-    onClose();
-  };
-  const handleResetFilters = () => {
-    setSelectedCategory(null);
-    setSelectedTag(null);
-    setCategory(null);
-    setTag(null);
-  };
   const [state, setState] = useState({ visible: false, placement: "bottom" });
-  const showDrawer = () => {
-    setState((prevState) => ({
-      ...prevState,
-      visible: true,
-    }));
-  };
-  const onClose = () => {
-    setState((prevState) => ({
-      ...prevState,
-      visible: false,
-    }));
-  };
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState((prevState) => ({
-      ...prevState,
-      placement: e.target.value,
-    }));
-  };
   const loaderData = useLoaderData() as any;
   const [category, setCategory] = useState<string | null>(null)
   const [tag, setTag] = useState<string | null>(null)
@@ -51,9 +19,40 @@ const BlogCardContainer = () => {
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
   const [limit, setLimit] = useState(3); // Initial limit
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+  }, []); 
+
   useEffect(() => {
     handleFilterAndSearchDown();
   }, [category, tag, searchValue]);
+
+  const handleApplyFilters = () => {
+    setCategory(selectedCategory);
+    setTag(selectedTag);
+    onClose();
+  };
+  
+  const handleResetFilters = () => {
+    setSelectedCategory(null);
+    setSelectedTag(null);
+    setCategory(null);
+    setTag(null);
+  };
+  
+  const showDrawer = () => {
+    setState((prevState) => ({
+      ...prevState,
+      visible: true,
+    }));
+  };
+  
+  const onClose = () => {
+    setState((prevState) => ({
+      ...prevState,
+      visible: false,
+    }));
+  };
 
   const handleFilterAndSearchDown = async () => {
     setLoading(true);
@@ -137,7 +136,6 @@ const BlogCardContainer = () => {
     }
   };
 
-  
   return (
     <>
       <CustomDrawer
