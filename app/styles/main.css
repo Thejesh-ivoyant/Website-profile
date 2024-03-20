@@ -788,12 +788,8 @@ body.scrolled #scrollToTopBtn {
 }
 
 .blog-whitepaper-content-section {
-  padding-top: 3rem
-    /* 48px */
-  ;
-  padding-bottom: 3rem
-    /* 48px */
-  ;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .markdown-container h1 {
@@ -1118,6 +1114,7 @@ body.scrolled #scrollToTopBtn {
 
   .blog-content-container {
     gap: 1rem;
+    flex-direction: column;
   }
 
   .btn-small {
@@ -1259,6 +1256,28 @@ body.scrolled #scrollToTopBtn {
     max-width: 60%;
     gap: 0.3rem;
   }
+  .separator-line {
+    display: none;
+  }
+  .left-content-blog {
+    width: 100%;
+  }
+
+  .author-card {
+    display: none;
+  }
+
+  .separator-line {
+    display: none;
+  }
+
+  .blog-para-title {
+    display: none;
+  }
+
+.blog-content-container {
+      flex-direction: column;
+  }
 
   .left-box {
     padding-left: 0.1rem;
@@ -1272,9 +1291,6 @@ body.scrolled #scrollToTopBtn {
     gap: 0.5rem;
   }
 
-  .author-links {
-    display: none;
-  }
 
   .card-box {
     width: 22.66667rem;
