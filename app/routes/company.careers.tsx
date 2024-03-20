@@ -10,6 +10,7 @@ import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
 import { LinksFunction } from "@remix-run/node";
 import CompanyStyle from '~/styles/company.css'
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
@@ -136,6 +137,7 @@ const Careers = () => {
        <Why_Join_Us />
        <JobCards />
        <JoinUsCardContainer />
+       <Popup />
        </Await>
        </Suspense>
   </>

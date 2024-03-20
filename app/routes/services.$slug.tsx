@@ -12,6 +12,7 @@ export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ServicesStyle}
 ];
 import Hero from "~/common-components/Hero";
+import { Popup } from "~/common-components/social-media-popup";
 const ServiceContainer = React.lazy(
   () =>
     import(
@@ -171,6 +172,7 @@ const Service = () => {
           <Technologies />
           <Consultation />
           <BlogPostsContainer />
+          <Popup />
           <Outlet />
         </Await>
       </Suspense>

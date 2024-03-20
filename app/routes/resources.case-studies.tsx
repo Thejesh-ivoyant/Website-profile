@@ -12,6 +12,7 @@ import { Daum } from "~/interfaces/CategoriesType";
 import ResourcesStyle from '~/styles/resources.css'
 import Hero from "~/common-components/Resources-hero";
 import Container from "~/components/Resources/case-study/caseStudyContainer";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ResourcesStyle}
 ];
@@ -104,6 +105,7 @@ const Index = () => {
 
           <Container />
           <Consultation />
+          <Popup />
           <Outlet />
       </Await>
     </Suspense>

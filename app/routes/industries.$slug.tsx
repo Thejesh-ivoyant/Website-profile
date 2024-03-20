@@ -13,6 +13,7 @@ import ProductStyle from "~/styles/Industry.css";
 import { LinksFunction } from "@remix-run/node";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
 import { Technologies } from "~/components/products/technologies";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: ProductStyle },
 ];
@@ -87,6 +88,7 @@ const Index = () => {
             title={data?.section7Title as string}
             description={data?.section7Desc}
           />
+             <Popup />
         </Await>
       </Suspense>
     </>

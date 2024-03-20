@@ -1,6 +1,7 @@
 import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
 import { MetaFunction } from "@remix-run/react";
+import { Popup } from "~/common-components/social-media-popup";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | contact us" },
@@ -21,6 +22,7 @@ export default function Index() {
         <ContactUs />
       </div>
       <ContactCard/>
+      <Popup />
     </>
   );
 }
