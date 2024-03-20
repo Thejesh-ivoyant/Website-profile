@@ -3,12 +3,13 @@ import IBlogMedia from "../../../interfaces/IBlogMedia";
 
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { SearchBlogs } from "~/graphql/queries";
 import { List, Select, Skeleton } from "antd";
 import CustomDrawer from "~/utils/customDrawer";
 import DropDownIcon from "../case-study/arrow";
 import { success } from "~/utils/notifications";
 import CaseCard from "./caseStudyCard";
+import { SearchCases } from "~/graphql/queries";
+
 const Container = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -19,7 +20,8 @@ const Container = () => {
   const [searchValue, setSearchValue] = useState("");
   const [caseData, setCaseData] = useState(loaderData.caseData || []);
   const [limit, setLimit] = useState(3); // Initial limit
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
   }, []); 
@@ -57,7 +59,7 @@ const Container = () => {
 
   const handleFilterAndSearchDown = async () => {
     setLoading(true);
-    const updatedCaseQuery = SearchBlogs(
+    const updatedCaseQuery = SearchCases(
       category || "",
       tag || "",
       searchValue || "",
@@ -66,8 +68,11 @@ const Container = () => {
 
 
     const newCaseData = await fetchGraphQL(updatedCaseQuery);
+    console.warn("case uuu ..............",JSON.stringify(newCaseData));
+    console.warn("case testtttuu /////// ..........",newCaseData);
+   
     setCaseData(() => [
-      ...newCaseData.data?.cases.data?.map((item: any) => ({
+      ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
         id: item.id,
         title: item.attributes.heroTitle,
         description1: item.attributes.heroDescription,
@@ -91,12 +96,13 @@ const Container = () => {
         },
       })),
     ]);
+
     setLoading(false);
   };
 
   const fetchMoreData = async () => {
     setLoading(true);
-    const updatedQuery = SearchBlogs(
+    const updatedQuery = SearchCases(
       category || "",
       tag || "",
       searchValue || "",
@@ -104,7 +110,7 @@ const Container = () => {
     );
     const newCaseData = await fetchGraphQL(updatedQuery);
     setCaseData(() => [
-      ...newCaseData.data?.cases.data?.map((item: any) => ({
+      ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
         id: item.id,
         title: item.attributes.heroTitle,
         description1: item.attributes.heroDescription,
@@ -202,9 +208,9 @@ const Container = () => {
       </CustomDrawer>
       
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
-        <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
+        {/* <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
-        </div>
+        </div> */}
         <div className="filter flex w-full font-montserrat justify-center gap-2 my-2">
           <div className="flex flex-col gap-1">
             <div className="flex">
@@ -303,7 +309,7 @@ const Container = () => {
                 alt="ornament"
               />
               <div className=" max-w-7xl blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
-                {caseData.map((casestudy: IBlogMedia) => (
+                {caseData.map((casestudy: any) => (
                   <CaseCard key={casestudy.id} blog={casestudy} blogData={caseData} />
                 ))}
               </div>

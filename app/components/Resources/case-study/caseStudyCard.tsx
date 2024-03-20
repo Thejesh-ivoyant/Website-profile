@@ -15,7 +15,7 @@ const CaseCard = ({ blog , blogData }: { blog: any, blogData:any }) => {
               <p className="line-clamp-3 font-poppins text-base font-light lg:h-fit h-0">{blog.description1}</p>
               <Link className="lg:block hidden"
                    to={`../resources/case-study/${blog.id}`}  key={blog.id}
-                   state={{ blogData: blogData }}>
+                   >
                     <button className="hue-btn-blue-light btn btn-small">Read Full Story</button>
               </Link>
 

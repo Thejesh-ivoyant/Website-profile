@@ -37,11 +37,7 @@ const BlogPostsContainer = () => {
             </Link>
           ))}
         </div>
-        {/* <img
-    src="../assets/Ornament.png"
-    className="absolute top-4 left-4 z-0"
-    alt="ornament"
-  /> */}
+       
       </div>
       <div className="mx-auto w-full flex justify-center items-center">
         <Link to={`../resources/blogs`} key="explore">
