@@ -889,7 +889,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .btn-small {
-  padding: .5rem .8rem !important;
+  padding: .5rem .75rem !important;
 }
 
 .btn {
@@ -1118,10 +1118,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .btn-small {
-    padding-left: 1.5rem !important;
-    padding-top: 0.7rem !important;
-    padding-bottom: 0.7rem !important;
-    padding-right: 1.5rem !important;
+    padding: .5rem 0.8rem;
   }
 
   .btn {
