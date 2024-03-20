@@ -82,17 +82,17 @@
   ;
 }
 
-.blog-main-card {
+/* .blog-main-card {
   padding-left: 5rem;
   padding-right: 5rem;
-}
+} */
 
 .read-more-btn-container-mobile {
   display: none;
 }
 
 .blog-main-box {
-  padding: 0.5rem;
+  padding: 0rem;
 }
 
 .minutes {
@@ -373,10 +373,10 @@
     height: 22rem;
   }
 
-  .blog-main-card {
+  /* .blog-main-card {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-  }
+  } */
 
   .filter-mobile {
     display: none;
@@ -519,7 +519,7 @@
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
 } */
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .sm-card-p {
     padding: 0.75rem 0.875rem;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
