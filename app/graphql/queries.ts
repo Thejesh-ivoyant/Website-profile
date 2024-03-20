@@ -307,6 +307,7 @@ export const whitepaperQuery = `query {
  }
 }
 `;
+
 export const blogQuery = `query{
   blogs(
   sort: "date:desc",
@@ -713,50 +714,58 @@ query{
     }
   }
 }`;
-export const case_study_paginated = `
-    query {
-      caseStudies(sort: "\${sort}",
-      filters:{ and: [{ category:{name : {containsi :"\${category}"}}}, {heroTitle :{containsi : "\${title}"}}, { topic_tags:{name : {containsi :"\${tag}"}}}]},
-       pagination: { start: \${offset}, limit: \${limit} }) {
-        data {
-          id
-          attributes {
-            publishedAt
-            heroTitle
-            heroDescription
-            heroBgImage{
-              data{
-                attributes{
-                  url
-                  formats
-                }
-              }
-            }
-            category{
-              data{
-                attributes{
-                  name
-                }
-              }
-            }
-            author {
-              data {
-                attributes {
-                  name
-                  avatar {
-                    data {
-                      attributes {
-                        formats
+export const caseQuery = `
+query {
+  caseStudies(
+sort: "date:desc",
+pagination: {limit:3}
+  ) {
+    data{
+      id
+      attributes {
+        publishedAt
+        heroTitle
+        heroDescription
+        heroBgImage{
+          data{
+            attributes{
+                      url
                       }
-                    }
-                  }
-                }
               }
-            }
-          }
         }
+        topic_tags{
+          data{
+              attributes{
+                        name	
+                        }
+              }
+        }
+        category{
+                data{
+                    attributes{
+                              name
+                              }
+                    }
+                }
+        author {
+                data {
+                      attributes {
+                                  name
+                                  avatar {
+                                          data {
+                                                attributes {
+                                                            url
+                                                            }
+                                                }
+                                          }
+                                  }
+                      }
+                }
       }
     }
+  
+  }
+}
   `;
   export const SearchCaseStudies = (
     category: string,
@@ -1047,6 +1056,74 @@ export const SearchJobs = (
     }
   }`;
 };
+export const SearchCases = (
+  category: string,
+  tag: string,
+  heroTitle: string,
+  limit: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+  return  `
+  query{
+    caseStudies(
+      filters: {
+       and: [
+         {category:{name:{containsi:  ${sanitizeString(category)} } }},
+         { topic_tags: { name: { containsi: ${sanitizeString(tag)} } }},
+         { heroTitle:{ containsi: ${sanitizeString(heroTitle)} } },
+       ]
+     },
+     pagination: { limit: ${limit} }
+   ){
+      data{
+        id
+        attributes {
+          publishedAt
+          heroTitle
+          heroDescription
+          heroBgImage{
+            data{
+              attributes{
+                        url
+                        }
+                }
+          }
+          topic_tags{
+            data{
+                attributes{
+                          name	
+                          }
+                }
+          }
+          category{
+                  data{
+                      attributes{
+                                name
+                                }
+                      }
+                  }
+          author {
+                  data {
+                        attributes {
+                                    name
+                                    avatar {
+                                            data {
+                                                  attributes {
+                                                              url
+                                                              }
+                                                  }
+                                            }
+                                    }
+                        }
+                  }
+        }
+      }
+    }
+  }
+  `;
+};
+
 export const SearchBlogs = (
   category: string,
   tag: string,
