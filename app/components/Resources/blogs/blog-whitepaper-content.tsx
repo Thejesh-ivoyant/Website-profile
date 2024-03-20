@@ -6,6 +6,8 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, whitepaperQuery } from "~/graphql/queries";
 import { dateFormatTxt } from "~/utils/date-format-util";
 import { errorMessage, success } from "~/utils/notifications";
+import rehypeRaw from "rehype-raw";
+import DOMpurify from 'dompurify';
 const Blog_WhitepaperContent = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
@@ -188,7 +190,7 @@ const handleEmailChange = (e: any) => {
   return (
     <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
       <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className="left-content-blog markdown-container items-stretch flex  flex-col ">
+        <div className="left-content-blog items-stretch flex  flex-col ">
           <div className=" author-links flex flex-row items-start justify-start gap-4 ">
             {loaderData.authorData?.map((item: any, index: any) => (
               <a
@@ -206,53 +208,23 @@ const handleEmailChange = (e: any) => {
               </a>
             ))}
           </div>
-          <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
+          <div className="text-black text-3xl font-semibold max-md:max-w-full font-montserrat leading-10 blog-para-title">
             {loaderData.title}
           </div>
-          <div className="text-black  leading-5 mt-4 max-md:max-w-full">
-            <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
+          <div className="text-black  leading-5 mt-4 max-md:max-w-full text-base blog-description-container">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{DOMpurify.sanitize(loaderData?.description1 as string)}</ReactMarkdown>
           </div>
           {isResourcesRoute ? (
             <button className="btn hue-btn-download mt-8" onClick={showModal}>
               Download whitepaper Now
             </button>
           ) : (
-            <div>
-              {loaderData.descriptionImage1 && (
-                <img
-                  alt="icon"
-                  src={`${loaderData.descriptionImage1}`}
-                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-                />
-              )}
-              <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-                <ReactMarkdown>{loaderData.description2}</ReactMarkdown>
-              </div>
-              {loaderData.descriptionImage2 && (
-                <img
-                  loading="eager"
-                  alt="icon"
-                  src={`${loaderData.descriptionImage2}`}
-                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-                />
-              )}
-              <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-                <ReactMarkdown>{loaderData.description3}</ReactMarkdown>
-              </div>
-              {loaderData.descriptionImage3 && (
-                <img
-                  alt="icon"
-                  loading="lazy"
-                  src={`${loaderData.descriptionImage3}`}
-                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-                />
-              )}
-            </div>
+           <></>
           )}
         </div>
         <div className="separator-line bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
-          <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
+          <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5  font-montserrat">
             <img
               alt="icon"
               src={loaderData.avatar}
@@ -282,7 +254,7 @@ const handleEmailChange = (e: any) => {
               ))}
             </div>
           </div>
-          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 xl:px-16 lg:px-10 px-8 pt-11 pb-5">
+          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 2xl:px-16 lg:px-10 px-8 pt-11 pb-5  font-montserrat">
             <div className="text-black text-2xl font-medium leading-9">
               Related posts
             </div>
@@ -309,7 +281,7 @@ const handleEmailChange = (e: any) => {
                       src="../../assets/calendericon.svg"
                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
-                    <div className="text-zinc-600 text-sm font-medium self-stretch grow">
+                    <div className="text-zinc-600 text-sm font-medium grow">
                       { dateFormatTxt(item?.date as string) }
                     </div>
                   </div>
@@ -318,7 +290,7 @@ const handleEmailChange = (e: any) => {
             ))}
           </div>
           {!isResourcesRoute ? (
-            <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 gap-5 pl-7 pr-9 py-10 max-md:px-5">
+            <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 gap-5 pl-7 pr-9 py-10 max-md:px-5  font-montserrat">
               <div className="text-black text-2xl font-medium whitespace-nowrap">
                 Categories
               </div>
@@ -342,7 +314,7 @@ const handleEmailChange = (e: any) => {
             <div></div>
           )}
           {!isResourcesRoute ? (
-            <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 pt-11 pb-6 max-md:px-5">
+            <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 pt-11 pb-6 max-md:px-5  font-montserrat">
               <div className="text-black text-2xl font-medium whitespace-nowrap">
                 Popular Tags
               </div>
