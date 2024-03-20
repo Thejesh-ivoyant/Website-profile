@@ -84,6 +84,84 @@ input[type="number"] {
   /* Deep purple */
 }
 
+.blog-description-container {
+  display: grid;
+  text-align: left;
+  place-items: initial;
+  font-family: poppins;
+  gap: 2rem;
+}
+
+.blog-description-container h1,
+.blog-description-container h2,
+.blog-description-container h3,
+.blog-description-container h4,
+.blog-description-container h5,
+.blog-description-container h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.blog-description-container h1 {
+  font-size: 2.5rem;
+}
+
+.blog-description-container h2 {
+  font-size: 2rem;
+}
+
+.blog-description-container h3 {
+  font-size: 1.75rem;
+}
+
+.blog-description-container h4 {
+  font-size: 1.5rem;
+}
+
+.blog-description-container h5 {
+  font-size: 1.25rem;
+}
+
+.blog-description-container h6 {
+  font-size: 1rem;
+}
+
+.blog-description-container img {
+  margin: 2rem auto 2rem auto;
+  object-fit: contain;
+}
+
+.blog-description-container>ul,
+ol {
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+.blog-description-container p {
+  line-height: 1.5rem;
+}
+
+.blog-description-container ul {
+  list-style-type: disc;
+}
+
+.blog-description-container ol {
+  list-style-type: decimal;
+}
+
+.blog-description-container a {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+.blog-description-container a {
+  color: purple;
+}
+
+.blog-description-container a {
+  color: blue;
+}
+
 .industryHeader {
   display: flex;
   flex-direction: column;
@@ -303,9 +381,10 @@ font-style: normal;
   background-color: #0056b3;
   /* Change this to a slightly darker shade for hover effect */
 }
-.position-icons{
+
+.position-icons {
   bottom: 84px;
-  right:24px;
+  right: 24px;
 }
 
 /* Show the button when scrolled halfway down the page */
@@ -429,9 +508,10 @@ body.scrolled #scrollToTopBtn {
   .ant-picker-dropdown .ant-picker-datetime-panel {
     display: flex !important;
   }
-  .position-icons{
+
+  .position-icons {
     bottom: 84px;
-    right:34px;
+    right: 34px;
   }
 
   .ant-picker-dropdown .ant-picker-header-view {
@@ -445,8 +525,8 @@ body.scrolled #scrollToTopBtn {
     flex: auto;
     height: 14rem;
   }
-  
-  #scrollToTopBtn{
+
+  #scrollToTopBtn {
     right: 42px;
   }
 }
@@ -468,12 +548,13 @@ body.scrolled #scrollToTopBtn {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  .position-icons{
+
+  .position-icons {
     bottom: 84px;
-    right:44px;
+    right: 44px;
   }
 
-  #scrollToTopBtn{
+  #scrollToTopBtn {
     right: 50px;
   }
 }
@@ -864,7 +945,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .blog-content-container {
-    gap: 0rem;
+    gap: 1rem;
   }
 
   .author-card {
@@ -1036,7 +1117,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .blog-content-container {
-    gap: 0rem;
+    gap: 1rem;
   }
 
   .btn-small {
