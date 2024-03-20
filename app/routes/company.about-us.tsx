@@ -13,6 +13,7 @@ import Clients from "~/components/about-us/clients";
 import ContactUs from "../common-components/contactUs";
 import AboutUsStyle from '~/styles/AboutUs.css'
 import { LinksFunction } from "@remix-run/node";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:AboutUsStyle}
 ];
@@ -53,6 +54,7 @@ export default function Index() {
         <Testimonials />
         <Faq faqContents={aboutData.faq} />
         <ContactUs/>
+        <Popup />
       </Await>
     </Suspense>
     </>

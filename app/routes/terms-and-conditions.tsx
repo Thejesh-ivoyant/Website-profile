@@ -75,6 +75,7 @@ const Index = () => {
           <PTCHero/>
         <Terms/>
         <Consultation/>
+        <Popup />
           <Outlet />
       </Await>
       </Suspense>

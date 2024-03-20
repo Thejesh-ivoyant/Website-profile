@@ -10,6 +10,7 @@ import ProductStyle from "~/styles/Products.css";
 import { LinksFunction } from "@remix-run/node";
 import Consultation from "~/components/Homepage/consultation";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: ProductStyle },
 ];
@@ -57,6 +58,7 @@ export default function Index() {
         pairs={attributes.technologies}
       />
       <ContactUs />
+      <Popup />
     </>
   );
 }

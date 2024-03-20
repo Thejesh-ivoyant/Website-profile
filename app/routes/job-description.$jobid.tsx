@@ -5,6 +5,7 @@ import { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import CompanyStyle from '~/styles/company.css'
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
@@ -75,6 +76,7 @@ const Index = () => {
     <Suspense fallback={<LoadingTest />}>
        <Await resolve={data.title}>
           <JobDescription />
+          <Popup />
           <Outlet />
           </Await>
       </Suspense>

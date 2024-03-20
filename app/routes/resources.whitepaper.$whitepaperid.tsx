@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import Consultation from "~/components/Homepage/consultation";
+import { Popup } from "~/common-components/social-media-popup";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Mobile App Development" },
@@ -85,6 +86,7 @@ const Index = () => {
           <Blog_WhitepaperContent/>
           <Consultation />
           <BlogPostsContainer/>
+          <Popup />
           <Outlet />
       </Await>
       </Suspense>

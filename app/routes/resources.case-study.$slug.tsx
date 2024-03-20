@@ -12,6 +12,7 @@ import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { Features } from "~/components/Resources/case-study/slug/key-features";
 import CaseStyle from "~/styles/CaseStudySlug.css";
 import Consultation from "~/components/Homepage/consultation";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: CaseStyle },
 ];
@@ -46,6 +47,7 @@ const sample = () => {
       <Section5 data={attributes} />
       <Section6 data={attributes} />
       <Consultation />
+      <Popup />
     </>
   );
 };

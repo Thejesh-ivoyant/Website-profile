@@ -7,6 +7,7 @@ import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import CompanyStyle from '~/styles/company.css'
 import { LinksFunction } from "@remix-run/node";
+import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
@@ -64,6 +65,7 @@ const Index = () => {
           <PTCHero />
           <Cookies />
           <Consultation />
+          <Popup />
           <Outlet />
       </Await>
       </Suspense>
