@@ -6,7 +6,7 @@ const BlogHero = () => {
   };
   return (
     <section className="py-32 text-white flex font-montserrat" style={gradientStyle}>
-      <div className=" flex flex-col gap-4 px-16">
+      <div className=" flex flex-col gap-4 px-8 sm:px-12 md:px-16">
         <h1 className="font-semibold text-2xl leading-10">
           {loaderData.title}
         </h1>
