@@ -10,6 +10,7 @@ import yt from "~/../public/assets/YouTube svg.svg";
 import ivurl from "../../public/assets/ivoyant.svg";
 import defaultsvg from "../../public/assets/default.svg";
 import { success, errorMessage } from "~/utils/notifications";
+import { emailPattern } from "~/DTO/form-schemas/patterns";
 const Nav = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
@@ -58,14 +59,14 @@ const Nav = () => {
     }
 };
 const handleEmailChange = (e: any) => {
-  const emailValue = e.target.value;
+  const emailValue = e.target.value.toLowerCase();
   setEmail(emailValue);
   // Reset email error
   setEmailError("");
   // Validate email
   if (!emailValue.trim()) {
     setEmailError("Email is required");
-} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+} else if (!emailPattern.test(emailValue)) {
     setEmailError("Invalid email address");
 }
 };

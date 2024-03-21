@@ -53,7 +53,7 @@ const JobDescription = () => {
     }
   };
   const handleEmailChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setEmail(value.replace(" ",""));
     if (!emailPattern.test(value) || value.length < 3) {
       setEmailError('Please enter a valid email');
