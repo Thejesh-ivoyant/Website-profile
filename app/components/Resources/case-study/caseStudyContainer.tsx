@@ -192,7 +192,7 @@ const Container = () => {
           />
           <div className="flex flex-row justify-between gap-4 items-center">
             <button
-              className="hue-btn-primary  hero-btn "
+              className="bg-white px-5 h-full lg:text-xl font-medium font-montserrat"
               onClick={() => handleApplyFilters()}
             >
               Apply Filters
@@ -308,7 +308,7 @@ const Container = () => {
                 className="absolute top-4 left-4"
                 alt="ornament"
               />
-              <div className=" max-w-7xl blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
+              <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {caseData.map((casestudy: any) => (
                   <CaseCard key={casestudy.id} blog={casestudy} blogData={caseData} />
                 ))}
@@ -322,7 +322,7 @@ const Container = () => {
          
         >
           <button
-          className="hue-btn-blue btn uppercase"
+          className="hue-btn-blue btn uppercase font-montserrat"
           onClick={fetchMoreData}
           disabled={loading}
         >
