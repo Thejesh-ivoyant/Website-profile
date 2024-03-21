@@ -8,6 +8,7 @@ import { dateFormatTxt } from "~/utils/date-format-util";
 import { errorMessage, success } from "~/utils/notifications";
 import rehypeRaw from "rehype-raw";
 import DOMpurify from 'dompurify';
+import { emailPattern } from "~/DTO/form-schemas/patterns";
 const Blog_WhitepaperContent = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
@@ -60,14 +61,14 @@ const handlePhoneNumberChange = (e: any) => {
   }
 };
 const handleEmailChange = (e: any) => {
-  const emailValue = e.target.value;
+  const emailValue = e.target.value.toLowerCase();
   setEmail(emailValue);
   // Reset email error
   setEmailError("");
   // Validate email
   if (!emailValue.trim()) {
     setEmailError("Email is required");
-} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+} else if (!emailPattern.test(emailValue)) {
     setEmailError("Invalid email address");
 }
 };

@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons";
 import type { DatePickerProps, RangePickerProps } from "antd/es/date-picker";
 import { errorMessage, success } from "~/utils/notifications";
+import { emailPattern } from "~/DTO/form-schemas/patterns";
 dayjs.extend(customParseFormat);
 const range = (start: number, end: number) => {
   const result = [];
@@ -222,26 +223,28 @@ const hirehandleNameChange = (e: any) => {
 };
 
 const hirehandleEmailChange = (e: any) => {
-  const hireemailValue = e.target.value;
+  const hireemailValue = e.target.value.toLowerCase();
   sethireEmail(hireemailValue);
   // Reset email error
   sethireEmailError("");
   // Validate email
   if (!hireemailValue.trim()) {
     sethireEmailError("Email is required");
-} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(hireemailValue)) {
-    sethireEmailError("Invalid email address");
-}
+} else if (!emailPattern.test(hireemailValue)) {
+  sethireEmailError("Invalid email address");
+  }
 };
   const handleEmailChange = (e: any) => {
-    const emailValue = e.target.value;
+
+    const emailValue = e.target.value.toLowerCase();
     setEmail(emailValue);
     // Reset email error
     setEmailError("");
     // Validate email
     if (!emailValue.trim()) {
       setEmailError("Email is required");
-  } else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+      emailPattern.test(emailValue)
+    } else if (!emailPattern.test(emailValue)) {
       setEmailError("Invalid email address");
   }
   };
@@ -251,9 +254,7 @@ const hirehandleEmailChange = (e: any) => {
     const org = e.target.value // Trim any leading/trailing spaces
     setOrg(e.target.value);
     setOrgError("");
-    if (!org) {
-      setOrgError("Company name is required");
-    } else if (org.length > 35) {
+    if (org.length > 35) {
       setOrgError(`Organisation name must be less than 36 characters`);
     } 
 };
@@ -271,8 +272,8 @@ const hirehandleMessageChange = (e: any) => {
    }
 };
 
-  const handleMessageChange = (e: any) => {
-    const msg=e.target.value;
+const handleMessageChange = (e: any) => {
+  const msg=e.target.value;
     setMsg(e.target.value);
     setMsgError("");
    if (msg.length > 1000) {
@@ -330,9 +331,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 
   const handleClearFile = () => {
-    // Clear the selected file and hide the file information
     setSelectedFileName(null);
-    // Optionally, you can reset the file input value to allow selecting the same file again
     const fileInput = document.getElementById("attachment") as HTMLInputElement;
     if (fileInput) {
       fileInput.value = "";
