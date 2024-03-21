@@ -6,7 +6,7 @@ import { strapiUrl } from "~/utils/urls";
 import React from "react";
 import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Select, Space } from "antd";
 import {
   CalendarOutlined,
   FileAddOutlined,
@@ -15,6 +15,7 @@ import {
 import type { DatePickerProps, RangePickerProps } from "antd/es/date-picker";
 import { errorMessage, success } from "~/utils/notifications";
 import { emailPattern } from "~/DTO/form-schemas/patterns";
+import DropDownIcon from "~/components/Resources/case-study/arrow";
 dayjs.extend(customParseFormat);
 const range = (start: number, end: number) => {
   const result = [];
@@ -72,6 +73,8 @@ const ContactUs = () => {
 
   const [msg, setMsg] = useState("");
   const [msgerror, setMsgError] = useState('');
+  const [selectedAOE, setAreaofExpertiseTag] = useState<"" | null>(null);
+
  
   
   const [msgcount, setMsgCount] = useState("1000");
@@ -86,6 +89,26 @@ const ContactUs = () => {
   const [hireImage, sethireImage] = useState<string>("");
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const resethireFormState = () => {
+    sethirePersonName("");
+    sethireEmail("");
+    sethirePhoneNumber("");
+    setMsg("");
+    setSelectedFileName("");
+    setDateSelected("");
+  };
+
+  const resetFormState = () => {
+    setPersonName("");
+    setEmail("");
+    setPhoneNumber("");
+    setOrg("");
+    setMsg("");
+    setSelectedFileName("");
+    setDateSelected("");
+  };
+
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
     formType: any
@@ -104,8 +127,15 @@ const ContactUs = () => {
             body: formData,
           }
         );
-        debugger;
+      
         if (response.ok) {
+          if (formType === "contact"){
+            resetFormState();
+          }else{
+            resethireFormState();
+          }
+       
+
           success(
             "Thank you for contacting us! We will get back to you soon.",
             3
@@ -148,6 +178,7 @@ const ContactUs = () => {
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setDateSelected(dateString);
   };
+
   const handlePhoneNumberChange = (e: any) => {
     const phone = e.target.value;
     setPhoneNumber(phone);
@@ -299,6 +330,7 @@ const handleMessageChange = (e: any) => {
       })
       .catch((error) => {});
   }, []);
+
   const [toggleState, setToggleState] = useState(1);
   const [openc1, setOpen] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
@@ -328,6 +360,14 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFileError("");
   }
 };
+
+const tagsData = ["Front End coding", "Devops"];
+
+const AOE = tagsData.map((tag) => ({
+  value: tag,
+  label: tag,
+}));
+
 
 
   const handleClearFile = () => {
@@ -775,24 +815,47 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}</span>
           )}
               </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <select
-                  id="username"
-                  defaultValue=""
-                 
+              <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+              <Select
+            placeholder="Area of Expertise"
+            className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+
+            suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
+            onChange={(value) => setAreaofExpertiseTag(value)}
+            allowClear
+            value={selectedAOE}
+            options={AOE}
+          />
+           <input
+                  type="text"
+                  placeholder=""
+                  value={selectedAOE || ''}
+                  className="hidden"
                   name="area_of_expertise"
-                  className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                >
-                  <option value="" style={{ color: '#fff' }} disabled hidden >
-                    Area of Expertise
-                  </option>
-                  <option style={{ paddingTop: '20px' }}>Front End coding</option>
-                  <option style={{ paddingTop: '20px' }}>Devops </option>
-                </select>
+                />
+               
 
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
-                <select
+          <Select
+            placeholder="Area of Expertise"
+            className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+            suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
+            onChange={(value) => setHiringDuration(value)}
+            allowClear
+            value={selectedHiringDuration}
+            options={HD}
+          />
+          
+           <input
+                  type="text"
+                  placeholder=""
+                  value={selectedHiringDuration || ''}
+                  className="hidden"
+                  name="hiring_duration"
+                />
+
+                {/* <select
                   id="username"
                   name="hiring_duration"
                   defaultValue=""
@@ -803,7 +866,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   </option>
                   <option>10</option>
                   <option>8</option>
-                </select>
+                </select> */}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
