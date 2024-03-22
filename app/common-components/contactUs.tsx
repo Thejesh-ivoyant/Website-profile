@@ -74,7 +74,8 @@ const ContactUs = () => {
   const [msg, setMsg] = useState("");
   const [msgerror, setMsgError] = useState('');
   const [selectedAOE, setAreaofExpertiseTag] = useState<"" | null>(null);
-
+  const [selectedHiringDuration, setHiringDuration] = useState<"" | null>(null);
+  const [selectedSkills, setSkills] = useState<"" | null>(null);
  
   
   const [msgcount, setMsgCount] = useState("1000");
@@ -361,16 +362,25 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-const tagsData = ["Front End coding", "Devops"];
-
-const AOE = tagsData.map((tag) => ({
-  value: tag,
-  label: tag,
+const AOEData = ["Front End coding", "Devops"];
+const AOE = AOEData.map((aoe) => ({
+  value: aoe,
+  label: aoe,
 }));
 
+const HiringDuration = ["10", "8","6"];
+const HD = HiringDuration.map((hd) => ({
+  value: hd,
+  label: hd,
+}));
 
+const SkillsetData = ["Python","Java","React",".Net","Angular"];
+const SkillSet = SkillsetData.map((skill) => ({
+  value: skill,
+  label: skill,
+}));
 
-  const handleClearFile = () => {
+const handleClearFile = () => {
     setSelectedFileName(null);
     const fileInput = document.getElementById("attachment") as HTMLInputElement;
     if (fileInput) {
@@ -818,7 +828,7 @@ const AOE = tagsData.map((tag) => ({
               <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
               <Select
             placeholder="Area of Expertise"
-            className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+            className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
 
             suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
             onChange={(value) => setAreaofExpertiseTag(value)}
@@ -826,7 +836,9 @@ const AOE = tagsData.map((tag) => ({
             value={selectedAOE}
             options={AOE}
           />
-           <input
+
+
+          <input
                   type="text"
                   placeholder=""
                   value={selectedAOE || ''}
@@ -834,54 +846,48 @@ const AOE = tagsData.map((tag) => ({
                   name="area_of_expertise"
                 />
                
-
+              
               </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2">
+              <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
           <Select
             placeholder="Area of Expertise"
-            className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-            suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
+            className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+            suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
             onChange={(value) => setHiringDuration(value)}
             allowClear
             value={selectedHiringDuration}
             options={HD}
           />
           
-           <input
-                  type="text"
-                  placeholder=""
-                  value={selectedHiringDuration || ''}
-                  className="hidden"
-                  name="hiring_duration"
-                />
+          <input
+            type="text"
+            placeholder=""
+            value={selectedHiringDuration || ''}
+            className="hidden"
+            name="hiring_duration"
+          />
 
-                {/* <select
-                  id="username"
-                  name="hiring_duration"
-                  defaultValue=""
-                  className="w-full xl:h-10 h-8 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                >
-                  <option value="" disabled hidden>
-                    Hiring Duration
-                  </option>
-                  <option>10</option>
-                  <option>8</option>
-                </select> */}
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <select
-                  id="username"
-                  name="choose_skill_set"
-                  defaultValue=""
-                  className="w-full xl:h-10 h-8  xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer capitalize"
-                >
-                  <option value="" disabled hidden>
-                    Choose skillset
-                  </option>
-                  <option>python</option>
-                  <option>java</option>
-                </select>
-              </div>
+          </div>
+            <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+            <Select
+            placeholder="Choose skillset"
+            className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+            suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
+            onChange={(value) => setSkills(value)}
+            allowClear
+            value={selectedSkills}
+            options={SkillSet}
+          />
+          
+          <input
+            type="text"
+            placeholder=""
+            value={selectedSkills || ''}
+            className="hidden"
+            name="choose_skill_set"
+          />
+
+            </div>
               <div className="w-full relative grid col-span-2">
                 <label className="py-2 text-xs text-gray-400">
                   Your Message

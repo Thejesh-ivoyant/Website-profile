@@ -408,6 +408,15 @@ body.scrolled #scrollToTopBtn {
   border-radius: 0px;
   
 }
+.dropdown-hire .ant-select-selection-placeholder {
+  color: #7D7890;
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1rem;
+}
+
 .dropdown-hire .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector{
   border: none !important;
   border-radius: 0px;
