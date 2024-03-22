@@ -171,7 +171,7 @@ const { Option } = Select;
           <div className="text-black text-base font-medium self-stretch w-full mt-6 max-md:max-w-full">
  {loaderData.job_id}
           </div>
-          <div className="text-black text-base leading-6 self-stretch w-full mt-6 max-md:max-w-full">
+          <div className="text-black font-poppins text-base leading-6 self-stretch w-full mt-6 max-md:max-w-full">
       {loaderData.summary}
           </div>
           <div className="text-black text-lg font-semibold  mt-6 self-start max-md:max-w-full">
@@ -198,7 +198,7 @@ const { Option } = Select;
      {loaderData.s3_title}
           </div>
           {loaderData.s3_points.map((item: any) => (
-          <div className="text-black text-base mt-4 self-start max-md:max-w-full">
+          <div className="text-black  text-base mt-4 self-start max-md:max-w-full">
             <ul>
               <li>{item.description}</li>
             </ul>
