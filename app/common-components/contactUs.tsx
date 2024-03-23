@@ -91,23 +91,27 @@ const ContactUs = () => {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const resethireFormState = () => {
+  const resethireFormState = async () => {
     sethirePersonName("");
     sethireEmail("");
     sethirePhoneNumber("");
-    setMsg("");
-    setSelectedFileName("");
-    setDateSelected("");
+    sethireMsg("");
+    sethireSelectedFileName("");
+    setSkills(null);
+    setAreaofExpertiseTag(null);
+    setHiringDuration(null);
+    sethireSelectedFileName("");
+
   };
 
-  const resetFormState = () => {
+  const resetFormState = async () => {
     setPersonName("");
     setEmail("");
     setPhoneNumber("");
     setOrg("");
     setMsg("");
     setSelectedFileName("");
-    setDateSelected("");
+ 
   };
 
   const handleSubmit = async (
@@ -128,15 +132,8 @@ const ContactUs = () => {
             body: formData,
           }
         );
-      
         if (response.ok) {
-          if (formType === "contact"){
-            resetFormState();
-          }else{
-            resethireFormState();
-          }
-       
-
+         await resetFormState();
           success(
             "Thank you for contacting us! We will get back to you soon.",
             3
@@ -155,7 +152,11 @@ const ContactUs = () => {
             body: formData,
           }
         );
+        
         if (response.ok) {
+      
+          await resethireFormState();
+          
           success(
             "Thank you for contacting us! We will get back to you soon.",
             3
@@ -169,6 +170,7 @@ const ContactUs = () => {
     }
     setBtnLoading(false);
   };
+
   const handleLabelClick = () => {
     // Trigger click on the file input
     if (fileInputRef.current) {
