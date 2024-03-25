@@ -26,10 +26,12 @@ const JobDescription = () => {
 
   const [deg, setDeg] = useState('');
   const [degError, setDegError] = useState('');
+  const [textAreaValue, setTextAreaValue] = useState('');
 
   const [fromDate, setFromDate] = useState<string | null>(null);
 
   const [fileError, setFileError] = useState<null|string>(null);
+  
   const acceptedFileTypes: Accept = {
     'application/msword': ['.doc'],
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
@@ -39,9 +41,16 @@ const JobDescription = () => {
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setToDate(dateString);
   };
-  const fromDateChange: DatePickerProps["onChange"] = (date, dateString) => {
-    setFromDate(dateString);
+  const handleTextAreaChange = (event) => {
+    setTextAreaValue(event.target.value);
   };
+  const fromDateChange: DatePickerProps["onChange"] = (date, dateString) => {
+  if (dateString === "") {
+    setFromDate(null);
+  } else {
+    setFromDate(dateString);
+  }
+};
 
   const handleNameInput = (e) => {
     const value = e.target.value;
@@ -349,7 +358,7 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          <DatePicker status={(fromDate === "" )? 'error' : ''} inputReadOnly onChange={fromDateChange}/>
+          <DatePicker status={(fromDate === "" )? 'error' : ''} inputReadOnly value={fromDate ? dayjs(fromDate, 'YYYY-MM-DD') : null}  onChange={fromDateChange}/>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
@@ -362,6 +371,7 @@ alt="close"
   <input
     type="checkbox"
     id="currentlyAttendCheckbox"
+    checked={isCurrentlyAttend}
     onChange={handleCheckboxChange}
   />
   <div className="text-neutral-800 text-center text-xs self-stretch grow capitalize font-montserrat">
@@ -395,11 +405,14 @@ alt="close"
     <div className="text-zinc-600 text-sm mt-2 self-start">
       Let the Company know your interest working there
     </div>
-    <textarea
-    minLength={3}  maxLength={250}
-    name="message"
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid px-4 py-2"
-    ></textarea>
+   <textarea
+        minLength={3}
+        maxLength={250}
+        name="message"
+        className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid px-4 py-2"
+        value={textAreaValue}
+        onChange={handleTextAreaChange}
+      />
     <button
       type="submit"
       className="hue-btn-primary w-full lg:w-fit lg:ml-auto btn mt-16"
