@@ -408,6 +408,9 @@ body.scrolled #scrollToTopBtn {
   border-radius: 0px;
   
 }
+.text-area:focus{
+  border-color: black;
+}
 .dropdown-hire .ant-select-selection-placeholder {
   color: #7D7890;
   font-family: Montserrat;

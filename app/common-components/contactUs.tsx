@@ -651,7 +651,7 @@ const handleClearFile = () => {
                   value={msg}
                   onChange={handleMessageChange}
                 
-                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px] border-black text-area outline-none cursor-pointer"
                 ></textarea>
                 {msgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{msgerror}</span>
@@ -906,7 +906,7 @@ const handleClearFile = () => {
                   rows={5}
                   value={hiremsg}
                   onChange={hirehandleMessageChange}
-                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer text-area"
                 ></textarea>
                 {hiremsgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hiremsgerror}</span>
