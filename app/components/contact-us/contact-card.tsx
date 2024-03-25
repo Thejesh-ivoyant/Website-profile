@@ -16,13 +16,13 @@ const ContactCard = () => {
                     </div>
                     <div className="flex font-medium leading-7 items-center gap-2 normal-case">
                         <svg className="sm:w-5 w-3 aspect-square" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.094 11.75 3 14.25v-10a.625.625 0 0 1 .625-.625h10a.625.625 0 0 1 .625.625v6.875a.624.624 0 0 1-.625.625H6.094Z" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 11.75v3.125a.625.625 0 0 0 .625.625h7.531L18 18V8a.625.625 0 0 0-.625-.625H14.25" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <a href="mailto:info@ivoyant.com">info@ivoyant.com</a>
+                        <a href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
                     </div>
                     </>
                 </div>
             </div>
         </div>
-        <div className="grid font-montserrat tracking-wide py-7 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
+        <div className="grid font-montserrat tracking-wide py-5 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
             <div className="absolute h-1 w-full group-hover:bg-indigo-400"></div>
             <small className="uppercase text-base">USA</small>
             <h1 className="text-xl font-semibold pt-2">iVoyant LLC</h1>
@@ -37,7 +37,7 @@ const ContactCard = () => {
                     </div>
                     <div className="flex font-medium leading-7 items-center gap-2 normal-case">
                         <svg className="sm:w-5 w-3 aspect-square" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.094 11.75 3 14.25v-10a.625.625 0 0 1 .625-.625h10a.625.625 0 0 1 .625.625v6.875a.624.624 0 0 1-.625.625H6.094Z" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 11.75v3.125a.625.625 0 0 0 .625.625h7.531L18 18V8a.625.625 0 0 0-.625-.625H14.25" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <a href="mailto:info@ivoyant.com">info@ivoyant.com</a>
+                        <a href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
                     </div>
                     </>
                 </div>
