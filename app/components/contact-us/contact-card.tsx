@@ -1,7 +1,7 @@
 const ContactCard = () => {
     return (
     <div className="flex lg:flex-row flex-col gap-9 items-center justify-center xl:py-16 xl:px-10 lg:px-6 lg:py-12 py-8 px-5">
-        <div className="grid font-montserrat tracking-wide py-7 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
+        <div className="grid font-montserrat tracking-wide py-7 px-5 max-w-[40rem] md:h-72 relative group w-full contact-card">
             <div className="absolute h-1 w-full group-hover:bg-indigo-400"></div>
             <small className="uppercase text-base">India</small>
             <h1 className="text-xl font-semibold pt-2">iVoyant Systems Private Limited</h1>
@@ -22,7 +22,7 @@ const ContactCard = () => {
                 </div>
             </div>
         </div>
-        <div className="grid font-montserrat tracking-wide py-5 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
+        <div className="grid font-montserrat tracking-wide py-5 px-5 max-w-[40rem] md:h-72 relative group w-full contact-card">
             <div className="absolute h-1 w-full group-hover:bg-indigo-400"></div>
             <small className="uppercase text-base">USA</small>
             <h1 className="text-xl font-semibold pt-2">iVoyant LLC</h1>
