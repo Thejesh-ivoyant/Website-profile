@@ -442,7 +442,7 @@ const handleClearFile = () => {
           <div className="flex flex-col w-fit xl:mx-auto lg:ml-auto xl:pr-0 lg:pr-16 md:pr-10 md:ml-auto md:mx-0 sm:mx-16 mx-10">
             <h1 className="lg:py-4 py-2">
               <span className="flex text-white xl:text-5xl text-3xl font-medium">
-                Contact Us
+              {toggleState === 1 ? "Contact Us" : "Join Us"}
               </span>
             </h1>
             <img
@@ -457,7 +457,7 @@ const handleClearFile = () => {
                 Connect with us
               </p>
               <img src={line} className="w-full sm:col-span-2"></img>
-              <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
+              {toggleState === 1 && (<div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
@@ -469,7 +469,8 @@ const handleClearFile = () => {
                 <a className="text-[0.8em]" href="mailto:sales@ivoyant.com">
                   sales@ivoyant.com
                 </a>
-              </div>
+              </div>)}
+
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
@@ -496,6 +497,7 @@ const handleClearFile = () => {
                   info@ivoyant.com
                 </a>
               </div>
+              {toggleState === 1 && (
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
@@ -507,11 +509,12 @@ const handleClearFile = () => {
                 </div>
                 <a
                   className="text-[0.8em]"
-                  href="mailto:ivoyantsales@outlook.com"
+                  href="skype:ivoyantsales@outlook.com?chat"
                 >
                   ivoyantsales@outlook.com
                 </a>
-              </div>
+              </div>)}
+
             </div>
           </div>
         </div>

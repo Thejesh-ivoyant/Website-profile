@@ -525,7 +525,7 @@ const handleNameChange = (e: any) => {
           </Link>
         </div>
         <div className="flex gap-3 justify-center w-full text-xs gradient-top font-medium text-center p-4">
-          <span>&copy; 2023 iVoyant </span>
+          <span>&copy; 2024 iVoyant </span>
           <span> All Rights Reserved</span>{" "}
         </div>
       </footer>
