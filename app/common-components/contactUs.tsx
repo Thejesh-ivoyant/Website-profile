@@ -342,6 +342,7 @@ const handleMessageChange = (e: any) => {
   >(null);
 
   const allowedFormats = ['.jpg', '.jpeg', '.png', '.gif', '.pdf', '.doc', '.docx', '.txt', '.xls', '.xlsx', '.csv', '.ppt', '.pptx'];
+  const acceptString = allowedFormats.map(format => `.${format}`).join(',');
 
 const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const selectedFile = event.target.files?.[0];
@@ -713,6 +714,7 @@ const handleClearFile = () => {
                     id="attachment"
                     name="attachment"
                     onChange={handleFileChange}
+                   accept={acceptString}
                   />
                      {fileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{fileerror}</span>
@@ -969,6 +971,7 @@ const handleClearFile = () => {
                     type="file"
                     id="hire_attachment"
                     onChange={handlehireFileChange}
+                    accept={acceptString}
                   />
                    {hirefileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirefileerror}</span>

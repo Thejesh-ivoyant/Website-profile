@@ -230,14 +230,14 @@ const loaderData = useLoaderData() as any;
               {loaderData.committed_to_protect_title}
             </div>{" "}
             {loaderData.CTP_Points.map((item: any) => (
-              <div className="items-center flex justify-between gap-2 mr-4 mt-4 max-md:max-w-full max-md:flex-wrap max-md:mr-2.5">
+              <div className="items-center flex justify-between gap-2 mr-4 mt-4 max-md:max-w-full max-md:mr-2.5">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-4 fill-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] overflow-hidden shrink-0 max-w-full my-auto"
                 />{" "}
-                <div className="text-neutral-800 text-base leading-7 self-stretch grow whitespace-nowrap max-md:max-w-full">
+                <div className="text-neutral-800 flex-wrap text-base leading-7 self-stretch grow whitespace-nowrap max-md:max-w-full">
                   {item.description}
                 </div>
               </div>
@@ -247,7 +247,7 @@ const loaderData = useLoaderData() as any;
                 <div className="text-violet-950 text-xl font-medium leading-7 whitespace-nowrap mt-4 max-md:max-w-full">
                   {item.name}
                 </div>{" "}
-                <div className="text-violet-950 text-base leading-7 underline mt-3 max-md:max-w-full">
+                <div className="text-violet-950 text-base leading-7  mt-3 max-md:max-w-full">
                   <span className="text-neutral-800">{item.description}</span>
                   <span className="text-violet-950"> </span>
                 </div>
@@ -331,7 +331,7 @@ const loaderData = useLoaderData() as any;
             <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
               How to contact us
             </div>
-            <div className="text-violet-950 text-base leading-7 underline mt-4 max-md:max-w-full">
+            <div className="text-violet-950 text-base leading-7  mt-4 max-md:max-w-full">
               {loaderData.contact_us}
             </div>
             <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
