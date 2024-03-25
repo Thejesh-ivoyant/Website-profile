@@ -136,6 +136,7 @@ const JobDescription = () => {
         setSelectedFileName('')
         setFileError('')
         setIsCurrentlyAttend(false)
+        setTextAreaValue('')
       } else {
         errorMessage("Error occured, please retry",3);        
       }
@@ -143,6 +144,13 @@ const JobDescription = () => {
       errorMessage("Error occured, please retry",3);
     }
   };
+  const onDropRejected = useCallback((rejectedFiles: FileRejection[]) => {
+  if (rejectedFiles.length > 0) {
+    setSelectedFile(null);
+    setSelectedFileName(null);
+    setFileError('File type not supported');
+  }
+}, []);
   const onDrop = useCallback((acceptedFiles:any) => {
     // Handle the dropped files
     if (acceptedFiles.length > 0) {
@@ -180,7 +188,7 @@ const { Option } = Select;
       const onClose = () => {
         setOpen(false);
       };
-  const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: acceptedFileTypes, maxSize: MAX_FILE_SIZE});
+  const { getRootProps, getInputProps } = useDropzone({ onDrop,onDropRejected, accept: acceptedFileTypes, maxSize: MAX_FILE_SIZE});
     return (
       <>
         <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
@@ -311,6 +319,7 @@ alt="close"
         value={phone}
         autoComplete="off"
         onChange={handlePhoneChange}
+        maxLength={15}
         name="phone number"
         className="intern-input"
       />
