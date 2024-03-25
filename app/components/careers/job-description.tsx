@@ -111,6 +111,22 @@ const JobDescription = () => {
       });
       if (response.ok) {
       success("Thank you for showing interest in us!",2);
+        setPersonName('')
+        setNameError('')
+        setEmail('')
+        setEmailError('')
+        setPhone('')
+        setPhoneError('')
+        setInstitute('')
+        setinstErr('')
+        setDeg('')
+        setDegError('')
+        setFromDate(null)
+        setToDate(null)
+        setSelectedFile(null)
+        setSelectedFileName('')
+        setFileError('')
+        setIsCurrentlyAttend(false)
       } else {
         errorMessage("Error occured, please retry",3);        
       }
