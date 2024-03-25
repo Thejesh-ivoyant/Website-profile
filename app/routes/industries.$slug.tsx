@@ -7,7 +7,6 @@ import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
 import Section4 from "~/components/industries/section4";
 import Section5 from "~/components/industries/section5";
-import Section6 from "~/components/industries/section6";
 import { fetchData } from "~/utils/fetchdata";
 import ProductStyle from "~/styles/Industry.css";
 import { LinksFunction } from "@remix-run/node";
