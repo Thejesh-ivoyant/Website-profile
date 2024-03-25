@@ -1,13 +1,14 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useLocation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 const Section4 = () => {
+  const location = useLocation()
   const loaderData = useLoaderData() as any;
   const [openServices, setOpenServices] = useState<number[]>([]);
   const [toggleState, setToggleState] = useState(1);
   const [currState, setCurrState] = useState<number>(-1);
   useEffect(()=>{
     setCurrState(-1)
-  },[])
+  },[location])
   const toggleExpansion = (clickedId: number) => {
     setCurrState((prevState) => (prevState === clickedId ? -1 : clickedId));
   };
