@@ -442,7 +442,7 @@ const handleClearFile = () => {
           <div className="flex flex-col w-fit xl:mx-auto lg:ml-auto xl:pr-0 lg:pr-16 md:pr-10 md:ml-auto md:mx-0 sm:mx-16 mx-10">
             <h1 className="lg:py-4 py-2">
               <span className="flex text-white xl:text-5xl text-3xl font-medium">
-                Contact
+                Contact Us
               </span>
             </h1>
             <img
@@ -530,7 +530,7 @@ const handleClearFile = () => {
                 className={toggleState === 2 ? "tab" : "tab text-gray-500"}
                 onClick={() => toggleTab(2)}
               >
-                Work Enquiry
+               Job Enquiry
               </span>
             </div>
           </div>
