@@ -714,7 +714,6 @@ const handleClearFile = () => {
                     id="attachment"
                     name="attachment"
                     onChange={handleFileChange}
-                   accept={acceptString}
                   />
                      {fileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{fileerror}</span>
@@ -968,7 +967,7 @@ const handleClearFile = () => {
                     type="file"
                     id="hire_attachment"
                     onChange={handlehireFileChange}
-                    accept={acceptString}
+                   
                   />
                    {hirefileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirefileerror}</span>
