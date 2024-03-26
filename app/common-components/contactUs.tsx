@@ -84,7 +84,9 @@ const ContactUs = () => {
 
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
-  const [selectedDate, setDateSelected] = useState("");
+  const [selectedDate, setDateSelected] = useState<string | null>(null);
+  const [selectedhireDate, sethireDateSelected] = useState<string | null>(null);
+
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
@@ -101,6 +103,7 @@ const ContactUs = () => {
     setAreaofExpertiseTag(null);
     setHiringDuration(null);
     sethireSelectedFileName("");
+    sethireDateSelected(null);
 
   };
 
@@ -111,6 +114,7 @@ const ContactUs = () => {
     setOrg("");
     setMsg("");
     setSelectedFileName("");
+    setDateSelected(null);
  
   };
 
@@ -180,6 +184,9 @@ const ContactUs = () => {
 
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setDateSelected(dateString);
+  };
+  const onhireChange: DatePickerProps["onChange"] = (date, dateString) => {
+    sethireDateSelected(dateString);
   };
 
   const handlePhoneNumberChange = (e: any) => {
@@ -479,8 +486,8 @@ const handleClearFile = () => {
                   />
                   <span className="text-[0.7em]">Phone</span>
                 </div>
-                <a className="text-[0.8em]" href="tel:+91 987654121">
-                  +91 987654121
+                <a className="text-[0.8em]" href="tel:+917399780734">
+                  +91 7399780734
                 </a>
               </div>
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
@@ -673,6 +680,7 @@ const handleClearFile = () => {
                 <DatePicker
                 inputReadOnly
                 size="large"
+                value={selectedDate?dayjs(selectedDate):null}
                   format="YYYY-MM-DD  HH:mm"
                   className="text-xs"
                   disabledDate={disabledDate}
@@ -685,7 +693,7 @@ const handleClearFile = () => {
                 <input
                   type="text"
                   placeholder=""
-                  value={selectedDate}
+                  value={selectedDate? selectedDate : ""}
                   className="hidden"
                   name="date"
                 />
@@ -706,7 +714,6 @@ const handleClearFile = () => {
                     id="attachment"
                     name="attachment"
                     onChange={handleFileChange}
-                   accept={acceptString}
                   />
                      {fileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{fileerror}</span>
@@ -923,6 +930,8 @@ const handleClearFile = () => {
                 </span>
                 <DatePicker
                 inputReadOnly
+                value={selectedhireDate?dayjs(selectedhireDate):null}
+
                   size="large"
                   placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
@@ -932,12 +941,12 @@ const handleClearFile = () => {
                   placeholder="Schedule a Meet"
                   showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
                   suffixIcon={null}
-                  onChange={onChange}
+                  onChange={onhireChange}
                 />
                 <input
                   type="text"
                   placeholder=""
-                  value={selectedDate}
+                  value={selectedhireDate? selectedhireDate : ""}
                   className="hidden"
                   name="date_hire"
                 />
@@ -958,7 +967,7 @@ const handleClearFile = () => {
                     type="file"
                     id="hire_attachment"
                     onChange={handlehireFileChange}
-                    accept={acceptString}
+                   
                   />
                    {hirefileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirefileerror}</span>
