@@ -335,7 +335,6 @@ const handleMessageChange = (e: any) => {
   }, []);
 
   const [toggleState, setToggleState] = useState(1);
-  const [openc1, setOpen] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
   const [hireselectedFileName, sethireSelectedFileName] = useState<
     string | null
@@ -427,7 +426,6 @@ const handleClearFile = () => {
   };
   const toggleTab = (index: number) => {
     setToggleState(index);
-    (openc1) ? setOpen(!openc1): setOpen(openc1)
   };
   
   
@@ -665,16 +663,12 @@ const handleClearFile = () => {
               <div className="flex">
                 <span
                   className="cursor-pointer"
-                  onClick={() => {
-                    setOpen(!openc1);
-                  }}
                 >
                   <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
                 </span>
                 <DatePicker
                 inputReadOnly
-                  size="middle"
-                  placement="topRight"
+                size="large"
                   format="YYYY-MM-DD  HH:mm"
                   className="text-xs"
                   disabledDate={disabledDate}
@@ -682,8 +676,6 @@ const handleClearFile = () => {
                   placeholder="Schedule a Meet"
                   showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
                   suffixIcon={null}
-                  open={openc1}
-                  onOk={() => setOpen(false)}
                   onChange={onChange}
                 />
                 <input
@@ -920,16 +912,13 @@ const handleClearFile = () => {
             >
               <div className="flex">
                 <span
-                  className="cursor-pointer"
-                  onClick={() => {
-                    setOpen(!openc1);
-                  }}
+                  className=""
                 >
                   <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
                 </span>
                 <DatePicker
                 inputReadOnly
-                  size="middle"
+                  size="large"
                   placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
                   className="text-xs"
@@ -938,8 +927,6 @@ const handleClearFile = () => {
                   placeholder="Schedule a Meet"
                   showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
                   suffixIcon={null}
-                  open={openc1}
-                  onOk={() => setOpen(false)}
                   onChange={onChange}
                 />
                 <input
