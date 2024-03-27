@@ -370,9 +370,12 @@ const handleNameChange = (e: any) => {
                   <div className="flex items-start py-3 gap-2">
                     <div className="flex flex-col footer-font justify-center">
                       <span className="">Phone</span>
-                      <span className="hover:font-semibold">
-                        info@ivoyant.com
-                      </span>
+                      <a
+                        href="tel:+91 7399780734"
+                        className="hover:font-semibold"
+                      >
+                        +91 7399780734
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start py-3 gap-2">
@@ -430,26 +433,34 @@ const handleNameChange = (e: any) => {
                       </a>
                     </div>
                     <span className="flex gap-2 py-4 tablet-hidden">
-                      <img
-                        src={fb}
-                        alt="facebook-meta"
-                        className=" xl:h-7 h-5 object-contain cursor-pointer"
-                      />
-                      <img
-                        src={mail}
-                        alt="Mail"
-                        className="xl:h-7 h-5 object-contain cursor-pointer"
-                      />
-                      <img
-                        src={linkedin}
-                        alt="Linked-in"
-                        className="xl:h-7 h-5 object-contain cursor-pointer"
-                      />
-                      <img
-                        src={yt}
-                        alt="Youtube-channel"
-                        className="xl:h-7 h-5 object-contain cursor-pointer"
-                      />
+                      <a href="https://www.facebook.com/ivoyantllc" target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={fb}
+                          alt="facebook-meta"
+                          className=" xl:h-7 h-5 object-contain cursor-pointer"
+                        />
+                      </a>
+                      <a href="https://twitter.com/i_voyant" target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={mail}
+                          alt="Mail"
+                          className="xl:h-7 h-5 object-contain cursor-pointer"
+                        />
+                      </a>
+                      <a href="https://www.linkedin.com/company/ivoyant-llc/" target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={linkedin}
+                          alt="Linked-in"
+                          className="xl:h-7 h-5 object-contain cursor-pointer"
+                        />
+                      </a>
+                      <a href="https://www.youtube.com/@ivoyant" target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={yt}
+                          alt="Youtube-channel"
+                          className="xl:h-7 h-5 object-contain cursor-pointer"
+                        />
+                      </a>
                     </span>
                   </div>
                 </div>
@@ -469,26 +480,34 @@ const handleNameChange = (e: any) => {
           <div className="footer-buttons flex-row justify-between w-full items-center pb-4 pr-2">
             <div className="flex">
               <span className="flex gap-2 py-4 p-[1.5rem]">
-                <img
-                  src={fb}
-                  alt="facebook-meta"
-                  className=" xl:h-7 h-5 object-contain cursor-pointer"
-                />
-                <img
-                  src={mail}
-                  alt="Mail"
-                  className="xl:h-7 h-5 object-contain cursor-pointer"
-                />
-                <img
-                  src={linkedin}
-                  alt="Linked-in"
-                  className="xl:h-7 h-5 object-contain cursor-pointer"
-                />
-                <img
-                  src={yt}
-                  alt="Youtube-channel"
-                  className="xl:h-7 h-5 object-contain cursor-pointer"
-                />
+                <a href="https://www.facebook.com/ivoyantllc" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={fb}
+                    alt="facebook-meta"
+                    className=" xl:h-7 h-5 object-contain cursor-pointer"
+                  />
+                </a>
+                <a href="https://twitter.com/i_voyant" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={mail}
+                    alt="Mail"
+                    className="xl:h-7 h-5 object-contain cursor-pointer"
+                  />
+                </a>
+                <a href="https://www.linkedin.com/company/ivoyant-llc/" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={linkedin}
+                    alt="Linked-in"
+                    className="xl:h-7 h-5 object-contain cursor-pointer"
+                  />
+                </a>
+                <a href="https://www.youtube.com/@ivoyant" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={yt}
+                    alt="Youtube-channel"
+                    className="xl:h-7 h-5 object-contain cursor-pointer"
+                  />
+                </a>
               </span>
             </div>
             <Form onSubmit={handleSubmit}>
@@ -536,28 +555,28 @@ const handleNameChange = (e: any) => {
             <img src={ivoyantLogo} alt="iVoyant Logo" />
           </Link>
           <span className="flex gap-2 py-4">
-            <a href="">
+            <a href="https://www.facebook.com/ivoyantllc" target="_blank" rel="noopener noreferrer">
               <img
                 src={fb}
                 alt="facebook-meta"
                 className=" xl:h-7 h-5 object-contain cursor-pointer"
               />
             </a>
-            <a href="">
+            <a href="https://twitter.com/i_voyant" target="_blank" rel="noopener noreferrer">
               <img
                 src={mail}
                 alt="Mail"
                 className="xl:h-7 h-5 object-contain cursor-pointer"
               />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/company/ivoyant-llc" target="_blank" rel="noopener noreferrer">
               <img
                 src={linkedin}
                 alt="Linked-in"
                 className="h-5 object-contain cursor-pointer"
               />
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/@ivoyant" target="_blank" rel="noopener noreferrer">
               <img
                 src={yt}
                 alt="Youtube-channel"
