@@ -39,7 +39,7 @@ const WhitePaperCardContainer = () => {
     setLimit(limit + 3);
     setLoading(false);
     if (whitePaperData.length <= limit) {
-    errorMessage('No more white papers available here', );
+    errorMessage('No more white papers available here',4);
     }
 
   };

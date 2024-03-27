@@ -379,9 +379,7 @@ const handleNameChange = (e: any) => {
                     <div className="flex flex-col footer-font justify-center">
                       <span className="">Skype</span>
                      
-                      <a
-                        href="mailto:ivoyantsales@outlook.com"
-                        className="hover:font-semibold"
+                      <a href="skype:ivoyantsales@outlook.com?chat"                        className="hover:font-semibold"
                       >
                         ivoyantsales@outlook.com{" "}
                       </a>

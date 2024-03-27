@@ -82,15 +82,14 @@ export const AccordionItem = ({
                 </div>
                 <div className="flex items-start gap-2">
                   <div className="flex flex-col footer-font justify-center gap-4">
-                    <span className="text-sm to-geekblue-2">Skype</span>
-                    <a href="skype:live:.cid.37875f1d394a53b6?chat" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300">live:.cid.37875f1d394a53b6</a>
-                    <a href="skype:ivoyantsales@outlook.com?chat" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300">ivoyantsales@outlook.com </a>
+                    <span className="text-sm to-geekblue-2">Phone</span>
+                    <a href="skype:ivoyantsales@outlook.com?chat" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300"> info@ivoyant.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <div className="flex flex-col footer-font justify-center gap-4">
                     <span className="text-sm to-geekblue-2">Skype</span>
-                    <a href="tel:(+91) 990990999" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300">99999999</a>
+                    <a href="skype:ivoyantsales@outlook.com?chat"   className="text-geekblue-2 text-xs mx-2 hover:text-purple-300">ivoyantsales@outlook.com{" "}</a>
                   </div>
                 </div>
               </div>
