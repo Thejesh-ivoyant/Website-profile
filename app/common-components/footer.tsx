@@ -381,15 +381,8 @@ const handleNameChange = (e: any) => {
                   <div className="flex items-start py-3 gap-2">
                     <div className="flex flex-col footer-font justify-center">
                       <span className="">Skype</span>
-                      <a
-                        href="skype:live:.cid.37875f1d394a53b6?chat"
-                        className="hover:font-semibold"
-                      >
-                        live:.cid.37875f1d394a53b6
-                      </a>
-                      <a
-                        href="mailto:ivoyantsales@outlook.com"
-                        className="hover:font-semibold"
+                     
+                      <a href="skype:ivoyantsales@outlook.com?chat"                        className="hover:font-semibold"
                       >
                         ivoyantsales@outlook.com{" "}
                       </a>
