@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
-import { Button, DatePicker, Drawer, Select, Space } from 'antd';
+import { Button, DatePicker, DatePickerProps, Drawer, Select, Space } from 'antd';
 import { useLoaderData } from "@remix-run/react";
 import { Form } from "@remix-run/react";
-import { errorMessage, success } from "~/utils/notifications";
+import {success } from "~/utils/notifications";
 import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
 import React from "react";
@@ -114,10 +114,12 @@ const JobDescription = () => {
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
       }
+      
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
         method: 'POST',
         body: formData,
       });
+
       if (response.ok) {
       success("Thank you for showing interest in us!",2);
         setPersonName('')

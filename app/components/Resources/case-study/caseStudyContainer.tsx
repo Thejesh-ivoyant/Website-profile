@@ -68,8 +68,7 @@ const Container = () => {
 
 
     const newCaseData = await fetchGraphQL(updatedCaseQuery);
-    console.warn("case uuu ..............",JSON.stringify(newCaseData));
-    console.warn("case testtttuu /////// ..........",newCaseData);
+   
    
     setCaseData(() => [
       ...newCaseData.data?.caseStudies.data?.map((item: any) => ({

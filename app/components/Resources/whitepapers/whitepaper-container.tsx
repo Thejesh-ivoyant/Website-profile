@@ -6,6 +6,7 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getWhitepaperBasedonLimit } from "~/graphql/queries";
 
 import { message } from "antd";
+import { errorMessage, success } from "~/utils/notifications";
 const WhitePaperCardContainer = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -14,14 +15,10 @@ const WhitePaperCardContainer = () => {
   const [limit, setLimit] = useState(6); // Initial limit
   const [loading, setLoading] = useState(false);
 
-  //  const Success= async()=>{
-  //   await messageApi.info('No more white papers available');
-  //  }
   const fetchMoreData = async () => {
     setLoading(true);
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3);
     const newWhitepaperData = await fetchGraphQL(updatedQuery);
-    // Map and update the state with the new data
     setWhitePaperData(() => [
       ...newWhitepaperData.data.whitePapers.data.map((item: any) => ({
         id: item.id,
@@ -39,14 +36,12 @@ const WhitePaperCardContainer = () => {
         },
       }))
     ]);
-    // Increment the limit for the next fetch
     setLimit(limit + 3);
     setLoading(false);
-    
     if (whitePaperData.length <= limit) {
-    messageApi.info('No more white papers available here');
+    errorMessage('No more white papers available here', );
     }
-   
+
   };
 
   return (

@@ -138,10 +138,12 @@ const ContactUs = () => {
         );
         if (response.ok) {
          await resetFormState();
-          success(
+          
+         success(
             "Thank you for contacting us! We will get back to you soon.",
             3
           );
+
         } else {
           errorMessage("Error occured while submitting, Please retry", 3);
         }

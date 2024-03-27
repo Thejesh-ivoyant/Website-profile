@@ -287,6 +287,9 @@ font-style: normal;
   line-height: 1rem;
 }
 
+.antd-toast-message {
+  margin-top: 10vh;
+}
 
 .text-box::placeholder {
   color: #7D7890;
