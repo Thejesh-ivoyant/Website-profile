@@ -277,6 +277,7 @@ font-style: normal;
   color: transparent;
 }
 
+
 .text-box:hover:not(:focus)::placeholder {
   color: #404258;
   font-family: Montserrat;
@@ -284,12 +285,11 @@ font-style: normal;
   font-style: normal;
   font-weight: 500;
   line-height: 1rem;
-  /* 142.857% */
 }
+
 
 .text-box::placeholder {
   color: #7D7890;
-
   font-family: Montserrat;
   font-size: 0.75rem;
   font-style: normal;
@@ -408,7 +408,12 @@ body.scrolled #scrollToTopBtn {
   border-radius: 0px;
 
 }
-
+.text-area{
+  border-color: var(--gray-gray-7, #8C8C8C);
+}
+.text-area:focus{
+  border: 1px solid var(--gray-gray-7, #000000);
+}
 .dropdown-hire .ant-select-selection-placeholder {
   color: #7D7890;
   font-family: Montserrat;

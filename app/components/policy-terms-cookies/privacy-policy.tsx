@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
       <div className="items-stretch flex flex-col">
         <div className="items-center bg-slate-50 flex w-full flex-col justify-center px-16 py-12 max-md:max-w-full max-md:px-5">
           <div className="flex w-full max-w-[1200px] flex-col items-center max-md:max-w-full">
-            <div className="text-violet-950  text-4xl font-semibold max-w-[530px] max-md:max-w-full">
+            <div className="text-violet-950  text-4xl font-semibold max-w-[530px] max-md:max-w-full text-center">
               {loaderData.s2_Title}
             </div>
             <div className="self-stretch gradient-bottom flex justify-between gap-0 mt-4 py-3 items-start max-md:max-w-full max-md:flex-wrap">
@@ -255,7 +255,7 @@ const PrivacyPolicy = () => {
               {loaderData.committed_to_protect_title}
             </div>{" "}
             {loaderData.CTP_Points.map((item: any) => (
-              <div className="items-center flex justify-between gap-2 mr-4 mt-4 max-md:max-w-full max-md:flex-wrap max-md:mr-2.5">
+              <div className="items-center flex justify-between gap-2 mr-4 mt-4 max-md:max-w-full  max-md:mr-2.5">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -263,7 +263,7 @@ const PrivacyPolicy = () => {
                   className="aspect-square object-contain object-center w-4 fill-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] overflow-hidden shrink-0 max-w-full my-auto"
                 />
                 {" "}
-                <div className="text-neutral-800 text-base leading-7 self-stretch grow  max-md:max-w-full">
+                <div className="text-neutral-800 text-base leading-7 self-stretch grow flex-wrap max-md:max-w-full">
                   {item.description}
                 </div>
               </div>
@@ -273,7 +273,7 @@ const PrivacyPolicy = () => {
                 <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
                 </div>{" "}
-                <div className="text-violet-950 text-base leading-7 underline mt-3 max-md:max-w-full">
+                <div className="text-violet-950 text-base leading-7 mt-3 max-md:max-w-full">
                   <span className="text-neutral-800">{item.description}</span>
                   {/* <a
                       href="mailto:marketing@ivoyant.com"
@@ -366,7 +366,7 @@ const PrivacyPolicy = () => {
             <div id="How-to-contact-us" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               How to contact us
             </div>
-            <div className="text-violet-950 text-base leading-7 underline mt-4 max-md:max-w-full">
+            <div className="text-violet-950 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.contact_us}
             </div>
             <div id="Your-rights" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">

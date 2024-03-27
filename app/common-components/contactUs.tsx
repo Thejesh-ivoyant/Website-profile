@@ -84,7 +84,9 @@ const ContactUs = () => {
 
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
-  const [selectedDate, setDateSelected] = useState("");
+  const [selectedDate, setDateSelected] = useState<string | null>(null);
+  const [selectedhireDate, sethireDateSelected] = useState<string | null>(null);
+
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
@@ -101,6 +103,7 @@ const ContactUs = () => {
     setAreaofExpertiseTag(null);
     setHiringDuration(null);
     sethireSelectedFileName("");
+    sethireDateSelected(null);
 
   };
 
@@ -111,6 +114,7 @@ const ContactUs = () => {
     setOrg("");
     setMsg("");
     setSelectedFileName("");
+    setDateSelected(null);
  
   };
 
@@ -180,6 +184,9 @@ const ContactUs = () => {
 
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setDateSelected(dateString);
+  };
+  const onhireChange: DatePickerProps["onChange"] = (date, dateString) => {
+    sethireDateSelected(dateString);
   };
 
   const handlePhoneNumberChange = (e: any) => {
@@ -341,6 +348,7 @@ const handleMessageChange = (e: any) => {
   >(null);
 
   const allowedFormats = ['.jpg', '.jpeg', '.png', '.gif', '.pdf', '.doc', '.docx', '.txt', '.xls', '.xlsx', '.csv', '.ppt', '.pptx'];
+  const acceptString = allowedFormats.map(format => `.${format}`).join(',');
 
 const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const selectedFile = event.target.files?.[0];
@@ -440,7 +448,7 @@ const handleClearFile = () => {
           <div className="flex flex-col w-fit xl:mx-auto lg:ml-auto xl:pr-0 lg:pr-16 md:pr-10 md:ml-auto md:mx-0 sm:mx-16 mx-10">
             <h1 className="lg:py-4 py-2">
               <span className="flex text-white xl:text-5xl text-3xl font-medium">
-                Contact
+              {toggleState === 1 ? "Contact Us" : "Join Us"}
               </span>
             </h1>
             <img
@@ -455,7 +463,7 @@ const handleClearFile = () => {
                 Connect with us
               </p>
               <img src={line} className="w-full sm:col-span-2"></img>
-              <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
+              {toggleState === 1 && (<div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
@@ -467,7 +475,8 @@ const handleClearFile = () => {
                 <a className="text-[0.8em]" href="mailto:sales@ivoyant.com">
                   sales@ivoyant.com
                 </a>
-              </div>
+              </div>)}
+
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
@@ -477,8 +486,8 @@ const handleClearFile = () => {
                   />
                   <span className="text-[0.7em]">Phone</span>
                 </div>
-                <a className="text-[0.8em]" href="tel:+91 987654121">
-                  +91 987654121
+                <a className="text-[0.8em]" href="tel:+917399780734">
+                  +91 7399780734
                 </a>
               </div>
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
@@ -494,6 +503,7 @@ const handleClearFile = () => {
                   info@ivoyant.com
                 </a>
               </div>
+              {toggleState === 1 && (
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
@@ -505,11 +515,12 @@ const handleClearFile = () => {
                 </div>
                 <a
                   className="text-[0.8em]"
-                  href="mailto:ivoyantsales@outlook.com"
+                  href="skype:ivoyantsales@outlook.com?chat"
                 >
                   ivoyantsales@outlook.com
                 </a>
-              </div>
+              </div>)}
+
             </div>
           </div>
         </div>
@@ -528,7 +539,7 @@ const handleClearFile = () => {
                 className={toggleState === 2 ? "tab" : "tab text-gray-500"}
                 onClick={() => toggleTab(2)}
               >
-                Work Enquiry
+               Job Enquiry
               </span>
             </div>
           </div>
@@ -646,7 +657,7 @@ const handleClearFile = () => {
                   value={msg}
                   onChange={handleMessageChange}
                 
-                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px]  text-area outline-none cursor-pointer "
                 ></textarea>
                 {msgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{msgerror}</span>
@@ -669,6 +680,7 @@ const handleClearFile = () => {
                 <DatePicker
                 inputReadOnly
                 size="large"
+                value={selectedDate?dayjs(selectedDate):null}
                   format="YYYY-MM-DD  HH:mm"
                   className="text-xs"
                   disabledDate={disabledDate}
@@ -681,7 +693,7 @@ const handleClearFile = () => {
                 <input
                   type="text"
                   placeholder=""
-                  value={selectedDate}
+                  value={selectedDate? selectedDate : ""}
                   className="hidden"
                   name="date"
                 />
@@ -895,7 +907,7 @@ const handleClearFile = () => {
                   rows={5}
                   value={hiremsg}
                   onChange={hirehandleMessageChange}
-                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px]  outline-none cursor-pointer text-area"
                 ></textarea>
                 {hiremsgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hiremsgerror}</span>
@@ -918,6 +930,8 @@ const handleClearFile = () => {
                 </span>
                 <DatePicker
                 inputReadOnly
+                value={selectedhireDate?dayjs(selectedhireDate):null}
+
                   size="large"
                   placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
@@ -927,12 +941,12 @@ const handleClearFile = () => {
                   placeholder="Schedule a Meet"
                   showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
                   suffixIcon={null}
-                  onChange={onChange}
+                  onChange={onhireChange}
                 />
                 <input
                   type="text"
                   placeholder=""
-                  value={selectedDate}
+                  value={selectedhireDate? selectedhireDate : ""}
                   className="hidden"
                   name="date_hire"
                 />
@@ -953,6 +967,7 @@ const handleClearFile = () => {
                     type="file"
                     id="hire_attachment"
                     onChange={handlehireFileChange}
+                   
                   />
                    {hirefileerror &&(
             <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirefileerror}</span>
