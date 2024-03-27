@@ -594,16 +594,16 @@ const handleEmailChange = (e: any) => {
           </div>
           <div className="flex flex-col">
             <div className="flex gap-6">
-              <a onClick={handleHamburgerClick} className="flex">
+              <a onClick={handleHamburgerClick}  className="flex" href="https://www.youtube.com/@ivoyant" target="_blank" rel="noopener noreferrer">
                 <img src={yt} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex">
+              <a onClick={handleHamburgerClick} className="flex" href="https://www.linkedin.com/company/ivoyant-llc" target="_blank" rel="noopener noreferrer">
                 <img src={linkedin} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex">
+              <a onClick={handleHamburgerClick} className="flex"  href="https://www.facebook.com/ivoyantllc" target="_blank" rel="noopener noreferrer">
                 <img src={fb} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex">
+              <a onClick={handleHamburgerClick} className="flex" href="https://twitter.com/i_voyant" target="_blank" rel="noopener noreferrer">
                 <img src={twitter} className="w-8 h-8" />
               </a>
             </div>
