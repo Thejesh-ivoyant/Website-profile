@@ -60,7 +60,7 @@ const Clients = ({ clients, title }: { clients: Client[]; title: string }) => {
             <img
               title={client.text}
               key={index}
-              className="p-12 flex grayscale hover:grayscale-0 transition-all aspect-video object-contain"
+              className="p-12 flex grayscale hover:grayscale-0 transition-all aspect-video object-contain h-48"
               src={client.pic.data.attributes.url}
               alt={client.text}
             />
