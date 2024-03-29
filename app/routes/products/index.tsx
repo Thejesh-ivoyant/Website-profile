@@ -23,10 +23,10 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const tabContents = attributes?.TabContents || [];
   const sortedCarousels = [...carousel];
   const sortedTabContents = [...tabContents];
-  const index = sortedCarousels.findIndex(
-    (item) => item.name.toLowerCase().trim() === name?.toLowerCase().trim()
+  const index = sortedCarousels?.findIndex(
+    (item) => item.name?.toLowerCase().trim() === name?.toLowerCase().trim()
   );
-  const tabIndex = sortedTabContents.findIndex(
+  const tabIndex = sortedTabContents?.findIndex(
     (item) => item.caption?.toLowerCase().trim() === name?.toLowerCase().trim()
   );
   if (name && index !== -1) {
