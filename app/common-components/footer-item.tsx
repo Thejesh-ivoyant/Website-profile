@@ -83,7 +83,7 @@ export const AccordionItem = ({
                 <div className="flex items-start gap-2">
                   <div className="flex flex-col footer-font justify-center gap-4">
                     <span className="text-sm to-geekblue-2">Phone</span>
-                    <a href="skype:ivoyantsales@outlook.com?chat" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300"> info@ivoyant.com</a>
+                    <a  href="tel:+91 7399780734" className="text-geekblue-2 text-xs mx-2 hover:text-purple-300"> +91 7399780734</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
