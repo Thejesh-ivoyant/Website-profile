@@ -501,8 +501,8 @@ const handleClearFile = () => {
                   />
                   <span className="text-[0.7em]">Information</span>
                 </div>
-                <a className="text-[0.8em]" href="mailto:info@ivoyant.com">
-                  info@ivoyant.com
+                <a className="text-[0.8em]" href="mailto:careers@ivoyant.com">
+                  careers@ivoyant.com
                 </a>
               </div>
               {toggleState === 1 && (
