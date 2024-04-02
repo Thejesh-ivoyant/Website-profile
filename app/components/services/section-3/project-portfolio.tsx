@@ -10,7 +10,7 @@ const ProjectPortfolio = () => {
           {loaderData?.s3_countryCount}
           </p>
           <p className="portfolio-titles">
-          Country
+          Countries
           </p>
         </div>
         <div>
@@ -58,7 +58,7 @@ const ProjectPortfolio = () => {
           {loaderData?.s3_TotalProjectCount}
           </p>
           <p className="portfolio-titles">
-          Total projects
+          Total Projects
           </p>
         </div>
       </div>

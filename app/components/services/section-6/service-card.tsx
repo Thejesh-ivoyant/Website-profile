@@ -7,8 +7,8 @@ const ServiceCard = ({ service }: { service: any }) => {
           className="w-full"
           alt={service?.s6_serviceCardTitle}
         />
-        <div className="text-white p-4 flex flex-col h-full w-full">
-          <p className="card-title h-14 aspect[6/1] flex w-full ">
+        <div className="text-white p-4 flex flex-col h-full gap-4 w-full">
+          <p className="card-title md:h-fit aspect[6/1] flex w-full ">
             {service?.s6_serviceCardTitle}
           </p>
           <p className="card-desc line-clamp-2" title={service?.s6_serviceCardDescription}>
