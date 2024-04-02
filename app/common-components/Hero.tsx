@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 const Hero = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
-    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.heroBgImageURl}) lightgray 50% /cover no-repeat`,
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.heroBgImageURl}) top/cover no-repeat`,
   };
   return (
     <section

@@ -14,6 +14,15 @@ import { Popup } from "~/common-components/social-media-popup";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: ProductStyle },
 ];
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [
+    {       title: (data?.name) as string || "Ivoyant | Products" },
+    {
+      name: "description",
+      content: data?.heroDescription,
+    },
+  ];
+};
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   let { searchParams } = new URL(request.url);
   let name = searchParams.get("name");
@@ -37,7 +46,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     const matchingItem = sortedTabContents.splice(index, 1)[0];
     sortedTabContents.unshift(matchingItem);
   }
-  return { productsResponse: productsData, sortedCarousels, sortedTabContents };
+    name = name?.replace(/\b\w/g, (c) => c.toUpperCase()) ?? name;
+  return { productsResponse: productsData, sortedCarousels, sortedTabContents, name };
 };
 export default function Index() {
   const data = useLoaderData() as any;

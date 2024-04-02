@@ -374,19 +374,32 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-const AOEData = ["Front End coding", "Devops"];
+const AOEData = [
+  "Mobile App Development",
+  "UI/UX Designer",
+  "Website Development",
+  "Back End Coding",
+  "Front End Coding",
+  "DevOps",
+  "Sales",
+  "Marketing",
+  "Human Resources",
+  "Internship",
+  "Product Management",
+  "Scrum Master"
+];
 const AOE = AOEData.map((aoe) => ({
   value: aoe,
   label: aoe,
 }));
 
-const HiringDuration = ["10", "8","6"];
+const HiringDuration = ["1 yr", "2 yrs","3 yrs","4 yrs","5 yrs","6 yrs"];
 const HD = HiringDuration.map((hd) => ({
   value: hd,
   label: hd,
 }));
 
-const SkillsetData = ["Python","Java","React",".Net","Angular"];
+const SkillsetData = ["Python","Java","React",".Net","Angular", "Other"];
 const SkillSet = SkillsetData.map((skill) => ({
   value: skill,
   label: skill,
@@ -859,7 +872,7 @@ const handleClearFile = () => {
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
           <Select
-            placeholder="Area of Expertise"
+            placeholder="Years of Experience"
             className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
             suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
             onChange={(value) => setHiringDuration(value)}

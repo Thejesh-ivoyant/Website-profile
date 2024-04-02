@@ -19,7 +19,7 @@ const AboutCard = ({ attributes }: { attributes: Attributes }) => {
         >
           {attributes.AboutUs}
         </div>
-        <Link to={"/about-us"} className="button-test">
+        <Link to={"/company/about-us"} className="button-test">
           {attributes.AboutUsBtnText}
         </Link>
       </div>

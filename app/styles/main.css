@@ -271,7 +271,10 @@ ol {
 font-family: Montserrat;
 font-style: normal;
 } */
-
+.ant-select-selection-item,
+.ant-select-item-option-content {
+  font-family: montserrat !important;
+}
 
 .text-box:focus::placeholder {
   color: transparent;
@@ -411,12 +414,15 @@ body.scrolled #scrollToTopBtn {
   border-radius: 0px;
 
 }
-.text-area{
+
+.text-area {
   border-color: var(--gray-gray-7, #8C8C8C);
 }
-.text-area:focus{
+
+.text-area:focus {
   border: 1px solid var(--gray-gray-7, #000000);
 }
+
 .dropdown-hire .ant-select-selection-placeholder {
   color: #7D7890;
   font-family: Montserrat;
