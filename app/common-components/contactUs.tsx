@@ -1,4 +1,4 @@
-import { Form } from "@remix-run/react";
+import { Form, useLocation } from "@remix-run/react";
 import line from "~/../public/assets/line.svg";
 import ReactFlagsSelect from "react-flags-select";
 import { useEffect, useRef, useState } from "react";
@@ -41,6 +41,7 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   };
 };
 const ContactUs = () => {
+  const location =  useLocation()
   const [personname, setPersonName] = useState('');
   const [nameerror, setNameError] = useState('');
 
@@ -459,7 +460,7 @@ const handleClearFile = () => {
               alt="contactUs"
             />
           </div>
-          <div className="mx-auto">
+          <div className={(location.pathname?.endsWith('contact-us'))? 'hidden': 'mx-auto'}>
             <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
               <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
                 Connect with us
