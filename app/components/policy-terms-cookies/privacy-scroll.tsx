@@ -37,7 +37,7 @@ const loaderData = useLoaderData() as any;
            {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
           <div className="contact-content-wrapper">
             <div className="items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -50,7 +50,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -63,7 +63,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -76,7 +76,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -89,7 +89,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -102,7 +102,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -115,7 +115,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -128,7 +128,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -141,7 +141,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -154,7 +154,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   alt="bulleticon"
@@ -167,7 +167,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -180,7 +180,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -193,7 +193,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   alt="bulleticon"
@@ -206,7 +206,7 @@ const loaderData = useLoaderData() as any;
               </div>
             </div>{" "}
             <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}

@@ -45,7 +45,7 @@ const Terms = () => {
           {/* side nav content goes here*/}
           <div className="contact-content-wrapper">
             <div onClick={() => scrollToSection("Overview")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -58,7 +58,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Generic-Terms-of-Use")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -71,7 +71,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Disclaimer")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -84,7 +84,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Client-and-Partner-Confidentiality")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -97,7 +97,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Business-Relationships")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -110,7 +110,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Disclaimer-of-Warranty")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -123,7 +123,7 @@ const Terms = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("Limitation-of-Liability")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}

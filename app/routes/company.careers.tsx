@@ -133,7 +133,7 @@ const Careers = () => {
   <>
    <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.heroBgImageURl}>
-   <Hero />
+       <Hero />
        <Why_Join_Us />
        <JobCards />
        <JoinUsCardContainer />

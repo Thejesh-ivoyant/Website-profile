@@ -368,9 +368,8 @@ setLoading(true);
           ))}</>)}
         </div>
         <div className="mx-auto w-full flex justify-center items-center lg:mt-16 mt-12" onClick={fetchMoreData}>
-          <button className="hue-btn-primary btn max-w-fit">
-            {" "}
-            <span >Show More</span>
+          <button className="hue-btn-blue btn uppercase font-montserrat max-w-fit">
+            Show More
           </button>
         </div>
       </section>

@@ -59,7 +59,7 @@ const Cookies = () => {
               </div>
             </div>{" "}
             <div onClick={() => scrollToSection("How-We-Use-Cookies")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div  className=" flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div  className=" flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -72,7 +72,7 @@ const Cookies = () => {
               </div>
             </div>{" "}
             <div  onClick={() => scrollToSection("Disabling-Cookies")}   className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -85,7 +85,7 @@ const Cookies = () => {
               </div>
             </div>{" "}
             <div  onClick={() => scrollToSection("Forms-related-cookies")}  className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -98,7 +98,7 @@ const Cookies = () => {
               </div>
             </div>{" "}
             <div  onClick={() => scrollToSection("Third-Party-Cookies")}   className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -111,7 +111,7 @@ const Cookies = () => {
               </div>
             </div>{" "}
             <div  onClick={() => scrollToSection("More-Information")}  className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
