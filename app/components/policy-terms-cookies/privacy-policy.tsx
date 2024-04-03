@@ -79,7 +79,7 @@ const PrivacyPolicy = () => {
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
-                  Collection of user infromation
+                  Collection of user information
                 </div>
               </div>
             </div>{" "}

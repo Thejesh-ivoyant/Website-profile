@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useLocation, useMatch } from "@remix-run/react";
+import { Form, Link, useLoaderData, useLocation, useMatch } from "@remix-run/react";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -141,6 +141,7 @@ const handleEmailChange = (e: any) => {
   }, [blogData, whitePaperData]);
   // Check the route type and use the corresponding data
   const LatestData = isBlogRoute ? blogData1 : whitePaperData1;
+  console.warn(LatestData)
   const loaderData = useLoaderData() as any;
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
 
@@ -267,14 +268,14 @@ const handleEmailChange = (e: any) => {
                 <div className="flex flex-col items-center">
                   <img
                     alt={`Related post ${index + 1}`}
-                    src={item.bannerImage.url}
+                    src={item?.bannerImage?.url}
                     className="object-cover xl:h-[5.25rem] lg:h-[5rem] md:h-[4.8rem] h-[4.5rem] aspect-[83/89] rounded-sm"
                   />
                 </div>
                 <div className="flex  flex-col flex-1">
-                  <div className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden">
-                    {item.title}
-                  </div>
+                  <Link title={item?.title} className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden hover:underline" to={`/resources/blog/${item?.id}`}>
+                    {item?.title}
+                  </Link>
                   <div className="flex justify-between gap-2 mt-4 items-start">
                     <img
                       alt="icon"

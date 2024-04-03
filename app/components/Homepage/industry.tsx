@@ -167,7 +167,7 @@ const Services = ({
         </div>
       </div>
       <div className="md:flex hidden flex-col mx-auto  w-fit max-h-[33.5rem] h-[30rem] my-6">
-        <div className="flex flex-row flex-wrap">
+        <div className="flex flex-row flex-wrap justify-between">
           {industries?.map((item: IndustriesTab) => (
             <button
               key={item.id}

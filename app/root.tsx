@@ -26,14 +26,14 @@ export function scrollToSection(section: string) {
       const scrollPosition = targetElement.offsetTop - 94;
       scrollableParent.scrollTo({
         top: scrollPosition,
-        behavior: "smooth"
+        behavior:"instant"
       });
     } else {
       // Declare scrollPosition here, within the else block
       const scrollPosition = targetElement.offsetTop - 94;
       window.scrollTo({
         top: scrollPosition,
-        behavior: "smooth"
+        behavior: "instant"
       });
     }
   } else {
