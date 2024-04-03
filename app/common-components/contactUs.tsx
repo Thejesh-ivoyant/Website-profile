@@ -393,7 +393,7 @@ const AOE = AOEData.map((aoe) => ({
   label: aoe,
 }));
 
-const HiringDuration = ["1 yr", "2 yrs","3 yrs","4 yrs","5 yrs","6 yrs"];
+const HiringDuration = ["0 yr","<1 yr","1 yr", "2 yrs","3 yrs","4 yrs","5 yrs","6+ yrs"];
 const HD = HiringDuration.map((hd) => ({
   value: hd,
   label: hd,
