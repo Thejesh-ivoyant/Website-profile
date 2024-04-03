@@ -1,9 +1,7 @@
 import { Link } from "@remix-run/react";
 import chatsIcon from "~/../public/assets/Chats.svg";
 import facebook from "~/../public/assets/facebook.svg";
-import facebook from "~/../public/assets/facebook.svg";
 import linkedin from "~/../public/assets/linkedin.svg";
-import insta from "~/../public/assets/insta-color.svg";
 import insta from "~/../public/assets/insta-color.svg";
 import phone from "~/../public/assets/phonecall.svg";
 import closeIcon from "~/../public/assets/X.svg";

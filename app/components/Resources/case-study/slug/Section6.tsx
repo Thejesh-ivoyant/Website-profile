@@ -23,7 +23,6 @@ const Section6 = ({ data }: { data: any }) => {
               <div className="flex md:flex-row flex-col w-fit gap-3 p-10">
                 <div className="summary-card-txt-clamp font-extrabold md:text-left text-center">
                   20
-                  20
                 </div>
                 <div className="text-xl h-12 aspect-[19/8] my-auto leading-none md:text-left text-center">
                   Delighted Clients
