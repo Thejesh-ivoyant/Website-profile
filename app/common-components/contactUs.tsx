@@ -502,6 +502,10 @@ const handleClearFile = () => {
                   />
                   <span className="text-[0.7em]">Phone</span>
                 </div>
+                <a className="text-[0.8em]" href="tel:+1 (770) 274 4336">
+                  +1 (770) 274 4336
+                </a>
+                <br/>
                 <a className="text-[0.8em]" href="tel:+917399780734">
                   +91 7399780734
                 </a>
