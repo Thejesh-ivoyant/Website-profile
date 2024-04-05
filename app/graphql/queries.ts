@@ -1,4 +1,4 @@
-export const homeQuery : string = `
+export const homeQuery: string = `
 query{
   homepage{
     data{
@@ -268,7 +268,7 @@ query {
       }
     }
   }  
-`;
+`
 export const whitepaperQuery = `query {
   whitePapers(
     sort: "date:desc",
@@ -306,7 +306,7 @@ export const whitepaperQuery = `query {
    }
  }
 }
-`;
+`
 
 export const blogQuery = `query{
   blogs(
@@ -359,7 +359,7 @@ export const blogQuery = `query{
       }
     }
   }
-}`;
+}`
 export const blogCategoryQuery = `
 query{
   blogs{
@@ -378,8 +378,8 @@ query{
     }
   }
 }
-`;
-export const getAuthorQuery = (id:any) => {
+`
+export const getAuthorQuery = (id: any) => {
   return `
     query GetAuthorById {
       author(id: ${id}) {
@@ -408,9 +408,9 @@ export const getAuthorQuery = (id:any) => {
         }
       }
     }
-  `;
-};
-export const getBlogAuthorIDQuery = (id:any) => {
+  `
+}
+export const getBlogAuthorIDQuery = (id: any) => {
   return `
   query GetBlogById{
     blog(id: ${id}){
@@ -429,8 +429,8 @@ export const getBlogAuthorIDQuery = (id:any) => {
     }
   }
   }
-  `;
-}; 
+  `
+}
 export const getWhitepaperBasedonLimit = (limit: number) => {
   return `
     query {
@@ -471,9 +471,9 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
         }
       }
     }
-  `;
-};
-export const getPaperAuthorIDQuery = (id:any) => {
+  `
+}
+export const getPaperAuthorIDQuery = (id: any) => {
   return `
   query GetWhitePaperById{
     whitePaper(id: ${id}){
@@ -492,8 +492,8 @@ export const getPaperAuthorIDQuery = (id:any) => {
     }
   }
   }
-  `;
-}; 
+  `
+}
 export const topBlogQuery = `
 query {
   blogs(
@@ -539,7 +539,7 @@ query {
     }
   }
 }
-`;
+`
 export const careersQuery = `
 query{
   career{
@@ -600,7 +600,7 @@ query{
     }
   }
 }
-`;
+`
 export const productsQuery = `
 query{
   product{
@@ -672,8 +672,8 @@ query{
     }
   }
 }
-`;
-export const aboutUsQuery= `
+`
+export const aboutUsQuery = `
 query{
   aboutus{
     data{
@@ -713,7 +713,7 @@ query{
       }
     }
   }
-}`;
+}`
 export const caseQuery = `
 query {
   caseStudies(
@@ -766,17 +766,17 @@ pagination: {limit:3}
   
   }
 }
-  `;
-  export const SearchCaseStudies = (
-    category: string,
-    tag: string,
-    title: string,
-    limit: number,
-    offset:number
-  ) => {
-    // Helper function to handle empty strings
-    const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-    return `
+  `
+export const SearchCaseStudies = (
+  category: string,
+  tag: string,
+  title: string,
+  limit: number,
+  offset: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""')
+  return `
     query {
       caseStudies(sort: "\${sort}",
       filters:{ or: [{ category:{name : {containsi :"${sanitizeString(category)}"}}},
@@ -824,8 +824,8 @@ pagination: {limit:3}
           }
         }
       }
-    }`;
-  };
+    }`
+}
 export const case_study_home = `query{
   caseStudyHome{
     data{
@@ -843,9 +843,9 @@ export const case_study_home = `query{
       }
     }
   }
-}`;
-  const case_study_filterd = `
-  `;
+}`
+const case_study_filterd = `
+  `
 export const case_study_query = `
 query{
   caseStudies (filters:{ id: { eq: "\${id}" } }){
@@ -998,7 +998,7 @@ export const SearchJobs = (
   limit: number
 ) => {
   // Helper function to handle empty strings
-  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""')
   return `query {
     career {
       data {
@@ -1054,17 +1054,12 @@ export const SearchJobs = (
         }
       }
     }
-  }`;
-};
-export const SearchCases = (
-  category: string,
-  tag: string,
-  heroTitle: string,
-  limit: number
-) => {
+  }`
+}
+export const SearchCases = (category: string, tag: string, heroTitle: string, limit: number) => {
   // Helper function to handle empty strings
-  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-  return  `
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""')
+  return `
   query{
     caseStudies(
       filters: {
@@ -1121,18 +1116,13 @@ export const SearchCases = (
       }
     }
   }
-  `;
-};
+  `
+}
 
-export const SearchBlogs = (
-  category: string,
-  tag: string,
-  title: string,
-  limit: number
-) => {
+export const SearchBlogs = (category: string, tag: string, title: string, limit: number) => {
   // Helper function to handle empty strings
-  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-  return  `
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""')
+  return `
   query{
     blogs(
       filters: {
@@ -1191,5 +1181,5 @@ export const SearchBlogs = (
       }
     }
   }
-  `;
-};
+  `
+}

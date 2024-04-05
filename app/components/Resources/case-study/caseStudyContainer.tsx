@@ -1,75 +1,66 @@
-import { useLoaderData } from "@remix-run/react";
-import IBlogMedia from "../../../interfaces/IBlogMedia";
+import { useLoaderData } from '@remix-run/react'
+import IBlogMedia from '../../../interfaces/IBlogMedia'
 
-import { useEffect, useState } from "react";
-import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { List, Select, Skeleton } from "antd";
-import CustomDrawer from "~/utils/customDrawer";
-import DropDownIcon from "../case-study/arrow";
-import { success } from "~/utils/notifications";
-import CaseCard from "./caseStudyCard";
-import { SearchCases } from "~/graphql/queries";
+import { useEffect, useState } from 'react'
+import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { List, Select, Skeleton } from 'antd'
+import CustomDrawer from '~/utils/customDrawer'
+import DropDownIcon from '../case-study/arrow'
+import { success } from '~/utils/notifications'
+import CaseCard from './caseStudyCard'
+import { SearchCases } from '~/graphql/queries'
 
 const Container = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const [state, setState] = useState({ visible: false, placement: "bottom" });
-  const loaderData = useLoaderData() as any;
+  const [state, setState] = useState({ visible: false, placement: 'bottom' })
+  const loaderData = useLoaderData() as any
   const [category, setCategory] = useState<string | null>(null)
   const [tag, setTag] = useState<string | null>(null)
-  const [searchValue, setSearchValue] = useState("");
-  const [caseData, setCaseData] = useState(loaderData.caseData || []);
-  const [limit, setLimit] = useState(3); // Initial limit
-  const [loading, setLoading] = useState(false);
+  const [searchValue, setSearchValue] = useState('')
+  const [caseData, setCaseData] = useState(loaderData.caseData || [])
+  const [limit, setLimit] = useState(3) // Initial limit
+  const [loading, setLoading] = useState(false)
 
-
-  useEffect(() => {
-  }, []); 
+  useEffect(() => {}, [])
 
   useEffect(() => {
-    handleFilterAndSearchDown();
-  }, [category, tag, searchValue]);
+    handleFilterAndSearchDown()
+  }, [category, tag, searchValue])
 
   const handleApplyFilters = () => {
-    setCategory(selectedCategory);
-    setTag(selectedTag);
-    onClose();
-  };
-  
+    setCategory(selectedCategory)
+    setTag(selectedTag)
+    onClose()
+  }
+
   const handleResetFilters = () => {
-    setSelectedCategory(null);
-    setSelectedTag(null);
-    setCategory(null);
-    setTag(null);
-  };
-  
+    setSelectedCategory(null)
+    setSelectedTag(null)
+    setCategory(null)
+    setTag(null)
+  }
+
   const showDrawer = () => {
     setState((prevState) => ({
       ...prevState,
       visible: true,
-    }));
-  };
-  
+    }))
+  }
+
   const onClose = () => {
     setState((prevState) => ({
       ...prevState,
       visible: false,
-    }));
-  };
+    }))
+  }
 
   const handleFilterAndSearchDown = async () => {
-    setLoading(true);
-    const updatedCaseQuery = SearchCases(
-      category || "",
-      tag || "",
-      searchValue || "",
-      limit
-    );
+    setLoading(true)
+    const updatedCaseQuery = SearchCases(category || '', tag || '', searchValue || '', limit)
 
+    const newCaseData = await fetchGraphQL(updatedCaseQuery)
 
-    const newCaseData = await fetchGraphQL(updatedCaseQuery);
-   
-   
     setCaseData(() => [
       ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
         id: item.id,
@@ -77,37 +68,27 @@ const Container = () => {
         description1: item.attributes.heroDescription,
         maxReadTime: item.attributes.maxReadTime,
         bannerImage: {
-          name: item.attributes.heroBgImage.data?.attributes.name ?? "",
-          url: item.attributes.heroBgImage.data?.attributes.url ?? "",
+          name: item.attributes.heroBgImage.data?.attributes.name ?? '',
+          url: item.attributes.heroBgImage.data?.attributes.url ?? '',
         },
         author: {
           name: item.attributes.author.data?.attributes.name,
-          avatar:
-            item.attributes.author.data?.attributes.avatar.data?.attributes
-              ?.url,
+          avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
         },
-        topic_tags:
-          item.attributes.topic_tags.data?.map(
-            (tag: any) => tag.attributes.name
-          ) ?? [],
+        topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
         category: {
           name: item.attributes.category.data?.attributes.name,
         },
       })),
-    ]);
+    ])
 
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   const fetchMoreData = async () => {
-    setLoading(true);
-    const updatedQuery = SearchCases(
-      category || "",
-      tag || "",
-      searchValue || "",
-      limit + 3
-    );
-    const newCaseData = await fetchGraphQL(updatedQuery);
+    setLoading(true)
+    const updatedQuery = SearchCases(category || '', tag || '', searchValue || '', limit + 3)
+    const newCaseData = await fetchGraphQL(updatedQuery)
     setCaseData(() => [
       ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
         id: item.id,
@@ -115,30 +96,25 @@ const Container = () => {
         description1: item.attributes.heroDescription,
         maxReadTime: item.attributes.maxReadTime,
         bannerImage: {
-          name: item.attributes.heroBgImage.data?.attributes.name ?? "",
-          url: item.attributes.heroBgImage.data?.attributes.url ?? "",
+          name: item.attributes.heroBgImage.data?.attributes.name ?? '',
+          url: item.attributes.heroBgImage.data?.attributes.url ?? '',
         },
         author: {
           name: item.attributes.author.data?.attributes.name,
-          avatar:
-            item.attributes.author.data?.attributes.avatar.data?.attributes
-              ?.url,
+          avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
         },
-        topic_tags:
-          item.attributes.topic_tags.data?.map(
-            (tag: any) => tag.attributes.name
-          ) ?? [],
+        topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
         category: {
           name: item.attributes.category.data?.attributes.name,
         },
       })),
-    ]);
-    setLimit(limit + 3);
-    setLoading(false);
+    ])
+    setLimit(limit + 3)
+    setLoading(false)
     if (caseData.length <= limit) {
-      success("No more Case studies available", 3);
+      success('No more Case studies available', 3)
     }
-  };
+  }
 
   return (
     <>
@@ -149,10 +125,7 @@ const Container = () => {
         onClose={onClose}
         visible={state.visible}
       >
-        <button
-          className="absolute -top-2 left-0 right-0 drawer-close-btn"
-          onClick={onClose}
-        >
+        <button className="absolute -top-2 left-0 right-0 drawer-close-btn" onClick={onClose}>
           <svg
             width="24"
             height="24"
@@ -196,16 +169,13 @@ const Container = () => {
             >
               Apply Filters
             </button>
-            <button
-              className="reset-btn  hero-btn "
-              onClick={handleResetFilters}
-            >
+            <button className="reset-btn  hero-btn " onClick={handleResetFilters}>
               Reset
             </button>
           </div>
         </div>
       </CustomDrawer>
-      
+
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
         {/* <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
@@ -226,7 +196,7 @@ const Container = () => {
                 value={category}
                 options={loaderData.categoriesList}
                 style={{
-                  width: "190px",
+                  width: '190px',
                 }}
               />
               <Select
@@ -238,7 +208,7 @@ const Container = () => {
                 value={tag}
                 options={loaderData.tags}
                 style={{
-                  width: "190px",
+                  width: '190px',
                 }}
               />
               {/* Search input */}
@@ -263,7 +233,7 @@ const Container = () => {
                 <input
                   value={searchValue}
                   onChange={(e) => {
-                    setSearchValue(e.target.value);
+                    setSearchValue(e.target.value)
                   }}
                   placeholder="Search"
                   className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
@@ -284,7 +254,6 @@ const Container = () => {
           {/* Tag select */}
         </div>
 
-        
         <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
           {/* Skeleton for loading */}
           {loading && (
@@ -302,11 +271,7 @@ const Container = () => {
           )}
           {!loading && (
             <>
-              <img
-                src="../assets/Ornament.png"
-                className="absolute top-4 left-4"
-                alt="ornament"
-              />
+              <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {caseData.map((casestudy: any) => (
                   <CaseCard key={casestudy.id} blog={casestudy} blogData={caseData} />
@@ -316,21 +281,17 @@ const Container = () => {
           )}
         </div>
 
-        <div
-          className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center"
-         
-        >
+        <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
           <button
-          className="hue-btn-blue btn uppercase font-montserrat"
-          onClick={fetchMoreData}
-          disabled={loading}
-        >
-          <span>Show More</span>
-        </button>
+            className="hue-btn-blue btn uppercase font-montserrat"
+            onClick={fetchMoreData}
+            disabled={loading}
+          >
+            <span>Show More</span>
+          </button>
         </div>
-
       </div>
     </>
-  );
-};
-export default Container;
+  )
+}
+export default Container

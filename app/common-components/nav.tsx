@@ -1,271 +1,268 @@
-import React, { useEffect, useState } from "react";
-import { Image } from "@unpic/react";
-import Sidebar from "./sidebar";
-import { Form, Link, useLocation, useMatch, useNavigation, useRouteLoaderData } from "@remix-run/react";
-import { Modal } from "antd";
-import fb from "~/../public/assets/Facebook svg.svg";
-import twitter from "~/../public/assets/og-twitter.svg";
-import linkedin from "~/../public/assets/Linkedin-white.svg";
-import yt from "~/../public/assets/YouTube svg.svg";
-import ivurl from "../../public/assets/ivoyant.svg";
-import defaultsvg from "../../public/assets/default.svg";
-import { success, errorMessage } from "~/utils/notifications";
-import { emailPattern } from "~/DTO/form-schemas/patterns";
+import React, { useEffect, useState } from 'react'
+import { Image } from '@unpic/react'
+import Sidebar from './sidebar'
+import {
+  Form,
+  Link,
+  useLocation,
+  useMatch,
+  useNavigation,
+  useRouteLoaderData,
+} from '@remix-run/react'
+import { Modal } from 'antd'
+import fb from '~/../public/assets/Facebook svg.svg'
+import twitter from '~/../public/assets/og-twitter.svg'
+import linkedin from '~/../public/assets/Linkedin-white.svg'
+import yt from '~/../public/assets/YouTube svg.svg'
+import ivurl from '../../public/assets/ivoyant.svg'
+import defaultsvg from '../../public/assets/default.svg'
+import { success, errorMessage } from '~/utils/notifications'
+import { emailPattern } from '~/DTO/form-schemas/patterns'
 const Nav = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [phoneerror, setPhoneError] = useState('');
-  const [personname, setPersonName] = useState('');
-  const [nameerror, setNameError] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [phoneerror, setPhoneError] = useState('')
+  const [personname, setPersonName] = useState('')
+  const [nameerror, setNameError] = useState('')
 
-  const [email, setEmail] =useState("");
-  const [emailerror, setEmailError] = useState('');
+  const [email, setEmail] = useState('')
+  const [emailerror, setEmailError] = useState('')
 
+  const [btnLoading, setBtnLoading] = useState<boolean>(false)
 
-  const [btnLoading, setBtnLoading] = useState<boolean>(false);
-
-  const Blogmatched = useMatch("/resources/blog/:id");
-  const isBlogRoute = Blogmatched !== null;
-  const CaseStudymatched = useMatch("/resources/case-study/:id");
-  const CaseStudyRoute = CaseStudymatched !== null;
-  const navdata = useRouteLoaderData("root") as any;
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [key, setKey] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [open, setOpen] = useState(false);
-  const [download, setDownload] = useState<string>("");
-  const [toggleNav, setToggleNav] = useState<boolean>(false);
-  const [clicked, setClicked] = useState<number>(-1);
+  const Blogmatched = useMatch('/resources/blog/:id')
+  const isBlogRoute = Blogmatched !== null
+  const CaseStudymatched = useMatch('/resources/case-study/:id')
+  const CaseStudyRoute = CaseStudymatched !== null
+  const navdata = useRouteLoaderData('root') as any
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [key, setKey] = useState(0)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [open, setOpen] = useState(false)
+  const [download, setDownload] = useState<string>('')
+  const [toggleNav, setToggleNav] = useState<boolean>(false)
+  const [clicked, setClicked] = useState<number>(-1)
   const handleToggle = (index: number) => {
-    index === clicked ? setClicked(-1) : setClicked(index);
-  };
+    index === clicked ? setClicked(-1) : setClicked(index)
+  }
   const location = useLocation()
   const navigation = useNavigation()
   const isRoutingToAnotherPage = navigation.state === 'loading'
   const handleClick = () => {
-    setToggleNav(!toggleNav);
+    setToggleNav(!toggleNav)
     setTimeout(() => {
-      setToggleNav(false);
-    }, 100);
-  };
+      setToggleNav(false)
+    }, 100)
+  }
   const handlePhoneNumberChange = (e: any) => {
-    const phone = e.target.value;
-    setPhoneNumber(phone);
-    setPhoneError("");
-    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
+    const phone = e.target.value
+    setPhoneNumber(phone)
+    setPhoneError('')
+    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/
     if (!phone) {
-        setPhoneError("Phone number is required");
+      setPhoneError('Phone number is required')
     } else if (!phoneRegex.test(phone)) {
-        setPhoneError("Invalid phone number format");
+      setPhoneError('Invalid phone number format')
     }
-};
-const handleEmailChange = (e: any) => {
-  const emailValue = e.target.value.toLowerCase();
-  setEmail(emailValue);
-  // Reset email error
-  setEmailError("");
-  // Validate email
-  if (!emailValue.trim()) {
-    setEmailError("Email is required");
-} else if (!emailPattern.test(emailValue)) {
-    setEmailError("Invalid email address");
-}
-};
+  }
+  const handleEmailChange = (e: any) => {
+    const emailValue = e.target.value.toLowerCase()
+    setEmail(emailValue)
+    // Reset email error
+    setEmailError('')
+    // Validate email
+    if (!emailValue.trim()) {
+      setEmailError('Email is required')
+    } else if (!emailPattern.test(emailValue)) {
+      setEmailError('Invalid email address')
+    }
+  }
   const showModal = (url: any) => {
-    setDownload(url);
-    setOpen(true);
-    if(sidebarOpen){
+    setDownload(url)
+    setOpen(true)
+    if (sidebarOpen) {
       handleHamburgerClick()
     }
-  };
+  }
   const handleNameChange = (e: any) => {
-    const personName = e.target.value;
-    setPersonName(personName);
-    setNameError("");
-    const noNumbersPattern = /\d/;
-    const noSpecialCharsPattern = /[^\w\s]/;
-    const noConsecutiveCharsPattern = /(\w)\1{3}/;
+    const personName = e.target.value
+    setPersonName(personName)
+    setNameError('')
+    const noNumbersPattern = /\d/
+    const noSpecialCharsPattern = /[^\w\s]/
+    const noConsecutiveCharsPattern = /(\w)\1{3}/
 
     if (!personName) {
-        setNameError("Full name is required");
+      setNameError('Full name is required')
     } else if (personName.length < 3) {
-        setNameError("Name must be at least 3 characters long");
+      setNameError('Name must be at least 3 characters long')
     } else if (personName.length > 35) {
-        setNameError("Name must be less than 36 characters");
+      setNameError('Name must be less than 36 characters')
     } else if (noNumbersPattern.test(personName)) {
-        setNameError("Name cannot contain numbers");
+      setNameError('Name cannot contain numbers')
     } else if (noSpecialCharsPattern.test(personName)) {
-        setNameError("Name cannot contain special characters");
+      setNameError('Name cannot contain special characters')
     } else if (noConsecutiveCharsPattern.test(personName)) {
-        setNameError("Name cannot contain repeating consecutive characters four times");
+      setNameError('Name cannot contain repeating consecutive characters four times')
     }
-};
-
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
-      setBtnLoading(true);
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget);
-      formData.append("action", "pitchdeck");
-      formData.forEach((value, key) => {});
+      setBtnLoading(true)
+      event.preventDefault()
+      const formData = new FormData(event.currentTarget)
+      formData.append('action', 'pitchdeck')
+      formData.forEach((value, key) => {})
       const response = await fetch(
-        "https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d",
+        'https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d',
         {
-          method: "POST",
+          method: 'POST',
           body: formData,
         }
-      );
+      )
       if (response.ok) {
-        success("Thank you for showing interest in us!", 2);
-        handleDownload();
+        success('Thank you for showing interest in us!', 2)
+        handleDownload()
       } else {
-        errorMessage("Form submission failed", 3);
+        errorMessage('Form submission failed', 3)
       }
     } catch (error) {
-      errorMessage("Error occured, please retry", 3);
+      errorMessage('Error occured, please retry', 3)
     }
-    setBtnLoading(false);
-  };
+    setBtnLoading(false)
+  }
   const handleDownload = () => {
-    const PitchDeskUrl = download;
-    setOpen(false);
+    const PitchDeskUrl = download
+    setOpen(false)
     //success mesage here
-    window.open(PitchDeskUrl, "_blank");
-  };
+    window.open(PitchDeskUrl, '_blank')
+  }
   const handleHamburgerClick = () => {
-    setSidebarOpen((prevSidebarOpen) => !prevSidebarOpen);
-  };
-  const closeMenuMob = () =>{
-    (sidebarOpen) ? setSidebarOpen(!sidebarOpen) : setSidebarOpen(sidebarOpen)
+    setSidebarOpen((prevSidebarOpen) => !prevSidebarOpen)
+  }
+  const closeMenuMob = () => {
+    sidebarOpen ? setSidebarOpen(!sidebarOpen) : setSidebarOpen(sidebarOpen)
   }
   const handleCancel = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
   useEffect(() => {
     const handleScroll = () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+      const scrolled = (winScroll / height) * 100
+      setScrollProgress(scrolled)
+    }
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const categories = [
-    "services",
-    "industries",
-    "products",
-    "resources",
-    "company",
-  ];
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  const categories = ['services', 'industries', 'products', 'resources', 'company']
   return (
     <>
-       <Modal
-        open={open}
-        title="Download PitchDeck"
-        onCancel={handleCancel}
-      >
-   <Form className="form" onSubmit={handleSubmit}>
-    <div className="items-stretch bg-white flex  flex-col py-2">
-      <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
-        Please provide required information to view the Pitch deck
-      </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Full Name*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="text"
-        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
-        name="firstName"
-        value={personname}
-        onChange={handleNameChange}
-        required
-      />
-       {nameerror &&(
-          <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
-          )}
-        </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Email*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="email"
-        value={email}
-        
-        style={{textTransform:"none"}}
-        onChange={handleEmailChange}
-        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
-        name="email"
-        required
-      />
-        {emailerror &&(
-          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
-          )}
-        </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Phone Number*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="tel"
-        className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
-        name="phoneNumber"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        required
-      />
+      <Modal open={open} title="Download PitchDeck" onCancel={handleCancel}>
+        <Form className="form" onSubmit={handleSubmit}>
+          <div className="items-stretch bg-white flex  flex-col py-2">
+            <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+              Please provide required information to view the Pitch deck
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Full Name*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="text"
+                className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
+                name="firstName"
+                value={personname}
+                onChange={handleNameChange}
+                required
+              />
+              {nameerror && (
+                <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {nameerror}
+                </span>
+              )}
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Email*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="email"
+                value={email}
+                style={{ textTransform: 'none' }}
+                onChange={handleEmailChange}
+                className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
+                name="email"
+                required
+              />
+              {emailerror && (
+                <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {emailerror}
+                </span>
+              )}
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Phone Number*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="tel"
+                className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
+                required
+              />
 
-       {phoneerror &&(
-          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{phoneerror}</span>
-          )}
+              {phoneerror && (
+                <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {phoneerror}
+                </span>
+              )}
+            </div>
+            <button
+              type="submit"
+              className=" hue-btn-primary mt-6 btn w-full"
+              disabled={
+                btnLoading ||
+                personname === '' ||
+                email === '' ||
+                phoneNumber === '' ||
+                !!phoneerror ||
+                !!emailerror ||
+                !!nameerror
+              }
+            >
+              Get the Copy
+            </button>
           </div>
-      <button type="submit" className=" hue-btn-primary mt-6 btn w-full" disabled={btnLoading ||  personname==='' || email==='' || phoneNumber==='' || !!phoneerror || !!emailerror || !!nameerror }
->
-        Get the Copy
-      </button>
-    </div>
-  </Form>
-
+        </Form>
       </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16">
         <div className="flex flex-row items-center justify-around">
           <Link to="/">
-            {" "}
+            {' '}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
-              <img
-                src={ivurl}
-                alt="iVoyant Logo"
-                className="aspect-video h-16 object-contain"
-              />
+              <img src={ivurl} alt="iVoyant Logo" className="aspect-video h-16 object-contain" />
             </div>
           </Link>
 
           <div className="flex flex-row transition-all h-16">
             {categories?.map((category, index) => (
-              <div
-                key={index}
-                className="group text-[#F5F5F5] flex flex-row transition-all"
-              >
+              <div key={index} className="group text-[#F5F5F5] flex flex-row transition-all">
                 <button className="relative flex items-center w-full mx-4 py-4 text-center capitalize bg-transparent focus:outline-none text-base  tracking-wide font-montserrat">
-                  <div 
-                  className={`absolute w-full h-1 bg-[#5E40A0] top-0 opacity-0 ${(location.pathname.startsWith("/"+category)) && (!isRoutingToAnotherPage) ? 'opacity-100':''}`}></div>
-                  {category === "products" ? (
+                  <div
+                    className={`absolute w-full h-1 bg-[#5E40A0] top-0 opacity-0 ${location.pathname.startsWith('/' + category) && !isRoutingToAnotherPage ? 'opacity-100' : ''}`}
+                  ></div>
+                  {category === 'products' ? (
                     <Link
                       to={`./${category}`}
                       onClick={handleClick}
-                      className={`px-2 group-hover:text-[#9EA9F6] ${location.pathname.startsWith("/"+category) ? 'text-[#9EA9F6]': ''}`}
+                      className={`px-2 group-hover:text-[#9EA9F6] ${location.pathname.startsWith('/' + category) ? 'text-[#9EA9F6]' : ''}`}
                     >
                       {category}
                     </Link>
                   ) : (
-                    <div className={`px-2 group-hover:text-[#9EA9F6] ${location.pathname.startsWith("/"+category) ? 'text-[#9EA9F6]': ''}`}>
+                    <div
+                      className={`px-2 group-hover:text-[#9EA9F6] ${location.pathname.startsWith('/' + category) ? 'text-[#9EA9F6]' : ''}`}
+                    >
                       {category}
                     </div>
                   )}
@@ -283,11 +280,9 @@ const handleEmailChange = (e: any) => {
                     <div className="flex h-full bg-black">
                       <div className="flex-grow flex flex-wrap gap-4 items-center justify-center">
                         <div className="w-full h-fit xl:gap-x-2 xl:gap-y-10 grid grid-cols-3 xl:p-10 xl:pl-14 gap-y-4 xl:text-sm text-xs px-4">
-                          {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
-                            category
-                          ]?.map(
+                          {navdata.navGraphql?.data?.navbar?.data?.attributes?.[category]?.map(
                             (item: any) =>
-                              item.__typename !== "ComponentCardCard" && (
+                              item.__typename !== 'ComponentCardCard' && (
                                 <div className="col-span-1 h-fit" key={item.id}>
                                   {item.icon?.data?.attributes?.url ? (
                                     <img
@@ -306,9 +301,7 @@ const handleEmailChange = (e: any) => {
                                   {item.attachment?.data?.attributes?.url ? (
                                     <button
                                       onClick={() =>
-                                        showModal(
-                                          item.attachment?.data?.attributes?.url
-                                        )
+                                        showModal(item.attachment?.data?.attributes?.url)
                                       }
                                       className="inline font-poppins font-normal hover:text-[#bea7ef]"
                                     >
@@ -332,61 +325,44 @@ const handleEmailChange = (e: any) => {
                         className="xl:max-w-[500px] w-[26rem] grid py-2 my-auto h-full"
                         id="featured-post"
                       >
-                        {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
-                          category
-                        ]?.find(
-                          (item: any) => item.__typename === "ComponentCardCard"
+                        {navdata.navGraphql?.data?.navbar?.data?.attributes?.[category]?.find(
+                          (item: any) => item.__typename === 'ComponentCardCard'
                         ) && (
                           <figure className="relative nav-img">
                             <Image
                               width={400}
                               height={210}
                               src={
-                                navdata.navGraphql.data.navbar.data.attributes[
-                                  category
-                                ].find(
-                                  (item: any) =>
-                                    item.__typename === "ComponentCardCard"
+                                navdata.navGraphql.data.navbar.data.attributes[category].find(
+                                  (item: any) => item.__typename === 'ComponentCardCard'
                                 ).bgImage.data.attributes.url
                               }
                               className="h-fit w-full mx-auto object-contain"
                               alt={
-                                navdata.navGraphql.data.navbar.data.attributes[
-                                  category
-                                ].find(
-                                  (item: any) =>
-                                    item.__typename === "ComponentCardCard"
+                                navdata.navGraphql.data.navbar.data.attributes[category].find(
+                                  (item: any) => item.__typename === 'ComponentCardCard'
                                 ).title
                               }
                             />
                             <figcaption className="text-white absolute bottom-0 gap-2 z-30 xl:p-4 lg:p-2">
                               <div className="font-semibold xl:text-xl text-lg font-poppins">
                                 {
-                                  navdata.navGraphql.data.navbar.data.attributes[
-                                    category
-                                  ].find(
-                                    (item: any) =>
-                                      item.__typename === "ComponentCardCard"
+                                  navdata.navGraphql.data.navbar.data.attributes[category].find(
+                                    (item: any) => item.__typename === 'ComponentCardCard'
                                   ).title
                                 }
                               </div>
                               <div className="font-montserrat xl:text-sm text-xs max-h-14 text-ellipsis line-clamp-2">
                                 {
-                                  navdata.navGraphql.data.navbar.data.attributes[
-                                    category
-                                  ].find(
-                                    (item: any) =>
-                                      item.__typename === "ComponentCardCard"
+                                  navdata.navGraphql.data.navbar.data.attributes[category].find(
+                                    (item: any) => item.__typename === 'ComponentCardCard'
                                   ).description
                                 }
                               </div>
                               <Link
                                 to={
-                                  navdata.navGraphql.data.navbar.data.attributes[
-                                    category
-                                  ].find(
-                                    (item: any) =>
-                                      item.__typename === "ComponentCardCard"
+                                  navdata.navGraphql.data.navbar.data.attributes[category].find(
+                                    (item: any) => item.__typename === 'ComponentCardCard'
                                   ).link
                                 }
                                 className="text-link-pink underline text-sm float-right mt-2"
@@ -405,14 +381,11 @@ const handleEmailChange = (e: any) => {
           </div>
           <div className="flex flex-row gap-6">
             <Link to="/contact-us">
-                <button name="contactus" className="hue-btn">
-                  <span>CONTACT US</span>
-                </button>
+              <button name="contactus" className="hue-btn">
+                <span>CONTACT US</span>
+              </button>
             </Link>
-            <div
-              className="hamburger justify-center items-center"
-              onClick={handleHamburgerClick}
-            >
+            <div className="hamburger justify-center items-center" onClick={handleHamburgerClick}>
               <svg className="w-6 h-6"></svg>
               {sidebarOpen && <Sidebar />}
             </div>
@@ -420,11 +393,7 @@ const handleEmailChange = (e: any) => {
         </div>
         {isBlogRoute || CaseStudyRoute ? (
           <div className="progress-container">
-            <div
-              className="progress-bar"
-              id="myBar"
-              style={{ width: `${scrollProgress}%` }}
-            ></div>
+            <div className="progress-bar" id="myBar" style={{ width: `${scrollProgress}%` }}></div>
           </div>
         ) : (
           <div></div>
@@ -532,18 +501,18 @@ const handleEmailChange = (e: any) => {
           </button>
         </div>
         <div
-          className={`absolute w-full ${sidebarOpen ? "flex" : "hidden"} lg:hidden flex-col justify-between left-0  bg-haiti h-fit gap-10 screen-height text-gray-200 p-4 z-[999]`}
+          className={`absolute w-full ${sidebarOpen ? 'flex' : 'hidden'} lg:hidden flex-col justify-between left-0  bg-haiti h-fit gap-10 screen-height text-gray-200 p-4 z-[999]`}
         >
           <div className="flex h-full">
             <div className="flex flex-col w-fit gap-5">
               <div className="w-fit mx-auto gap-8 grid">
                 {categories.map((category, index) => (
                   <button
-                    className={`capitalize text-left font-montserrat text-xl font-semibold ${clicked === index ? "text-geekblue" : "text-gray-200"}`}
+                    className={`capitalize text-left font-montserrat text-xl font-semibold ${clicked === index ? 'text-geekblue' : 'text-gray-200'}`}
                     role="menuitem"
                     key={index}
                     onClick={() => {
-                      handleToggle(index);
+                      handleToggle(index)
                     }}
                   >
                     {category}
@@ -551,7 +520,7 @@ const handleEmailChange = (e: any) => {
                 ))}
                 <Link
                   onClick={handleHamburgerClick}
-                  to={"/contact-us"}
+                  to={'/contact-us'}
                   className="capitalize text-left font-montserrat text-xl font-semibold text-gray-200"
                 >
                   Contact Us
@@ -561,18 +530,14 @@ const handleEmailChange = (e: any) => {
             <div className="h-full w-fit text-white sm:ml-10 ml-6 overflow-y-scroll transition-opacity mr-auto">
               {categories.map((category, index) => (
                 <div className="gap-8 grid">
-                  {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
-                    category
-                  ].map(
+                  {navdata.navGraphql?.data?.navbar?.data?.attributes?.[category].map(
                     (item: any, linkindex: number) =>
                       item?.name !== undefined &&
                       (item.attachment?.data?.attributes?.url ? (
                         <button
                           key={linkindex}
-                          onClick={() =>
-                            showModal(item.attachment?.data?.attributes?.url)
-                          }
-                          className={`${index === clicked ? "font-base font-montserrat text-sm text-start leading-5 tracking-wide" : "hidden"} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                          onClick={() => showModal(item.attachment?.data?.attributes?.url)}
+                          className={`${index === clicked ? 'font-base font-montserrat text-sm text-start leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
                         >
                           {item.name}
                         </button>
@@ -582,7 +547,7 @@ const handleEmailChange = (e: any) => {
                           onClick={handleHamburgerClick}
                           to={item.link}
                           prefetch="intent"
-                          className={`${index === clicked ? "font-base font-montserrat text-sm leading-5 tracking-wide" : "hidden"} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                          className={`${index === clicked ? 'font-base font-montserrat text-sm leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
                         >
                           {item.name}
                         </Link>
@@ -594,16 +559,40 @@ const handleEmailChange = (e: any) => {
           </div>
           <div className="flex flex-col">
             <div className="flex gap-6">
-              <a onClick={handleHamburgerClick}  className="flex" href="https://www.youtube.com/@ivoyant" target="_blank" rel="noopener noreferrer">
+              <a
+                onClick={handleHamburgerClick}
+                className="flex"
+                href="https://www.youtube.com/@ivoyant"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={yt} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex" href="https://www.linkedin.com/company/ivoyant-llc" target="_blank" rel="noopener noreferrer">
+              <a
+                onClick={handleHamburgerClick}
+                className="flex"
+                href="https://www.linkedin.com/company/ivoyant-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={linkedin} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex"  href="https://www.facebook.com/ivoyantllc" target="_blank" rel="noopener noreferrer">
+              <a
+                onClick={handleHamburgerClick}
+                className="flex"
+                href="https://www.facebook.com/ivoyantllc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={fb} className="w-8 h-8" />
               </a>
-              <a onClick={handleHamburgerClick} className="flex" href="https://twitter.com/i_voyant" target="_blank" rel="noopener noreferrer">
+              <a
+                onClick={handleHamburgerClick}
+                className="flex"
+                href="https://twitter.com/i_voyant"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={twitter} className="w-8 h-8" />
               </a>
             </div>
@@ -614,6 +603,6 @@ const handleEmailChange = (e: any) => {
         </div>
       </nav>
     </>
-  );
-};
-export default Nav;
+  )
+}
+export default Nav

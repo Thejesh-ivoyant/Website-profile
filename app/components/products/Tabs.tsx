@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { TabContent } from "~/interfaces/ProductsPage";
+import { useEffect, useState } from 'react'
+import { TabContent } from '~/interfaces/ProductsPage'
 export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
-  const [activeButton, setActiveButton] = useState(tabContents[0]);
+  const [activeButton, setActiveButton] = useState(tabContents[0])
   const handleButtonClick = (item: any) => {
-    setActiveButton(item);
-  };
+    setActiveButton(item)
+  }
   useEffect(() => {
-    setActiveButton(tabContents[0]);
-  }, [tabContents]);
+    setActiveButton(tabContents[0])
+  }, [tabContents])
   return (
     <>
       <div className="w-full h-fit px-4 xl:px-16 section-p-y bg-slate grid gap-3">
@@ -67,7 +67,7 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
             {tabContents.map((item: TabContent) => (
               <button
                 key={item.id}
-                className={`tabs-btn  ${activeButton.id === item.id ? "tabs-btn-active " : ""}`}
+                className={`tabs-btn  ${activeButton.id === item.id ? 'tabs-btn-active ' : ''}`}
                 onClick={() => handleButtonClick(item)}
               >
                 {item.name}
@@ -91,10 +91,7 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
                       className="flex justify-center w-12 lg:w-24 aspect-square mx-auto"
                       id="logo"
                     />
-                    <figcaption
-                      className="text-center justify-center flex"
-                      id="caption"
-                    >
+                    <figcaption className="text-center justify-center flex" id="caption">
                       {activeButton.caption || activeButton.name}
                     </figcaption>
                   </figure>
@@ -116,10 +113,7 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
                     className="flex justify-center w-12 lg:w-24 aspect-square mx-auto"
                     id="logo"
                   />
-                  <figcaption
-                    className="text-center justify-center flex"
-                    id="caption"
-                  >
+                  <figcaption className="text-center justify-center flex" id="caption">
                     {activeButton.caption || activeButton.name}
                   </figcaption>
                 </figure>
@@ -129,5 +123,5 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
         </div>
       </div>
     </>
-  );
+  )
 }

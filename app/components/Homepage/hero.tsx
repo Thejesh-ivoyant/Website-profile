@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { HeroBg } from "~/interfaces/Homepage";
-import { scrollToSection } from "~/root";
+import { useState } from 'react'
+import { HeroBg } from '~/interfaces/Homepage'
+import { scrollToSection } from '~/root'
 const Hero = ({
   heroText,
   heroTitle,
   heroDescription,
   heroBgImage,
 }: {
-  heroText: string;
-  heroTitle: string;
-  heroDescription: string;
-  heroBgImage: HeroBg;
+  heroText: string
+  heroTitle: string
+  heroDescription: string
+  heroBgImage: HeroBg
 }) => {
-  const [c, setC] = useState(0);
+  const [c, setC] = useState(0)
   const closeChats = () => {
-    setC(0);
-  };
+    setC(0)
+  }
   const openChats = () => {
-    setC(1);
-  };
+    setC(1)
+  }
   return (
     <>
       <div className="screen-height min-h-fit hero-container-section flex-col items-center justify-center">
@@ -89,13 +89,13 @@ const Hero = ({
           </div>
           <button
             className="hue-btn-primary btn mt-10"
-            onClick={() => scrollToSection("contact-us")}
+            onClick={() => scrollToSection('contact-us')}
           >
             <span>Let's Talk</span>
           </button>
         </div>
       </div>
     </>
-  );
-};
-export default Hero;
+  )
+}
+export default Hero

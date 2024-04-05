@@ -1,11 +1,5 @@
-import { Technology } from "~/interfaces/ProductsPage";
-export const Technologies = ({
-  title,
-  pairs,
-}: {
-  title: string;
-  pairs: Technology[];
-}) => {
+import { Technology } from '~/interfaces/ProductsPage'
+export const Technologies = ({ title, pairs }: { title: string; pairs: Technology[] }) => {
   return (
     <>
       <div className="bg-white section-p-y md:py-6 py-4 px-4 grid lg:gap-3">
@@ -63,16 +57,12 @@ export const Technologies = ({
         <div className="w-full flex justify-around flex-wrap text-black">
           {pairs.map((pair, index) => (
             <div key={index} className="flex flex-col items-center m-4">
-              <img
-                src={pair?.pic.data.attributes.url}
-                alt={pair.text}
-                className="w-16 h-16"
-              />
+              <img src={pair?.pic.data.attributes.url} alt={pair.text} className="w-16 h-16" />
               <figcaption className="text-black mt-2">{pair.text}</figcaption>
             </div>
           ))}
         </div>
       </div>
     </>
-  );
-};
+  )
+}

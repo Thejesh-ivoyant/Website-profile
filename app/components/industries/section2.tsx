@@ -1,6 +1,6 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from '@remix-run/react'
 const Section2 = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   return (
     <section className="relative flex justify-center flex-col-reverse lg:flex-row max-h-fit overflow-hidden mx-auto">
       <div className="flex flex-1 flex-col lg:min-h-full justify-between">
@@ -11,7 +11,7 @@ const Section2 = () => {
           className="h-full w-full lg:flex hidden"
           style={{
             backgroundImage: `url('/assets/industries-ornament.svg')`,
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <img
@@ -24,7 +24,7 @@ const Section2 = () => {
           className="h-full w-fit mx-auto overflow-visible flex lg:hidden"
           style={{
             backgroundImage: `url('/assets/industries-ornament-small.svg')`,
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <img
@@ -44,23 +44,15 @@ const Section2 = () => {
           </div>
           <div className=" 2xl:-translate-x-32 lg:-translate-x-72 hidden lg:flex bottom-0  flex-row items-center inline-card w-fit h-[10.625rem] text-HeaderGray mb-10">
             <div className="ml-auto flex gap-4 items-center  p-10">
-              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">
-                50+
-              </span>
+              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">50+</span>
               <span className=" font-light text-sm w-24">Countries</span>
             </div>
             <div className="ml-auto flex gap-4 items-center p-10">
-              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">
-                300+
-              </span>
-              <span className=" font-light text-sm w-24">
-                Projects Delivered
-              </span>
+              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">300+</span>
+              <span className=" font-light text-sm w-24">Projects Delivered</span>
             </div>
             <div className="ml-auto flex gap-4 items-center p-10">
-              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">
-                350
-              </span>
+              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">350</span>
               <span className=" font-light text-sm w-24">Total Projects</span>
             </div>
           </div>
@@ -68,6 +60,6 @@ const Section2 = () => {
       </div>
       <Outlet />
     </section>
-  );
-};
-export default Section2;
+  )
+}
+export default Section2

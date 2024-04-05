@@ -7,27 +7,27 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Npm@1
-  inputs:
-    command: 'install'
+  - task: Npm@1
+    inputs:
+      command: 'install'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run build'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run build'
 
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: 'build'
-#     ArtifactName: 'drop'
-#     publishLocation: 'Container'
+  # - task: PublishBuildArtifacts@1
+  #   inputs:
+  #     PathtoPublish: 'build'
+  #     ArtifactName: 'drop'
+  #     publishLocation: 'Container'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'ivoyant-acr-svcon'
-    repository: 'ivoyantremix'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      $(Build.BuildId)
-      latest
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'ivoyant-acr-svcon'
+      repository: 'ivoyantremix'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
+      tags: |
+        $(Build.BuildId)
+        latest

@@ -1,14 +1,11 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from '@remix-run/react'
 const Hero = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url}) lightgray 50% /cover no-repeat`,
-  };
+  }
   return (
-    <section
-      className="screen-height hero-container-section"
-      style={gradientStyle}
-    >
+    <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
         <h1 className="hero-title ">
           {loaderData?.aboutUsData.data?.aboutus.data.attributes.heroTitle}
@@ -61,13 +58,13 @@ const Hero = () => {
           </defs>
         </svg>
         <div className="hero-description">
-          <span>{ loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription }</span>
+          <span>{loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription}</span>
         </div>
         <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
           <button className="hue-btn-primary btn">Let's Talk</button>
         </Link>
       </div>
     </section>
-  );
-};
-export default Hero;
+  )
+}
+export default Hero

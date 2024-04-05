@@ -1,25 +1,25 @@
-import { List, Skeleton } from 'antd';
-import IWhitePaper from "~/interfaces/IWhitePaper";
-const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: boolean }) => {
+import { List, Skeleton } from 'antd'
+import IWhitePaper from '~/interfaces/IWhitePaper'
+const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper; isLoading: boolean }) => {
   if (isLoading) {
     return (
       <div className="flex flex-col  h-[24.375rem] whitepaper-card-skeleton max-w-[24rem]">
-       <List
-      itemLayout="vertical"
-      size="large"
-      dataSource={[1, 2]} // Dummy data for skeleton
-      renderItem={() => (
-        <List.Item>
-          <Skeleton active  paragraph={{ rows: 3 }} />
-        </List.Item>
-      )}
-    />
+        <List
+          itemLayout="vertical"
+          size="large"
+          dataSource={[1, 2]} // Dummy data for skeleton
+          renderItem={() => (
+            <List.Item>
+              <Skeleton active paragraph={{ rows: 3 }} />
+            </List.Item>
+          )}
+        />
       </div>
-    );
+    )
   }
   return (
     <div className="whitepaper-card-box  blog-card">
-      <img src={paper?.bannerImage.url} alt="Image description"/>
+      <img src={paper?.bannerImage.url} alt="Image description" />
       <div className="content flex flex-col justify-between h-full w-full text-white p-4">
         <div className="flex card-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {paper.title}
@@ -41,6 +41,6 @@ const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: b
         </div>
       </div>
     </div>
-  );
-};
-export default WhitePaperCard;
+  )
+}
+export default WhitePaperCard

@@ -1,20 +1,20 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from '@remix-run/react'
 const Section6 = () => {
-    const loaderData = useLoaderData() as any;
-    return (
-      <div className="bg-white py-5">
-        <h1 className="text-PurpBlue flex text-center items-center justify-center lg:text-5xl sm:text-4xl text-3xl font-montserrat p-6">
-          {loaderData.techTitle}
-        </h1>
-        <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
-          {loaderData?.techList?.map((pair: any) => (
-            <div key={pair.id} className="flex flex-col items-center m-4">
-              <img src={pair.picUrl} alt={pair.name}      key={pair.id}  className="w-16 h-16"  />
-              <figcaption className="text-black mt-2">{pair.text}</figcaption>
-            </div>
-          ))}
-        </div>
+  const loaderData = useLoaderData() as any
+  return (
+    <div className="bg-white py-5">
+      <h1 className="text-PurpBlue flex text-center items-center justify-center lg:text-5xl sm:text-4xl text-3xl font-montserrat p-6">
+        {loaderData.techTitle}
+      </h1>
+      <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
+        {loaderData?.techList?.map((pair: any) => (
+          <div key={pair.id} className="flex flex-col items-center m-4">
+            <img src={pair.picUrl} alt={pair.name} key={pair.id} className="w-16 h-16" />
+            <figcaption className="text-black mt-2">{pair.text}</figcaption>
+          </div>
+        ))}
       </div>
-    );
-  };
-  export default Section6;
+    </div>
+  )
+}
+export default Section6

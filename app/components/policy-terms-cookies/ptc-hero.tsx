@@ -1,13 +1,13 @@
-import { useLoaderData } from "@remix-run/react";
-import { Image } from "@unpic/react";
+import { useLoaderData } from '@remix-run/react'
+import { Image } from '@unpic/react'
 const PTCHero = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   const gradientStyle = {
     zIndex: -1,
     background: `linear-gradient(100deg, white 55%, transparent 50%), url(${loaderData?.heroImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }
   return (
     <>
       <div
@@ -16,7 +16,6 @@ const PTCHero = () => {
       >
         <div className="w-1/2 grid place-items-center px-6">
           <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
-         
             <h1 className="font-montserrat text-3xl lg:text-4xl font-extrabold text-haiti italic">
               {loaderData?.heroTitle}
             </h1>
@@ -29,7 +28,6 @@ const PTCHero = () => {
       {/* Mobile */}
       <section className=" md:hidden flex py-12 px-10 mt-20 flex-row ">
         <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
-          
           <h1 className="font-montserrat text-4xl font-bold text-haiti italic leading-10">
             {loaderData?.heroTitle}
           </h1>
@@ -51,7 +49,7 @@ const PTCHero = () => {
         alt="privacy-policy"
       /> */}
     </>
-  );
-};
+  )
+}
 
-export default PTCHero;
+export default PTCHero

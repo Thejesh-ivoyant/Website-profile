@@ -1,6 +1,6 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from '@remix-run/react'
 const Section5 = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   return (
     <div className="bg-haiti section-p-y h-fit grid gap-3">
       <h1 className="text-HeaderGray flex items-center justify-center section-heading font-montserrat px-4">
@@ -57,10 +57,7 @@ const Section5 = () => {
       </svg>
       <div className="w-full h-fit flex justify-around flex-col lg:flex-row text-white px-10 gap-8">
         {loaderData.PhasesList?.map((item: any, index: number) => (
-          <div
-            key={item.id}
-            className="flex sm:items-start gap-3 h-fit lg:h-[350px]"
-          >
+          <div key={item.id} className="flex sm:items-start gap-3 h-fit lg:h-[350px]">
             <img
               src={`../assets/${index + 1}.svg`}
               alt={`SVG ${index + 1}`}
@@ -90,9 +87,9 @@ const Section5 = () => {
         />
       </div>
     </div>
-  );
-};
-export default Section5;
+  )
+}
+export default Section5
 {
   /* <div>Description: {item.description}</div> */
 }

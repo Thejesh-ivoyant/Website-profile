@@ -1,4 +1,4 @@
-import { Client } from "~/DTO/clients";
+import { Client } from '~/DTO/clients'
 const Clients = ({ clients, title }: { clients: Client[]; title: string }) => {
   return (
     <>
@@ -88,6 +88,6 @@ const Clients = ({ clients, title }: { clients: Client[]; title: string }) => {
         </div>
       </div>
     </>
-  );
-};
-export default Clients;
+  )
+}
+export default Clients

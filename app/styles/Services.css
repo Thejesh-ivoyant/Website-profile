@@ -5,7 +5,7 @@
   padding: 0;
   color: transparent;
   font-size: 0;
-  background: #200A46;
+  background: #200a46;
   border: 0;
   border-radius: 0px !important;
   outline: none;
@@ -20,7 +20,7 @@
 }
 
 .ant-carousel .slick-dots li.slick-active button {
-  background: #200A46;
+  background: #200a46;
   width: 3.125rem !important;
   opacity: 1;
 }
@@ -37,16 +37,19 @@
 }
 
 .shadow {
-  background: #FFF;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02), 0px 1px 6px -1px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
+  background: #fff;
+  box-shadow:
+    0px 2px 4px 0px rgba(0, 0, 0, 0.02),
+    0px 1px 6px -1px rgba(0, 0, 0, 0.02),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.03);
 }
 
 .portfolio-text {
   display: flex;
   width: 50%;
   justify-content: flex-end;
-  color: rgba(244, 243, 251, 0.80);
-  font-family: "Mplus 1p";
+  color: rgba(244, 243, 251, 0.8);
+  font-family: 'Mplus 1p';
   font-size: 64px;
   font-weight: 800;
   line-height: 100px;
@@ -56,7 +59,7 @@
 .portfolio-titles {
   display: flex;
   width: 50%;
-  color: rgba(244, 243, 251, 0.80);
+  color: rgba(244, 243, 251, 0.8);
   font-family: Poppins;
   font-size: 20px;
   font-weight: 500;
@@ -81,18 +84,18 @@
   align-items: center;
   justify-content: space-around;
   height: 20rem;
-  background-color: #1B0740;
+  background-color: #1b0740;
 }
 
 .service-points-container {
   display: flex;
   width: 100%;
   flex-direction: row;
-  background-color: #F9F8FC;
+  background-color: #f9f8fc;
 }
 
 .service-IndustryFocusTitle {
-  color: #0D0B71;
+  color: #0d0b71;
   font-family: Montserrat;
   font-size: 40px;
   font-style: normal;
@@ -121,7 +124,7 @@
 
 .service-section-container {
   width: 100%;
-  background-color: #F9F8FC;
+  background-color: #f9f8fc;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   display: grid;
@@ -141,12 +144,8 @@
   margin-bottom: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding-top: 0.75rem
-    /* 12px */
-  ;
-  padding-bottom: 0.75rem
-    /* 12px */
-  ;
+  padding-top: 0.75rem /* 12px */;
+  padding-bottom: 0.75rem /* 12px */;
 }
 
 .carousel-box-right-item {
@@ -196,12 +195,8 @@
     width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-top: 0.75rem
-      /* 12px */
-    ;
-    padding-bottom: 0.75rem
-      /* 12px */
-    ;
+    padding-top: 0.75rem /* 12px */;
+    padding-bottom: 0.75rem /* 12px */;
   }
 
   .carousel-box-right-item {
@@ -293,12 +288,8 @@
     width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-top: 0.75rem
-      /* 12px */
-    ;
-    padding-bottom: 0.75rem
-      /* 12px */
-    ;
+    padding-top: 0.75rem /* 12px */;
+    padding-bottom: 0.75rem /* 12px */;
   }
 
   .carousel-box-right-item {

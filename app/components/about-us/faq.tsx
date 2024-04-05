@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { FAQItem } from "~/DTO/faq";
+import { useState } from 'react'
+import { FAQItem } from '~/DTO/faq'
 export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
-  const [currState, setCurrState] = useState<number>(-1);
+  const [currState, setCurrState] = useState<number>(-1)
   const toggleExpansion = (clickedId: number) => {
-    setCurrState((prevState) => (prevState === clickedId ? -1 : clickedId));
-  };
+    setCurrState((prevState) => (prevState === clickedId ? -1 : clickedId))
+  }
   return (
     <>
       <div className="w-full relative h-fit section-p-y bg-slate overflow-hidden">
@@ -64,7 +64,7 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
           {faqContents?.map((item: FAQItem) => (
             <div
               key={item.id}
-              className={`flex flex-col w-full bg-white text-[#090519] p-4 lg:pl-16 lg:pr-6 max-w-7xl mx-auto gap-4 ${item.id === currState ? "faq-box-shadow" : ""}`}
+              className={`flex flex-col w-full bg-white text-[#090519] p-4 lg:pl-16 lg:pr-6 max-w-7xl mx-auto gap-4 ${item.id === currState ? 'faq-box-shadow' : ''}`}
             >
               <div className="flex flex-row sm:pl-4 pl-1 gap-4">
                 <p
@@ -77,7 +77,7 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
                   className="rounded-full float-right bg-light-indigo text-white lg:p-4 lg:w-10 lg:h-10 w-8 h-8 p-3 flex text-center items-center justify-center font-light text-xl ml-auto"
                   onClick={() => toggleExpansion(item.id)}
                 >
-                  {item.id === currState ? "-" : "+"}
+                  {item.id === currState ? '-' : '+'}
                 </button>
               </div>
               <div
@@ -94,5 +94,5 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,19 +1,17 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from '@remix-run/react'
 const BlogHero = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.bannerImage}) lightgray 50% / cover no-repeat`,
-  };
+  }
   return (
     <section className="py-32 text-white flex font-montserrat" style={gradientStyle}>
       <div className=" flex flex-col gap-4 px-8 sm:px-12 md:px-16">
-        <h1 className="font-semibold text-2xl leading-10">
-          {loaderData.title}
-        </h1>
+        <h1 className="font-semibold text-2xl leading-10">{loaderData.title}</h1>
         <div className=" pt-6 flex flex-row gap-4">
           <div className="flex">
             <img
-                 alt="avatar"
+              alt="avatar"
               src={loaderData.avatar}
               className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
             />
@@ -26,6 +24,6 @@ const BlogHero = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default BlogHero;
+  )
+}
+export default BlogHero

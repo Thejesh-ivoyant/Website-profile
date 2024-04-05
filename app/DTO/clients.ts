@@ -1,10 +1,10 @@
 export interface Client {
-    text: string;
-    pic: {
-      data: {
-        attributes: {
-          url: string;
-        };
-      };
-    };
+  text: string
+  pic: {
+    data: {
+      attributes: {
+        url: string
+      }
+    }
   }
+}

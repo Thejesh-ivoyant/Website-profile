@@ -1,14 +1,11 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from '@remix-run/react'
 const Hero = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.heroBgImageURl}) top/cover no-repeat`,
-  };
+  }
   return (
-    <section
-      className="screen-height hero-container-section"
-      style={gradientStyle}
-    >
+    <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
         <h1 className="hero-title ">{loaderData?.heroTitle}</h1>
         <svg
@@ -66,6 +63,6 @@ const Hero = () => {
         </Link>
       </div>
     </section>
-  );
-};
-export default Hero;
+  )
+}
+export default Hero

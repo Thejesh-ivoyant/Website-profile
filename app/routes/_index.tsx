@@ -1,64 +1,63 @@
-import Hero from "~/components/Homepage/hero";
-import Services from "~/components/Homepage/services"
-import Section4 from "~/components/Homepage/clients";
-import Section6 from "~/components/Homepage/partners";
-import Section5 from "~/components/Homepage/industry";
-import Consultation from "~/components/Homepage/consultation";
-import Technology from "~/components/Homepage/technology";
-import Testimonials from "~/components/Homepage/testimonials";
-import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { Await, MetaFunction, defer, useLoaderData } from "@remix-run/react";
-import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { homeQuery, topBlogQuery } from "~/graphql/queries";
-import ContactUs from "~/common-components/contactUs";
-import { Attributes } from "~/interfaces/Homepage";
-import WhyChooseUs from "~/components/Homepage/why-choose-us";
-import AboutCardContainer from "~/components/Homepage/about-card-container";
-import { Popup } from "~/common-components/social-media-popup";
-import { Suspense } from "react";
-import LoadingTest from "~/common-components/loading-test";
-export const meta: MetaFunction = ({data}: { data: any }) => {
+import Hero from '~/components/Homepage/hero'
+import Services from '~/components/Homepage/services'
+import Section4 from '~/components/Homepage/clients'
+import Section6 from '~/components/Homepage/partners'
+import Section5 from '~/components/Homepage/industry'
+import Consultation from '~/components/Homepage/consultation'
+import Technology from '~/components/Homepage/technology'
+import Testimonials from '~/components/Homepage/testimonials'
+import BlogPostsContainer from '~/components/Resources/blogs/blogPosts-container'
+import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
+import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { homeQuery, topBlogQuery } from '~/graphql/queries'
+import ContactUs from '~/common-components/contactUs'
+import { Attributes } from '~/interfaces/Homepage'
+import WhyChooseUs from '~/components/Homepage/why-choose-us'
+import AboutCardContainer from '~/components/Homepage/about-card-container'
+import { Popup } from '~/common-components/social-media-popup'
+import { Suspense } from 'react'
+import LoadingTest from '~/common-components/loading-test'
+export const meta: MetaFunction = ({ data }: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },
     {
-      property: "og:title",
-      content: "Home Page",
+      property: 'og:title',
+      content: 'Home Page',
     },
     {
-      name: "description",
-      content: "Ivoyants Homepage",
+      name: 'description',
+      content: 'Ivoyants Homepage',
     },
-  ];
-};
+  ]
+}
 export async function loader() {
   try {
-    const homeGql = await fetchGraphQL(homeQuery);
-    const blogGql = await fetchGraphQL(topBlogQuery);
+    const homeGql = await fetchGraphQL(homeQuery)
+    const blogGql = await fetchGraphQL(topBlogQuery)
     const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       date: item.attributes.date,
       maxReadTime: item.attributes.maxReadTime,
       bannerImage: {
-        name: item.attributes.bannerImage.data?.attributes.name ?? "",
-        url: item.attributes.bannerImage.data?.attributes.url ?? "",
+        name: item.attributes.bannerImage.data?.attributes.name ?? '',
+        url: item.attributes.bannerImage.data?.attributes.url ?? '',
       },
       author: {
         name: item.attributes.author.data?.attributes.name,
       },
       topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
       category: {
-       name:item.attributes.category.data?.attributes.name
-      }
-    }));
+        name: item.attributes.category.data?.attributes.name,
+      },
+    }))
     return defer({
       blogData: blogData,
       homePage: homeGql.data,
-    });
+    })
   } catch (error) {
-    console.warn("Error fetching data from contact API:", error);
-    return {
-    };
+    console.warn('Error fetching data from contact API:', error)
+    return {}
   }
 }
 const App = () => {
@@ -66,7 +65,7 @@ const App = () => {
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
   return (
     <>
-      <Suspense fallback={<LoadingTest/>}>
+      <Suspense fallback={<LoadingTest />}>
         <Await resolve={data}>
           <Hero
             heroBgImage={attributes.heroBg}
@@ -97,6 +96,6 @@ const App = () => {
         </Await>
       </Suspense>
     </>
-  );
-};
-export default App;
+  )
+}
+export default App

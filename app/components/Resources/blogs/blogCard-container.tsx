@@ -1,70 +1,63 @@
-import { useLoaderData } from "@remix-run/react";
-import IBlogMedia from "../../../interfaces/IBlogMedia";
-import BlogCard from "./blogCard";
-import { useEffect, useState } from "react";
-import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { SearchBlogs } from "~/graphql/queries";
-import { List, Select, Skeleton } from "antd";
-import CustomDrawer from "~/utils/customDrawer";
-import DropDownIcon from "../case-study/arrow";
-import { success } from "~/utils/notifications";
+import { useLoaderData } from '@remix-run/react'
+import IBlogMedia from '../../../interfaces/IBlogMedia'
+import BlogCard from './blogCard'
+import { useEffect, useState } from 'react'
+import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { SearchBlogs } from '~/graphql/queries'
+import { List, Select, Skeleton } from 'antd'
+import CustomDrawer from '~/utils/customDrawer'
+import DropDownIcon from '../case-study/arrow'
+import { success } from '~/utils/notifications'
 const BlogCardContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const [state, setState] = useState({ visible: false, placement: "bottom" });
-  const loaderData = useLoaderData() as any;
+  const [state, setState] = useState({ visible: false, placement: 'bottom' })
+  const loaderData = useLoaderData() as any
   const [category, setCategory] = useState<string | null>(null)
   const [tag, setTag] = useState<string | null>(null)
-  const [searchValue, setSearchValue] = useState("");
-  const [blogData, setBlogData] = useState(loaderData.blogData || []);
-  const [limit, setLimit] = useState(3); // Initial limit
-  const [loading, setLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState('')
+  const [blogData, setBlogData] = useState(loaderData.blogData || [])
+  const [limit, setLimit] = useState(3) // Initial limit
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {}, [])
 
   useEffect(() => {
-  }, []); 
-
-  useEffect(() => {
-    handleFilterAndSearchDown();
-  }, [category, tag, searchValue]);
+    handleFilterAndSearchDown()
+  }, [category, tag, searchValue])
 
   const handleApplyFilters = () => {
-    setCategory(selectedCategory);
-    setTag(selectedTag);
-    onClose();
-  };
-  
+    setCategory(selectedCategory)
+    setTag(selectedTag)
+    onClose()
+  }
+
   const handleResetFilters = () => {
-    setSelectedCategory(null);
-    setSelectedTag(null);
-    setCategory(null);
-    setTag(null);
-  };
-  
+    setSelectedCategory(null)
+    setSelectedTag(null)
+    setCategory(null)
+    setTag(null)
+  }
+
   const showDrawer = () => {
     setState((prevState) => ({
       ...prevState,
       visible: true,
-    }));
-  };
-  
+    }))
+  }
+
   const onClose = () => {
     setState((prevState) => ({
       ...prevState,
       visible: false,
-    }));
-  };
+    }))
+  }
 
   const handleFilterAndSearchDown = async () => {
-    setLoading(true);
-    const updatedBlogQuery = SearchBlogs(
-      category || "",
-      tag || "",
-      searchValue || "",
-      limit
-    );
+    setLoading(true)
+    const updatedBlogQuery = SearchBlogs(category || '', tag || '', searchValue || '', limit)
 
-
-    const newBlogData = await fetchGraphQL(updatedBlogQuery);
+    const newBlogData = await fetchGraphQL(updatedBlogQuery)
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -73,36 +66,26 @@ const BlogCardContainer = () => {
         date: item.attributes.date,
         maxReadTime: item.attributes.maxReadTime,
         bannerImage: {
-          name: item.attributes.bannerImage.data?.attributes.name ?? "",
-          url: item.attributes.bannerImage.data?.attributes.url ?? "",
+          name: item.attributes.bannerImage.data?.attributes.name ?? '',
+          url: item.attributes.bannerImage.data?.attributes.url ?? '',
         },
         author: {
           name: item.attributes.author.data?.attributes.name,
-          avatar:
-            item.attributes.author.data?.attributes.avatar.data?.attributes
-              ?.url,
+          avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
         },
-        topic_tags:
-          item.attributes.topic_tags.data?.map(
-            (tag: any) => tag.attributes.name
-          ) ?? [],
+        topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
         category: {
           name: item.attributes.category.data?.attributes.name,
         },
       })),
-    ]);
-    setLoading(false);
-  };
+    ])
+    setLoading(false)
+  }
 
   const fetchMoreData = async () => {
-    setLoading(true);
-    const updatedQuery = SearchBlogs(
-      category || "",
-      tag || "",
-      searchValue || "",
-      limit + 3
-    );
-    const newBlogData = await fetchGraphQL(updatedQuery);
+    setLoading(true)
+    const updatedQuery = SearchBlogs(category || '', tag || '', searchValue || '', limit + 3)
+    const newBlogData = await fetchGraphQL(updatedQuery)
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -111,30 +94,25 @@ const BlogCardContainer = () => {
         date: item.attributes.date,
         maxReadTime: item.attributes.maxReadTime,
         bannerImage: {
-          name: item.attributes.bannerImage.data?.attributes.name ?? "",
-          url: item.attributes.bannerImage.data?.attributes.url ?? "",
+          name: item.attributes.bannerImage.data?.attributes.name ?? '',
+          url: item.attributes.bannerImage.data?.attributes.url ?? '',
         },
         author: {
           name: item.attributes.author.data?.attributes.name,
-          avatar:
-            item.attributes.author.data?.attributes.avatar.data?.attributes
-              ?.url,
+          avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
         },
-        topic_tags:
-          item.attributes.topic_tags.data?.map(
-            (tag: any) => tag.attributes.name
-          ) ?? [],
+        topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
         category: {
           name: item.attributes.category.data?.attributes.name,
         },
       })),
-    ]);
-    setLimit(limit + 3);
-    setLoading(false);
+    ])
+    setLimit(limit + 3)
+    setLoading(false)
     if (blogData.length <= limit) {
-      success("No more Blogs available", 3);
+      success('No more Blogs available', 3)
     }
-  };
+  }
 
   return (
     <>
@@ -145,10 +123,7 @@ const BlogCardContainer = () => {
         onClose={onClose}
         visible={state.visible}
       >
-        <button
-          className="absolute -top-2 left-0 right-0 drawer-close-btn"
-          onClick={onClose}
-        >
+        <button className="absolute -top-2 left-0 right-0 drawer-close-btn" onClick={onClose}>
           <svg
             width="24"
             height="24"
@@ -186,10 +161,7 @@ const BlogCardContainer = () => {
             options={loaderData.tags}
           />
           <div className="flex flex-row justify-between gap-4 items-center">
-            <button
-              className="hue-btn-primary  hero-btn"
-              onClick={() => handleApplyFilters()}
-            >
+            <button className="hue-btn-primary  hero-btn" onClick={() => handleApplyFilters()}>
               Apply Filters
             </button>
             <button
@@ -201,7 +173,7 @@ const BlogCardContainer = () => {
           </div>
         </div>
       </CustomDrawer>
-      
+
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
         <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
@@ -222,7 +194,7 @@ const BlogCardContainer = () => {
                 value={category}
                 options={loaderData.categoriesList}
                 style={{
-                  width: "190px",
+                  width: '190px',
                 }}
               />
               <Select
@@ -234,7 +206,7 @@ const BlogCardContainer = () => {
                 value={tag}
                 options={loaderData.tags}
                 style={{
-                  width: "190px",
+                  width: '190px',
                 }}
               />
               {/* Search input */}
@@ -259,7 +231,7 @@ const BlogCardContainer = () => {
                 <input
                   value={searchValue}
                   onChange={(e) => {
-                    setSearchValue(e.target.value);
+                    setSearchValue(e.target.value)
                   }}
                   placeholder="Search"
                   className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
@@ -280,7 +252,6 @@ const BlogCardContainer = () => {
           {/* Tag select */}
         </div>
 
-        
         <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
           {/* Skeleton for loading */}
           {loading && (
@@ -298,11 +269,7 @@ const BlogCardContainer = () => {
           )}
           {!loading && (
             <>
-              <img
-                src="../assets/Ornament.png"
-                className="absolute top-4 left-4"
-                alt="ornament"
-              />
+              <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {blogData.map((blog: IBlogMedia) => (
                   <BlogCard key={blog.id} blog={blog} blogData={blogData} />
@@ -312,21 +279,17 @@ const BlogCardContainer = () => {
           )}
         </div>
 
-        <div
-          className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center"
-         
-        >
+        <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
           <button
-          className="hue-btn-blue btn uppercase font-montserrat"
-          onClick={fetchMoreData}
-          disabled={loading}
-        >
-          <span>Show More</span>
-        </button>
+            className="hue-btn-blue btn uppercase font-montserrat"
+            onClick={fetchMoreData}
+            disabled={loading}
+          >
+            <span>Show More</span>
+          </button>
         </div>
-
       </div>
     </>
-  );
-};
-export default BlogCardContainer;
+  )
+}
+export default BlogCardContainer

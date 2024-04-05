@@ -1,29 +1,29 @@
-import { strapiUrl } from "~/utils/urls";
+import { strapiUrl } from '~/utils/urls'
 export interface GraphQLResponse {
-    data?: any;
-    errors?: any[];
+  data?: any
+  errors?: any[]
+}
+export async function fetchGraphQL(query: string): Promise<GraphQLResponse> {
+  const url = `${strapiUrl}/graphql`
+  const headers = {
+    'Content-Type': 'application/json',
   }
- export async function fetchGraphQL(query: string): Promise<GraphQLResponse> {
-    const url = `${strapiUrl}/graphql`;
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    const body = JSON.stringify({
-      query,
-      variables: {},
-    });
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers,
-        body,
-      });
-      const result: GraphQLResponse = await response.json();
-      if (result.errors) {
-        console.error(JSON.stringify(result.errors));
-      }
-      return result;
-    } catch (error) {
-      console.error('GraphQL Request Error:', error);
+  const body = JSON.stringify({
+    query,
+    variables: {},
+  })
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers,
+      body,
+    })
+    const result: GraphQLResponse = await response.json()
+    if (result.errors) {
+      console.error(JSON.stringify(result.errors))
     }
+    return result
+  } catch (error) {
+    console.error('GraphQL Request Error:', error)
   }
+}

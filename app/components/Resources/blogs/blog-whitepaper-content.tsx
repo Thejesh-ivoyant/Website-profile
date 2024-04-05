@@ -1,89 +1,88 @@
-import { Form, Link, useLoaderData, useLocation, useMatch } from "@remix-run/react";
-import { Modal } from "antd";
-import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery, whitepaperQuery } from "~/graphql/queries";
-import { dateFormatTxt } from "~/utils/date-format-util";
-import { errorMessage, success } from "~/utils/notifications";
-import rehypeRaw from "rehype-raw";
-import DOMpurify from 'dompurify';
-import { emailPattern } from "~/DTO/form-schemas/patterns";
+import { Form, Link, useLoaderData, useLocation, useMatch } from '@remix-run/react'
+import { Modal } from 'antd'
+import { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { blogQuery, whitepaperQuery } from '~/graphql/queries'
+import { dateFormatTxt } from '~/utils/date-format-util'
+import { errorMessage, success } from '~/utils/notifications'
+import rehypeRaw from 'rehype-raw'
+import DOMpurify from 'dompurify'
+import { emailPattern } from '~/DTO/form-schemas/patterns'
 const Blog_WhitepaperContent = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [phoneerror, setPhoneError] = useState('');
-  const [personname, setPersonName] = useState('');
-  const [nameerror, setNameError] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [phoneerror, setPhoneError] = useState('')
+  const [personname, setPersonName] = useState('')
+  const [nameerror, setNameError] = useState('')
 
-  const [email, setEmail] =useState("");
-  const [emailerror, setEmailError] = useState('');
+  const [email, setEmail] = useState('')
+  const [emailerror, setEmailError] = useState('')
 
-  const [tagsData, setTagsData] = useState([]);
-  const location = useLocation();
-  const { blogData, whitePaperData } = location.state || [];
-  const Blogmatched = useMatch("/resources/blog/:id");
-  const isBlogRoute = Blogmatched !== null;
-  const [blogCategoryData, setBlogCategoryData] = useState([]);
-  const [blogData1, setBlogData] = useState([]);
-  const [whitePaperData1, setWhitePaperData] = useState([]);
+  const [tagsData, setTagsData] = useState([])
+  const location = useLocation()
+  const { blogData, whitePaperData } = location.state || []
+  const Blogmatched = useMatch('/resources/blog/:id')
+  const isBlogRoute = Blogmatched !== null
+  const [blogCategoryData, setBlogCategoryData] = useState([])
+  const [blogData1, setBlogData] = useState([])
+  const [whitePaperData1, setWhitePaperData] = useState([])
 
   const handleNameChange = (e: any) => {
-    const personName = e.target.value;
-    setPersonName(personName);
-    setNameError("");
-    const noNumbersPattern = /\d/;
-    const noSpecialCharsPattern = /[^\w\s]/;
-    const noConsecutiveCharsPattern = /(\w)\1{3}/;
+    const personName = e.target.value
+    setPersonName(personName)
+    setNameError('')
+    const noNumbersPattern = /\d/
+    const noSpecialCharsPattern = /[^\w\s]/
+    const noConsecutiveCharsPattern = /(\w)\1{3}/
 
     if (!personName) {
-        setNameError("Full name is required");
+      setNameError('Full name is required')
     } else if (personName.length < 3) {
-        setNameError("Name must be at least 3 characters long");
+      setNameError('Name must be at least 3 characters long')
     } else if (personName.length > 35) {
-        setNameError("Name must be less than 36 characters");
+      setNameError('Name must be less than 36 characters')
     } else if (noNumbersPattern.test(personName)) {
-        setNameError("Name cannot contain numbers");
+      setNameError('Name cannot contain numbers')
     } else if (noSpecialCharsPattern.test(personName)) {
-        setNameError("Name cannot contain special characters");
+      setNameError('Name cannot contain special characters')
     } else if (noConsecutiveCharsPattern.test(personName)) {
-        setNameError("Name cannot contain repeating consecutive characters four times");
+      setNameError('Name cannot contain repeating consecutive characters four times')
     }
-};
-const handlePhoneNumberChange = (e: any) => {
-  const phone = e.target.value;
-  setPhoneNumber(phone);
-  setPhoneError("");
-  const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
-  if (!phone) {
-      setPhoneError("Phone number is required");
-  } else if (!phoneRegex.test(phone)) {
-      setPhoneError("Invalid phone number format");
   }
-};
-const handleEmailChange = (e: any) => {
-  const emailValue = e.target.value.toLowerCase();
-  setEmail(emailValue);
-  // Reset email error
-  setEmailError("");
-  // Validate email
-  if (!emailValue.trim()) {
-    setEmailError("Email is required");
-} else if (!emailPattern.test(emailValue)) {
-    setEmailError("Invalid email address");
-}
-};
-
+  const handlePhoneNumberChange = (e: any) => {
+    const phone = e.target.value
+    setPhoneNumber(phone)
+    setPhoneError('')
+    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/
+    if (!phone) {
+      setPhoneError('Phone number is required')
+    } else if (!phoneRegex.test(phone)) {
+      setPhoneError('Invalid phone number format')
+    }
+  }
+  const handleEmailChange = (e: any) => {
+    const emailValue = e.target.value.toLowerCase()
+    setEmail(emailValue)
+    // Reset email error
+    setEmailError('')
+    // Validate email
+    if (!emailValue.trim()) {
+      setEmailError('Email is required')
+    } else if (!emailPattern.test(emailValue)) {
+      setEmailError('Invalid email address')
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       if (blogData) {
-        setBlogData(blogData);
+        setBlogData(blogData)
       } else if (whitePaperData) {
-        setWhitePaperData(whitePaperData);
+        setWhitePaperData(whitePaperData)
       } else {
         try {
           if (isBlogRoute) {
-            const blogGql = await fetchGraphQL(blogQuery);
+            const blogGql = await fetchGraphQL(blogQuery)
             setBlogData(
               blogGql.data?.blogs.data?.map((item: any) => ({
                 id: item.id,
@@ -92,26 +91,22 @@ const handleEmailChange = (e: any) => {
                 date: item.attributes.date,
                 maxReadTime: item.attributes.maxReadTime,
                 bannerImage: {
-                  name: item.attributes.bannerImage.data?.attributes.name ?? "",
-                  url: item.attributes.bannerImage.data?.attributes.url ?? "",
+                  name: item.attributes.bannerImage.data?.attributes.name ?? '',
+                  url: item.attributes.bannerImage.data?.attributes.url ?? '',
                 },
                 author: {
                   name: item.attributes.author.data?.attributes.name,
-                  avatar:
-                    item.attributes.author.data?.attributes.avatar.data
-                      ?.attributes?.url,
+                  avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
                 },
                 topic_tags:
-                  item.attributes.topic_tags.data?.map(
-                    (tag: any) => tag.attributes.name
-                  ) ?? [],
+                  item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
                 category: {
                   name: item.attributes.category.data?.attributes.name,
                 },
               }))
-            );
+            )
           } else {
-            const whitepaperGql = await fetchGraphQL(whitepaperQuery);
+            const whitepaperGql = await fetchGraphQL(whitepaperQuery)
             setWhitePaperData(
               whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
                 id: item.id,
@@ -120,74 +115,72 @@ const handleEmailChange = (e: any) => {
                 date: item.attributes.date,
                 maxReadTime: item.attributes.maxReadTime,
                 bannerImage: {
-                  name: item.attributes.bannerImage.data?.attributes.name ?? "",
-                  url: item.attributes.bannerImage.data?.attributes.url ?? "",
+                  name: item.attributes.bannerImage.data?.attributes.name ?? '',
+                  url: item.attributes.bannerImage.data?.attributes.url ?? '',
                 },
                 author: {
                   name: item.attributes.author.data?.attributes.name,
-                  avatar:
-                    item.attributes.author.data?.attributes.avatar.data
-                      ?.attributes?.url,
+                  avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
                 },
               }))
-            );
+            )
           }
         } catch (error) {
-          console.error("Error fetching data:", error);
+          console.error('Error fetching data:', error)
         }
       }
-    };
-    fetchData();
-  }, [blogData, whitePaperData]);
+    }
+    fetchData()
+  }, [blogData, whitePaperData])
   // Check the route type and use the corresponding data
-  const LatestData = isBlogRoute ? blogData1 : whitePaperData1;
+  const LatestData = isBlogRoute ? blogData1 : whitePaperData1
   console.warn(LatestData)
-  const loaderData = useLoaderData() as any;
-  const [btnLoading, setBtnLoading] = useState<boolean>(false);
+  const loaderData = useLoaderData() as any
+  const [btnLoading, setBtnLoading] = useState<boolean>(false)
 
-  const match = useMatch("/resources/whitepaper/:id");
-  const isResourcesRoute = match !== null;
+  const match = useMatch('/resources/whitepaper/:id')
+  const isResourcesRoute = match !== null
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
-      setBtnLoading(true);
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget);
-      formData.append("action", "whitepaper");
+      setBtnLoading(true)
+      event.preventDefault()
+      const formData = new FormData(event.currentTarget)
+      formData.append('action', 'whitepaper')
       const response = await fetch(
-        "https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d",
+        'https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d',
         {
-          method: "POST",
+          method: 'POST',
           body: formData,
         }
-      );
+      )
       if (response.ok) {
-        success("Thank you for showing interest in us!", 2);
-        handleDownload();
+        success('Thank you for showing interest in us!', 2)
+        handleDownload()
       } else {
-        errorMessage("Error occured, please retry", 2);
+        errorMessage('Error occured, please retry', 2)
       }
     } catch (error) {
-      console.error("An error occurred during form submission:", error);
+      console.error('An error occurred during form submission:', error)
     }
-    setBtnLoading(false);
-  };
+    setBtnLoading(false)
+  }
   const handleDownload = () => {
-    const whitepaperURL = loaderData.whitepaper;
-    setOpen(false);
-    window.open(whitepaperURL, "_blank");
-  };
-  const [open, setOpen] = useState(false);
+    const whitepaperURL = loaderData.whitepaper
+    setOpen(false)
+    window.open(whitepaperURL, '_blank')
+  }
+  const [open, setOpen] = useState(false)
   const showModal = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
   const handleCancel = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
   function findcount(name: string): number {
     const count = loaderData.BlogCategory.filter(
       (category: any) => category.category.name === name
-    ).length;
-    return count;
+    ).length
+    return count
   }
   return (
     <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
@@ -214,14 +207,16 @@ const handleEmailChange = (e: any) => {
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full text-base blog-description-container">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{DOMpurify.sanitize(loaderData?.description1 as string)}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              {DOMpurify.sanitize(loaderData?.description1 as string)}
+            </ReactMarkdown>
           </div>
           {isResourcesRoute ? (
             <button className="btn hue-btn-download mt-8" onClick={showModal}>
               Download whitepaper Now
             </button>
           ) : (
-           <></>
+            <></>
           )}
         </div>
         <div className="separator-line bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
@@ -257,14 +252,9 @@ const handleEmailChange = (e: any) => {
             </div>
           </div>
           <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 2xl:px-16 lg:px-10 px-8 pt-11 pb-5  font-montserrat">
-            <div className="text-black text-2xl font-medium leading-9">
-              Related posts
-            </div>
+            <div className="text-black text-2xl font-medium leading-9">Related posts</div>
             {LatestData?.slice(0, 3).map((item: any, index: any) => (
-              <div
-                key={index}
-                className="flex justify-between gap-3.5 mt-11 max-md:mt-10"
-              >
+              <div key={index} className="flex justify-between gap-3.5 mt-11 max-md:mt-10">
                 <div className="flex flex-col items-center">
                   <img
                     alt={`Related post ${index + 1}`}
@@ -273,7 +263,11 @@ const handleEmailChange = (e: any) => {
                   />
                 </div>
                 <div className="flex  flex-col flex-1">
-                  <Link title={item?.title} className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden hover:underline" to={`/resources/blog/${item?.id}`}>
+                  <Link
+                    title={item?.title}
+                    className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden hover:underline"
+                    to={`/resources/blog/${item?.id}`}
+                  >
                     {item?.title}
                   </Link>
                   <div className="flex justify-between gap-2 mt-4 items-start">
@@ -284,7 +278,7 @@ const handleEmailChange = (e: any) => {
                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium grow">
-                      { dateFormatTxt(item?.date as string) }
+                      {dateFormatTxt(item?.date as string)}
                     </div>
                   </div>
                 </div>
@@ -293,9 +287,7 @@ const handleEmailChange = (e: any) => {
           </div>
           {!isResourcesRoute ? (
             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 gap-5 pl-7 pr-9 py-10 max-md:px-5  font-montserrat">
-              <div className="text-black text-2xl font-medium whitespace-nowrap">
-                Categories
-              </div>
+              <div className="text-black text-2xl font-medium whitespace-nowrap">Categories</div>
               <div className="bg-zinc-300 flex shrink-0 h-px flex-col" />
               {loaderData?.categoriesList?.map((item: any, index: any) => (
                 <div className="flex items-stretch justify-between gap-5 max-md:mt-10">
@@ -317,9 +309,7 @@ const handleEmailChange = (e: any) => {
           )}
           {!isResourcesRoute ? (
             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 pt-11 pb-6 max-md:px-5  font-montserrat">
-              <div className="text-black text-2xl font-medium whitespace-nowrap">
-                Popular Tags
-              </div>
+              <div className="text-black text-2xl font-medium whitespace-nowrap">Popular Tags</div>
               <div className="bg-zinc-300 flex shrink-0 h-px flex-col mt-6" />
               <div className="items-stretch flex gap-1 mt-6">
                 {loaderData.tags.slice(0, 3).map((item: any, index: any) => (
@@ -341,74 +331,80 @@ const handleEmailChange = (e: any) => {
           )}
         </div>
       </div>
-      <Modal
-        open={open}
-        title="Download WhitePaper"
-        onCancel={handleCancel}
-      >
-   <Form className="form" onSubmit={handleSubmit}>
-    <div className="items-stretch bg-white flex  flex-col py-2">
-      <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
-        Please provide required information to view the Pitch deck
-      </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Full Name*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="text"
-        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
-        name="firstName"
-        value={personname}
-        onChange={handleNameChange}
-        required
-      />
-       {nameerror &&(
-          <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
-          )}
-        </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Email*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="email"
-        value={email}
-        style={{textTransform:"none"}}
-        onChange={handleEmailChange}
-        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
-        name="email"
-        required
-      />
-        {emailerror &&(
-          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
-          )}
-        </div>
-      <div className="text-box-form-label mt-4 max-md:max-w-full">
-        Phone Number*
-      </div>
-      <div className="relative w-full flex flex-col">
-      <input
-        type="tel"
-        className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
-        name="phoneNumber"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        required
-      />
-       {phoneerror &&(
-          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{phoneerror}</span>
-          )}
+      <Modal open={open} title="Download WhitePaper" onCancel={handleCancel}>
+        <Form className="form" onSubmit={handleSubmit}>
+          <div className="items-stretch bg-white flex  flex-col py-2">
+            <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+              Please provide required information to view the Pitch deck
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Full Name*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="text"
+                className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
+                name="firstName"
+                value={personname}
+                onChange={handleNameChange}
+                required
+              />
+              {nameerror && (
+                <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {nameerror}
+                </span>
+              )}
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Email*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="email"
+                value={email}
+                style={{ textTransform: 'none' }}
+                onChange={handleEmailChange}
+                className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
+                name="email"
+                required
+              />
+              {emailerror && (
+                <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {emailerror}
+                </span>
+              )}
+            </div>
+            <div className="text-box-form-label mt-4 max-md:max-w-full">Phone Number*</div>
+            <div className="relative w-full flex flex-col">
+              <input
+                type="tel"
+                className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
+                required
+              />
+              {phoneerror && (
+                <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                  {phoneerror}
+                </span>
+              )}
+            </div>
+            <button
+              type="submit"
+              className=" hue-btn-primary mt-6 btn w-full"
+              disabled={
+                btnLoading ||
+                personname === '' ||
+                email === '' ||
+                phoneNumber === '' ||
+                !!phoneerror ||
+                !!emailerror ||
+                !!nameerror
+              }
+            >
+              Get the Copy
+            </button>
           </div>
-      <button type="submit" className=" hue-btn-primary mt-6 btn w-full" disabled={btnLoading ||  personname==='' || email==='' || phoneNumber==='' || !!phoneerror || !!emailerror || !!nameerror }
->
-        Get the Copy
-      </button>
-    </div>
-  </Form>
-
+        </Form>
       </Modal>
     </div>
-  );
-};
-export default Blog_WhitepaperContent;
+  )
+}
+export default Blog_WhitepaperContent

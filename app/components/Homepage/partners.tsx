@@ -1,5 +1,5 @@
-import { Partners } from "~/interfaces/Homepage";
-import line from "../../../public/assets/pur-line.svg";
+import { Partners } from '~/interfaces/Homepage'
+import line from '../../../public/assets/pur-line.svg'
 const Section6 = ({ partners }: { partners: Partners | undefined }) => {
   return (
     <div className="grid lg:gap-5 md:gap-4 gap-3 section-p-y">
@@ -40,9 +40,9 @@ const Section6 = ({ partners }: { partners: Partners | undefined }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default Section6;
+  )
+}
+export default Section6
 {
   /* <div className="text-PurpBlue font-montserrat font-medium md:text-3xl sm:text-2xl lg:text-4xl text-center md:p-8 sm:p-6 p-5 lg:p-10 tracking-wider">
         <h1>Trusted Partners</h1>

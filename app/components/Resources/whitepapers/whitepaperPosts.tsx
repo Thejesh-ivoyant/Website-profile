@@ -1,16 +1,19 @@
-import IBlogMedia from "~/interfaces/IBlogMedia";
+import IBlogMedia from '~/interfaces/IBlogMedia'
 const WhitePaperPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (
     <div className="blog-card w-96 h-96 z-10 pb-2 cursor-pointer">
       <div className="w-full h-60">
         <img
-        alt="blog-image"
+          alt="blog-image"
           src={blog?.bannerImage.url}
           className="w-full h-full object-cover"
         ></img>
       </div>
       <div className="h-fit w-full text-white flex-col p-4 flex justify-between gap-y-6">
-        <div className="flex font-montserrat text-xl font-medium" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div
+          className="flex font-montserrat text-xl font-medium"
+          style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+        >
           {blog.title}
         </div>
         <div className="h-fit w-full flex flex-row justify-between mt-auto font-poppins font-light tracking-wide text-xs">
@@ -43,6 +46,6 @@ const WhitePaperPostCard = ({ blog }: { blog: IBlogMedia }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default WhitePaperPostCard;
+  )
+}
+export default WhitePaperPostCard

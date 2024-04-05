@@ -1,20 +1,19 @@
-import BlogPostCard from "./blogPosts";
-import { Link, useLoaderData, useMatch } from "@remix-run/react";
-import IBlogMedia from "../../../interfaces/IBlogMedia";
-import line from "~/../public/assets/pur-line.svg";
+import BlogPostCard from './blogPosts'
+import { Link, useLoaderData, useMatch } from '@remix-run/react'
+import IBlogMedia from '../../../interfaces/IBlogMedia'
+import line from '~/../public/assets/pur-line.svg'
 
 const BlogPostsContainer = () => {
-  const loaderData = useLoaderData() as any;
-  const match = useMatch("/resources/whitepaper/:id");
-  const isResourcesRoute = match !== null;
+  const loaderData = useLoaderData() as any
+  const match = useMatch('/resources/whitepaper/:id')
+  const isResourcesRoute = match !== null
   return (
     <div
       className="w-full bg-[#F9F8FC] section-p-y flex flex-col gap-5"
       style={{
-        backgroundImage:
-          'url("../assets/Ornament.png"), url("../assets/Ornament.png")',
-        backgroundPosition: "top 40px left 20px, bottom 40px right 20px",
-        backgroundRepeat: "no-repeat",
+        backgroundImage: 'url("../assets/Ornament.png"), url("../assets/Ornament.png")',
+        backgroundPosition: 'top 40px left 20px, bottom 40px right 20px',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <div className="text-head-grape text-4xl  w-full justify-center flex h-fit">
@@ -37,18 +36,17 @@ const BlogPostsContainer = () => {
             </Link>
           ))}
         </div>
-       
       </div>
       <div className="mx-auto w-full flex justify-center items-center">
         <Link to={`../resources/blogs`} key="explore">
-          {" "}
+          {' '}
           <button className="button-test md:mt-10 mt-8">
-            {" "}
+            {' '}
             <span className="uppercase font-montserrat">Explore</span>
           </button>
         </Link>
       </div>
     </div>
-  );
-};
-export default BlogPostsContainer;
+  )
+}
+export default BlogPostsContainer

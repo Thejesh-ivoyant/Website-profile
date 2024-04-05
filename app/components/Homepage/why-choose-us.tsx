@@ -1,15 +1,15 @@
-import { useLoaderData } from "@remix-run/react";
-import { Pair } from "~/interfaces/Homepage";
+import { useLoaderData } from '@remix-run/react'
+import { Pair } from '~/interfaces/Homepage'
 const WhyChooseUs = ({
   pairs,
   title,
   description,
 }: {
-  pairs: Pair[];
-  title: string;
-  description: string;
+  pairs: Pair[]
+  title: string
+  description: string
 }) => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3">
       <h1 className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold">
@@ -91,6 +91,6 @@ const WhyChooseUs = ({
         ))}
       </div>
     </section>
-  );
-};
-export default WhyChooseUs;
+  )
+}
+export default WhyChooseUs

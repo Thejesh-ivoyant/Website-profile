@@ -1,10 +1,10 @@
-const { ProvidePlugin } = require('webpack');
+const { ProvidePlugin } = require('webpack')
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-  ignoredRouteFiles: ["**/.*"],
+  ignoredRouteFiles: ['**/.*'],
   tailwind: true,
   // ... other configurations
-  serverModuleFormat: "cjs",
+  serverModuleFormat: 'cjs',
   serverDependenciesToBundle: [/^(?!.*(jsdom|fluent-ffmpeg)).*$/],
   styles: {
     postcss: {
@@ -21,7 +21,7 @@ module.exports = {
   chainWebpack(config) {
     config.plugin('provide-mui-icons', ProvidePlugin, [
       ['@mui/material', 'icons', '@mui/icons-material'],
-    ]);
+    ])
   },
   future: {
     // ... other future flags
@@ -32,4 +32,4 @@ module.exports = {
     v2_normalizeFormMethod: true,
     v2_routeConvention: true,
   },
-};
+}

@@ -1,82 +1,82 @@
 .ant-carousel .slick-dots li button {
-    display: block;
-    width: 1rem;
-    height: 10px;
-    padding: 0;
-    color: transparent;
-    font-size: 0;
-    background: #200A46;
-    border: 0;
-    border-radius: 0px !important;
-    outline: none;
-    cursor: pointer;
-    opacity: 0.3;
-    transition: all 0.3s;
-    transform: skew(-20deg);
-  }
-  .ant-carousel .slick-dots li.slick-active {
-    margin-right: 25px;
-  }
-  .ant-carousel .slick-dots li.slick-active button {
-    background: #200A46;
-    width: 3.125rem !important;
-    opacity: 1;
-  }
-  .ant-carousel .slick-dots-bottom {
-    position: relative;
-    top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-  } 
-  .markdown p{
-    margin-bottom: 1em;
-    font-size: 1em;
-  }
-  .mob-feature-card-layout{
-    white-space: normal;
-    display: flex;
-    width: 20rem;
-    height: 22rem;
-    padding: 1.5rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex-shrink: 0;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
-  }
-  .mob-feature-card-title{
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.875rem; /* 150% */
-    background: radial-gradient(75.24% 40.05% at 50% 49.98%, #2B15D1 0%, #6762D9 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .mob-feature-card-desc{
-    color: #000;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  .cyan-gradient-arrow {
-    background: url("/assets/vision.png");
-    background-size: 50rem;
-    aspect-ratio: 1/1;
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    object-fit: contain;
-    object-position: center;
+  display: block;
+  width: 1rem;
+  height: 10px;
+  padding: 0;
+  color: transparent;
+  font-size: 0;
+  background: #200a46;
+  border: 0;
+  border-radius: 0px !important;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s;
+  transform: skew(-20deg);
 }
-.about-title{
-  color: #1B171E;
+.ant-carousel .slick-dots li.slick-active {
+  margin-right: 25px;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  background: #200a46;
+  width: 3.125rem !important;
+  opacity: 1;
+}
+.ant-carousel .slick-dots-bottom {
+  position: relative;
+  top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.markdown p {
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+.mob-feature-card-layout {
+  white-space: normal;
+  display: flex;
+  width: 20rem;
+  height: 22rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+}
+.mob-feature-card-title {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.875rem; /* 150% */
+  background: radial-gradient(75.24% 40.05% at 50% 49.98%, #2b15d1 0%, #6762d9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mob-feature-card-desc {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.cyan-gradient-arrow {
+  background: url('/assets/vision.png');
+  background-size: 50rem;
+  aspect-ratio: 1/1;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  object-fit: contain;
+  object-position: center;
+}
+.about-title {
+  color: #1b171e;
   font-family: Montserrat;
   font-size: 2.5rem;
   font-style: normal;
@@ -85,11 +85,11 @@
   letter-spacing: 0.05rem;
 }
 @media (max-width: 630px) {
-    .cyan-gradient-arrow {
-        background-position: bottom right;
-    }
-    .about-title{
-      font-size: 2rem;
-      letter-spacing: 0.04rem;
-    }
+  .cyan-gradient-arrow {
+    background-position: bottom right;
+  }
+  .about-title {
+    font-size: 2rem;
+    letter-spacing: 0.04rem;
+  }
 }

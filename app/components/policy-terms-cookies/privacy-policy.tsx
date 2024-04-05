@@ -1,42 +1,42 @@
-import Bulletimg from "../../../public/assets/BulletPoint.svg";
-import { useLoaderData } from "@remix-run/react";
-import { scrollToSection } from "~/root";
-import { useEffect } from "react";
+import Bulletimg from '../../../public/assets/BulletPoint.svg'
+import { useLoaderData } from '@remix-run/react'
+import { scrollToSection } from '~/root'
+import { useEffect } from 'react'
 const PrivacyPolicy = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   useEffect(() => {
     const handleScroll = () => {
-      let sidebar = document.getElementById("contact-sidebar");
+      let sidebar = document.getElementById('contact-sidebar')
       let sidebarContent = document.getElementsByClassName(
-        "contact-content-wrapper"
-      )[0] as HTMLElement;
-      if (!sidebar || !sidebarContent) return;
-      let scrollTop = window.scrollY;
-      let viewportHeight = window.innerHeight;
-      let contentHeight = sidebarContent.getBoundingClientRect().height;
-      let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-      let contactMain = document.getElementById("contact-main");
-      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
+        'contact-content-wrapper'
+      )[0] as HTMLElement
+      if (!sidebar || !sidebarContent) return
+      let scrollTop = window.scrollY
+      let viewportHeight = window.innerHeight
+      let contentHeight = sidebarContent.getBoundingClientRect().height
+      let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset
+      let contactMain = document.getElementById('contact-main')
+      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0
       if (
         scrollTop >= contentHeight - viewportHeight + sidebarTop &&
         scrollTop <= contactMainheight
       ) {
         sidebarContent.style.transform = `translateY(-${
           contentHeight - viewportHeight + sidebarTop
-        }px)`;
-        sidebarContent.style.position = "fixed";
-        sidebarContent.style.width = "30%";
+        }px)`
+        sidebarContent.style.position = 'fixed'
+        sidebarContent.style.width = '30%'
       } else {
-        sidebarContent.style.transform = "";
-        sidebarContent.style.position = "";
-        sidebarContent.style.width = "";
+        sidebarContent.style.transform = ''
+        sidebarContent.style.position = ''
+        sidebarContent.style.width = ''
       }
-    };
-    window.addEventListener("scroll", handleScroll);
+    }
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   return (
     <>
       <div className="items-stretch flex flex-col">
@@ -45,11 +45,10 @@ const PrivacyPolicy = () => {
             <div className="text-violet-950  text-4xl font-semibold max-w-[530px] max-md:max-w-full text-center">
               {loaderData.s2_Title}
             </div>
-            <div className="self-stretch gradient-bottom flex justify-between gap-0 mt-4 py-3 items-start max-md:max-w-full max-md:flex-wrap">
-            </div>
+            <div className="self-stretch gradient-bottom flex justify-between gap-0 mt-4 py-3 items-start max-md:max-w-full max-md:flex-wrap"></div>
             <div className="text-neutral-800 text-center text-base leading-7 max-w-[971px] mt-4 max-md:max-w-full">
               {loaderData.s2_Description}
-            </div>{" "}
+            </div>{' '}
           </div>
         </div>
       </div>
@@ -58,183 +57,224 @@ const PrivacyPolicy = () => {
         <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
           {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
           <div className="contact-content-wrapper">
-            <div  onClick={() => scrollToSection("Committed-to-protect")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
+            <div
+              onClick={() => scrollToSection('Committed-to-protect')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   alt="bulleticon"
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Committed to protect
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Collection-of-user-infromation")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Collection-of-user-infromation')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Collection of user information
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("User-information-handeling")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('User-information-handeling')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   User information handeling
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Access-and-use-of-websites")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Access-and-use-of-websites')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Access and use of websites
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Solution-and-product-offering")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Solution-and-product-offering')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Solution and product offering
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("User-Employee-contacts")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('User-Employee-contacts')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />
-                {" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   User Employee contacts
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Visitor-information")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Visitor-information')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Visitor information
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Marketing")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Marketing')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Marketing
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Sharing-of-personal-information")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Sharing-of-personal-information')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Sharing of personal information
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Information-security-and-accuracy")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Information-security-and-accuracy')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Information security and accuracy
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Retention-period")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Retention-period')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Retention period
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("How-to-contact-us")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('How-to-contact-us')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   How to contact us
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Your-rights")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Your-rights')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Your rights
                 </div>
               </div>
-            </div>{" "}
-            <div onClick={() => scrollToSection("Changes-to-our-Privacy-Statements")} className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+            </div>{' '}
+            <div
+              onClick={() => scrollToSection('Changes-to-our-Privacy-Statements')}
+              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+            >
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                />{" "}
+                />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Changes to our Privacy Statements
                 </div>
@@ -248,12 +288,15 @@ const PrivacyPolicy = () => {
         >
           {/* main content goes here */}
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
-            <div id="Committed-to-protect" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider max-md:max-w-full">
+            <div
+              id="Committed-to-protect"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider max-md:max-w-full"
+            >
               iVoyant is committed to protect the information you provide us
-            </div>{" "}
+            </div>{' '}
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.committed_to_protect_title}
-            </div>{" "}
+            </div>{' '}
             {loaderData.CTP_Points.map((item: any) => (
               <div className="items-center flex justify-between gap-2 mr-4 mt-4 max-md:max-w-full  max-md:mr-2.5">
                 <img
@@ -261,8 +304,7 @@ const PrivacyPolicy = () => {
                   src={Bulletimg}
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-4 fill-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] overflow-hidden shrink-0 max-w-full my-auto"
-                />
-                {" "}
+                />{' '}
                 <div className="text-neutral-800 text-base leading-7 self-stretch grow flex-wrap max-md:max-w-full">
                   {item.description}
                 </div>
@@ -272,7 +314,7 @@ const PrivacyPolicy = () => {
               <div>
                 <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
-                </div>{" "}
+                </div>{' '}
                 <div className="text-violet-950 text-base leading-7 mt-3 max-md:max-w-full">
                   <span className="text-neutral-800">{item.description}</span>
                   {/* <a
@@ -286,25 +328,31 @@ const PrivacyPolicy = () => {
                 </div>
               </div>
             ))}
-            <div id="Collection-of-user-infromation" className="text-violet-950 text-3xl font-semibold leading-[50px] tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="Collection-of-user-infromation"
+              className="text-violet-950 text-3xl font-semibold leading-[50px] tracking-wider mt-8 max-md:max-w-full"
+            >
               How we collect information
             </div>
             {loaderData.collection_of_info.map((item: any) => (
               <div>
                 <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
-                </div>{" "}
+                </div>{' '}
                 <div className="text-neutral-800 text-base leading-7 mt-2 max-md:max-w-full">
                   {item.description}
-                </div>{" "}
+                </div>{' '}
               </div>
             ))}
-            <div id="User-information-handeling" className="text-violet-950 text-3xl font-semibold leading-[50px] tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="User-information-handeling"
+              className="text-violet-950 text-3xl font-semibold leading-[50px] tracking-wider mt-8 max-md:max-w-full"
+            >
               How iVoyant handles information
             </div>
             {loaderData.user_info_handling.map((item: any) => (
               <div>
-                {" "}
+                {' '}
                 <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
                 </div>
@@ -313,69 +361,101 @@ const PrivacyPolicy = () => {
                 </div>
               </div>
             ))}
-            <div id="Access-and-use-of-websites" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="Access-and-use-of-websites"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
               Access and use of websites
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.access_and_use}
             </div>
-            <div id="Solution-and-product-offering" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-              Responding to your request for information for a solution or
-              product offering of iVoyant
+            <div
+              id="Solution-and-product-offering"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
+              Responding to your request for information for a solution or product offering of
+              iVoyant
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.solutions}
             </div>
-            <div id="User-Employee-contacts" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-              Contacting employees of our clients, prospects, partners and
-              suppliers
+            <div
+              id="User-Employee-contacts"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
+              Contacting employees of our clients, prospects, partners and suppliers
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.contacts}
             </div>
-            <div id="Visitor-information" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
+            <div
+              id="Visitor-information"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
+            >
               Visitor information
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.visitor}
             </div>
-            <div id="Marketing" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
+            <div
+              id="Marketing"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
+            >
               Marketing
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.marketing}
             </div>
-            <div id="Sharing-of-personal-information" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="Sharing-of-personal-information"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
               Sharing of Personal Information
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.share_personal_info}
             </div>
-            <div id="Information-security-and-accuracy" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="Information-security-and-accuracy"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
               Information Security and Accuracy
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.info_and_security}
             </div>
-            <div id="Retention-period" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
+            <div
+              id="Retention-period"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
+            >
               Retention Period
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.retention}
             </div>
-            <div id="How-to-contact-us" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
+            <div
+              id="How-to-contact-us"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
+            >
               How to contact us
             </div>
             <div className="text-violet-950 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.contact_us}
             </div>
-            <div id="Your-rights" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
+            <div
+              id="Your-rights"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
+            >
               Your Rights
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.rights}
             </div>
-            <div id="Changes-to-our-Privacy-Statements" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
+            <div
+              id="Changes-to-our-Privacy-Statements"
+              className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
+            >
               Changes to our Privacy Statements
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
@@ -385,6 +465,6 @@ const PrivacyPolicy = () => {
         </div>
       </div>
     </>
-  );
-};
-export default PrivacyPolicy;
+  )
+}
+export default PrivacyPolicy

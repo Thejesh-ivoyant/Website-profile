@@ -4,14 +4,11 @@ const Section6 = ({ data }: { data: any }) => {
       <div className="flex flex-col w-full max-h-fit lg:flex-row CardDark">
         <div className="flex lg:w-1/2 flex-1 bg-white flex-wrap w-full text-black font-medium justify-center items-center p-4">
           <div className="flex flex-col gap-7 w-[34rem]  h-fit">
-          <div className="flex bg-black font-montserrat italic px-1 h-fit w-fit text-white md:text-base text-sm">{data?.section6MiniTitle}</div>
-          <div className="about-title">
-              {data?.section_6_title}
-          </div>
-            <div
-              className="text-md font-poppins font-light lg:leading-[1.75rem] "
-              id="about-desc"
-            >
+            <div className="flex bg-black font-montserrat italic px-1 h-fit w-fit text-white md:text-base text-sm">
+              {data?.section6MiniTitle}
+            </div>
+            <div className="about-title">{data?.section_6_title}</div>
+            <div className="text-md font-poppins font-light lg:leading-[1.75rem] " id="about-desc">
               {data?.section_6_description}
             </div>
           </div>
@@ -63,6 +60,6 @@ const Section6 = ({ data }: { data: any }) => {
         </div>
       </div>
     </>
-  );
-};
-export default Section6;
+  )
+}
+export default Section6

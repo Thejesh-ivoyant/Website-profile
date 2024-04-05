@@ -1,31 +1,30 @@
-import { Link } from "@remix-run/react";
-import { useState } from "react";
-import { IndustriesTab } from "~/interfaces/Homepage";
+import { Link } from '@remix-run/react'
+import { useState } from 'react'
+import { IndustriesTab } from '~/interfaces/Homepage'
 const Services = ({
   industries,
   title,
   description,
 }: {
-  industries: IndustriesTab[];
-  title: string;
-  description: string;
+  industries: IndustriesTab[]
+  title: string
+  description: string
 }) => {
-  if (industries == null) return;
-  const [activeButton, setActiveButton] = useState(industries[0]);
+  if (industries == null) return
+  const [activeButton, setActiveButton] = useState(industries[0])
   const handleNext = () => {
-    const currentIndex = industries.indexOf(activeButton);
-    const nextIndex = (currentIndex + 1) % industries.length;
-    setActiveButton(industries[nextIndex]);
-  };
+    const currentIndex = industries.indexOf(activeButton)
+    const nextIndex = (currentIndex + 1) % industries.length
+    setActiveButton(industries[nextIndex])
+  }
   const handlePrevious = () => {
-    const currentIndex = industries.indexOf(activeButton);
-    const previousIndex =
-      currentIndex === 0 ? industries.length - 1 : currentIndex - 1;
-    setActiveButton(industries[previousIndex]);
-  };
+    const currentIndex = industries.indexOf(activeButton)
+    const previousIndex = currentIndex === 0 ? industries.length - 1 : currentIndex - 1
+    setActiveButton(industries[previousIndex])
+  }
   const handleButtonClick = (item: IndustriesTab) => {
-    setActiveButton(item);
-  };
+    setActiveButton(item)
+  }
   return (
     <div className="h-fit bg-haiti md:px-20 section-p-y grid gap-3">
       <div className="text-HeaderGray flex flex-col gap-3 px-4">
@@ -40,7 +39,7 @@ const Services = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {" "}
+          {' '}
           <rect
             x="60.5"
             y="12.25"
@@ -48,7 +47,7 @@ const Services = ({
             height="579.5"
             transform="rotate(-90 60.5 12.25)"
             fill="url(#paint0_linear_2670_97811)"
-          />{" "}
+          />{' '}
           <rect
             x="1219.5"
             y="11.75"
@@ -56,7 +55,7 @@ const Services = ({
             height="579.5"
             transform="rotate(90 1219.5 11.75)"
             fill="url(#paint1_linear_2670_97811)"
-          />{" "}
+          />{' '}
           <defs>
             <linearGradient
               id="paint0_linear_2670_97811"
@@ -66,9 +65,9 @@ const Services = ({
               y2="1.88636"
               gradientUnits="userSpaceOnUse"
             >
-              {" "}
+              {' '}
               <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />{" "}
+              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />{' '}
             </linearGradient>
             <linearGradient
               id="paint1_linear_2670_97811"
@@ -78,9 +77,9 @@ const Services = ({
               y2="1.38636"
               gradientUnits="userSpaceOnUse"
             >
-              {" "}
+              {' '}
               <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />{" "}
+              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />{' '}
             </linearGradient>
           </defs>
         </svg>
@@ -171,7 +170,7 @@ const Services = ({
           {industries?.map((item: IndustriesTab) => (
             <button
               key={item.id}
-              className={`focus:outline-none flex w-fit text-white font-montserrat text-center text-base h-12 font-normal px-[1.4rem] leading-10 ${activeButton.id === item.id ? "industry-container-bg" : "bg-haiti"}`}
+              className={`focus:outline-none flex w-fit text-white font-montserrat text-center text-base h-12 font-normal px-[1.4rem] leading-10 ${activeButton.id === item.id ? 'industry-container-bg' : 'bg-haiti'}`}
               onClick={() => handleButtonClick(item)}
             >
               {item.title}
@@ -191,9 +190,7 @@ const Services = ({
                 to={activeButton?.link}
                 className="flex flex-row justify-end ml-auto items-center gap-4"
               >
-                <span className="text-HeaderGray text-lg flex">
-                  Learn more.
-                </span>
+                <span className="text-HeaderGray text-lg flex">Learn more.</span>
                 <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
                   <svg
                     width="24"
@@ -221,6 +218,6 @@ const Services = ({
         </div>
       </div>
     </div>
-  );
-};
-export default Services;
+  )
+}
+export default Services

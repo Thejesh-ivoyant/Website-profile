@@ -17,6 +17,6 @@ const ServiceCard = ({ service }: { service: any }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default ServiceCard;
+  )
+}
+export default ServiceCard

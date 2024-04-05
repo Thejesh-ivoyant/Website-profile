@@ -1,27 +1,24 @@
-import { useLoaderData, useLocation } from "@remix-run/react";
-import { useEffect, useState } from "react";
+import { useLoaderData, useLocation } from '@remix-run/react'
+import { useEffect, useState } from 'react'
 const Section4 = () => {
   const location = useLocation()
-  const loaderData = useLoaderData() as any;
-  const [openServices, setOpenServices] = useState<number[]>([]);
-  const [toggleState, setToggleState] = useState(1);
-  const [currState, setCurrState] = useState<number>(-1);
-  useEffect(()=>{
+  const loaderData = useLoaderData() as any
+  const [openServices, setOpenServices] = useState<number[]>([])
+  const [toggleState, setToggleState] = useState(1)
+  const [currState, setCurrState] = useState<number>(-1)
+  useEffect(() => {
     setCurrState(-1)
-  },[location])
+  }, [location])
   const toggleExpansion = (clickedId: number) => {
-    setCurrState((prevState) => (prevState === clickedId ? -1 : clickedId));
-  };
+    setCurrState((prevState) => (prevState === clickedId ? -1 : clickedId))
+  }
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.section4Image}) lightgray 50% / cover no-repeat`,
-    backgroundPosition: "100% 50%",
-  };
+    backgroundPosition: '100% 50%',
+  }
   return (
     <section className="relative flex justify-center flex-col lg:flex-row lg:h-[600px] w-full">
-      <div
-        className="flex flex-1 flex-col h-full min-h-[16rem]"
-        style={gradientStyle}
-      >
+      <div className="flex flex-1 flex-col h-full min-h-[16rem]" style={gradientStyle}>
         <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading text-center section-p-y px-4">
           {loaderData.section4Title}
         </h2>
@@ -31,7 +28,7 @@ const Section4 = () => {
           {loaderData.servicesList?.map((service: any) => (
             <div
               key={service.id}
-              className={`flex flex-col items-center gap-1 w-full p-4 ${(service.id===currState)? 'bg-white':'bg-[#F9F8FC]'}` }
+              className={`flex flex-col items-center gap-1 w-full p-4 ${service.id === currState ? 'bg-white' : 'bg-[#F9F8FC]'}`}
             >
               <div
                 onClick={() => toggleExpansion(service.id)}
@@ -51,7 +48,7 @@ const Section4 = () => {
                 />
               </div>
               <div
-                className={`service-description ${service.id === currState ? "open" : ""} font-poppins px-4`}
+                className={`service-description ${service.id === currState ? 'open' : ''} font-poppins px-4`}
               >
                 <p>{service.description}</p>
               </div>
@@ -60,6 +57,6 @@ const Section4 = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default Section4;
+  )
+}
+export default Section4

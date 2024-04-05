@@ -1,9 +1,9 @@
-import { useLoaderData } from "@remix-run/react";
-import { Carousel } from "antd";
-import { CarouselItem } from "~/interfaces/ServicesType";
+import { useLoaderData } from '@remix-run/react'
+import { Carousel } from 'antd'
+import { CarouselItem } from '~/interfaces/ServicesType'
 const IndustryFocus = () => {
-  const loaderData = useLoaderData() as any;
-  const carouselContent = loaderData.IndustryFocus as CarouselItem[];
+  const loaderData = useLoaderData() as any
+  const carouselContent = loaderData.IndustryFocus as CarouselItem[]
   return (
     <div className="section-p-y px-4">
       <div className="carousel-ornament"></div>
@@ -48,9 +48,7 @@ const IndustryFocus = () => {
                 <p className="flex w-fit p-1 font-montserrat bg-haiti italic text-sm font-medium text-white flex-wrap">
                   {item.s4_industryFocusSubTitle}
                 </p>
-                <p className="description">
-                  {item?.s4_industryFocusDescription}
-                </p>
+                <p className="description">{item?.s4_industryFocusDescription}</p>
               </div>
               <div className="carousel-box-right-item  flex items-center justify-center  h-full">
                 <img
@@ -64,6 +62,6 @@ const IndustryFocus = () => {
         ))}
       </Carousel>
     </div>
-  );
-};
-export default IndustryFocus;
+  )
+}
+export default IndustryFocus

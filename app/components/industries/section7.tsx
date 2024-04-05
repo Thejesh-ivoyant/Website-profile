@@ -1,9 +1,9 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from '@remix-run/react'
 const Section7 = () => {
-  const loaderData = useLoaderData() as any;
+  const loaderData = useLoaderData() as any
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
-      <h1 className="section-title " style={{ color: "var(--HeadingGray, #E9E9EC)" }}>
+      <h1 className="section-title " style={{ color: 'var(--HeadingGray, #E9E9EC)' }}>
         {loaderData?.section7Title}
       </h1>
       <svg
@@ -57,31 +57,31 @@ const Section7 = () => {
         {loaderData.section7Desc}
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
-  {loaderData.section7Pairs?.map((pair: any) => (
-    <div
-      key={pair.id}
-      className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] cursor-pointer"
-    >
-      <img
-        src={pair.picUrl}
-        alt={pair.name}
-        className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
-      />
-      <img
-        src={pair.picUrl}
-        alt={pair.name}
-        className="mb-2 p-2 aspect-square group-hover:hidden"
-      ></img>
-      <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
-        {pair.text}
-      </p>
-      <p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
-      {pair.description}
-      </p>
-    </div>
-  ))}
-</div>
+        {loaderData.section7Pairs?.map((pair: any) => (
+          <div
+            key={pair.id}
+            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] cursor-pointer"
+          >
+            <img
+              src={pair.picUrl}
+              alt={pair.name}
+              className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
+            />
+            <img
+              src={pair.picUrl}
+              alt={pair.name}
+              className="mb-2 p-2 aspect-square group-hover:hidden"
+            ></img>
+            <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
+              {pair.text}
+            </p>
+            <p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+              {pair.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
-  );
-};
-export default Section7;
+  )
+}
+export default Section7

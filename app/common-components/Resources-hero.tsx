@@ -1,21 +1,18 @@
-import { Link } from "@remix-run/react";
+import { Link } from '@remix-run/react'
 const Hero = ({
   heroBgImageUrl,
   heroTitle,
   heroDescription,
 }: {
-  heroBgImageUrl: string;
-  heroTitle: string;
-  heroDescription: string;
+  heroBgImageUrl: string
+  heroTitle: string
+  heroDescription: string
 }) => {
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${heroBgImageUrl}) lightgray 50% / cover no-repeat`,
-  };
+  }
   return (
-    <section
-      className="screen-height hero-container-section"
-      style={gradientStyle}
-    >
+    <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
         <h1 className="hero-title ">{heroTitle}</h1>
         <svg
@@ -70,7 +67,6 @@ const Hero = ({
         </div>
       </div>
     </section>
-    
-  );
-};
-export default Hero;
+  )
+}
+export default Hero
