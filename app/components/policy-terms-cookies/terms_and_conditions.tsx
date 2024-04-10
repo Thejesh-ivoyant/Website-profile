@@ -45,7 +45,7 @@ const Terms = () => {
           <div className="contact-content-wrapper">
             <div
               onClick={() => scrollToSection('Overview')}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center  max-md:max-w-full relative highlight`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img

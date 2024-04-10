@@ -353,21 +353,31 @@
   }
 }
 .aside{
+padding: 1rem 0;
   width: 100%;
   max-width: 25rem;
   position: sticky;
   font-family: poppins;
   top: 4rem;
+  /* height: fit-content; */
   max-height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scrollbar-width: auto !important;
   -ms-overflow-style: auto !important;
 }
-
+.aside  img{
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .aside::-webkit-scrollbar {
-  width: auto !important;
+  display: block;
+  width: 0.5rem !important;
   height: auto !important;
+}
+.aside::-webkit-scrollbar-thumb {
+  background: rgb(164, 163, 163);
+  border-radius: 15pt;
 }
 .aside > ul>li{
   scroll-snap-align: start;
