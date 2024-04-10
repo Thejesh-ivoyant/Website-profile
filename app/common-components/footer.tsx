@@ -32,7 +32,6 @@ const Footer = () => {
     setClicked(index)
   }
   const showModal = (url: any) => {
-    debugger
     setDownload(url)
     setOpen(true)
   }
@@ -301,6 +300,7 @@ const Footer = () => {
                       </Link>
                     ) : item.attachment?.data?.attributes?.url ? (
                       <button
+                      type='button'
                         onClick={() => {
                           showModal(item.attachment?.data?.attributes?.url)
                         }}

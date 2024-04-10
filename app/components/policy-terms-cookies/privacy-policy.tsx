@@ -268,7 +268,7 @@ const PrivacyPolicy = () => {
               onClick={() => scrollToSection('Changes-to-our-Privacy-Statements')}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-            <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
                 <img
                   loading="lazy"
                   src={Bulletimg}
