@@ -39,16 +39,15 @@ const Terms = () => {
   }, [])
   return (
     <>
-      {' '}
       <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
-        <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
+        <div className="aside">
           {/* side nav content goes here*/}
           <div className="contact-content-wrapper">
             <div
               onClick={() => scrollToSection('Overview')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -59,12 +58,12 @@ const Terms = () => {
                   Overview
                 </div>
               </div>
-            </div>{' '}
+            </div>
             <div
               onClick={() => scrollToSection('Generic-Terms-of-Use')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -78,9 +77,9 @@ const Terms = () => {
             </div>{' '}
             <div
               onClick={() => scrollToSection('Disclaimer')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -94,14 +93,14 @@ const Terms = () => {
             </div>{' '}
             <div
               onClick={() => scrollToSection('Client-and-Partner-Confidentiality')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
-                  className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
+                  className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full my-auto"
                 />{' '}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Client and Partner Confidentiality{' '}
@@ -110,9 +109,9 @@ const Terms = () => {
             </div>{' '}
             <div
               onClick={() => scrollToSection('Business-Relationships')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -126,9 +125,9 @@ const Terms = () => {
             </div>{' '}
             <div
               onClick={() => scrollToSection('Disclaimer-of-Warranty')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -142,9 +141,9 @@ const Terms = () => {
             </div>{' '}
             <div
               onClick={() => scrollToSection('Limitation-of-Liability')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight`}
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 hover:bg-gray-100">
+              <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
                   loading="lazy"
                   src={Bulletimg}
