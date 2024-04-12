@@ -460,7 +460,7 @@ const ContactUs = () => {
               <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
                 Connect with us
               </p>
-              <img src={line} className="w-full sm:col-span-2"></img>
+              <img src={line} alt="ornament" className="w-full sm:col-span-2"></img>
               {toggleState === 1 && (
                 <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                   <div className="flex text-iv-purple items-left gap-2">

@@ -27,7 +27,7 @@ const BlogPostsContainer = () => {
           </span>
         )}
       </div>
-      <img className="mx-auto" src={line} />
+      <img className="mx-auto" alt="ornament" src={line} />
       <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
           {loaderData.blogData.map((blog: IBlogMedia) => (

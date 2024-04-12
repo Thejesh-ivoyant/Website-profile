@@ -6,7 +6,7 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
       <div className="text-PurpBlue font-montserrat font-medium xl:text-3xl lg:text-2xl sm:text-xl text-lg text-center tracking-wider">
         <h1>Satisfied clients</h1>
       </div>
-      <img className="mx-auto w-96" src={line} />
+      <img className="mx-auto w-96" alt="ornament" src={line} />
       <div className="logos">
         <div className="logos-slide whitespace-nowrap">
           {clients?.data.map((logo, index: number) => (
