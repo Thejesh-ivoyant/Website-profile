@@ -182,10 +182,11 @@
   .ant-carousel .slick-dots-bottom {
     margin-left: auto;
     margin-right: auto;
+    max-width: fit-content;
     position: relative;
     /* margin-top: -15.625rem; */
     width: 100%;
-    transform: translateY(-15.625rem) translateX(1rem);
+    transform: translateY(-14.625rem) translateX(1rem);
     display: flex;
     flex-wrap: wrap;
   }
