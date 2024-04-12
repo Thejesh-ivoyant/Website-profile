@@ -2,13 +2,13 @@ import { useLoaderData } from '@remix-run/react'
 const Why_Join_Us = () => {
   const loaderData = useLoaderData() as any
   return (
-    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white section-p-y gap-4">
+    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3">
       <h1 className="section-heading " style={{ color: 'var(--HeadingGray, #E9E9EC)' }}>
         {loaderData.s2_title}
       </h1>
       <svg
         width="100%"
-        height="25"
+        height="4"
         viewBox="0 0 1257 25"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +53,10 @@ const Why_Join_Us = () => {
           </linearGradient>
         </defs>
       </svg>
-      <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
+      <p className="md:text-center md:w-3/4  leading-6 lg:text-base text-sm tracking-wider font-poppins">
         {loaderData.s2_description}
       </p>
-      <div className="grid w-full md:grid-cols-2 justify-center lg:grid-cols-3 gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      <div className="grid w-full  xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
         {loaderData.JoinUsCard.map((item: any, index: any) => (
           <div
             key={item.id}
@@ -65,17 +65,17 @@ const Why_Join_Us = () => {
             <img
               src={item.bgImage}
               alt={item.title}
-              className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
+              className="hidden p-2 w-10 h-10 aspect-square absolute top-0 left-0 transition-opacity lg:group-hover:block"
             />
             <img
               src={item.bgImage}
               alt={item.title}
-              className="mb-2 p-2 aspect-square group-hover:hidden"
+              className="mb-2 p-2 sm:h-16 h-14 aspect-square lg:group-hover:hidden"
             ></img>
-            <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
+            <p className="text-center lg:leading-8 text-[FFFFFFD9] font-poppins w-4/5 lg:group-hover:hidden md:text-base text-sm">
               {item.title}
             </p>
-            <p className="relative pt-4 px-4 leading-5 text-left text-[FFFFFFD9] font-light font-poppins  hidden group-hover:block">
+            <p className="relative pt-4 px-4 text-xs leading-5 md:text-base font-light lg:text-base text-left text-[FFFFFFD9] font-poppins  hidden lg:group-hover:block">
               {item.description}
             </p>
           </div>
