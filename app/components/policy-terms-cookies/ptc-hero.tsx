@@ -26,7 +26,7 @@ const PTCHero = () => {
         </div>
       </div>
       {/* Mobile */}
-      <section className=" md:hidden flex py-12 px-10 mt-20 flex-row ">
+      <section className=" md:hidden flex py-12 px-10 mt-16 flex-row ">
         <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
           <h1 className="font-montserrat text-4xl font-bold text-haiti italic leading-10">
             {loaderData?.heroTitle}
