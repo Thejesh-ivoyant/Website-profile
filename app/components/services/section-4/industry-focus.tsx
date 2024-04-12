@@ -33,9 +33,9 @@ const IndustryFocus = () => {
             y2="-10.3912"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#2E51E4" stop-opacity="0" />
-            <stop offset="0.471961" stop-color="#1D3493" />
-            <stop offset="1" stop-color="#2F54EB" stop-opacity="0" />
+            <stop stopColor="#2E51E4" stopOpacity="0" />
+            <stop offset="0.471961" stopColor="#1D3493" />
+            <stop offset="1" stopColor="#2F54EB" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>

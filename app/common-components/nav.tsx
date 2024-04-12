@@ -433,8 +433,8 @@ const Nav = () => {
                     y2="7.28271"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset="0.00621719" stop-color="#B9C1EC" />
-                    <stop offset="1" stop-color="#A3B1FF" />
+                    <stop offset="0.00621719" stopColor="#B9C1EC" />
+                    <stop offset="1" stopColor="#A3B1FF" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -529,7 +529,7 @@ const Nav = () => {
             </div>
             <div className="h-full w-fit text-white sm:ml-10 ml-6 overflow-y-scroll transition-opacity mr-auto">
               {categories.map((category, index) => (
-                <div className="gap-8 grid">
+                <div key={index} className="gap-8 grid">
                   {navdata.navGraphql?.data?.navbar?.data?.attributes?.[category].map(
                     (item: any, linkindex: number) =>
                       item?.name !== undefined &&

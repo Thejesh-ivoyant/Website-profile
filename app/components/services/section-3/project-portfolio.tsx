@@ -41,8 +41,8 @@ const ProjectPortfolio = () => {
                 y2="-2.68256"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#CDBCFF" />
-                <stop offset="1" stop-color="#8B2BB8" stop-opacity="0" />
+                <stop stopColor="#CDBCFF" />
+                <stop offset="1" stopColor="#8B2BB8" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_3845_49658"
@@ -52,8 +52,8 @@ const ProjectPortfolio = () => {
                 y2="297.317"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#CDBCFF" />
-                <stop offset="1" stop-color="#8B2BB8" stop-opacity="0" />
+                <stop stopColor="#CDBCFF" />
+                <stop offset="1" stopColor="#8B2BB8" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
@@ -94,8 +94,8 @@ const ProjectPortfolio = () => {
                 y2="-2.68256"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#CDBCFF" />
-                <stop offset="1" stop-color="#8B2BB8" stop-opacity="0" />
+                <stop stopColor="#CDBCFF" />
+                <stop offset="1" stopColor="#8B2BB8" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_3845_49658"
@@ -105,8 +105,8 @@ const ProjectPortfolio = () => {
                 y2="297.317"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#CDBCFF" />
-                <stop offset="1" stop-color="#8B2BB8" stop-opacity="0" />
+                <stop stopColor="#CDBCFF" />
+                <stop offset="1" stopColor="#8B2BB8" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>

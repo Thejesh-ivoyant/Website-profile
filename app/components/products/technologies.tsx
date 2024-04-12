@@ -38,8 +38,8 @@ export const Technologies = ({ title, pairs }: { title: string; pairs: Technolog
               y2="13.2481"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0.00621719" stop-color="#B9C1EC" />
-              <stop offset="1" stop-color="#A3B1FF" />
+              <stop offset="0.00621719" stopColor="#B9C1EC" />
+              <stop offset="1" stopColor="#A3B1FF" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_3851_70127"
@@ -49,8 +49,8 @@ export const Technologies = ({ title, pairs }: { title: string; pairs: Technolog
               y2="12.7481"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0.00621719" stop-color="#B9C1EC" />
-              <stop offset="1" stop-color="#A3B1FF" />
+              <stop offset="0.00621719" stopColor="#B9C1EC" />
+              <stop offset="1" stopColor="#A3B1FF" />
             </linearGradient>
           </defs>
         </svg>

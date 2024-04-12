@@ -8,7 +8,6 @@ const LoadingTest = () => {
   if (!isRoutingToAnotherPage) {
     return null
   }
-  console.log(navigation.state)
   return (
     <div
       className={`w-full h-full fixed z-[999] flex items-center justify-center bg-black ${isRoutingToAnotherPage ? '' : 'hidden'}`}

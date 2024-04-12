@@ -45,8 +45,8 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
               y2="1.76974"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#AEBEFF" />
-              <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+              <stop stopColor="#AEBEFF" />
+              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_7656_55083"
@@ -56,8 +56,8 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
               y2="0.769742"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#AEBEFF" />
-              <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+              <stop stopColor="#AEBEFF" />
+              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>

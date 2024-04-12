@@ -77,8 +77,8 @@ const Testimonials = () => {
             gradientUnits="userSpaceOnUse"
           >
             {' '}
-            <stop stop-color="#AEBEFF"></stop>
-            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0"></stop>{' '}
+            <stop stopColor="#AEBEFF"></stop>
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0"></stop>{' '}
           </linearGradient>
           <linearGradient
             id="paint1_linear_2670_97811"
@@ -89,8 +89,8 @@ const Testimonials = () => {
             gradientUnits="userSpaceOnUse"
           >
             {' '}
-            <stop stop-color="#AEBEFF"></stop>
-            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0"></stop>{' '}
+            <stop stopColor="#AEBEFF"></stop>
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0"></stop>{' '}
           </linearGradient>
         </defs>
       </svg>
