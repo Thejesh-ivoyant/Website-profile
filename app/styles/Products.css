@@ -180,9 +180,11 @@
 }
 @media (min-width: 0px) and (max-width: 47.938rem) {
   .ant-carousel .slick-dots-bottom {
-    margin-left: -40%;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     /* margin-top: -15.625rem; */
+    width: 100%;
     transform: translateY(-15.625rem) translateX(1rem);
     display: flex;
     flex-wrap: wrap;

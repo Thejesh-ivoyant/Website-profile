@@ -1586,6 +1586,7 @@ body.scrolled #scrollToTopBtn {
 .button-test {
   width: fit-content;
   position: relative;
+  background: white;
   height: 2.5rem;
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
@@ -2302,6 +2303,7 @@ body.scrolled #scrollToTopBtn {
 .section-heading h2 {
   color: var(--heading-gray, #e9e9ec);
   font-family: Montserrat;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0.05rem;
@@ -3355,7 +3357,7 @@ hr {
 
 .screen-height {
   min-height: 32rem;
-  height: calc(100vh - 3.5rem);
+  height: calc(100dvh - 4rem);
   margin-top: 3.5rem;
 }
 
