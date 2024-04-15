@@ -31,7 +31,7 @@ const BlogPostsContainer = () => {
       <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
           {loaderData.blogData.map((blog: IBlogMedia) => (
-            <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
+            <Link to={ (isResourcesRoute)? `../resources/whitepaper/${blog.id}`:`../resources/blog/${blog.id}`} key={blog.id}>
               <BlogPostCard key={blog.id} blog={blog} />
             </Link>
           ))}
