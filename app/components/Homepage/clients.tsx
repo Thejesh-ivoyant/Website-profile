@@ -3,7 +3,7 @@ import line from '../../../public/assets/pur-line.svg'
 const Section4 = ({ clients }: { clients: Clients | undefined }) => {
   return (
     <div className="grid lg:gap-5 md:gap-4 gap-3 section-p-y">
-      <div className="text-PurpBlue font-montserrat font-medium xl:text-3xl lg:text-2xl sm:text-xl text-lg text-center tracking-wider">
+      <div className="text-PurpBlue font-montserrat font-medium xl:text-3xl lg:text-2xl text-xl text-center tracking-wider">
         <h1>Satisfied clients</h1>
       </div>
       <img className="mx-auto w-96" alt="ornament" src={line} />

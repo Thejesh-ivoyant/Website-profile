@@ -36,7 +36,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
           {attributes.servicesTitle}
         </h1>
       </div>
-      <div className="text-center text-violet-200 text-base md:text-base font-normal font-poppins p-4 lg:mx-40">
+      <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
