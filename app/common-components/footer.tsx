@@ -300,6 +300,7 @@ const Footer = () => {
                       </Link>
                     ) : item.attachment?.data?.attributes?.url ? (
                       <button
+                      key={index}
                         type="button"
                         onClick={() => {
                           showModal(item.attachment?.data?.attributes?.url)

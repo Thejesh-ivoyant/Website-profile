@@ -44,8 +44,8 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
               y2="1.88636"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#1D3493" />
-              <stop offset="1" stop-color="#2F54EB" stop-opacity="0" />
+              <stop stopColor="#1D3493" />
+              <stop offset="1" stopColor="#2F54EB" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_7957_66393"
@@ -55,8 +55,8 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
               y2="1.38636"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#1D3493" />
-              <stop offset="1" stop-color="#2F54EB" stop-opacity="0" />
+              <stop stopColor="#1D3493" />
+              <stop offset="1" stopColor="#2F54EB" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>

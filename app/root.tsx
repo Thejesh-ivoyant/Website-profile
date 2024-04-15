@@ -20,6 +20,7 @@ import { navQuery } from './graphql/queries'
 import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous"},
   { rel: 'stylesheet', href: stylesheet },
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
