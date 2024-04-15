@@ -28,13 +28,12 @@ const Services = ({
   return (
     <div className="h-fit bg-haiti md:px-20 section-p-y grid gap-3">
       <div className="text-HeaderGray flex flex-col gap-3 px-4">
-        <h4 className="flex font-montserrat xl:text-3xl lg:text-2xl sm:text-xl text-lg font-medium leading-10 tracking-wider text-center mx-auto w-fit">
+        <h4 className="flex font-montserrat xl:text-3xl lg:text-2xl text-xl font-medium leading-10 tracking-wider text-center mx-auto w-fit">
           {title}
         </h4>
         <svg
           className="flex mx-auto"
           width="100%"
-          height="24"
           viewBox="0 0 1280 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

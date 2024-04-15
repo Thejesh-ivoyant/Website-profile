@@ -569,8 +569,8 @@ body.scrolled #scrollToTopBtn {
 }
 
 .section-heading {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-family: Montserrat;
   font-weight: 600;
 }
@@ -2555,6 +2555,7 @@ hr {
 .service-heading {
   background: var(--HeadingN, linear-gradient(180deg, #fff 0%, #ecc5fe 100%));
   background-clip: text;
+  font-size: 1.5rem;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
