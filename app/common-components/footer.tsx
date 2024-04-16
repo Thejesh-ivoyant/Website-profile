@@ -325,16 +325,22 @@ const Footer = () => {
               <span className="footer-heading tablet-hidden">Company</span>
               <div className="flex items-start py-3 gap-2 tablet-hidden">
                 <div className="flex flex-col footer-font justify-center gap-4">
-                  {attributes?.company?.map((item, index: number) => (
-                    <Link
-                      prefetch="intent"
-                      className="hover:font-medium"
-                      to={item?.link}
-                      key={index}
-                    >
-                      {item?.name}
-                    </Link>
-                  ))}
+                  {attributes?.company?.map((item, index: number) => {
+                  if (item?.name) {
+                    return (
+                      <Link
+                        prefetch="intent"
+                        className="hover:font-medium"
+                        to={item?.link}
+                        key={index}
+                      >
+                        {item?.name}
+                      </Link>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
                 </div>
               </div>
             </div>
