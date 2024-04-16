@@ -38,11 +38,13 @@ const Testimonials = () => {
     setCurrentTestimonialIndex(current)
   }
   return (
-    <div className="section-container section-p-y">
+    <div role="complementary" className="section-container section-p-y">
       <section className="section-heading">
-        <h2 className="xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">Testimonials</h2>
+        <p role="heading" aria-level={1} className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">Testimonials</p>
       </section>
       <svg
+      role="none"
+      aria-label="ornament"
         className="flex mx-auto my-3"
         width="100%"
         height="24"
@@ -96,7 +98,7 @@ const Testimonials = () => {
       </svg>
       {testimonialList.length > 0 && (
         <>
-          <section className="testimonial-section pb-4">
+          <section role="region" aria-label="Section which contains multiple testimonials from Ivoyant's clients" className="testimonial-section pb-4">
             <Carousel
               beforeChange={handleCarouselChange}
               afterChange={handleCarouselChange}
@@ -105,7 +107,7 @@ const Testimonials = () => {
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">
-                    <div className="industry flex items-start justify-start testimonial-industry">
+                    <div role="heading" aria-level={1} className="industry flex items-start justify-start testimonial-industry">
                       {testimonial?.title}
                     </div>
                     <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
@@ -114,12 +116,12 @@ const Testimonials = () => {
                         <img src="../assets/Quote.svg" alt="vector" />
                       </div>
                     </div>
-                    <div className="flex text-sm py-2 font-poppins font-normal designation">
+                    <div role='complementary' className="flex text-sm py-2 font-poppins font-normal designation">
                       {testimonial?.designation}
                     </div>
-                    <div className="flex text-sm py-4 font-poppins font-normal summary">
+                    <p role="comment" aria-label={`Testimonial from our client ${testimonial?.designation}}`} className="flex text-sm py-4 font-poppins font-normal summary">
                       {testimonial?.summary}
-                    </div>
+                    </p>
                   </div>
                 </div>
               ))}

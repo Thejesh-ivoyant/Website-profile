@@ -147,10 +147,10 @@ const Footer = () => {
       <Modal open={open} title="Download PitchDeck" onCancel={handleCancel}>
         <Form className="form" onSubmit={handleModalSubmit}>
           <div className="items-stretch bg-white flex  flex-col py-2">
-            <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+            <div role="alert" className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
               Please provide required information to view the Pitch deck
             </div>
-            <div className="text-box-form-label mt-4 max-md:max-w-full">Full Name*</div>
+            <div aria-label='Full name' className="text-box-form-label mt-4 max-md:max-w-full">Full Name*</div>
             <div className="relative w-full flex flex-col">
               <input
                 type="text"
@@ -161,7 +161,7 @@ const Footer = () => {
                 onChange={handleNameChange}
               />
               {nameerror && (
-                <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                <span role='alert' className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
                   {nameerror}
                 </span>
               )}
@@ -466,6 +466,8 @@ const Footer = () => {
               </div>
               <div className=" tablet-hidden">
                 <button
+                role="button"
+                aria-label="Subscribe to newsletter"
                   type="submit"
                   disabled={btnLoading}
                   className="bg-white disabled:cursor-not-allowed  h-10 w-full font-montserrat  text-sm font-semibold text-haiti"
@@ -531,6 +533,7 @@ const Footer = () => {
                   type="submit"
                   disabled={btnLoading}
                   className="bg-white disabled:cursor-not-allowed h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti"
+                  role="button" aria-label="Subscribe to newsletter Button"
                 >
                   Subscribe to Newsletter
                 </button>
@@ -630,7 +633,7 @@ const Footer = () => {
               </linearGradient>
             </defs>
           </svg>
-          <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2 gap-4">
+          <div className="grid place-items-start sm:w-80 w-72 h-fit my-2 gap-4">
             <AccordionItem
               list={attributes?.services}
               onToggle={() => handleToggle(1)}
@@ -677,7 +680,7 @@ const Footer = () => {
               active={clicked === 6}
               showModal={showModal}
             />
-          </ul>
+          </div>
           <svg
             className="my-4"
             width="100%"
@@ -739,6 +742,8 @@ const Footer = () => {
               <button
                 disabled={btnLoading}
                 type="submit"
+                role="button"
+                aria-label="Subscribe to newsletter"
                 className="bg-white  h-10 max-w-xs w-full px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed"
               >
                 Subscribe to Newsletter
@@ -746,13 +751,13 @@ const Footer = () => {
             </div>
           </Form>
           <div className="grid capitalize text-xs font-normal gap-3 place-items-center my-4">
-            <Link to={'/privacy-policy'} className="hover:font-semibold">
+            <Link to={'/privacy-policy'} aria-label="Privacy policy link" role="link" className="hover:font-semibold">
               privacy policy
             </Link>
-            <Link to={'/terms-and-conditions'} className="hover:font-semibold">
+            <Link to={'/terms-and-conditions'} aria-label="Terms and conditions link" role="link" className="hover:font-semibold">
               terms and conditions
             </Link>
-            <Link to={'/cookies'} className="hover:font-semibold">
+            <Link to={'/cookies'} aria-label="Cookies policy link" role="link" className="hover:font-semibold">
               Cookie policy
             </Link>
           </div>

@@ -32,11 +32,11 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
   return (
     <div className="flex flex-col w-full max-h-fit lg:mx-0 lg:h-fit bg-haiti section-p-y">
       <div className="xl:text-3xl lg:text-2xl sm:text-xl text-lg w-full justify-center flex gradient-bottom">
-        <h1 className="h-fit font-montserrat font-medium service-heading leading-10 md:mb-3">
+        <p role="heading" aria-level={1} className="h-fit font-montserrat font-medium service-heading leading-10 md:mb-3" aria-label={attributes.servicesTitle}>
           {attributes.servicesTitle}
-        </h1>
+        </p>
       </div>
-      <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
+      <div aria-label='Description about our services' className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
@@ -49,6 +49,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
             <Image
               width={400}
               height={250}
+              loading='eager'
               src={service?.bgImage?.data.attributes.url as string}
               alt={service?.title as string}
             />
@@ -61,9 +62,12 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
       <div className="w-fit hidden md:flex md:flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
         <div className="float-right  w-fit flex flex-col overflow-y-auto items-center p-4 font-poppins cursor-pointer">
           {servicesArray.map((service: any) => (
-            <div
+            <button
+            role="checkbox"
               key={service.id}
               id={service.title}
+              aria-label={service?.title}
+              aria-checked = {currentSelectedService === service.title}
               className={
                 currentSelectedService === service.title ? 'service-list-cur' : 'service-list'
               }
@@ -84,12 +88,12 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
               >
                 <path d="M22 16 12 26l-1.4-1.4 8.6-8.6-8.6-8.6L12 6z" fill="#F0F5FF" />
               </svg>
-            </div>
+            </button>
           ))}
         </div>
         <div className="flex items-center">
           <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
-            <Image width={800} height={630} src={serviceImage} alt={currentSelectedService} />
+            <Image aria-label='Ornament image for selected service' width={800} height={630} src={serviceImage} alt={currentSelectedService} />
             <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
               <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
                 <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex">
@@ -98,7 +102,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
                   </i>
                 </div>
                 {description}
-                <div className="flex flex-row justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
+                <div className="flex flex-row justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2" role='navigation' aria-label={`Click on the underlyingI link to navigate to ${currentSelectedService}`}>
                   <Link to={link} className="flex flex-row justify-end ml-auto items-center gap-4">
                     <span className="text-HeaderGray text-lg flex">Learn more.</span>
                     <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">

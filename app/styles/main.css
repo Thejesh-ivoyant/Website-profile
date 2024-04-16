@@ -28,6 +28,36 @@ body {
   width: 0em;
 }
 
+video::-webkit-media-controls-start-playback-button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+*::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Old shadow dom for play button */
+
+*::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* New shadow dom for play button */
+
+/* This one works! */
+
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -131,7 +161,7 @@ input[type='number'] {
   object-fit: contain;
 }
 
-.blog-description-container > ul,
+.blog-description-container>ul,
 ol {
   margin-right: auto;
   margin-left: 2rem;
@@ -429,11 +459,7 @@ body.scrolled #scrollToTopBtn {
   line-height: 1rem;
 }
 
-.dropdown-hire
-  .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(
-    .ant-pagination-size-changer
-  ):hover
-  .ant-select-selector {
+.dropdown-hire .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
   border: none !important;
   border-radius: 0px;
 }
@@ -485,7 +511,9 @@ body.scrolled #scrollToTopBtn {
 .hero-title {
   font-weight: 500;
   font-family: Montserrat;
-  font-size: 2.2rem /* 36px */;
+  font-size: 2.2rem
+    /* 36px */
+  ;
   line-height: 2.4rem;
   color: white;
   text-align: center;
@@ -961,7 +989,9 @@ body.scrolled #scrollToTopBtn {
   }
 
   .blog-whitepaper-content-section {
-    padding-top: 1rem /* 48px */;
+    padding-top: 1rem
+      /* 48px */
+    ;
   }
 
   .left-content-blog {
@@ -1131,7 +1161,9 @@ body.scrolled #scrollToTopBtn {
   }
 
   .blog-whitepaper-content-section {
-    padding-top: 2rem /* 48px */;
+    padding-top: 2rem
+      /* 48px */
+    ;
   }
 
   .left-content-blog {
@@ -1626,12 +1658,14 @@ body.scrolled #scrollToTopBtn {
   border: 0.1px transparent;
   /* Set a transparent solid border */
   /* Create a linear gradient for the border */
-  border-image: linear-gradient(
-    to right top,
-    white,
-    /* Start with the border color */ transparent 50%,
-    /* Transition to transparent */ #5d3f9c /* End with the border color again */
-  );
+  border-image: linear-gradient(to right top,
+      white,
+      /* Start with the border color */
+      transparent 50%,
+      /* Transition to transparent */
+      #5d3f9c
+      /* End with the border color again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 0 0 0 1px;
@@ -1641,12 +1675,14 @@ body.scrolled #scrollToTopBtn {
   border: 0.1px transparent;
   /* Set a transparent solid border */
   /* Create a linear gradient for the border */
-  border-image: linear-gradient(
-    to right bottom,
-    white,
-    /* Start with the border color */ transparent 50%,
-    /* Transition to transparent */ #5d3f9c /* End with the border color again */
-  );
+  border-image: linear-gradient(to right bottom,
+      white,
+      /* Start with the border color */
+      transparent 50%,
+      /* Transition to transparent */
+      #5d3f9c
+      /* End with the border color again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 1px 0 0 1px;
@@ -1784,14 +1820,12 @@ body.scrolled #scrollToTopBtn {
 
 .blur-vec {
   --tw-blur: blur(180px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale)
-    var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .blur-vec-dark {
   --tw-blur: blur(280px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale)
-    var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .hero-second-vec {
@@ -2148,12 +2182,10 @@ body.scrolled #scrollToTopBtn {
 
 /* Hover styles */
 .item:hover {
-  background: linear-gradient(
-    123deg,
-    rgba(148.88, 159.27, 252.74, 0.17) 0%,
-    rgba(243.29, 244.35, 253.96, 0.6) 100%,
-    rgba(90.3, 104.33, 230.56, 0.6) 100%
-  );
+  background: linear-gradient(123deg,
+      rgba(148.88, 159.27, 252.74, 0.17) 0%,
+      rgba(243.29, 244.35, 253.96, 0.6) 100%,
+      rgba(90.3, 104.33, 230.56, 0.6) 100%);
   color: white;
 }
 
@@ -2410,13 +2442,16 @@ hr {
 }
 
 .hero-gradient-top {
-  border-image: linear-gradient(
-    to left,
-    transparent 0%,
-    /* Start with transparent */ #97ecfe 50%,
-    /* Transition to the border color */ #97ecfe 50%,
-    /* Thicker center of the border */ transparent 100% /* Transition to transparent again */
-  );
+  border-image: linear-gradient(to left,
+      transparent 0%,
+      /* Start with transparent */
+      #97ecfe 50%,
+      /* Transition to the border color */
+      #97ecfe 50%,
+      /* Thicker center of the border */
+      transparent 100%
+      /* Transition to transparent again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 4px 0 0 0;
@@ -2426,13 +2461,16 @@ hr {
 
 .gradient-bottom {
   /* Create a linear gradient for the border */
-  border-image: linear-gradient(
-    to left,
-    transparent 0%,
-    /* Start with transparent */ #5d3f9c 50%,
-    /* Transition to the border color */ #5d3f9c 50%,
-    /* Thicker center of the border */ transparent 100% /* Transition to transparent again */
-  );
+  border-image: linear-gradient(to left,
+      transparent 0%,
+      /* Start with transparent */
+      #5d3f9c 50%,
+      /* Transition to the border color */
+      #5d3f9c 50%,
+      /* Thicker center of the border */
+      transparent 100%
+      /* Transition to transparent again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 0 0 1px 0;
@@ -2442,13 +2480,16 @@ hr {
 }
 
 .gradient-top {
-  border-image: linear-gradient(
-    to left,
-    transparent 0%,
-    /* Start with transparent */ #5d3f9c 50%,
-    /* Transition to the border color */ #5d3f9c 50%,
-    /* Thicker center of the border */ transparent 100% /* Transition to transparent again */
-  );
+  border-image: linear-gradient(to left,
+      transparent 0%,
+      /* Start with transparent */
+      #5d3f9c 50%,
+      /* Transition to the border color */
+      #5d3f9c 50%,
+      /* Thicker center of the border */
+      transparent 100%
+      /* Transition to transparent again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 1px 0 0 0;
@@ -2457,13 +2498,16 @@ hr {
 }
 
 .gradient-left {
-  border-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    /* Start with transparent */ #5d3f9c 50%,
-    /* Transition to the border color */ #5d3f9c 50%,
-    /* Thicker center of the border */ transparent 100% /* Transition to transparent again */
-  );
+  border-image: linear-gradient(to bottom,
+      transparent 0%,
+      /* Start with transparent */
+      #5d3f9c 50%,
+      /* Transition to the border color */
+      #5d3f9c 50%,
+      /* Thicker center of the border */
+      transparent 100%
+      /* Transition to transparent again */
+    );
   border-image-slice: 1;
   /* Make the entire border image visible */
   border-image-width: 0 0 0 1px;
@@ -2504,12 +2548,10 @@ hr {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 700;
-  background: linear-gradient(
-    113deg,
-    rgba(166, 174, 244, 0.2) 0%,
-    rgba(243, 244, 254, 0.2) 100%,
-    rgba(2, 4, 24, 0.2) 100%
-  );
+  background: linear-gradient(113deg,
+      rgba(166, 174, 244, 0.2) 0%,
+      rgba(243, 244, 254, 0.2) 100%,
+      rgba(2, 4, 24, 0.2) 100%);
 }
 
 @media (min-width: 728px) {
@@ -2540,12 +2582,10 @@ hr {
 
 .service-list:hover {
   font-weight: 700;
-  background: linear-gradient(
-    113deg,
-    rgba(166, 174, 244, 0.2) 0%,
-    rgba(243, 244, 254, 0.2) 100%,
-    rgba(2, 4, 24, 0.2) 100%
-  );
+  background: linear-gradient(113deg,
+      rgba(166, 174, 244, 0.2) 0%,
+      rgba(243, 244, 254, 0.2) 100%,
+      rgba(2, 4, 24, 0.2) 100%);
 }
 
 .service-list:hover .arrow {
@@ -2560,7 +2600,7 @@ hr {
   -webkit-text-fill-color: transparent;
 }
 
-.btn > ::content {
+.btn> ::content {
   font-family: Montserrat;
   font-size: 20px;
   font-style: normal;
@@ -2641,7 +2681,7 @@ hr {
   display: flex !important;
 }
 
-.active-content > input {
+.active-content>input {
   border: solid #000000;
   border-width: 0px 0px 1px 0px;
   font-family: Montserrat;
@@ -2730,20 +2770,13 @@ hr {
 }
 
 .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
-:where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown
-  .ant-picker-cell-in-view.ant-picker-cell-range-start
-  .ant-picker-cell-inner,
-:where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown
-  .ant-picker-cell-in-view.ant-picker-cell-range-end
-  .ant-picker-cell-inner {
+:where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+:where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
   color: #fff;
   background: #7a4bd3;
 }
 
-.ant-picker-dropdown
-  .ant-picker-time-panel-column
-  > li.ant-picker-time-panel-cell-selected
-  .ant-picker-time-panel-cell-inner {
+.ant-picker-dropdown .ant-picker-time-panel-column>li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
   background: #f2d1f3;
 }
 
@@ -2779,7 +2812,7 @@ hr {
   outline: 0;
 }
 
-.ant-picker .ant-picker-input > input {
+.ant-picker .ant-picker-input>input {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -2804,12 +2837,12 @@ hr {
   font-family: inherit;
 }
 
-.ant-picker-input > input::before {
+.ant-picker-input>input::before {
   content: url('../../public/assets/calendar.svg') !important;
   margin-right: 8px !important;
 }
 
-.ant-picker-input > input::placeholder {
+.ant-picker-input>input::placeholder {
   color: black !important;
   font-family: montserrat;
   font-size: 0.875rem !important;
@@ -2849,6 +2882,7 @@ hr {
 }
 
 @keyframes moveAndScale {
+
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1);
@@ -3064,12 +3098,10 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.8) 0.26%,
-    rgba(0, 0, 0, 0.8) 43.94%,
-    rgba(0, 0, 0, 0) 99.73%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.8) 0.26%,
+      rgba(0, 0, 0, 0.8) 43.94%,
+      rgba(0, 0, 0, 0) 99.73%);
   z-index: 1;
 }
 
@@ -3088,12 +3120,10 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.8) 0.26%,
-    rgba(0, 0, 0, 0.8) 43.94%,
-    rgba(0, 0, 0, 0) 99.73%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.8) 0.26%,
+      rgba(0, 0, 0, 0.8) 43.94%,
+      rgba(0, 0, 0, 0) 99.73%);
   z-index: 1;
 }
 
@@ -3111,15 +3141,13 @@ hr {
 .cyan-gradient-mission:hover {
   mix-blend-mode: normal;
   background: url('/assets/mission.png'),
-    radial-gradient(
-      225.99% 112.99% at 100.42% -0.35%,
+    radial-gradient(225.99% 112.99% at 100.42% -0.35%,
       #15416e 0%,
       #0a0353 1%,
       #0d2954 23%,
       #091657 45%,
       #071d70 70%,
-      #0a195e 100%
-    );
+      #0a195e 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -3130,15 +3158,13 @@ hr {
 .cyan-gradient-vision:hover {
   mix-blend-mode: normal;
   background: url('/assets/vision.png'),
-    radial-gradient(
-      225.99% 112.99% at 100.42% -0.35%,
+    radial-gradient(225.99% 112.99% at 100.42% -0.35%,
       #15416e 0%,
       #0a0353 1%,
       #0d2954 23%,
       #091657 45%,
       #071d70 70%,
-      #0a195e 100%
-    );
+      #0a195e 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -3237,6 +3263,7 @@ hr {
 }
 
 @keyframes shade-movement {
+
   0%,
   100% {
     background-position: 0% 0%;
@@ -3388,13 +3415,10 @@ hr {
 }
 
 .bg-pink-gradient {
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(0, 0, 0, 0.6) 0%,
       rgba(0, 0, 0, 0.6) 66.95%,
-      rgba(0, 0, 0, 0) 152.46%
-    )
-    no-repeat;
+      rgba(0, 0, 0, 0) 152.46%) no-repeat;
 }
 
 .logos {
@@ -3538,11 +3562,9 @@ hr {
 
 .carousel-ornament {
   filter: blur(9.5rem);
-  background: linear-gradient(
-    137deg,
-    rgba(110, 159, 253, 0.24) 27.15%,
-    rgba(47, 66, 165, 0.12) 83.22%
-  );
+  background: linear-gradient(137deg,
+      rgba(110, 159, 253, 0.24) 27.15%,
+      rgba(47, 66, 165, 0.12) 83.22%);
   border-radius: 100%;
   border: none;
   outline: none;
@@ -3575,21 +3597,17 @@ hr {
 }
 
 .industries-slideshow-btn-bg {
-  background: linear-gradient(
-    97deg,
-    rgba(149, 159, 253, 0.17) 5.48%,
-    rgba(243, 244, 254, 0.6) 94.34%,
-    rgba(90, 104, 231, 0.6) 100%
-  );
+  background: linear-gradient(97deg,
+      rgba(149, 159, 253, 0.17) 5.48%,
+      rgba(243, 244, 254, 0.6) 94.34%,
+      rgba(90, 104, 231, 0.6) 100%);
 }
 
 .learn-more-ind {
-  background: linear-gradient(
-    102deg,
-    rgba(149, 159, 253, 0.6) 2.85%,
-    rgba(90, 104, 231, 0.6) 97%,
-    rgba(243, 244, 254, 0.6) 97%
-  );
+  background: linear-gradient(102deg,
+      rgba(149, 159, 253, 0.6) 2.85%,
+      rgba(90, 104, 231, 0.6) 97%,
+      rgba(243, 244, 254, 0.6) 97%);
 }
 
 .ant-picker-dropdown .ant-picker-time-panel-column {

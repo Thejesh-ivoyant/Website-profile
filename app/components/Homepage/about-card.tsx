@@ -16,7 +16,7 @@ const AboutCard = ({ attributes }: { attributes: Attributes }) => {
         <div className="text-md font-poppins font-light lg:leading-[1.75rem] " id="about-desc">
           {attributes.AboutUs}
         </div>
-        <Link to={'/company/about-us'} className="button-test">
+        <Link to={'/company/about-us'} className="button-test" role="link" aria-label='Link to About us page'>
           {attributes.AboutUsBtnText}
         </Link>
       </div>

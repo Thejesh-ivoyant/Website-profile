@@ -515,22 +515,22 @@ const ContactUs = () => {
         </div>
         <div className="flex flex-1 flex-col bg-white xl:p-10 md:p-0 p-4">
           <div className="flex flex-row xl:gap-x-10 md:gap-x-4 gap-x-3">
-            <div>
+            <button role="button" aria-label="Contact us form">
               <span
                 className={toggleState === 1 ? 'tab' : 'tab text-gray-600'}
                 onClick={() => toggleTab(1)}
               >
                 Let's Talk
               </span>
-            </div>
-            <div>
+            </button>
+            <button role="button" aria-label="Join us form">
               <span
                 className={toggleState === 2 ? 'tab' : 'tab text-gray-500'}
                 onClick={() => toggleTab(2)}
               >
                 Job Enquiry
               </span>
-            </div>
+            </button>
           </div>
           <div
             className={
@@ -539,7 +539,7 @@ const ContactUs = () => {
                 : 'glider md:ml-5'
             }
           ></div>
-          <Form
+          {toggleState === 1 ? <Form
             onSubmit={(event) => handleSubmit(event, 'contact')}
             method="post"
             encType="multipart/form-data"
@@ -591,6 +591,7 @@ const ContactUs = () => {
                 <div className="  items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className=" items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
+                    aria-label="Select a country for contact us page"
                       selected={selectedCode}
                       onSelect={(code) => setCountryCodeSelected(code)}
                       searchable
@@ -639,8 +640,9 @@ const ContactUs = () => {
                 )}
               </div>
               <div className="w-full relative grid col-span-2">
-                <label className="py-2 text-xs text-gray-400">Your Message</label>
+                <label className="py-2 text-xs">Your Message</label>
                 <textarea
+                aria-label='Your message for the Job request'
                   minLength={3}
                   maxLength={250}
                   id="message"
@@ -751,7 +753,10 @@ const ContactUs = () => {
             >
               Send my message
             </button>
-          </Form>
+          </Form> 
+          
+          : 
+          
           <Form
             onSubmit={(event) => handleSubmit(event, 'hireus')}
             method="post"
@@ -803,6 +808,7 @@ const ContactUs = () => {
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
+                    aria-label="Select a country for Join us page"
                       selected={selectedCode}
                       onSelect={(code) => setCountryCodeSelected(code)}
                       searchable
@@ -892,8 +898,9 @@ const ContactUs = () => {
                 />
               </div>
               <div className="w-full relative grid col-span-2">
-                <label className="py-2 text-xs text-gray-400">Your Message</label>
+                <label className="py-2 text-xs">Your Message</label>
                 <textarea
+                aria-label='Your message while contacting us'
                   minLength={3}
                   maxLength={250}
                   id="message"
@@ -1002,6 +1009,8 @@ const ContactUs = () => {
               Send my message
             </button>
           </Form>
+          }
+          
         </div>
       </section>
     </>

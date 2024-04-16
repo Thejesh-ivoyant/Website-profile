@@ -411,7 +411,7 @@ const Nav = () => {
           </div>
         </Link>
         <div className="flex relative">
-          <button onClick={handleHamburgerClick} tabIndex={-1} role="button">
+          <button onClick={handleHamburgerClick} tabIndex={-1} role="button" aria-label='Open Menu Button'>
             {sidebarOpen ? (
               <svg
                 width="24"

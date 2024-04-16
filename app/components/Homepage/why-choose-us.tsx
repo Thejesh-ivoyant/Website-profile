@@ -11,11 +11,17 @@ const WhyChooseUs = ({
 }) => {
   const loaderData = useLoaderData() as any
   return (
-    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3">
-      <h1 className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold">
+    <section role="complementary" className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3">
+      <p
+        role="heading"
+        aria-level={1}
+        aria-label="Why choose us section"
+        className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold text-center"
+      >
         {title}
-      </h1>
+      </p>
       <svg
+      aria-hidden="true"
         width="100%"
         className="h-4"
         viewBox="0 0 1257 25"
@@ -62,7 +68,7 @@ const WhyChooseUs = ({
           </linearGradient>
         </defs>
       </svg>
-      <p className="md:text-center md:w-3/4  leading-6 lg:text-base text-sm tracking-wider font-poppins">
+      <p role="complementary" aria-label="Description as to why choose us" className="md:text-center md:w-3/4  leading-6 lg:text-base text-sm tracking-wider font-poppins">
         {description}
       </p>
       <div className="grid xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">

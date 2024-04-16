@@ -2,13 +2,13 @@ import { Partners } from '~/interfaces/Homepage'
 import line from '../../../public/assets/pur-line.svg'
 const Section6 = ({ partners }: { partners: Partners | undefined }) => {
   return (
-    <div className="grid lg:gap-5 md:gap-4 gap-3 section-p-y">
+    <div role="complementary" className="grid lg:gap-5 md:gap-4 gap-3 section-p-y">
       <div className="text-PurpBlue font-montserrat font-medium xl:text-3xl lg:text-2xl text-xl text-center tracking-wider">
-        <h1>Trusted Partners</h1>
+        <p role="complementary">Trusted Partners</p>
       </div>
-      <img className="mx-auto w-96" alt="ornament" src={line} />
-      <div className="logos">
-        <div className="logos-slide whitespace-nowrap">
+      <img aria-hidden={true} className="mx-auto w-96" alt="ornament" src={line} />
+      <div className="logos" role="complementary">
+        <div className="logos-slide whitespace-nowrap" role="complementary" >
           {partners?.data.map((logo, index: number) => (
             <img
               src={`${logo.attributes.url}`}

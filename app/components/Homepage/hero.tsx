@@ -21,17 +21,18 @@ const Hero = ({
   }
   return (
     <>
-      <div className="screen-height min-h-fit hero-container-section flex-col items-center justify-center">
+      <div role='banner' className="screen-height min-h-fit hero-container-section flex-col items-center justify-center">
         <video
           aria-label="background-video"
+          aria-hidden="true"
           preload="true"
+          role="presentation"
           muted
           loop
           playsInline
-          src={`${heroBgImage?.data.attributes.url}`}
           autoPlay
           className="-z-10 absolute top-0 object-cover right-0 w-full screen-height  mt-[4.5rem]"
-        />
+        ><source src={`${heroBgImage?.data.attributes.url}`} type='video/webm'></source></video>
         <div className="hero-wrapper">
           <div>
             <p className="hero-title  animated-text">{heroText}</p>
@@ -85,9 +86,10 @@ const Hero = ({
             </defs>
           </svg>
           <div className="hero-description lg:px-10 px-5">
-            <span>{heroDescription}</span>
+            <span role="main">{heroDescription}</span>
           </div>
           <button
+          role='link'
             className="hue-btn-primary btn mt-10"
             onClick={() => scrollToSection('contact-us')}
           >
