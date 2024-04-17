@@ -240,7 +240,13 @@ const Nav = () => {
           <Link role="link" aria-label="Ivoyant Home" to="/">
             {' '}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
-              <img role="presentation" aria-hidden="true" src={ivurl} alt="iVoyant Logo" className="aspect-video h-16 object-contain" />
+              <img
+                role="presentation"
+                aria-hidden="true"
+                src={ivurl}
+                alt="iVoyant Logo"
+                className="aspect-video h-16 object-contain"
+              />
             </div>
           </Link>
 
@@ -286,7 +292,8 @@ const Nav = () => {
                                 <div className="col-span-1 h-fit" key={item.id}>
                                   {item.icon?.data?.attributes?.url ? (
                                     <img
-                                    role="presentation" aria-hidden="true"
+                                      role="presentation"
+                                      aria-hidden="true"
                                       src={item.icon.data.attributes.url}
                                       alt={item.name}
                                       onError={defaultsvg}
@@ -294,7 +301,8 @@ const Nav = () => {
                                     />
                                   ) : (
                                     <img
-                                    role="presentation" aria-hidden="true"
+                                      role="presentation"
+                                      aria-hidden="true"
                                       src={defaultsvg}
                                       alt={item.name}
                                       className="w-4 h-4 inline my-auto mr-2 mb-1"
@@ -332,8 +340,8 @@ const Nav = () => {
                         ) && (
                           <figure className="relative nav-img">
                             <Image
-                            role="presentation"
-                            aria-hidden="true"
+                              role="presentation"
+                              aria-hidden="true"
                               width={400}
                               height={210}
                               src={
@@ -364,8 +372,8 @@ const Nav = () => {
                                 }
                               </div>
                               <Link
-                              role="link"
-                              aria-label='Link to Read more about our latest blog'
+                                role="link"
+                                aria-label="Link to Read more about our latest blog"
                                 to={
                                   navdata.navGraphql.data.navbar.data.attributes[category].find(
                                     (item: any) => item.__typename === 'ComponentCardCard'
@@ -409,7 +417,8 @@ const Nav = () => {
         <Link to="/" prefetch="intent" className=" mr-auto flex">
           <div className="flex flex-row justify-center items-center object-contain">
             <img
-            role="presentation" aria-hidden="true"
+              role="presentation"
+              aria-hidden="true"
               src={ivurl}
               alt="iVoyant Logo"
               onClick={closeMenuMob}
@@ -418,7 +427,12 @@ const Nav = () => {
           </div>
         </Link>
         <div className="flex relative">
-          <button onClick={handleHamburgerClick} tabIndex={-1} role="button" aria-label='Open Menu Button'>
+          <button
+            onClick={handleHamburgerClick}
+            tabIndex={-1}
+            role="button"
+            aria-label="Open Menu Button"
+          >
             {sidebarOpen ? (
               <svg
                 width="24"

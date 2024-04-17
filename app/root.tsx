@@ -21,7 +21,7 @@ import { navQuery } from './graphql/queries'
 import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous"},
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'stylesheet', href: stylesheet },
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
@@ -57,7 +57,7 @@ export async function loader() {
       navGraphql: navGraphql,
       ENV: {
         STRAPI_URL: process.env.STRAPI_URL,
-      }
+      },
     },
     {
       headers: { 'Cache-Control': 'public, s-maxage=300' },
@@ -65,7 +65,7 @@ export async function loader() {
   )
 }
 export default function App() {
-  const config= useLoaderData<typeof loader>();
+  const config = useLoaderData<typeof loader>()
   return (
     <html lang="en">
       <head>

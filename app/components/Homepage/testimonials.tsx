@@ -18,8 +18,8 @@ interface TestimonialData {
   }[]
 }
 const Testimonials = () => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
   const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`
   const [testimonialList, setTestimonialList] = useState<Testimonial[]>([])
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState<number>(0)
@@ -43,11 +43,17 @@ const Testimonials = () => {
   return (
     <div role="complementary" className="section-container section-p-y">
       <section className="section-heading">
-        <p role="heading" aria-level={1} className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">Testimonials</p>
+        <p
+          role="heading"
+          aria-level={1}
+          className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
+        >
+          Testimonials
+        </p>
       </section>
       <svg
-      role="none"
-      aria-label="ornament"
+        role="none"
+        aria-label="ornament"
         className="flex mx-auto my-3"
         width="100%"
         height="24"
@@ -101,7 +107,11 @@ const Testimonials = () => {
       </svg>
       {testimonialList.length > 0 && (
         <>
-          <section role="region" aria-label="Section which contains multiple testimonials from Ivoyant's clients" className="testimonial-section pb-4">
+          <section
+            role="region"
+            aria-label="Section which contains multiple testimonials from Ivoyant's clients"
+            className="testimonial-section pb-4"
+          >
             <Carousel
               beforeChange={handleCarouselChange}
               afterChange={handleCarouselChange}
@@ -110,7 +120,11 @@ const Testimonials = () => {
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">
-                    <div role="heading" aria-level={1} className="industry flex items-start justify-start testimonial-industry">
+                    <div
+                      role="heading"
+                      aria-level={1}
+                      className="industry flex items-start justify-start testimonial-industry"
+                    >
                       {testimonial?.title}
                     </div>
                     <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
@@ -119,10 +133,17 @@ const Testimonials = () => {
                         <img src="../assets/Quote.svg" alt="vector" />
                       </div>
                     </div>
-                    <div role='complementary' className="flex text-sm py-2 font-poppins font-normal designation">
+                    <div
+                      role="complementary"
+                      className="flex text-sm py-2 font-poppins font-normal designation"
+                    >
                       {testimonial?.designation}
                     </div>
-                    <p role="comment" aria-label={`Testimonial from our client ${testimonial?.designation}}`} className="flex text-sm py-4 font-poppins font-normal summary">
+                    <p
+                      role="comment"
+                      aria-label={`Testimonial from our client ${testimonial?.designation}}`}
+                      className="flex text-sm py-4 font-poppins font-normal summary"
+                    >
                       {testimonial?.summary}
                     </p>
                   </div>

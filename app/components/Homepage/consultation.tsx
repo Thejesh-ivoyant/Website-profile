@@ -1,10 +1,10 @@
 import { Link, useOutletContext } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { StrapiConfig } from '~/utils/format';
+import { StrapiConfig } from '~/utils/format'
 
 const Consultation = () => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
 
   const API_URL = `${strapiUrl}/api/section7s?populate=%2A`
   const [tagline, setTagline] = useState('')
@@ -29,7 +29,13 @@ const Consultation = () => {
       <div className="consulation-tagline">{tagline}</div>
       <div className="flex items-center right-0 ">
         <Link role="link" to="/contact-us" prefetch="intent">
-          <button role="button" aria-label="Click on the Button to navigate to Ivoyant's Contact us page" className="btn-white">GRAB A CONSULTATION</button>
+          <button
+            role="button"
+            aria-label="Click on the Button to navigate to Ivoyant's Contact us page"
+            className="btn-white"
+          >
+            GRAB A CONSULTATION
+          </button>
         </Link>
       </div>
     </div>

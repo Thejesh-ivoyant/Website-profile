@@ -7,7 +7,7 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
         <p role="main">Satisfied clients</p>
       </div>
       <img className="mx-auto w-96" alt="ornament" src={line} />
-      <div className="logos" aria-label='Carousel of our multiple delighted clients'>
+      <div className="logos" aria-label="Carousel of our multiple delighted clients">
         <div className="logos-slide whitespace-nowrap">
           {clients?.data.map((logo, index: number) => (
             <img

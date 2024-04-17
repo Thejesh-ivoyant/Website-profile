@@ -1,7 +1,7 @@
 // src/components/Card.js
 import { Link } from '@remix-run/react'
 import { Attributes } from '~/interfaces/Homepage'
-const AboutCard = ({ attributes }: { attributes: Attributes }) => {
+const GovCard = ({ attributes }: { attributes: Attributes }) => {
   const aboutUsTitle = attributes?.AboutUsTitle
   const highlightString = "iVoyant's"
   const indexOfHighlight = aboutUsTitle.indexOf(highlightString)
@@ -28,4 +28,4 @@ const AboutCard = ({ attributes }: { attributes: Attributes }) => {
     </div>
   )
 }
-export default AboutCard
+export default GovCard

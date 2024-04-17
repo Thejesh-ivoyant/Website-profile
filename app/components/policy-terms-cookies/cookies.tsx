@@ -46,14 +46,14 @@ const Cookies = () => {
           {/* side nav content goes here*/}
           <div className="contact-content-wrapper">
             <div
-            aria-label='What Are Cookies'
+              aria-label="What Are Cookies"
               onClick={() => scrollToSection('what-are-cookies')}
               className=" cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight active"
             >
               <div className="flex justify-between    gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   alt="bulleticon"
                   src={Bulletimg}
@@ -65,14 +65,14 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-            aria-label="Description as to how we use cookies"
+              aria-label="Description as to how we use cookies"
               onClick={() => scrollToSection('How-We-Use-Cookies')}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
             >
               <div className=" flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -89,8 +89,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -102,14 +102,14 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-            aria-label="Forms related cookies"
+              aria-label="Forms related cookies"
               onClick={() => scrollToSection('Forms-related-cookies')}
               className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -121,14 +121,14 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-            aria-label="Forms related cookies"
+              aria-label="Forms related cookies"
               onClick={() => scrollToSection('Third-Party-Cookies')}
               className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -145,8 +145,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"

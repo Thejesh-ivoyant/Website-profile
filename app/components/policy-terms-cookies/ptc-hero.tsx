@@ -11,7 +11,7 @@ const PTCHero = () => {
   return (
     <>
       <div
-      role="banner"
+        role="banner"
         className="relative md:flex hidden screen-height mt-20 flex-row min-h-fit"
         style={gradientStyle}
       >
@@ -38,8 +38,8 @@ const PTCHero = () => {
         </div>
       </section>
       <Image
-      role="presentation"
-      aria-hidden="true"
+        role="presentation"
+        aria-hidden="true"
         src={loaderData?.heroImage}
         width={768}
         height={500}

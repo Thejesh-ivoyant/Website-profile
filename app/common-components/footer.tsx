@@ -147,10 +147,15 @@ const Footer = () => {
       <Modal open={open} title="Download PitchDeck" onCancel={handleCancel}>
         <Form className="form" onSubmit={handleModalSubmit}>
           <div className="items-stretch bg-white flex  flex-col py-2">
-            <div role="alert" className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+            <div
+              role="alert"
+              className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10"
+            >
               Please provide required information to view the Pitch deck
             </div>
-            <div aria-label='Full name' className="text-box-form-label mt-4 max-md:max-w-full">Full Name*</div>
+            <div aria-label="Full name" className="text-box-form-label mt-4 max-md:max-w-full">
+              Full Name*
+            </div>
             <div className="relative w-full flex flex-col">
               <input
                 type="text"
@@ -161,7 +166,10 @@ const Footer = () => {
                 onChange={handleNameChange}
               />
               {nameerror && (
-                <span role='alert' className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                <span
+                  role="alert"
+                  className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0"
+                >
                   {nameerror}
                 </span>
               )}
@@ -230,7 +238,7 @@ const Footer = () => {
                   {attributes?.services?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
-                      aria-label={`Link to ${item?.name}`}
+                        aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-medium"
                         to={item.link}
@@ -250,7 +258,7 @@ const Footer = () => {
                   {attributes?.industries?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
-                      aria-label={`Link to ${item?.name}`}
+                        aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-semibold"
                         to={item.link}
@@ -270,7 +278,7 @@ const Footer = () => {
                   {attributes?.products?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
-                      aria-label={`Link to ${item?.name}`}
+                        aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-medium"
                         to={item.link}
@@ -294,7 +302,7 @@ const Footer = () => {
                     !item.attachment?.data?.attributes?.url &&
                     item.__typename !== 'ComponentCardCard' ? (
                       <Link
-                      aria-label={`Link to ${item?.name}`}
+                        aria-label={`Link to ${item?.name}`}
                         key={index}
                         to={item.link}
                         className="hover:font-semibold"
@@ -304,7 +312,7 @@ const Footer = () => {
                       </Link>
                     ) : item.attachment?.data?.attributes?.url ? (
                       <button
-                      key={index}
+                        key={index}
                         type="button"
                         onClick={() => {
                           showModal(item.attachment?.data?.attributes?.url)
@@ -330,22 +338,22 @@ const Footer = () => {
               <div className="flex items-start py-3 gap-2 tablet-hidden">
                 <div className="flex flex-col footer-font justify-center gap-4">
                   {attributes?.company?.map((item, index: number) => {
-                  if (item?.name) {
-                    return (
-                      <Link
-                      aria-label={`Link to ${item?.name}`}
-                        prefetch="intent"
-                        className="hover:font-medium"
-                        to={item?.link}
-                        key={index}
-                      >
-                        {item?.name}
-                      </Link>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
+                    if (item?.name) {
+                      return (
+                        <Link
+                          aria-label={`Link to ${item?.name}`}
+                          prefetch="intent"
+                          className="hover:font-medium"
+                          to={item?.link}
+                          key={index}
+                        >
+                          {item?.name}
+                        </Link>
+                      )
+                    } else {
+                      return null
+                    }
+                  })}
                 </div>
               </div>
             </div>
@@ -355,7 +363,7 @@ const Footer = () => {
                 <div className="flex flex-col footer-font justify-center gap-4">
                   {attributes?.company?.map((item, index: number) => (
                     <Link
-                    aria-label={`Link to ${item?.name}`}
+                      aria-label={`Link to ${item?.name}`}
                       prefetch="intent"
                       className="hover:font-medium"
                       to={item?.link}
@@ -478,8 +486,8 @@ const Footer = () => {
               </div>
               <div className=" tablet-hidden">
                 <button
-                role="button"
-                aria-label="Subscribe to newsletter"
+                  role="button"
+                  aria-label="Subscribe to newsletter"
                   type="submit"
                   disabled={btnLoading}
                   className="bg-white disabled:cursor-not-allowed  h-10 w-full font-montserrat  text-sm font-semibold text-haiti"
@@ -545,7 +553,8 @@ const Footer = () => {
                   type="submit"
                   disabled={btnLoading}
                   className="bg-white disabled:cursor-not-allowed h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti"
-                  role="button" aria-label="Subscribe to newsletter Button"
+                  role="button"
+                  aria-label="Subscribe to newsletter Button"
                 >
                   Subscribe to Newsletter
                 </button>
@@ -572,7 +581,7 @@ const Footer = () => {
       {/* phone footer */}
       <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
         <div className="grid place-items-center md:hidden">
-          <Link aria-label={`Link to Ivoyant home}`}to={'/'} className="hover:font-medium">
+          <Link aria-label={`Link to Ivoyant home}`} to={'/'} className="hover:font-medium">
             <img src={ivoyantLogo} alt="iVoyant Logo" />
           </Link>
           <span className="flex gap-2 py-4">
@@ -763,13 +772,28 @@ const Footer = () => {
             </div>
           </Form>
           <div className="grid capitalize text-xs font-normal gap-3 place-items-center my-4">
-            <Link to={'/privacy-policy'} aria-label="Privacy policy link" role="link" className="hover:font-semibold">
+            <Link
+              to={'/privacy-policy'}
+              aria-label="Privacy policy link"
+              role="link"
+              className="hover:font-semibold"
+            >
               privacy policy
             </Link>
-            <Link to={'/terms-and-conditions'} aria-label="Terms and conditions link" role="link" className="hover:font-semibold">
+            <Link
+              to={'/terms-and-conditions'}
+              aria-label="Terms and conditions link"
+              role="link"
+              className="hover:font-semibold"
+            >
               terms and conditions
             </Link>
-            <Link to={'/cookies'} aria-label="Cookies policy link" role="link" className="hover:font-semibold">
+            <Link
+              to={'/cookies'}
+              aria-label="Cookies policy link"
+              role="link"
+              className="hover:font-semibold"
+            >
               Cookie policy
             </Link>
           </div>

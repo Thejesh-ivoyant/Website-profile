@@ -28,7 +28,10 @@ const Services = ({
   return (
     <div className="h-fit bg-haiti md:px-20 section-p-y grid gap-3">
       <div className="text-HeaderGray flex flex-col gap-3 px-4">
-        <div role="complementary" className="flex font-montserrat xl:text-3xl lg:text-2xl text-xl font-medium leading-10 tracking-wider text-center mx-auto w-fit">
+        <div
+          role="complementary"
+          className="flex font-montserrat xl:text-3xl lg:text-2xl text-xl font-medium leading-10 tracking-wider text-center mx-auto w-fit"
+        >
           {title}
         </div>
         <svg
@@ -82,13 +85,20 @@ const Services = ({
             </linearGradient>
           </defs>
         </svg>
-        <p role="complementary" className="flex font-poppins text-center lg:text-base text-sm font-normal tracking-wide mx-auto md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+        <p
+          role="complementary"
+          className="flex font-poppins text-center lg:text-base text-sm font-normal tracking-wide mx-auto md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
+        >
           {description}
         </p>
       </div>
       <div className="grid md:hidden my-2">
         <div className="flex justify-between industries-slideshow-btn-bg py-3 px-4 mx-6">
-          <button onClick={handlePrevious} className="flex bg-transparent" aria-label='previous option'>
+          <button
+            onClick={handlePrevious}
+            className="flex bg-transparent"
+            aria-label="previous option"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -107,7 +117,7 @@ const Services = ({
           <div className="flex text-ellipsis font-montserrat text-sm font-semibold text-white">
             {activeButton?.title}
           </div>
-          <button onClick={handleNext} className="flex bg-transparent" aria-label='next-option'>
+          <button onClick={handleNext} className="flex bg-transparent" aria-label="next-option">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -168,8 +178,8 @@ const Services = ({
         <div className="flex flex-row flex-wrap justify-between">
           {industries?.map((item: IndustriesTab) => (
             <button
-            role="button"
-            aria-label={`Click on this button to view details on our ${item?.title} industry`}
+              role="button"
+              aria-label={`Click on this button to view details on our ${item?.title} industry`}
               key={item.id}
               className={`flex w-fit text-white font-montserrat text-center text-base h-12 font-normal px-[1.4rem] leading-10 ${activeButton.id === item.id ? 'industry-container-bg' : 'bg-haiti'}`}
               onClick={() => handleButtonClick(item)}

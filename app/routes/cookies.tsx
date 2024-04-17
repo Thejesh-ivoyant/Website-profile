@@ -1,5 +1,12 @@
 import Consultation from '~/components/Homepage/consultation'
-import { Await, MetaFunction, Outlet, defer, useLoaderData, useOutletContext } from '@remix-run/react'
+import {
+  Await,
+  MetaFunction,
+  Outlet,
+  defer,
+  useLoaderData,
+  useOutletContext,
+} from '@remix-run/react'
 import Cookies from '~/components/policy-terms-cookies/cookies'
 import PTCHero from '~/components/policy-terms-cookies/ptc-hero'
 import LoadingTest from '~/common-components/loading-test'

@@ -18,11 +18,19 @@ const BlogPostsContainer = () => {
     >
       <div className="text-head-grape text-4xl  w-full justify-center flex h-fit">
         {isResourcesRoute ? (
-          <p aria-level={1} role="heading" className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">
+          <p
+            aria-level={1}
+            role="heading"
+            className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
+          >
             Whats new in our Whitepapers
           </p>
         ) : (
-          <p role="heading" aria-level={1} className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">
+          <p
+            role="heading"
+            aria-level={1}
+            className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
+          >
             Whats new in our Blogs
           </p>
         )}
@@ -31,14 +39,28 @@ const BlogPostsContainer = () => {
       <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
           {loaderData.blogData.map((blog: IBlogMedia) => (
-            <Link role="link" aria-label={`Link to navigate to Ivoyant's blog on the topic of : ${blog?.title}`} to={ (isResourcesRoute)? `../resources/whitepaper/${blog.id}`:`../resources/blog/${blog.id}`} key={blog.id}>
+            <Link
+              role="link"
+              aria-label={`Link to navigate to Ivoyant's blog on the topic of : ${blog?.title}`}
+              to={
+                isResourcesRoute
+                  ? `../resources/whitepaper/${blog.id}`
+                  : `../resources/blog/${blog.id}`
+              }
+              key={blog.id}
+            >
               <BlogPostCard key={blog.id} blog={blog} />
             </Link>
           ))}
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center md:mt-10 mt-8">
-        <Link to={`../resources/blogs`} role="link" aria-label="Link to our blogs page" key="explore">
+        <Link
+          to={`../resources/blogs`}
+          role="link"
+          aria-label="Link to our blogs page"
+          key="explore"
+        >
           {' '}
           <button role="button" className="button-test">
             {' '}

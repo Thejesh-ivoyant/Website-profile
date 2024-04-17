@@ -1,5 +1,5 @@
 export const loader = () => {
-    const robotText = `User-agent: *
+  const robotText = `User-agent: *
 Allow: /products
 Allow: /contact-us
 Allow: /products?name=data+mapper
@@ -27,12 +27,12 @@ Allow: /services/lowcode-nocode
 Allow: /resources/blogs
 Allow: /services/case-studies
 Allow: /services/whitepapers
-Allow: /services/lowcode-nocode`;
+Allow: /services/lowcode-nocode`
 
-    return new Response(robotText, {
-        status: 200,
-        headers: {
-            "Content-Type": "text/plain",
-        }
-    });
-};
+  return new Response(robotText, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+  })
+}

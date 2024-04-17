@@ -1,4 +1,3 @@
-
 const JobCard = ({ service }: { service: any }) => {
   return (
     <div className="blog-card flex flex-col w-full h-full">

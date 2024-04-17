@@ -15,14 +15,18 @@ const BlogCard = ({ blog, blogData }: { blog: IBlogMedia; blogData: any }) => {
         <div className="text-blue-100 lg:text-base sm:text-sm text-xs w-fit italic font-medium justify-center font-montserrat items-stretch bg-gray-900 md:p-1 p-1">
           {blog.category.name}
         </div>
-        <Link prefetch='intent' className="line-clamp-3 lg:text-3xl sm:text-2xl text-lg self-stretch text-black  font-montserrat font-semibold whitespace-pre-wrap hover:underline" to={`/resources/case-study/${blog?.id}`}>
+        <Link
+          prefetch="intent"
+          className="line-clamp-3 lg:text-3xl sm:text-2xl text-lg self-stretch text-black  font-montserrat font-semibold whitespace-pre-wrap hover:underline"
+          to={`/resources/case-study/${blog?.id}`}
+        >
           {blog.title}
         </Link>
         <p className="line-clamp-3 font-poppins text-base font-light lg:h-fit h-0">
           {blog.description1}
         </p>
         <Link
-        prefetch='intent'
+          prefetch="intent"
           className="lg:block hidden"
           to={`../resources/blog/${blog.id}`}
           key={blog.id}

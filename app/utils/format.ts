@@ -3,6 +3,5 @@ export const ellipsis = (content: string, limit: number): string => {
   return content.length > limit ? content.substring(0, limit) + ' ...' : content
 }
 export interface StrapiConfig {
-  STRAPI_URL: string;
+  STRAPI_URL: string
 }
-

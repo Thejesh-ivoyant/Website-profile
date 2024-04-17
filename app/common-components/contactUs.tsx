@@ -35,9 +35,9 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   }
 }
 const ContactUs = () => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
-  
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
+
   const location = useLocation()
   const [personname, setPersonName] = useState('')
   const [nameerror, setNameError] = useState('')
@@ -542,478 +542,476 @@ const ContactUs = () => {
                 : 'glider md:ml-5'
             }
           ></div>
-          {toggleState === 1 ? <Form
-            onSubmit={(event) => handleSubmit(event, 'contact')}
-            method="post"
-            encType="multipart/form-data"
-            className={
-              toggleState === 1
-                ? 'flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2'
-                : 'hidden'
-            }
-            autoComplete="off"
-          >
-            <div className="grid grid-cols-2 xl:gap-10 md:gap-6 gap-4">
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Full Name*"
-                  required
-                  value={personname}
-                  onChange={handleNameChange}
-                  className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
-                ></input>
-                {nameerror && (
-                  <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {nameerror}
-                  </span>
-                )}
-              </div>
-
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="Email*"
-                  required
-                  value={email}
-                  style={{ textTransform: 'none' }}
-                  onChange={handleEmailChange}
-                  className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer  outline-none cursor-pointer"
-                ></input>
-                {emailerror && (
-                  <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {emailerror}
-                  </span>
-                )}
-              </div>
-              <div className="relative items-stretch  text-box  self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
-                <div className="  items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
-                  <div className=" items-stretch flex  gap-1 ">
-                    <ReactFlagsSelect
-                    aria-label="Select a country for contact us page"
-                      selected={selectedCode}
-                      onSelect={(code) => setCountryCodeSelected(code)}
-                      searchable
-                      searchPlaceholder="Search countries"
-                    />
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedCode}
-                      required
-                      className="hidden"
-                      name="country_code"
-                    />
-                  </div>
-                </div>
-                <input
-                  type="tel"
-                  placeholder="Phone Number*"
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  required
-                  style={{ borderBottom: '0rem' }}
-                  className="outline-none text-box   cursor-pointer overflow-hidden"
-                  name="phonenumber"
-                />
-                {phoneerror && (
-                  <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {phoneerror}
-                  </span>
-                )}
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <input
-                  type="text"
-                  id="organization"
-                  name="organisation"
-                  value={org}
-                  onChange={handleOrgChange}
-                  placeholder="Organisation"
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box  outline-none cursor-pointer"
-                ></input>
-                {orgerror && (
-                  <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {orgerror}
-                  </span>
-                )}
-              </div>
-              <div className="w-full relative grid col-span-2">
-                <label className="py-2 text-xs">Your Message</label>
-                <textarea
-                aria-label='Your message for the Job request'
-                  minLength={3}
-                  maxLength={250}
-                  id="message"
-                  name="message"
-                  cols={30}
-                  rows={5}
-                  value={msg}
-                  onChange={handleMessageChange}
-                  className="p-4 text-sm peer border-[1px]  text-area outline-none cursor-pointer "
-                ></textarea>
-                {msgerror && (
-                  <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {msgerror}
-                  </span>
-                )}
-                {msgcount && (
-                  <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">
-                    {msgcount}/1000
-                  </span>
-                )}
-              </div>
-            </div>
-            <Space direction="horizontal" className="grid-cols-1 flex justify-between">
-              <div className="flex">
-                <span className="cursor-pointer">
-                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
-                </span>
-                <DatePicker
-                  inputReadOnly
-                  size="large"
-                  value={selectedDate ? dayjs(selectedDate) : null}
-                  format="YYYY-MM-DD  HH:mm"
-                  className="text-xs"
-                  disabledDate={disabledDate}
-                  disabledTime={(current) => disabledDateTime(current)}
-                  placeholder="Schedule a Meet"
-                  showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
-                  suffixIcon={null}
-                  onChange={onChange}
-                />
-                <input
-                  type="text"
-                  placeholder=""
-                  value={selectedDate ? selectedDate : ''}
-                  className="hidden"
-                  name="date"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-col text-sm relative">
-                  <label
-                    htmlFor="attachment"
-                    className="font-montserrat whitespace-nowrap"
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
-                    Attach File
-                  </label>
+          {toggleState === 1 ? (
+            <Form
+              onSubmit={(event) => handleSubmit(event, 'contact')}
+              method="post"
+              encType="multipart/form-data"
+              className={
+                toggleState === 1
+                  ? 'flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2'
+                  : 'hidden'
+              }
+              autoComplete="off"
+            >
+              <div className="grid grid-cols-2 xl:gap-10 md:gap-6 gap-4">
+                <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
-                    style={{ display: 'none' }}
-                    type="file"
-                    id="attachment"
-                    name="attachment"
-                    onChange={handleFileChange}
-                  />
-                  {fileerror && (
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Full Name*"
+                    required
+                    value={personname}
+                    onChange={handleNameChange}
+                    className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
+                  ></input>
+                  {nameerror && (
                     <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {fileerror}
+                      {nameerror}
                     </span>
                   )}
                 </div>
-                {selectedFileName && (
-                  <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
-                    <span
-                      title={`${selectedFileName}`}
-                      className="text-ellipsis whitespace-nowrap max-w-[4rem] overflow-hidden"
-                    >
-                      {`${selectedFileName}`}
-                    </span>
 
-                    <button
-                      title={`Remove ${selectedFileName}`}
-                      onClick={handleClearFile}
-                      className="ml-2"
-                    >
-                      <DeleteOutlined className="text-red-500" />
-                    </button>
-                  </div>
-                )}
-              </div>
-            </Space>
-            <button
-              type="submit"
-              name="_action"
-              value="contact"
-              className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={
-                btnLoading ||
-                personname === '' ||
-                email === '' ||
-                phoneNumber === '' ||
-                !!phoneerror ||
-                !!emailerror ||
-                !!nameerror ||
-                !!orgerror ||
-                !!msgerror
-              }
-            >
-              Send my message
-            </button>
-          </Form> 
-          
-          : 
-          
-          <Form
-            onSubmit={(event) => handleSubmit(event, 'hireus')}
-            method="post"
-            encType="multipart/form-data"
-            className={
-              toggleState === 2
-                ? 'flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2'
-                : 'hidden'
-            }
-            autoComplete="off"
-          >
-            <div className="grid grid-cols-2 xl:gap-10 gap-6">
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={hirepersonname}
-                  onChange={hirehandleNameChange}
-                  placeholder="Full Name*"
-                  required
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
-                ></input>
-                {hirenameerror && (
-                  <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {hirenameerror}
-                  </span>
-                )}
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2">
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  style={{ textTransform: 'none' }}
-                  value={hireemail}
-                  onChange={hirehandleEmailChange}
-                  placeholder="Email*"
-                  required
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
-                ></input>
-                {hireemailerror && (
-                  <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {hireemailerror}
-                  </span>
-                )}
-              </div>
-              <div className="relative items-stretch text-box self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
-                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
-                  <div className="items-stretch flex  gap-1 ">
-                    <ReactFlagsSelect
-                    aria-label="Select a country for Join us page"
-                      selected={selectedCode}
-                      onSelect={(code) => setCountryCodeSelected(code)}
-                      searchable
-                      searchPlaceholder="Search countries"
-                    />{' '}
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedCode}
-                      required
-                      className="hidden"
-                      name="country_code"
-                    />
-                  </div>
-                </div>
-                <input
-                  type="tel"
-                  placeholder="Phone Number*"
-                  value={hirephoneNumber}
-                  onChange={hirehandlePhoneNumberChange}
-                  required
-                  style={{ borderBottom: '0rem' }}
-                  className="outline-none text-box   cursor-pointer overflow-hidden"
-                  name="phone_number"
-                />
-                {hirephoneerror && (
-                  <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {hirephoneerror}
-                  </span>
-                )}
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                <Select
-                  placeholder="Area of Expertise"
-                  className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                  suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
-                  onChange={(value) => setAreaofExpertiseTag(value)}
-                  allowClear
-                  value={selectedAOE}
-                  options={AOE}
-                />
-
-                <input
-                  type="text"
-                  placeholder=""
-                  value={selectedAOE || ''}
-                  className="hidden"
-                  name="area_of_expertise"
-                />
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                <Select
-                  placeholder="Years of Experience"
-                  className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                  suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
-                  onChange={(value) => setHiringDuration(value)}
-                  allowClear
-                  value={selectedHiringDuration}
-                  options={HD}
-                />
-
-                <input
-                  type="text"
-                  placeholder=""
-                  value={selectedHiringDuration || ''}
-                  className="hidden"
-                  name="hiring_duration"
-                />
-              </div>
-              <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                <Select
-                  placeholder="Choose skillset"
-                  className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                  suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
-                  onChange={(value) => setSkills(value)}
-                  allowClear
-                  value={selectedSkills}
-                  options={SkillSet}
-                />
-
-                <input
-                  type="text"
-                  placeholder=""
-                  value={selectedSkills || ''}
-                  className="hidden"
-                  name="choose_skill_set"
-                />
-              </div>
-              <div className="w-full relative grid col-span-2">
-                <label className="py-2 text-xs">Your Message</label>
-                <textarea
-                aria-label='Your message while contacting us'
-                  minLength={3}
-                  maxLength={250}
-                  id="message"
-                  name="message_hire"
-                  cols={30}
-                  rows={5}
-                  value={hiremsg}
-                  onChange={hirehandleMessageChange}
-                  className="p-4 text-sm peer border-[1px]  outline-none cursor-pointer text-area"
-                ></textarea>
-                {hiremsgerror && (
-                  <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                    {hiremsgerror}
-                  </span>
-                )}
-                {hiremsgcount && (
-                  <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">
-                    {hiremsgcount}/1000
-                  </span>
-                )}
-              </div>
-            </div>
-            <Space direction="horizontal" size={12} className="grid-cols-1 flex justify-between">
-              <div className="flex">
-                <span className="">
-                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
-                </span>
-                <DatePicker
-                  inputReadOnly
-                  value={selectedhireDate ? dayjs(selectedhireDate) : null}
-                  size="large"
-                  placement="topRight"
-                  format="YYYY-MM-DD  HH:mm"
-                  className="text-xs"
-                  disabledDate={disabledDate}
-                  disabledTime={(current) => disabledDateTime(current)}
-                  placeholder="Schedule a Meet"
-                  showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
-                  suffixIcon={null}
-                  onChange={onhireChange}
-                />
-                <input
-                  type="text"
-                  placeholder=""
-                  value={selectedhireDate ? selectedhireDate : ''}
-                  className="hidden"
-                  name="date_hire"
-                />
-              </div>
-              <div className="flex flex-col gap-1 relative">
-                <div className="flex flex-col xl:text-sm text-xs">
-                  <label
-                    htmlFor="hire_attachment"
-                    className="font-montserrat whitespace-nowrap"
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black mr-2" />
-                    Attach File
-                  </label>
+                <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
-                    name="hire_attachment"
-                    style={{ display: 'none' }}
-                    type="file"
-                    id="hire_attachment"
-                    onChange={handlehireFileChange}
-                  />
-                  {hirefileerror && (
-                    <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {hirefileerror}
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Email*"
+                    required
+                    value={email}
+                    style={{ textTransform: 'none' }}
+                    onChange={handleEmailChange}
+                    className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer  outline-none cursor-pointer"
+                  ></input>
+                  {emailerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {emailerror}
                     </span>
                   )}
                 </div>
-                {hireselectedFileName && (
-                  <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
-                    <span
-                      title={`${hireselectedFileName}`}
-                      className="text-ellipsis whitespace-nowrap  overflow-hidden"
-                    >{`${hireselectedFileName}`}</span>
-                    <button
-                      title={`Remove ${hireselectedFileName}`}
-                      onClick={handlehireClearFile}
-                      className="ml-2"
-                    >
-                      <DeleteOutlined className="text-red-500" />
-                    </button>
+                <div className="relative items-stretch  text-box  self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+                  <div className="  items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
+                    <div className=" items-stretch flex  gap-1 ">
+                      <ReactFlagsSelect
+                        aria-label="Select a country for contact us page"
+                        selected={selectedCode}
+                        onSelect={(code) => setCountryCodeSelected(code)}
+                        searchable
+                        searchPlaceholder="Search countries"
+                      />
+                      <input
+                        type="text"
+                        placeholder=""
+                        value={selectedCode}
+                        required
+                        className="hidden"
+                        name="country_code"
+                      />
+                    </div>
                   </div>
-                )}
+                  <input
+                    type="tel"
+                    placeholder="Phone Number*"
+                    value={phoneNumber}
+                    onChange={handlePhoneNumberChange}
+                    required
+                    style={{ borderBottom: '0rem' }}
+                    className="outline-none text-box   cursor-pointer overflow-hidden"
+                    name="phonenumber"
+                  />
+                  {phoneerror && (
+                    <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {phoneerror}
+                    </span>
+                  )}
+                </div>
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    id="organization"
+                    name="organisation"
+                    value={org}
+                    onChange={handleOrgChange}
+                    placeholder="Organisation"
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box  outline-none cursor-pointer"
+                  ></input>
+                  {orgerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {orgerror}
+                    </span>
+                  )}
+                </div>
+                <div className="w-full relative grid col-span-2">
+                  <label className="py-2 text-xs">Your Message</label>
+                  <textarea
+                    aria-label="Your message for the Job request"
+                    minLength={3}
+                    maxLength={250}
+                    id="message"
+                    name="message"
+                    cols={30}
+                    rows={5}
+                    value={msg}
+                    onChange={handleMessageChange}
+                    className="p-4 text-sm peer border-[1px]  text-area outline-none cursor-pointer "
+                  ></textarea>
+                  {msgerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {msgerror}
+                    </span>
+                  )}
+                  {msgcount && (
+                    <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">
+                      {msgcount}/1000
+                    </span>
+                  )}
+                </div>
               </div>
-            </Space>
-            <button
-              type="submit"
-              name="_action"
-              value="hireus"
-              className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={
-                btnLoading ||
-                hirepersonname === '' ||
-                hireemail === '' ||
-                hirephoneNumber === '' ||
-                !!hirephoneerror ||
-                !!hireemailerror ||
-                !!hirenameerror ||
-                !!hiremsgerror
+              <Space direction="horizontal" className="grid-cols-1 flex justify-between">
+                <div className="flex">
+                  <span className="cursor-pointer">
+                    <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
+                  </span>
+                  <DatePicker
+                    inputReadOnly
+                    size="large"
+                    value={selectedDate ? dayjs(selectedDate) : null}
+                    format="YYYY-MM-DD  HH:mm"
+                    className="text-xs"
+                    disabledDate={disabledDate}
+                    disabledTime={(current) => disabledDateTime(current)}
+                    placeholder="Schedule a Meet"
+                    showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
+                    suffixIcon={null}
+                    onChange={onChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={selectedDate ? selectedDate : ''}
+                    className="hidden"
+                    name="date"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex flex-col text-sm relative">
+                    <label
+                      htmlFor="attachment"
+                      className="font-montserrat whitespace-nowrap"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
+                      Attach File
+                    </label>
+                    <input
+                      style={{ display: 'none' }}
+                      type="file"
+                      id="attachment"
+                      name="attachment"
+                      onChange={handleFileChange}
+                    />
+                    {fileerror && (
+                      <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                        {fileerror}
+                      </span>
+                    )}
+                  </div>
+                  {selectedFileName && (
+                    <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
+                      <span
+                        title={`${selectedFileName}`}
+                        className="text-ellipsis whitespace-nowrap max-w-[4rem] overflow-hidden"
+                      >
+                        {`${selectedFileName}`}
+                      </span>
+
+                      <button
+                        title={`Remove ${selectedFileName}`}
+                        onClick={handleClearFile}
+                        className="ml-2"
+                      >
+                        <DeleteOutlined className="text-red-500" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </Space>
+              <button
+                type="submit"
+                name="_action"
+                value="contact"
+                className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
+                disabled={
+                  btnLoading ||
+                  personname === '' ||
+                  email === '' ||
+                  phoneNumber === '' ||
+                  !!phoneerror ||
+                  !!emailerror ||
+                  !!nameerror ||
+                  !!orgerror ||
+                  !!msgerror
+                }
+              >
+                Send my message
+              </button>
+            </Form>
+          ) : (
+            <Form
+              onSubmit={(event) => handleSubmit(event, 'hireus')}
+              method="post"
+              encType="multipart/form-data"
+              className={
+                toggleState === 2
+                  ? 'flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2'
+                  : 'hidden'
               }
+              autoComplete="off"
             >
-              Send my message
-            </button>
-          </Form>
-          }
-          
+              <div className="grid grid-cols-2 xl:gap-10 gap-6">
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={hirepersonname}
+                    onChange={hirehandleNameChange}
+                    placeholder="Full Name*"
+                    required
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                  {hirenameerror && (
+                    <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hirenameerror}
+                    </span>
+                  )}
+                </div>
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    style={{ textTransform: 'none' }}
+                    value={hireemail}
+                    onChange={hirehandleEmailChange}
+                    placeholder="Email*"
+                    required
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                  {hireemailerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hireemailerror}
+                    </span>
+                  )}
+                </div>
+                <div className="relative items-stretch text-box self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+                  <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
+                    <div className="items-stretch flex  gap-1 ">
+                      <ReactFlagsSelect
+                        aria-label="Select a country for Join us page"
+                        selected={selectedCode}
+                        onSelect={(code) => setCountryCodeSelected(code)}
+                        searchable
+                        searchPlaceholder="Search countries"
+                      />{' '}
+                      <input
+                        type="text"
+                        placeholder=""
+                        value={selectedCode}
+                        required
+                        className="hidden"
+                        name="country_code"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number*"
+                    value={hirephoneNumber}
+                    onChange={hirehandlePhoneNumberChange}
+                    required
+                    style={{ borderBottom: '0rem' }}
+                    className="outline-none text-box   cursor-pointer overflow-hidden"
+                    name="phone_number"
+                  />
+                  {hirephoneerror && (
+                    <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hirephoneerror}
+                    </span>
+                  )}
+                </div>
+                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                  <Select
+                    placeholder="Area of Expertise"
+                    className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                    suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
+                    onChange={(value) => setAreaofExpertiseTag(value)}
+                    allowClear
+                    value={selectedAOE}
+                    options={AOE}
+                  />
+
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={selectedAOE || ''}
+                    className="hidden"
+                    name="area_of_expertise"
+                  />
+                </div>
+                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                  <Select
+                    placeholder="Years of Experience"
+                    className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                    suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
+                    onChange={(value) => setHiringDuration(value)}
+                    allowClear
+                    value={selectedHiringDuration}
+                    options={HD}
+                  />
+
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={selectedHiringDuration || ''}
+                    className="hidden"
+                    name="hiring_duration"
+                  />
+                </div>
+                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                  <Select
+                    placeholder="Choose skillset"
+                    className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                    suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
+                    onChange={(value) => setSkills(value)}
+                    allowClear
+                    value={selectedSkills}
+                    options={SkillSet}
+                  />
+
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={selectedSkills || ''}
+                    className="hidden"
+                    name="choose_skill_set"
+                  />
+                </div>
+                <div className="w-full relative grid col-span-2">
+                  <label className="py-2 text-xs">Your Message</label>
+                  <textarea
+                    aria-label="Your message while contacting us"
+                    minLength={3}
+                    maxLength={250}
+                    id="message"
+                    name="message_hire"
+                    cols={30}
+                    rows={5}
+                    value={hiremsg}
+                    onChange={hirehandleMessageChange}
+                    className="p-4 text-sm peer border-[1px]  outline-none cursor-pointer text-area"
+                  ></textarea>
+                  {hiremsgerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hiremsgerror}
+                    </span>
+                  )}
+                  {hiremsgcount && (
+                    <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">
+                      {hiremsgcount}/1000
+                    </span>
+                  )}
+                </div>
+              </div>
+              <Space direction="horizontal" size={12} className="grid-cols-1 flex justify-between">
+                <div className="flex">
+                  <span className="">
+                    <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
+                  </span>
+                  <DatePicker
+                    inputReadOnly
+                    value={selectedhireDate ? dayjs(selectedhireDate) : null}
+                    size="large"
+                    placement="topRight"
+                    format="YYYY-MM-DD  HH:mm"
+                    className="text-xs"
+                    disabledDate={disabledDate}
+                    disabledTime={(current) => disabledDateTime(current)}
+                    placeholder="Schedule a Meet"
+                    showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
+                    suffixIcon={null}
+                    onChange={onhireChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={selectedhireDate ? selectedhireDate : ''}
+                    className="hidden"
+                    name="date_hire"
+                  />
+                </div>
+                <div className="flex flex-col gap-1 relative">
+                  <div className="flex flex-col xl:text-sm text-xs">
+                    <label
+                      htmlFor="hire_attachment"
+                      className="font-montserrat whitespace-nowrap"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black mr-2" />
+                      Attach File
+                    </label>
+                    <input
+                      name="hire_attachment"
+                      style={{ display: 'none' }}
+                      type="file"
+                      id="hire_attachment"
+                      onChange={handlehireFileChange}
+                    />
+                    {hirefileerror && (
+                      <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                        {hirefileerror}
+                      </span>
+                    )}
+                  </div>
+                  {hireselectedFileName && (
+                    <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
+                      <span
+                        title={`${hireselectedFileName}`}
+                        className="text-ellipsis whitespace-nowrap  overflow-hidden"
+                      >{`${hireselectedFileName}`}</span>
+                      <button
+                        title={`Remove ${hireselectedFileName}`}
+                        onClick={handlehireClearFile}
+                        className="ml-2"
+                      >
+                        <DeleteOutlined className="text-red-500" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </Space>
+              <button
+                type="submit"
+                name="_action"
+                value="hireus"
+                className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
+                disabled={
+                  btnLoading ||
+                  hirepersonname === '' ||
+                  hireemail === '' ||
+                  hirephoneNumber === '' ||
+                  !!hirephoneerror ||
+                  !!hireemailerror ||
+                  !!hirenameerror ||
+                  !!hiremsgerror
+                }
+              >
+                Send my message
+              </button>
+            </Form>
+          )}
         </div>
       </section>
     </>

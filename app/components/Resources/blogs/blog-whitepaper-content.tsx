@@ -266,7 +266,11 @@ const Blog_WhitepaperContent = () => {
                   <Link
                     title={item?.title}
                     className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden hover:underline"
-                    to={ ( isResourcesRoute )? `/resources/whitepaper/${item?.id}`: `/resources/blog/${item?.id}`}
+                    to={
+                      isResourcesRoute
+                        ? `/resources/whitepaper/${item?.id}`
+                        : `/resources/blog/${item?.id}`
+                    }
                   >
                     {item?.title}
                   </Link>
