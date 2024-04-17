@@ -485,8 +485,8 @@ const ContactUs = () => {
                   +1 (770) 274 4336
                 </a>
                 <br />
-                <a className="text-[0.8em]" href="tel:+917399780734">
-                  +91 7399780734
+                <a className="text-[0.8em]" href="tel:+919108564829">
+                  +91 9108564829
                 </a>
               </div>
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">

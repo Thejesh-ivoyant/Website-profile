@@ -1,9 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Bulletimg from '../../../public/assets/BulletPoint.svg'
-import { useLoaderData } from '@remix-run/react'
-import { scrollToSection } from '~/root'
+import { useLoaderData, useLocation } from '@remix-run/react'
+
 const Cookies = () => {
+  const [activeTile, setActiveTile] = useState<number>(0)
   const loaderData = useLoaderData() as any
+  const location = useLocation()
+  useEffect(()=>{
+    setActiveTile(0)
+  },[location])
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById('contact-sidebar')
@@ -37,6 +42,30 @@ const Cookies = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+  function scrollToSection(section: string, tileId:number = 0) {
+    setActiveTile(tileId)
+  const targetElement = document.getElementById(section)
+  if (targetElement) {
+    const scrollableParent = targetElement.closest('scrollable-element')
+    if (scrollableParent) {
+      // Declare scrollPosition here, within the if block
+      const scrollPosition = targetElement.offsetTop - 94
+      scrollableParent.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth',
+      })
+    } else {
+      // Declare scrollPosition here, within the else block
+      const scrollPosition = targetElement.offsetTop - 94
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth',
+      })
+    }
+  } else {
+    console.error(`Element with ID '${section}' not found.`)
+  }
+}
   return (
     <>
       {' '}
@@ -46,9 +75,9 @@ const Cookies = () => {
           {/* side nav content goes here*/}
           <div className="contact-content-wrapper">
             <div
-              aria-label="What Are Cookies"
-              onClick={() => scrollToSection('what-are-cookies')}
-              className=" cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight active"
+            aria-label='What Are Cookies'
+              onClick={() => scrollToSection('what-are-cookies',1)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative mt-4 highlight ${(activeTile ===1 )? "active": ""}`}
             >
               <div className="flex justify-between    gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
@@ -65,9 +94,9 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-              aria-label="Description as to how we use cookies"
-              onClick={() => scrollToSection('How-We-Use-Cookies')}
-              className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
+            aria-label="Description as to how we use cookies"
+              onClick={() => scrollToSection('How-We-Use-Cookies',2)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight mt-4 ${(activeTile ===2 )? "active": ""}`}
             >
               <div className=" flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -84,8 +113,8 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Disabling-Cookies')}
-              className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
+              onClick={() => scrollToSection('Disabling-Cookies',3)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight mt-4 ${(activeTile ===3 )? "active": ""}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -102,9 +131,9 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-              aria-label="Forms related cookies"
-              onClick={() => scrollToSection('Forms-related-cookies')}
-              className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
+            aria-label="Forms related cookies"
+              onClick={() => scrollToSection('Forms-related-cookies',4)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight mt-4 ${(activeTile ===4 )? "active": ""}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -121,9 +150,9 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-              aria-label="Forms related cookies"
-              onClick={() => scrollToSection('Third-Party-Cookies')}
-              className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
+            aria-label="Forms related cookies"
+              onClick={() => scrollToSection('Third-Party-Cookies',5)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight mt-4 ${(activeTile ===5 )? "active": ""}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -140,8 +169,8 @@ const Cookies = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('More-Information')}
-              className="cursor-pointer  items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight"
+              onClick={() => scrollToSection('More-Information',6)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full relative highlight mt-4 ${(activeTile ===6)? "active": ""}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img

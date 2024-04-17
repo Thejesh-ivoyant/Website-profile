@@ -1,9 +1,37 @@
 import Bulletimg from '../../../public/assets/BulletPoint.svg'
-import { useLoaderData } from '@remix-run/react'
-import { scrollToSection } from '~/root'
-import { useEffect } from 'react'
+import { useLoaderData, useLocation } from '@remix-run/react'
+import { useEffect, useState } from 'react'
 const PrivacyPolicy = () => {
   const loaderData = useLoaderData() as any
+  const [activeTile, setActiveTile] = useState(0)
+  const location = useLocation()
+  useEffect(()=>{
+    setActiveTile(0)
+  },[location])
+  function scrollToSection(section: string, tileId:number = 0) {
+    setActiveTile(tileId)
+  const targetElement = document.getElementById(section)
+  if (targetElement) {
+    const scrollableParent = targetElement.closest('scrollable-element')
+    if (scrollableParent) {
+      // Declare scrollPosition here, within the if block
+      const scrollPosition = targetElement.offsetTop - 94
+      scrollableParent.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth',
+      })
+    } else {
+      // Declare scrollPosition here, within the else block
+      const scrollPosition = targetElement.offsetTop - 94
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth',
+      })
+    }
+  } else {
+    console.error(`Element with ID '${section}' not found.`)
+  }
+}
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById('contact-sidebar')
@@ -58,10 +86,10 @@ const PrivacyPolicy = () => {
           {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
           <div className="contact-content-wrapper">
             <div
-              onClick={() => scrollToSection('Committed-to-protect')}
+              onClick={() => scrollToSection('Committed-to-protect',1)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===1 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   alt="bulleticon"
@@ -74,10 +102,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Collection-of-user-infromation')}
+              onClick={() => scrollToSection('Collection-of-user-infromation',2)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===2 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -89,10 +117,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('User-information-handeling')}
+              onClick={() => scrollToSection('User-information-handeling',3)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===3 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -105,10 +133,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Access-and-use-of-websites')}
+              onClick={() => scrollToSection('Access-and-use-of-websites',4)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===4 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -121,10 +149,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Solution-and-product-offering')}
+              onClick={() => scrollToSection('Solution-and-product-offering',5)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===5 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -137,10 +165,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('User-Employee-contacts')}
+              onClick={() => scrollToSection('User-Employee-contacts',6)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===6 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -153,10 +181,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Visitor-information')}
+              onClick={() => scrollToSection('Visitor-information',7)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===7 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -169,10 +197,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Marketing')}
+              onClick={() => scrollToSection('Marketing',8)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===8 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -185,10 +213,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Sharing-of-personal-information')}
+              onClick={() => scrollToSection('Sharing-of-personal-information',9)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===9 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -201,10 +229,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Information-security-and-accuracy')}
+              onClick={() => scrollToSection('Information-security-and-accuracy',10)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===10 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -217,10 +245,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Retention-period')}
+              onClick={() => scrollToSection('Retention-period',11)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===11 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -233,10 +261,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('How-to-contact-us')}
+              onClick={() => scrollToSection('How-to-contact-us',12)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===12 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -249,10 +277,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Your-rights')}
+              onClick={() => scrollToSection('Your-rights',13)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===13 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
@@ -265,10 +293,10 @@ const PrivacyPolicy = () => {
               </div>
             </div>{' '}
             <div
-              onClick={() => scrollToSection('Changes-to-our-Privacy-Statements')}
+              onClick={() => scrollToSection('Changes-to-our-Privacy-Statements',14)}
               className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full"
             >
-              <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight">
+              <div className={`flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 relative highlight ${(activeTile ===14 )? "active": ""}`}>
                 <img
                   loading="lazy"
                   src={Bulletimg}
