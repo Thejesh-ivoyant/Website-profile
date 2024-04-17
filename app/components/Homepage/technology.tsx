@@ -22,8 +22,8 @@ interface SectionData {
   }[]
 }
 const Technology = () => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
   const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`
   const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<LogoData[]>([])
   const [columnCount, setColumnCount] = useState<number>(5) // Default column count
@@ -59,11 +59,21 @@ const Technology = () => {
     }
   }, []) // Empty dependency array ensures that this effect runs only once on component mount
   return (
-    <div role="complementary" aria-label="Technologies we adopt section" className="technology-section lg:py-8 md:py-6 py-4 lg:gap-6 md:gap-4 gap-3">
+    <div
+      role="complementary"
+      aria-label="Technologies we adopt section"
+      className="technology-section lg:py-8 md:py-6 py-4 lg:gap-6 md:gap-4 gap-3"
+    >
       <section className="section-title">
-        <p role="complementary" className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">Technology Expertise</p>
+        <p role="complementary" className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">
+          Technology Expertise
+        </p>
       </section>
-      <section className="px-4 py-2" role="complementary" aria-label="List of all the technologies that we usually adopt and there are much more">
+      <section
+        className="px-4 py-2"
+        role="complementary"
+        aria-label="List of all the technologies that we usually adopt and there are much more"
+      >
         <div className="flex flex-col space-y-4 gradient-bottom">
           {Array.from({
             length: Math.ceil(TechnologyExpertiseLogos.length / columnCount),

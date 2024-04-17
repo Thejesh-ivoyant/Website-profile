@@ -81,8 +81,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between    gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   alt="bulleticon"
                   src={Bulletimg}
@@ -100,8 +100,8 @@ const Cookies = () => {
             >
               <div className=" flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -118,8 +118,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -137,8 +137,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -156,8 +156,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -174,8 +174,8 @@ const Cookies = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"

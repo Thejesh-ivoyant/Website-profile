@@ -1,9 +1,9 @@
-import { useOutletContext } from '@remix-run/react';
+import { useOutletContext } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { StrapiConfig } from '~/utils/format';
+import { StrapiConfig } from '~/utils/format'
 const Faq = () => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
   const SECTION12_API_URL = `${strapiUrl}/api/section12s?populate=%2A`
   const [faqList, setFaqList] = useState<{ [key: string]: string } | undefined>()
   const [selectedFaq, setSelectedFaq] = useState<string | null>(null)

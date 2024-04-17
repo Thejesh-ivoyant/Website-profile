@@ -77,8 +77,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -96,8 +96,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -115,8 +115,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -134,8 +134,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -153,8 +153,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -172,8 +172,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -191,8 +191,8 @@ const Terms = () => {
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
-                role="presentation"
-                aria-hidden="true"
+                  role="presentation"
+                  aria-hidden="true"
                   loading="lazy"
                   src={Bulletimg}
                   alt="bulleticon"
@@ -212,70 +212,94 @@ const Terms = () => {
           {/* main content goes here */}
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
             <div
-              id="Overview" aria-label="Overview" 
+              id="Overview"
+              aria-label="Overview"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
             >
               Overview
             </div>
-            <div aria-label="Overview description"  className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+            <div
+              aria-label="Overview description"
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+            >
               {loaderData.overview}
             </div>
             <div
-              id="Generic-Terms-of-Use" aria-label='Generic Terms of Use'
+              id="Generic-Terms-of-Use"
+              aria-label="Generic Terms of Use"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
             >
               Generic Terms of Use
             </div>
-            <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full" aria-label='Description for Generic Terms of Use'>
+            <div
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+              aria-label="Description for Generic Terms of Use"
+            >
               {loaderData.generic}
             </div>
             <div
-              id="Disclaimer" aria-label='Disclaimer'
+              id="Disclaimer"
+              aria-label="Disclaimer"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
             >
               Disclaimer
             </div>
-            <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full" aria-label='Disclaimer'>
+            <div
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+              aria-label="Disclaimer"
+            >
               {loaderData.disclaimer}
             </div>
             <div
-            aria-label='Confidential Information from Clients and Partners'
+              aria-label="Confidential Information from Clients and Partners"
               id="Client-and-Partner-Confidentiality"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
             >
               Confidential Information from Clients and Partners 
             </div>
-            <div aria-label='Description for Confidential Information from Clients and Partners ' className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+            <div
+              aria-label="Description for Confidential Information from Clients and Partners "
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+            >
               {loaderData.confidentialityParagraph1}
             </div>
             <div
-            aria-label="Business Relationships"
+              aria-label="Business Relationships"
               id="Business-Relationships"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full"
             >
               Business Relationships 
             </div>
-            <div aria-label='Description for Business Relationships' className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+            <div
+              aria-label="Description for Business Relationships"
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+            >
               {loaderData.relationships}
             </div>
             <div
-            aria-label="Disclaimer of warranty"
+              aria-label="Disclaimer of warranty"
               id="Disclaimer-of-Warranty"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
             >
               Disclaimer of Warranty
             </div>
-            <div aria-label="Description for Disclaimer of warranty" className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+            <div
+              aria-label="Description for Disclaimer of warranty"
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+            >
               {loaderData.warranty}
             </div>
             <div
-            aria-label='Limitation of Liability'
+              aria-label="Limitation of Liability"
               id="Limitation-of-Liability"
               className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full"
             >
               Limitation of Liability
             </div>
-            <div aria-label="Discription for Limitation of Liability" className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+            <div
+              aria-label="Discription for Limitation of Liability"
+              className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full"
+            >
               {loaderData.limitation}
             </div>
           </div>

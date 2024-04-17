@@ -1,5 +1,5 @@
-import { useOutletContext } from "@remix-run/react";
-import { StrapiConfig } from "~/utils/format";
+import { useOutletContext } from '@remix-run/react'
+import { StrapiConfig } from '~/utils/format'
 
 const DescriptionCard = ({
   AboutDescription,
@@ -8,8 +8,8 @@ const DescriptionCard = ({
   AboutDescription: any
   DescriptionBackground: any
 }) => {
-  const outletCon:StrapiConfig = useOutletContext()
-  const strapiUrl = outletCon?.STRAPI_URL;
+  const outletCon: StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL
   return (
     <div className="flex flex-col w-full lg:flex-row">
       <div className="lg:w-1/3 relative w-full CardDark opacity-95 flex flex-col justify-center items-center">
