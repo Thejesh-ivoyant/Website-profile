@@ -230,6 +230,7 @@ const Footer = () => {
                   {attributes?.services?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
+                      aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-medium"
                         to={item.link}
@@ -249,6 +250,7 @@ const Footer = () => {
                   {attributes?.industries?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
+                      aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-semibold"
                         to={item.link}
@@ -268,6 +270,7 @@ const Footer = () => {
                   {attributes?.products?.map((item, index) =>
                     item.__typename != 'ComponentCardCard' ? (
                       <Link
+                      aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-medium"
                         to={item.link}
@@ -291,6 +294,7 @@ const Footer = () => {
                     !item.attachment?.data?.attributes?.url &&
                     item.__typename !== 'ComponentCardCard' ? (
                       <Link
+                      aria-label={`Link to ${item?.name}`}
                         key={index}
                         to={item.link}
                         className="hover:font-semibold"
@@ -329,6 +333,7 @@ const Footer = () => {
                   if (item?.name) {
                     return (
                       <Link
+                      aria-label={`Link to ${item?.name}`}
                         prefetch="intent"
                         className="hover:font-medium"
                         to={item?.link}
@@ -350,6 +355,7 @@ const Footer = () => {
                 <div className="flex flex-col footer-font justify-center gap-4">
                   {attributes?.company?.map((item, index: number) => (
                     <Link
+                    aria-label={`Link to ${item?.name}`}
                       prefetch="intent"
                       className="hover:font-medium"
                       to={item?.link}
@@ -566,7 +572,7 @@ const Footer = () => {
       {/* phone footer */}
       <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
         <div className="grid place-items-center md:hidden">
-          <Link to={'/'} className="hover:font-medium">
+          <Link aria-label={`Link to Ivoyant home}`}to={'/'} className="hover:font-medium">
             <img src={ivoyantLogo} alt="iVoyant Logo" />
           </Link>
           <span className="flex gap-2 py-4">

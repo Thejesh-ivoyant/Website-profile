@@ -80,6 +80,15 @@
 .privacy-section2 {
   margin-top: 2.5rem;
 }
+.active:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0.25rem;
+  background-color: #7389fa;
+}
 .highlight:hover:before {
   content: '';
   position: absolute;

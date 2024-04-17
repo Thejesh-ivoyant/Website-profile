@@ -237,10 +237,10 @@ const Nav = () => {
       </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16">
         <div className="flex flex-row items-center justify-around">
-          <Link to="/">
+          <Link role="link" aria-label="Ivoyant Home" to="/">
             {' '}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
-              <img src={ivurl} alt="iVoyant Logo" className="aspect-video h-16 object-contain" />
+              <img role="presentation" aria-hidden="true" src={ivurl} alt="iVoyant Logo" className="aspect-video h-16 object-contain" />
             </div>
           </Link>
 
@@ -286,6 +286,7 @@ const Nav = () => {
                                 <div className="col-span-1 h-fit" key={item.id}>
                                   {item.icon?.data?.attributes?.url ? (
                                     <img
+                                    role="presentation" aria-hidden="true"
                                       src={item.icon.data.attributes.url}
                                       alt={item.name}
                                       onError={defaultsvg}
@@ -293,6 +294,7 @@ const Nav = () => {
                                     />
                                   ) : (
                                     <img
+                                    role="presentation" aria-hidden="true"
                                       src={defaultsvg}
                                       alt={item.name}
                                       className="w-4 h-4 inline my-auto mr-2 mb-1"
@@ -330,6 +332,8 @@ const Nav = () => {
                         ) && (
                           <figure className="relative nav-img">
                             <Image
+                            role="presentation"
+                            aria-hidden="true"
                               width={400}
                               height={210}
                               src={
@@ -360,6 +364,8 @@ const Nav = () => {
                                 }
                               </div>
                               <Link
+                              role="link"
+                              aria-label='Link to Read more about our latest blog'
                                 to={
                                   navdata.navGraphql.data.navbar.data.attributes[category].find(
                                     (item: any) => item.__typename === 'ComponentCardCard'
@@ -403,6 +409,7 @@ const Nav = () => {
         <Link to="/" prefetch="intent" className=" mr-auto flex">
           <div className="flex flex-row justify-center items-center object-contain">
             <img
+            role="presentation" aria-hidden="true"
               src={ivurl}
               alt="iVoyant Logo"
               onClick={closeMenuMob}
@@ -566,7 +573,7 @@ const Nav = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={yt} className="w-8 h-8" />
+                <img role="presentation" aria-hidden="true" src={yt} className="w-8 h-8" />
               </a>
               <a
                 onClick={handleHamburgerClick}
@@ -575,7 +582,7 @@ const Nav = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={linkedin} className="w-8 h-8" />
+                <img role="presentation" aria-hidden="true" src={linkedin} className="w-8 h-8" />
               </a>
               <a
                 onClick={handleHamburgerClick}
@@ -584,7 +591,7 @@ const Nav = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={fb} className="w-8 h-8" />
+                <img role="presentation" aria-hidden="true" src={fb} className="w-8 h-8" />
               </a>
               <a
                 onClick={handleHamburgerClick}
@@ -593,7 +600,7 @@ const Nav = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={twitter} className="w-8 h-8" />
+                <img role="presentation" aria-hidden="true" src={twitter} className="w-8 h-8" />
               </a>
             </div>
             <small className="capitalize font-poppins pt-2 text-gray-200 font-light leading-4">

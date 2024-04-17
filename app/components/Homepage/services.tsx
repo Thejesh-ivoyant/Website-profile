@@ -49,7 +49,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
             <Image
               width={400}
               height={250}
-              loading='eager'
+              loading= "eager"
               src={service?.bgImage?.data.attributes.url as string}
               alt={service?.title as string}
             />

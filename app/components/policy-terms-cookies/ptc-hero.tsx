@@ -11,6 +11,7 @@ const PTCHero = () => {
   return (
     <>
       <div
+      role="banner"
         className="relative md:flex hidden screen-height mt-20 flex-row min-h-fit"
         style={gradientStyle}
       >
@@ -20,7 +21,7 @@ const PTCHero = () => {
               {loaderData?.heroTitle}
             </h1>
             <p className="font-poppins text-base lg:text-lg font-normal lg:leading-8 leading-6 text-justify mt-5">
-              {loaderData.heroDescription}
+              {loaderData?.heroDescription}
             </p>
           </div>
         </div>
@@ -32,11 +33,13 @@ const PTCHero = () => {
             {loaderData?.heroTitle}
           </h1>
           <p className="font-poppins text-sm font-normal leading-6 text-justify mt-5">
-            {loaderData.heroDescription}
+            {loaderData?.heroDescription}
           </p>
         </div>
       </section>
       <Image
+      role="presentation"
+      aria-hidden="true"
         src={loaderData?.heroImage}
         width={768}
         height={500}
