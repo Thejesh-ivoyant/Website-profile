@@ -1,6 +1,5 @@
 import Consultation from '~/components/Homepage/consultation'
-import { Await, MetaFunction, Outlet, defer, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
+import { Await, MetaFunction, Outlet, defer, useLoaderData, useOutletContext } from '@remix-run/react'
 import Cookies from '~/components/policy-terms-cookies/cookies'
 import PTCHero from '~/components/policy-terms-cookies/ptc-hero'
 import LoadingTest from '~/common-components/loading-test'
@@ -8,6 +7,8 @@ import { Suspense } from 'react'
 import CompanyStyle from '~/styles/company.css'
 import { LinksFunction } from '@remix-run/node'
 import { Popup } from '~/common-components/social-media-popup'
+import { StrapiConfig } from '~/utils/format'
+
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: CompanyStyle }]
 export const meta: MetaFunction = ({ data }: { data: any }) => {
   return [
@@ -23,7 +24,7 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
   ]
 }
 export async function loader() {
-  const url = strapiUrl + `/api/cookies?populate=%2A`
+  const url = process.env.STRAPI_URL + `/api/cookies?populate=%2A`
   try {
     const res = await fetch(url)
     let jsonParsed = await res.json()

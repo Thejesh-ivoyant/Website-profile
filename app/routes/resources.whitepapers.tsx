@@ -3,7 +3,6 @@ import { Suspense } from 'react'
 import Consultation from '~/components/Homepage/consultation'
 import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
 import { LinksFunction, defer } from '@remix-run/node'
-import { strapiUrl } from '~/utils/urls'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { whitepaperQuery } from '~/graphql/queries'
 import WhitePaperCardContainer from '~/components/Resources/whitepapers/whitepaper-container'
@@ -29,7 +28,7 @@ export const meta: MetaFunction = () => {
 export async function loader() {
   try {
     const whitepaperGql = await fetchGraphQL(whitepaperQuery)
-    const res = await fetch(strapiUrl + '/api/white-paper-home?populate=%2A')
+    const res = await fetch(process.env.STRAPI_URL + '/api/white-paper-home?populate=%2A')
     let jsonParsed = await res.json()
     const { heroTitle, heroDescription, s2_title } = jsonParsed.data?.attributes ?? ''
     // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({

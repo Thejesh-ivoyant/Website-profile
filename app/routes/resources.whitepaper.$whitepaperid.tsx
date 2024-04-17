@@ -1,5 +1,4 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { getAuthorQuery, getPaperAuthorIDQuery, whitepaperQuery } from '~/graphql/queries'
 import { LoaderFunctionArgs } from '@remix-run/node'
@@ -47,7 +46,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
       avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
     },
   }))
-  const url = strapiUrl + `/api/white-papers/${paperid}?populate=%2A` // hardcoded value
+  const url = process.env.STRAPI_URL + `/api/white-papers/${paperid}?populate=%2A` // hardcoded value
   try {
     const res = await fetch(url)
     let jsonParsed = await res.json()

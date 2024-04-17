@@ -1,5 +1,4 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import {
   blogCategoryQuery,
@@ -37,7 +36,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   const authorId = authorIdData.data?.blog.data?.attributes.author.data?.id
   const updatedQuery = getAuthorQuery(authorId)
   const authorData = await fetchGraphQL(updatedQuery)
-  const url = strapiUrl + `/api/blogs/${params.blogid}?populate=%2A`
+  const url = process.env.STRAPI_URL + `/api/blogs/${params.blogid}?populate=%2A`
   const blogCategoryGql = await fetchGraphQL(blogCategoryQuery)
   const blog = blogCategoryGql.data?.blogs.data || []
   const BlogCategory = blog.map((item: any) => ({

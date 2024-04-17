@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import Consultation from '~/components/Homepage/consultation'
 import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
 import { LinksFunction, defer } from '@remix-run/node'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { blogQuery, caseQuery, categories, tagsQuery } from '~/graphql/queries'
@@ -47,7 +46,7 @@ export async function loader() {
       label: daum.attributes.name,
     }))
 
-    const res = await fetch(strapiUrl + '/api/case-study-home?populate=%2A')
+    const res = await fetch(process.env.STRAPI_URL + '/api/case-study-home?populate=%2A')
 
     let jsonParsed = await res.json()
     const { heroTitle, heroDescription, s2_title } = jsonParsed.data?.attributes ?? ''

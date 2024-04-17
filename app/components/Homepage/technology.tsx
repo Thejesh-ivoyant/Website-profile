@@ -1,5 +1,7 @@
+import { useOutletContext } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { strapiUrl } from '~/utils/urls'
+import { StrapiConfig } from '~/utils/format'
+
 interface LogoData {
   id: number
   attributes: {
@@ -20,6 +22,8 @@ interface SectionData {
   }[]
 }
 const Technology = () => {
+  const outletCon:StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL;
   const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`
   const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<LogoData[]>([])
   const [columnCount, setColumnCount] = useState<number>(5) // Default column count

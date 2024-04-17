@@ -1,6 +1,7 @@
+import { useOutletContext } from '@remix-run/react'
 import { Carousel } from 'antd'
 import { useEffect, useState } from 'react'
-import { strapiUrl } from '~/utils/urls'
+import { StrapiConfig } from '~/utils/format'
 interface Testimonial {
   title: string
   subtitle: string
@@ -17,6 +18,8 @@ interface TestimonialData {
   }[]
 }
 const Testimonials = () => {
+  const outletCon:StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL;
   const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`
   const [testimonialList, setTestimonialList] = useState<Testimonial[]>([])
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState<number>(0)

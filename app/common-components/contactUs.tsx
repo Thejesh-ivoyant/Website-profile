@@ -1,8 +1,7 @@
-import { Form, useLocation } from '@remix-run/react'
+import { Form, useLocation, useOutletContext } from '@remix-run/react'
 import line from '~/../public/assets/line.svg'
 import ReactFlagsSelect from 'react-flags-select'
 import { useEffect, useRef, useState } from 'react'
-import { strapiUrl } from '~/utils/urls'
 import React from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -12,6 +11,7 @@ import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker'
 import { errorMessage, success } from '~/utils/notifications'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
 import DropDownIcon from '~/components/Resources/case-study/arrow'
+import { StrapiConfig } from '~/utils/format'
 dayjs.extend(customParseFormat)
 const range = (start: number, end: number) => {
   const result = []
@@ -35,6 +35,9 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   }
 }
 const ContactUs = () => {
+  const outletCon:StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL;
+  
   const location = useLocation()
   const [personname, setPersonName] = useState('')
   const [nameerror, setNameError] = useState('')

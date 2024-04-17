@@ -1,7 +1,6 @@
-import { strapiUrl } from './urls'
 export async function fetchData(endpoint: string) {
   try {
-    const response: Response = await fetch(strapiUrl + endpoint)
+    const response: Response = await fetch(process.env.STRAPI_URL + endpoint)
     if (!response.ok) {
       console.error(
         `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`

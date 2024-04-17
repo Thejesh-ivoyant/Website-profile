@@ -1,10 +1,10 @@
-import { strapiUrl } from '~/utils/urls'
+
 export interface GraphQLResponse {
   data?: any
   errors?: any[]
 }
 export async function fetchGraphQL(query: string): Promise<GraphQLResponse> {
-  const url = `${strapiUrl}/graphql`
+  const url = `${process.env.STRAPI_URL}/graphql`
   const headers = {
     'Content-Type': 'application/json',
   }

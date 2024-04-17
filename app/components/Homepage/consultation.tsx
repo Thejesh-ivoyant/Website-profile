@@ -1,8 +1,12 @@
-import { Link } from '@remix-run/react'
+import { Link, useOutletContext } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { strapiUrl } from '~/utils/urls'
-const API_URL = `${strapiUrl}/api/section7s?populate=%2A`
+import { StrapiConfig } from '~/utils/format';
+
 const Consultation = () => {
+  const outletCon:StrapiConfig = useOutletContext()
+  const strapiUrl = outletCon?.STRAPI_URL;
+
+  const API_URL = `${strapiUrl}/api/section7s?populate=%2A`
   const [tagline, setTagline] = useState('')
   const [bgImageUrl, setImageUrl] = useState('')
   useEffect(() => {

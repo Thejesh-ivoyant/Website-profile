@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
 import BlogPostsContainer from '~/components/Resources/blogs/blogPosts-container'
 import { topBlogQuery } from '~/graphql/queries'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
@@ -60,7 +59,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     industryComponentRes,
     blogGql,
   ] = await Promise.all([
-    fetch(strapiUrl + `/api/${service}?populate=%2A`),
+    fetch(process.env.STRAPI_URL + `/api/${service}?populate=%2A`),
     fetchData(`/api/${service}/?populate=s2_keyPoints.keyPointsImage`),
     fetchData(`/api/${service}/?populate=s5_phasesOfDevelopment.s5_phasesImage`),
     fetchData(`/api/${service}/?populate=s7_techIcons.s7_techIcon`),

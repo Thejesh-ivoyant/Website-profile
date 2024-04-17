@@ -11,6 +11,7 @@ import {
   Scripts,
   ScrollRestoration,
   defer,
+  useLoaderData,
 } from '@remix-run/react'
 import ClarityScript from './clarityScript'
 import Nav from './common-components/nav'
@@ -54,6 +55,9 @@ export async function loader() {
   return defer(
     {
       navGraphql: navGraphql,
+      ENV: {
+        STRAPI_URL: process.env.STRAPI_URL,
+      }
     },
     {
       headers: { 'Cache-Control': 'public, s-maxage=300' },
@@ -61,7 +65,7 @@ export async function loader() {
   )
 }
 export default function App() {
-  const errorMsg = 'Hy thejesh'
+  const config= useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
@@ -76,7 +80,7 @@ export default function App() {
       <body className="lg:overscroll-y-none overscroll-y-auto">
         <Nav />
         <LoadingTest />
-        <Outlet context={errorMsg} />
+        <Outlet context={config.ENV} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -1,5 +1,4 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from '@remix-run/react'
-import { strapiUrl } from '~/utils/urls'
 import JobDescription from '~/components/careers/job-description'
 import { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
 import LoadingTest from '~/common-components/loading-test'
@@ -22,7 +21,7 @@ export const meta: MetaFunction = () => {
 }
 export async function loader({ params }: LoaderFunctionArgs) {
   // const productsData =  await fetchGraphQLWithParameter(productsQuery,`${params.jobid}`);
-  const url = strapiUrl + `/api/job-descriptions/${params.jobid}?populate=%2A`
+  const url = process.env.STRAPI_URL + `/api/job-descriptions/${params.jobid}?populate=%2A`
   try {
     const res = await fetch(url)
     let jsonParsed = await res.json()
