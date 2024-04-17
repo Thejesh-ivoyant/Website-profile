@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import Bulletimg from '../../../public/assets/BulletPoint.svg'
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData, useLocation } from '@remix-run/react'
 
 const Cookies = () => {
   const [activeTile, setActiveTile] = useState<number>(0)
   const loaderData = useLoaderData() as any
+  const location = useLocation()
+  useEffect(()=>{
+    setActiveTile(0)
+  },[location])
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById('contact-sidebar')

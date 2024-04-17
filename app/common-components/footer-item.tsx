@@ -82,11 +82,11 @@ export const AccordionItem = ({
                   <div className="flex flex-col footer-font justify-center gap-4">
                     <span className="text-sm to-geekblue-2">Phone</span>
                     <a
-                      href="tel:+91 7399780734"
+                      href="tel:+91 9108564829"
                       className="text-geekblue-2 text-xs mx-2 hover:text-purple-300"
                     >
                       {' '}
-                      +91 7399780734
+                      +91 9108564829
                     </a>
                   </div>
                 </div>

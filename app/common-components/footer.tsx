@@ -382,9 +382,12 @@ const Footer = () => {
                   </div>
                   <div className="flex items-start py-3 gap-2">
                     <div className="flex flex-col footer-font justify-center">
-                      <span className="">Phone</span>
-                      <a href="tel:+91 7399780734" className="hover:font-semibold">
-                        +91 7399780734
+                      <span className="pb-2">Phone</span>
+                      <a href="tel:+1 (770) 274 4336" className="hover:font-semibold">
+                        +1 (770) 274 4336
+                      </a>
+                      <a href="tel:+91 9108564829" className="hover:font-semibold">
+                        +91 9108564829
                       </a>
                     </div>
                   </div>
