@@ -9,7 +9,7 @@ const GovSection4 = () => {
   }
 
   return (
-    <section className="staffing-services">
+    <section className="tied-services">
       <h2 className="staffing-services-title">States we are tied up with</h2>
       <div className="staffing-services-divider">
         <div className="staffing-services-divider-line"></div>
@@ -20,13 +20,11 @@ const GovSection4 = () => {
         strategically positioned to serve clients nationwide. Explore our interactive map to
         discover the states we operate in and learn more about our footprint in each region.
       </p>
-      <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange}>
+      <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange} tabBarGutter={0}>
         <Tabs.TabPane
           tab={
-            <button
-              className={`hue-btn-primary btn ${activeTab === '1' ? 'ant-tabs-tab-btn-active' : ''}`}
-            >
-              Tab 1
+            <button className={` tab-btn ${activeTab === '1' ? 'hue-btn-primary tab-btn' : ''}`}>
+              States
             </button>
           }
           key="1"
@@ -118,10 +116,8 @@ const GovSection4 = () => {
         </Tabs.TabPane>
         <Tabs.TabPane
           tab={
-            <button
-              className={`hue-btn-primary btn ${activeTab === '2' ? 'ant-tabs-tab-btn-active' : ''}`}
-            >
-              Tab 2
+            <button className={` tab-btn ${activeTab === '2' ? 'hue-btn-primary tab-btn' : ''}`}>
+              Counties
             </button>
           }
           key="2"
@@ -214,10 +210,8 @@ const GovSection4 = () => {
 
         <Tabs.TabPane
           tab={
-            <button
-              className={`hue-btn-primary btn ${activeTab === '3' ? 'ant-tabs-tab-btn-active' : ''}`}
-            >
-              Tab 3
+            <button className={` tab-btn ${activeTab === '3' ? 'hue-btn-primary tab-btn' : ''}`}>
+              Cities
             </button>
           }
           key="3"
