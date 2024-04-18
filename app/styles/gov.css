@@ -481,6 +481,43 @@
   stroke-width: 1px;
   border-radius: 50%;
 }
+.ant-tabs-tab .ant-tabs-tab-active{
+  border-bottom: none!important;
+  color: var(--Flowkit-White, #FFF)!important;
+text-align: center;
+font-family: Oxygen!important;
+font-size: 1rem!important;
+font-style: normal!important;
+font-weight: 700!important;
+line-height: 3.125rem!important; /* 312.5% */
+letter-spacing: 0.02rem!important;
+}
+.ant-tabs .ant-tabs-tab {
+  padding-bottom: 0rem !important;
+  align-items: end !important;
+}
+
+.ant-tabs .ant-tabs-tab-active {
+  align-items: end !important;
+}
+.ant-tabs .ant-tabs-tab:not(.ant-tabs-tab-active) {
+  align-items: end !important;
+}
+
+.tab-btn{
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  color: var(--Flowkit-Charcoal, #222);
+text-align: center;
+font-family: Oxygen;
+
+font-style: normal;
+font-weight: 400;
+line-height: 3.125rem; /* 312.5% */
+letter-spacing: 0.02rem;
+}
 
 @media (max-width: 991px) {
   .service-name.devops {
@@ -490,10 +527,28 @@
 }
 
 /* section4 */
+.tied-services .ant-tabs{
+  max-width: 100%!important;
+}
 
-.tied-up-services-list {
+.tied-services {
   display: flex;
-  max-width: 53.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 37px;
+  background-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .tied-services {
+    padding: 2rem 1rem;
+  }
+}
+
+.tied-services .tied-up-services-list {
+  display: flex;
+ 
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -504,11 +559,26 @@
   text-align: center;
   line-height: 156%;
 }
+@media (max-width: 768px) {
+  .tied-services .tied-up-services-list {
+    flex-wrap: nowrap!important;
+    white-space: nowrap;
+    overflow-x: scroll;
+    justify-content: space-evenly;
+    scroll-snap-type: x mandatory;
+  }
+  .tied-up-services-list .staffing-services-item:first-child {
+    margin-left: 20px!important;
 
+  }
+  .tied-up-services-list .staffing-services-item:last-child {
+    margin-right: 20px!important;
+  }
+}
 @media (max-width: 991px) {
-  .tied-up-services-list {
-    flex-wrap: wrap;
-    margin-top: 40px;
+  .tied-services .tied-up-services-list {
+    margin-bottom: 2.5rem;
+    margin-top: 2rem;
   }
 }
 
