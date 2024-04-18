@@ -17,14 +17,14 @@ const GovCardContainer = () => {
           </div>
         </div>
         <div className="expertise-list">
-          <div className="expertise-list-container">
-            <h3 className="expertise-list-title">Customized Solutions</h3>
-            <div className="expertise-list-item">IT Transformation</div>
-            <div className="expertise-list-item">Products & Solutions</div>
-            <div className="expertise-list-item">Cyber Security</div>
-            <div className="expertise-list-item">Cloud Solutions</div>
-            <div className="expertise-list-item">Agile Development</div>
-          </div>
+          <ul className="expertise-list-container">
+            <li className="expertise-list-title">Customized Solutions</li>
+            <li className="expertise-list-item">IT Transformation</li>
+            <li className="expertise-list-item">Products & Solutions</li>
+            <li className="expertise-list-item">Cyber Security</li>
+            <li className="expertise-list-item">Cloud Solutions</li>
+            <li className="expertise-list-item">Agile Development</li>
+          </ul>
         </div>
       </div>
     </section>
