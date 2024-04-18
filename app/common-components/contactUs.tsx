@@ -489,7 +489,9 @@ const ContactUs = () => {
                   +91 9108564829
                 </a>
               </div>
-              <div className={`col-span-1 text-white items-left md:mx-0 mx-4 ${(location.pathname?.endsWith('state-and-local-government-support'))? "hidden" : ""}`}>
+              <div
+                className={`col-span-1 text-white items-left md:mx-0 mx-4 ${location.pathname?.endsWith('state-and-local-government-support') ? 'hidden' : ''}`}
+              >
                 <div className="flex text-iv-purple items-left gap-2">
                   <img className="w-4 h-4 inline" src="../assets/info.svg" alt="info" />
                   <span className="text-[0.7em]">Information</span>
@@ -499,7 +501,9 @@ const ContactUs = () => {
                 </a>
               </div>
               {toggleState === 1 && (
-                <div className={`col-span-1 text-white items-left md:mx-0 mx-4 ${(location.pathname?.endsWith('state-and-local-government-support'))? "hidden" : ""}`}>
+                <div
+                  className={`col-span-1 text-white items-left md:mx-0 mx-4 ${location.pathname?.endsWith('state-and-local-government-support') ? 'hidden' : ''}`}
+                >
                   <div className="flex text-iv-purple items-left gap-2">
                     <img
                       className="w-4 h-4 inline"

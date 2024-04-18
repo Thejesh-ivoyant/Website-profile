@@ -5,33 +5,33 @@ const Terms = () => {
   const loaderData = useLoaderData() as any
   const location = useLocation()
   const [activeTile, setActiveTile] = useState(0)
-  useEffect(()=>{
+  useEffect(() => {
     setActiveTile(0)
-  },[location])
-  function scrollToSection(section: string, tileId:number = 0) {
+  }, [location])
+  function scrollToSection(section: string, tileId: number = 0) {
     setActiveTile(tileId)
-  const targetElement = document.getElementById(section)
-  if (targetElement) {
-    const scrollableParent = targetElement.closest('scrollable-element')
-    if (scrollableParent) {
-      // Declare scrollPosition here, within the if block
-      const scrollPosition = targetElement.offsetTop - 94
-      scrollableParent.scrollTo({
-        top: scrollPosition,
-        behavior: 'smooth',
-      })
+    const targetElement = document.getElementById(section)
+    if (targetElement) {
+      const scrollableParent = targetElement.closest('scrollable-element')
+      if (scrollableParent) {
+        // Declare scrollPosition here, within the if block
+        const scrollPosition = targetElement.offsetTop - 94
+        scrollableParent.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth',
+        })
+      } else {
+        // Declare scrollPosition here, within the else block
+        const scrollPosition = targetElement.offsetTop - 94
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth',
+        })
+      }
     } else {
-      // Declare scrollPosition here, within the else block
-      const scrollPosition = targetElement.offsetTop - 94
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: 'smooth',
-      })
+      console.error(`Element with ID '${section}' not found.`)
     }
-  } else {
-    console.error(`Element with ID '${section}' not found.`)
   }
-}
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById('contact-sidebar')
@@ -71,9 +71,10 @@ const Terms = () => {
         <aside className="aside">
           <div className="contact-content-wrapper">
             <div
-            role="button" aria-label="Overview"
-              onClick={() => scrollToSection('Overview',1)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center  max-md:max-w-full relative highlight  ${(activeTile ===1 )? "active": ""}`}
+              role="button"
+              aria-label="Overview"
+              onClick={() => scrollToSection('Overview', 1)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center  max-md:max-w-full relative highlight  ${activeTile === 1 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -90,9 +91,10 @@ const Terms = () => {
               </div>
             </div>
             <div
-            role="button" aria-label='Generic Terms of Use'
-              onClick={() => scrollToSection('Generic-Terms-of-Use',2)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===2)? "active": ""}`}
+              role="button"
+              aria-label="Generic Terms of Use"
+              onClick={() => scrollToSection('Generic-Terms-of-Use', 2)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 2 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -109,9 +111,10 @@ const Terms = () => {
               </div>
             </div>{' '}
             <div
-            role="button" aria-label='Disclaimer'
-              onClick={() => scrollToSection('Disclaimer',3)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===3)? "active": ""}`}
+              role="button"
+              aria-label="Disclaimer"
+              onClick={() => scrollToSection('Disclaimer', 3)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 3 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -128,9 +131,10 @@ const Terms = () => {
               </div>
             </div>{' '}
             <div
-            role="button" aria-label='Client and Partner Confidentiality'
-              onClick={() => scrollToSection('Client-and-Partner-Confidentiality',4)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===4)? "active": ""}`}
+              role="button"
+              aria-label="Client and Partner Confidentiality"
+              onClick={() => scrollToSection('Client-and-Partner-Confidentiality', 4)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 4 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -147,9 +151,10 @@ const Terms = () => {
               </div>
             </div>{' '}
             <div
-            role="button" aria-label='Business Relationships'
-              onClick={() => scrollToSection('Business-Relationships',5)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===5)? "active": ""}`}
+              role="button"
+              aria-label="Business Relationships"
+              onClick={() => scrollToSection('Business-Relationships', 5)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 5 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -166,9 +171,10 @@ const Terms = () => {
               </div>
             </div>{' '}
             <div
-            role="button" aria-label='Disclaimer of Warranty'
-              onClick={() => scrollToSection('Disclaimer-of-Warranty',6)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===6)? "active": ""}`}
+              role="button"
+              aria-label="Disclaimer of Warranty"
+              onClick={() => scrollToSection('Disclaimer-of-Warranty', 6)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 6 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img
@@ -185,9 +191,10 @@ const Terms = () => {
               </div>
             </div>{' '}
             <div
-            role="button" aria-label='Limitation of Liability'
-              onClick={() => scrollToSection('Limitation-of-Liability',7)}
-              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${(activeTile ===7)? "active": ""}`}
+              role="button"
+              aria-label="Limitation of Liability"
+              onClick={() => scrollToSection('Limitation-of-Liability', 7)}
+              className={`cursor-pointer items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full relative highlight  ${activeTile === 7 ? 'active' : ''}`}
             >
               <div className="flex justify-between gap-4 p-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5 ">
                 <img

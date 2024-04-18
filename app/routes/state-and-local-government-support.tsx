@@ -1,4 +1,3 @@
-
 import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { aboutUsQuery, homeQuery, topBlogQuery } from '~/graphql/queries'

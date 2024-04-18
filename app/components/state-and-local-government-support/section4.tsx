@@ -20,12 +20,11 @@ const GovSection4 = () => {
         strategically positioned to serve clients nationwide. Explore our interactive map to
         discover the states we operate in and learn more about our footprint in each region.
       </p>
-      <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange}   tabBarGutter={0} >
+      <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange} tabBarGutter={0}>
         <Tabs.TabPane
           tab={
-            <button
-            className={` tab-btn ${activeTab === '1' ? 'hue-btn-primary tab-btn' : ''}`}            >
-         States
+            <button className={` tab-btn ${activeTab === '1' ? 'hue-btn-primary tab-btn' : ''}`}>
+              States
             </button>
           }
           key="1"
@@ -117,9 +116,8 @@ const GovSection4 = () => {
         </Tabs.TabPane>
         <Tabs.TabPane
           tab={
-            <button
-            className={` tab-btn ${activeTab === '2' ? 'hue-btn-primary tab-btn' : ''}`}            >
-           Counties
+            <button className={` tab-btn ${activeTab === '2' ? 'hue-btn-primary tab-btn' : ''}`}>
+              Counties
             </button>
           }
           key="2"
@@ -212,10 +210,8 @@ const GovSection4 = () => {
 
         <Tabs.TabPane
           tab={
-            <button
-            className={` tab-btn ${activeTab === '3' ? 'hue-btn-primary tab-btn' : ''}`}            
-            >
-            Cities
+            <button className={` tab-btn ${activeTab === '3' ? 'hue-btn-primary tab-btn' : ''}`}>
+              Cities
             </button>
           }
           key="3"
