@@ -75,7 +75,7 @@
 
 .expertise-description {
   color: #000;
-  margin-top: 32px;
+  margin-top: 2rem;
   font:
     400 16px/28px Poppins,
     sans-serif;
@@ -84,6 +84,7 @@
 @media (max-width: 991px) {
   .expertise-description {
     max-width: 100%;
+    margin-top: 1rem;
   }
 }
 
@@ -256,7 +257,7 @@
 }
 
 .staffing-services-description {
-  width: 1027px;
+  max-width: 1027px;
   margin-top: 16px;
   font:
     400 16px/28px Poppins,
@@ -383,6 +384,8 @@
 
 .services-text {
   color: #DBD7F9;
+  height: fit-content;
+  margin: auto;
   font-family: Poppins;
   font-size: 1rem;
   font-style: normal;
@@ -395,7 +398,6 @@
 @media (max-width: 991px) {
   .services-text {
     max-width: 100%;
-    margin-top: 40px;
   }
 }
 
