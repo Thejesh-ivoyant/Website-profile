@@ -20,6 +20,7 @@ const GovSection3 = () => {
       <div className="service-item">
         <div className="service-content">
           <div className="service-name">Custom Applications</div>
+          <p>Creating apps for smartphones and tablets, mobile app development involves designing, building, and deploying software tailored for mobile devices.</p>
           <button className="service-icon" onClick={handleclick}>
             <ArrowCircle/>
           </button>
@@ -28,6 +29,7 @@ const GovSection3 = () => {
       <div className="service-item">
         <div className="service-content">
           <div className="service-name">Mobile App Development</div>
+          <p>Creating apps for smartphones and tablets, mobile app development involves designing, building, and deploying software tailored for mobile devices.</p>
           <button className="service-icon" onClick={handleclick}>
             <ArrowCircle/>
           </button>
@@ -36,6 +38,7 @@ const GovSection3 = () => {
       <div className="service-item">
         <div className="service-content">
           <div className="service-name">UX/UI Design</div>
+          <p>Creating apps for smartphones and tablets, mobile app development involves designing, building, and deploying software tailored for mobile devices.</p>
           <button className="service-icon" onClick={handleclick}>
             <ArrowCircle/>
           </button>
@@ -44,6 +47,7 @@ const GovSection3 = () => {
       <div className="service-item">
         <div className="service-content">
           <div className="service-name">Data Integration</div>
+          <p>Creating apps for smartphones and tablets, mobile app development involves designing, building, and deploying software tailored for mobile devices.</p>
           <button className="service-icon" onClick={handleclick}>
             <ArrowCircle/>
           </button>
