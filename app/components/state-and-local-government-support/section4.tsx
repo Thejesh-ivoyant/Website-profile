@@ -25,7 +25,7 @@ const GovSection4 = () => {
           tab={
             <button
             className={` tab-btn ${activeTab === '1' ? 'hue-btn-primary tab-btn' : ''}`}            >
-              Tab 1
+         States
             </button>
           }
           key="1"
@@ -119,7 +119,7 @@ const GovSection4 = () => {
           tab={
             <button
             className={` tab-btn ${activeTab === '2' ? 'hue-btn-primary tab-btn' : ''}`}            >
-              Tab 2
+           Counties
             </button>
           }
           key="2"
@@ -215,7 +215,7 @@ const GovSection4 = () => {
             <button
             className={` tab-btn ${activeTab === '3' ? 'hue-btn-primary tab-btn' : ''}`}            
             >
-              Tab 3
+            Cities
             </button>
           }
           key="3"
