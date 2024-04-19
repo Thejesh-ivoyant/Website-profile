@@ -60,6 +60,7 @@ const Hero = () => {
             </linearGradient>
           </defs>
         </svg>
+        
         {!isOtherRoute &&  <div className="hero-description">
           <span>{loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription}</span>
         </div> }
