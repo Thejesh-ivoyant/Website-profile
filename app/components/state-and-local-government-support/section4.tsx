@@ -10,11 +10,22 @@ const GovSection4 = () => {
 
   return (
     <section className="tied-services">
-      <h2 className="staffing-services-title">States we are tied up with</h2>
-      <div className="staffing-services-divider">
-        <div className="staffing-services-divider-line"></div>
-        <div className="staffing-services-divider-line"></div>
-      </div>
+      <h2 className="staffing-services-title section-heading">States we are tied up with</h2>
+      <svg className='mx-auto' width="100%" height="25" viewBox="0 0 1200 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="13.0001" width="1" height="600" transform="rotate(-90 0 13.0001)" fill="url(#paint0_linear_13978_145744)"/>
+<rect x="1200" y="12.0001" width="1" height="600" transform="rotate(90 1200 12.0001)" fill="url(#paint1_linear_13978_145744)"/>
+<defs>
+<linearGradient id="paint0_linear_13978_145744" x1="1.5" y1="608.529" x2="1.49999" y2="2.2698" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AEBEFF"/>
+<stop offset="1" stop-color="#A7B8FE" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_13978_145744" x1="1201.5" y1="607.529" x2="1201.5" y2="1.26986" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AEBEFF"/>
+<stop offset="1" stop-color="#A7B8FE" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
       <p className="staffing-services-description">
         As a leading IT services provider, we have a strong presence across multiple states,
         strategically positioned to serve clients nationwide. Explore our interactive map to
@@ -23,7 +34,7 @@ const GovSection4 = () => {
       <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange} tabBarGutter={0}>
         <Tabs.TabPane
           tab={
-            <button className={` tab-btn ${activeTab === '1' ? 'hue-btn-primary tab-btn' : ''}`}>
+            <button className={` tab-btn ${activeTab === '1' ? 'active tab-btn' : ''}`}>
               States
             </button>
           }
@@ -116,7 +127,7 @@ const GovSection4 = () => {
         </Tabs.TabPane>
         <Tabs.TabPane
           tab={
-            <button className={` tab-btn ${activeTab === '2' ? 'hue-btn-primary tab-btn' : ''}`}>
+            <button className={` tab-btn ${activeTab === '2' ? 'active tab-btn' : ''}`}>
               Counties
             </button>
           }
@@ -210,7 +221,7 @@ const GovSection4 = () => {
 
         <Tabs.TabPane
           tab={
-            <button className={` tab-btn ${activeTab === '3' ? 'hue-btn-primary tab-btn' : ''}`}>
+            <button className={` tab-btn ${activeTab === '3' ? 'active tab-btn' : ''}`}>
               Cities
             </button>
           }

@@ -1,7 +1,7 @@
 const GovSection2 = () => {
   return (
     <section className="staffing-services">
-      <h2 className="staffing-services-title">Our IT Staffing Services</h2>
+      <h2 className="staffing-services-title section-heading">Our IT Staffing Services</h2>
       <svg
         width="100%"
         height="25"
