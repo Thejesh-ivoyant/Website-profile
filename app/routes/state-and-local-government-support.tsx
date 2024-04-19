@@ -20,7 +20,7 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: GovStyle }
 
 export const meta: MetaFunction = ({ data }: { data: any }) => {
   return [
-    { title: `Ivoyant | ${data.govPage?.govPage?.data?.attributes.heroTitle}` },
+    { title: `Ivoyant | ${data.govPage?.heroTitle}` },
     {
       property: 'og:title',
       content: 'Government Services',
