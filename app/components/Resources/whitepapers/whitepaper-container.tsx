@@ -1,24 +1,28 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData, useOutletContext } from '@remix-run/react'
 import WhitePaperCard from './whitepaper'
 import IWhitePaper from '~/interfaces/IWhitePaper'
 import { useState } from 'react'
-import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { getWhitepaperBasedonLimit } from '~/graphql/queries'
 
 import { message } from 'antd'
 import { errorMessage, success } from '~/utils/notifications'
+import { StrapiConfig } from '~/utils/format'
 const WhitePaperCardContainer = () => {
+  const outletCon: StrapiConfig = useOutletContext()
+  const StrapiUrl = outletCon?.STRAPI_URL
+
   const [messageApi, contextHolder] = message.useMessage()
 
   const loaderData = useLoaderData() as any
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || [])
-  const [limit, setLimit] = useState(6) // Initial limit
-  const [loading, setLoading] = useState(false)
+  const [limit, setLimit] = useState(6)
+  const [loading, setLoading] = useState(true)
 
   const fetchMoreData = async () => {
     setLoading(true)
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3)
-    const newWhitepaperData = await fetchGraphQL(updatedQuery)
+    const newWhitepaperData = await fetchGraphQLWithURL(updatedQuery, StrapiUrl)
     setWhitePaperData(() => [
       ...newWhitepaperData.data.whitePapers.data.map((item: any) => ({
         id: item.id,
