@@ -165,6 +165,9 @@ const Blog_WhitepaperContent = () => {
       )
       if (response.ok) {
         success('Thank you for showing interest in us!', 2)
+        setPersonName('')
+        setEmail('')
+        setPhoneNumber('')
         handleDownload()
       } else {
         errorMessage('Error occured, please retry', 2)

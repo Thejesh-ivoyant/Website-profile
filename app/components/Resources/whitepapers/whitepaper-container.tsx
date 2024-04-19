@@ -17,7 +17,7 @@ const WhitePaperCardContainer = () => {
   const loaderData = useLoaderData() as any
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || [])
   const [limit, setLimit] = useState(6)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const fetchMoreData = async () => {
     setLoading(true)

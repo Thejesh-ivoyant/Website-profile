@@ -30,6 +30,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
   const updatedQuery = getAuthorQuery(authorId)
   const authorData = await fetchGraphQL(updatedQuery)
   const whitepaperGql = await fetchGraphQL(whitepaperQuery)
+
+  const authordataMain = authorData.data?.author.data?.attributes || {}
+  const socialMediaLinks = authordataMain.socialMediaLinks || []
+  const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
+    link: linkItem.link,
+    logo: linkItem.logo.data.attributes.url,
+  }))
   // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
   const whitePaperData = whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
     id: item.id,
@@ -52,6 +59,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     let jsonParsed = await res.json()
     const { title, maxReadTime, date, description1 } = jsonParsed.data?.attributes
     return defer({
+      authorData: authordatamapped,
       avatar: authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
       bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
       whitepaper: jsonParsed.data?.attributes?.whitepaper?.data?.attributes?.url,
