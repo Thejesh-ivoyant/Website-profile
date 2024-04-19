@@ -122,6 +122,9 @@ const Nav = () => {
       )
       if (response.ok) {
         success('Thank you for showing interest in us!', 2)
+         setPersonName('')
+         setEmail('')
+         setPhoneNumber('')
         handleDownload()
       } else {
         errorMessage('Form submission failed', 3)

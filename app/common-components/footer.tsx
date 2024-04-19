@@ -7,7 +7,7 @@ import yt from '~/../public/assets/YouTube svg.svg'
 import ivoyantLogo from '~/../public/assets/ivoyant-footer.svg'
 import { errorMessage, success } from '~/utils/notifications'
 import AccordionItem from './footer-item'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Modal } from 'antd'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
 const Footer = () => {
@@ -25,6 +25,8 @@ const Footer = () => {
   const [download, setDownload] = useState<string>('')
   const [toggleNav, setToggleNav] = useState<boolean>(false)
   const [clicked, setClicked] = useState(-1)
+
+  let $form = useRef<HTMLFormElement>(null)
   const handleToggle = (index: number) => {
     if (clicked === index) {
       return setClicked(-1)
@@ -98,6 +100,9 @@ const Footer = () => {
       )
       if (response.ok) {
         success('Thank you for showing interest in us!', 2)
+        setPersonName('');
+        setEmail('');
+        setPhoneNumber('')
         handleDownload()
       } else {
         errorMessage('Form submission failed', 3)
