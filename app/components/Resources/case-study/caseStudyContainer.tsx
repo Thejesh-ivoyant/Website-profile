@@ -1,16 +1,19 @@
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData, useOutletContext } from '@remix-run/react'
 import IBlogMedia from '../../../interfaces/IBlogMedia'
 
 import { useEffect, useState } from 'react'
-import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
 import { success } from '~/utils/notifications'
 import CaseCard from './caseStudyCard'
 import { SearchCases } from '~/graphql/queries'
+import { StrapiConfig } from '~/utils/format'
 
 const Container = () => {
+  const outletCon: StrapiConfig = useOutletContext()
+  const StrapiUrl = outletCon?.STRAPI_URL
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [state, setState] = useState({ visible: false, placement: 'bottom' })
@@ -59,7 +62,7 @@ const Container = () => {
     setLoading(true)
     const updatedCaseQuery = SearchCases(category || '', tag || '', searchValue || '', limit)
 
-    const newCaseData = await fetchGraphQL(updatedCaseQuery)
+    const newCaseData = await fetchGraphQLWithURL(updatedCaseQuery, StrapiUrl)
 
     setCaseData(() => [
       ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
@@ -88,7 +91,7 @@ const Container = () => {
   const fetchMoreData = async () => {
     setLoading(true)
     const updatedQuery = SearchCases(category || '', tag || '', searchValue || '', limit + 3)
-    const newCaseData = await fetchGraphQL(updatedQuery)
+    const newCaseData = await fetchGraphQLWithURL(updatedQuery, StrapiUrl)
     setCaseData(() => [
       ...newCaseData.data?.caseStudies.data?.map((item: any) => ({
         id: item.id,

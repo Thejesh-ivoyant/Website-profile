@@ -1,15 +1,25 @@
-import { Form, Link, useLoaderData, useLocation, useMatch } from '@remix-run/react'
+import {
+  Form,
+  Link,
+  useLoaderData,
+  useLocation,
+  useMatch,
+  useOutletContext,
+} from '@remix-run/react'
 import { Modal } from 'antd'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { blogQuery, whitepaperQuery } from '~/graphql/queries'
 import { dateFormatTxt } from '~/utils/date-format-util'
 import { errorMessage, success } from '~/utils/notifications'
 import rehypeRaw from 'rehype-raw'
 import DOMpurify from 'dompurify'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
+import { StrapiConfig } from '~/utils/format'
 const Blog_WhitepaperContent = () => {
+  const outletCon: StrapiConfig = useOutletContext()
+  const StrapiUrl = outletCon?.STRAPI_URL
   const [phoneNumber, setPhoneNumber] = useState('')
   const [phoneerror, setPhoneError] = useState('')
   const [personname, setPersonName] = useState('')
@@ -82,7 +92,7 @@ const Blog_WhitepaperContent = () => {
       } else {
         try {
           if (isBlogRoute) {
-            const blogGql = await fetchGraphQL(blogQuery)
+            const blogGql = await fetchGraphQLWithURL(blogQuery, StrapiUrl)
             setBlogData(
               blogGql.data?.blogs.data?.map((item: any) => ({
                 id: item.id,
@@ -106,7 +116,7 @@ const Blog_WhitepaperContent = () => {
               }))
             )
           } else {
-            const whitepaperGql = await fetchGraphQL(whitepaperQuery)
+            const whitepaperGql = await fetchGraphQLWithURL(whitepaperQuery, StrapiUrl)
             setWhitePaperData(
               whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
                 id: item.id,

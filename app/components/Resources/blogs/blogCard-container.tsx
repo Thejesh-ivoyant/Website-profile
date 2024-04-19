@@ -1,14 +1,17 @@
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData, useOutletContext } from '@remix-run/react'
 import IBlogMedia from '../../../interfaces/IBlogMedia'
 import BlogCard from './blogCard'
 import { useEffect, useState } from 'react'
-import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { SearchBlogs } from '~/graphql/queries'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
 import { success } from '~/utils/notifications'
+import { StrapiConfig } from '~/utils/format'
 const BlogCardContainer = () => {
+  const outletCon: StrapiConfig = useOutletContext()
+  const StrapiUrl = outletCon?.STRAPI_URL
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [state, setState] = useState({ visible: false, placement: 'bottom' })
@@ -18,7 +21,7 @@ const BlogCardContainer = () => {
   const [searchValue, setSearchValue] = useState('')
   const [blogData, setBlogData] = useState(loaderData.blogData || [])
   const [limit, setLimit] = useState(3) // Initial limit
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {}, [])
 
@@ -57,7 +60,7 @@ const BlogCardContainer = () => {
     setLoading(true)
     const updatedBlogQuery = SearchBlogs(category || '', tag || '', searchValue || '', limit)
 
-    const newBlogData = await fetchGraphQL(updatedBlogQuery)
+    const newBlogData = await fetchGraphQLWithURL(updatedBlogQuery, StrapiUrl)
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -85,7 +88,7 @@ const BlogCardContainer = () => {
   const fetchMoreData = async () => {
     setLoading(true)
     const updatedQuery = SearchBlogs(category || '', tag || '', searchValue || '', limit + 3)
-    const newBlogData = await fetchGraphQL(updatedQuery)
+    const newBlogData = await fetchGraphQLWithURL(updatedQuery, StrapiUrl)
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,

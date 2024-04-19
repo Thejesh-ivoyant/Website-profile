@@ -1,12 +1,15 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData, useOutletContext } from '@remix-run/react'
 import { List, Select, Skeleton } from 'antd'
 import { useEffect, useState } from 'react'
 import DropDownIcon from '~/components/Resources/case-study/arrow'
-import { fetchGraphQL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { SearchJobs } from '~/graphql/queries'
 import CustomDrawer from '~/utils/customDrawer'
+import { StrapiConfig } from '~/utils/format'
 import { success } from '~/utils/notifications'
 const JobCards = () => {
+  const outletCon: StrapiConfig = useOutletContext()
+  const StrapiUrl = outletCon?.STRAPI_URL
   const [state, setState] = useState({ visible: false, placement: 'bottom' })
   const [selectedLoc, setSelectedLoc] = useState<string | null>(null)
   const [selectedExp, setSelectedExp] = useState<string | null>(null)
@@ -74,7 +77,7 @@ const JobCards = () => {
       searchValue || '',
       limit
     )
-    const newJobsData = await fetchGraphQL(updatedJobsQuery)
+    const newJobsData = await fetchGraphQLWithURL(updatedJobsQuery, StrapiUrl)
     setJobDescData(() => [
       ...newJobsData.data?.career?.data?.attributes?.job_descriptions?.data?.map((item: any) => ({
         id: item.id, // Add this line to capture the job ID
@@ -98,7 +101,7 @@ const JobCards = () => {
       searchValue || '',
       limit + 3
     )
-    const newJobDescData = await fetchGraphQL(updatedQuery)
+    const newJobDescData = await fetchGraphQLWithURL(updatedQuery, StrapiUrl)
     setJobDescData(() => [
       ...newJobDescData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
         (item: any) => ({
