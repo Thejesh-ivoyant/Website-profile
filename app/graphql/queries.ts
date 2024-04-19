@@ -99,6 +99,100 @@ query{
   }
 }
 `
+
+export const govQuery: string = `
+query{
+  govPage{
+    data{
+      attributes{
+        heroTitle
+        heroBg{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        section2Title
+        section2Desc
+       
+        staffing_service_title
+        staffing_service_desc
+        service_offered_title
+        service_offered_desc
+         tie_ups_title
+        tie_ups_desc
+        MBE_title
+        MBE_desc
+          
+  
+          MBE_logo{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        
+        customizedSolutions{
+        __typename
+            ... on ComponentPointsPoints {
+              description
+            }
+      }
+      staffing_service{
+        s7_techIconName
+        s7_techIcon{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+      }
+      name_desc_link{
+        title
+        description
+        link
+      }
+        states_tied_up{
+          s7_techIconName
+          s7_techIcon{
+            data{
+            attributes{
+              url
+            }
+          }
+          }
+        }
+         counties_tied_up{
+          s7_techIconName
+          s7_techIcon{
+            data{
+            attributes{
+              url
+            }
+          }
+          }
+        }
+                 cities_tied_up{
+          s7_techIconName
+          s7_techIcon{
+            data{
+            attributes{
+              url
+            }
+          }
+          }
+        }
+        
+
+  }
+    }
+  }
+}
+       
+`
 export const navQuery = `
 query {
     navbar {

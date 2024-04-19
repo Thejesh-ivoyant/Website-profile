@@ -1,17 +1,23 @@
 import { Link, useLoaderData, useMatch } from '@remix-run/react'
 const Hero = () => {
   const loaderData = useLoaderData() as any
-  const gradientStyle = {
-    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url}) lightgray 50% /cover no-repeat`,
-  }
+
   const match = useMatch('/state-and-local-government-support')
   const isOtherRoute = match !== null
 
+  const backgroundImageUrl = isOtherRoute
+    ? loaderData?.govPage.heroBg?.data?.attributes?.url
+    : loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url
+
+  const gradientStyle = {
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${backgroundImageUrl}) lightgray 50% /cover no-repeat`,
+  }
+  
   return (
     <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
         <h1 className="hero-title ">
-          {loaderData?.aboutUsData.data?.aboutus.data.attributes.heroTitle}
+          {!isOtherRoute ? loaderData?.aboutUsData.data?.aboutus.data.attributes.heroTitle: loaderData.govPage.heroTitle}
         </h1>
         <svg
           width="100%"
@@ -60,7 +66,7 @@ const Hero = () => {
             </linearGradient>
           </defs>
         </svg>
-        
+
         {!isOtherRoute &&  <div className="hero-description">
           <span>{loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription}</span>
         </div> }
