@@ -1,9 +1,12 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData, useMatch } from '@remix-run/react'
 const Hero = () => {
   const loaderData = useLoaderData() as any
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url}) lightgray 50% /cover no-repeat`,
   }
+  const match = useMatch('/state-and-local-government-support')
+  const isOtherRoute = match !== null
+
   return (
     <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
@@ -57,12 +60,13 @@ const Hero = () => {
             </linearGradient>
           </defs>
         </svg>
-        <div className="hero-description">
+        {!isOtherRoute &&  <div className="hero-description">
           <span>{loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription}</span>
-        </div>
-        <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
+        </div> }
+       {!isOtherRoute &&    <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
           <button className="hue-btn-primary btn">Let's Talk</button>
-        </Link>
+        </Link> }
+     
       </div>
     </section>
   )
