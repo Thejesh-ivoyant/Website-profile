@@ -621,7 +621,7 @@ const Nav = () => {
               </a>
             </div>
             <small className="capitalize font-poppins pt-2 text-gray-200 font-light leading-4">
-              &#169; 2023 iVoyant All Rights Reserved
+              &#169; 2024 iVoyant All Rights Reserved
             </small>
           </div>
         </div>
