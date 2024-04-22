@@ -819,6 +819,7 @@ pagination: {limit:3}
       attributes {
         publishedAt
         heroTitle
+        maxReadTime
         heroDescription
         heroBgImage{
           data{
