@@ -22,6 +22,7 @@ const Footer = () => {
 
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const [open, setOpen] = useState(false)
+  const [subemail, setEmailSubscribe] = useState<string>('')
   const [download, setDownload] = useState<string>('')
   const [toggleNav, setToggleNav] = useState<boolean>(false)
   const [clicked, setClicked] = useState(-1)
@@ -48,6 +49,11 @@ const Footer = () => {
     } else if (!phoneRegex.test(phone)) {
       setPhoneError('Invalid phone number format')
     }
+  }
+  const handleSubEmailChange = (e: any) => {
+    const emailValue = e.target.value.toLowerCase()
+    setEmailSubscribe(emailValue)
+ 
   }
   const handleEmailChange = (e: any) => {
     const emailValue = e.target.value.toLowerCase()
@@ -136,6 +142,7 @@ const Footer = () => {
         }
       )
       if (response.ok) {
+        setEmailSubscribe('')
         success('Subscribed for NewsLetter, Thank you for showing interest in us!', 2)
       } else {
         errorMessage('Form submission failed', 3)
@@ -419,6 +426,8 @@ const Footer = () => {
                 <input
                   name="email"
                   type="email"
+                  value={subemail}
+                  onChange={handleSubEmailChange}
                   required
                   placeholder="Email*"
                   style={{ textTransform: 'none' }}
@@ -553,6 +562,8 @@ const Footer = () => {
                   name="email"
                   type="email"
                   required
+                  value={subemail}
+                  onChange={handleSubEmailChange}
                   placeholder="Email*"
                   style={{ textTransform: 'none' }}
                   className="footer-font email-container  w-full mt-auto focus:outline-none"
@@ -764,6 +775,8 @@ const Footer = () => {
                 name="email"
                 type="email"
                 required
+                value={subemail}
+                onChange={handleSubEmailChange}
                 placeholder="Email*"
                 style={{ textTransform: 'none' }}
                 className="footer-font email-container  max-w-xs w-full mt-auto focus:outline-none"

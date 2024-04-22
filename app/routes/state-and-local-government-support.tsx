@@ -1,6 +1,8 @@
+
+
 import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
-import { aboutUsQuery, homeQuery, topBlogQuery } from '~/graphql/queries'
+import { aboutUsQuery, govQuery, homeQuery, topBlogQuery } from '~/graphql/queries'
 import ContactUs from '~/common-components/contactUs'
 import { Attributes } from '~/interfaces/Homepage'
 import Hero from '~/components/about-us/Hero'
@@ -18,10 +20,10 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: GovStyle }
 
 export const meta: MetaFunction = ({ data }: { data: any }) => {
   return [
-    { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },
+    { title: `Ivoyant | ${data.govPage?.heroTitle}` },
     {
       property: 'og:title',
-      content: 'Home Page',
+      content: 'Government Services',
     },
     {
       name: 'description',
@@ -31,29 +33,9 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
 }
 export async function loader() {
   try {
-    const homeGql = await fetchGraphQL(homeQuery)
-    const blogGql = await fetchGraphQL(topBlogQuery)
-    const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
-      id: item.id,
-      title: item.attributes.title,
-      date: item.attributes.date,
-      maxReadTime: item.attributes.maxReadTime,
-      bannerImage: {
-        name: item.attributes.bannerImage.data?.attributes.name ?? '',
-        url: item.attributes.bannerImage.data?.attributes.url ?? '',
-      },
-      author: {
-        name: item.attributes.author.data?.attributes.name,
-      },
-      topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
-      category: {
-        name: item.attributes.category.data?.attributes.name,
-      },
-    }))
+    const govGql = await fetchGraphQL(govQuery)
     return defer({
-      aboutUsData: await fetchGraphQL(aboutUsQuery),
-      blogData: blogData,
-      homePage: homeGql.data,
+      govPage: govGql.data.govPage.data.attributes
     })
   } catch (error) {
     console.warn('Error fetching data from contact API:', error)
@@ -62,9 +44,7 @@ export async function loader() {
 }
 
 const Index = () => {
-  const data = useLoaderData<typeof loader>() as any
-
-  const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
+const data = useLoaderData<typeof loader>() as any
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
@@ -83,3 +63,4 @@ const Index = () => {
   )
 }
 export default Index
+

@@ -1,14 +1,23 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData, useMatch } from '@remix-run/react'
 const Hero = () => {
   const loaderData = useLoaderData() as any
+
+  const match = useMatch('/state-and-local-government-support')
+  const isOtherRoute = match !== null
+
+  const backgroundImageUrl = isOtherRoute
+    ? loaderData?.govPage.heroBg?.data?.attributes?.url
+    : loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url
+
   const gradientStyle = {
-    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData?.aboutUsData.data?.aboutus.data.attributes.heroBgImage?.data?.attributes?.url}) lightgray 50% /cover no-repeat`,
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${backgroundImageUrl}) lightgray 50% /cover no-repeat`,
   }
+  
   return (
     <section className="screen-height hero-container-section" style={gradientStyle}>
       <div className="hero-wrapper">
         <h1 className="hero-title ">
-          {loaderData?.aboutUsData.data?.aboutus.data.attributes.heroTitle}
+          {!isOtherRoute ? loaderData?.aboutUsData.data?.aboutus.data.attributes.heroTitle: loaderData.govPage.heroTitle}
         </h1>
         <svg
           width="100%"
@@ -57,12 +66,14 @@ const Hero = () => {
             </linearGradient>
           </defs>
         </svg>
-        <div className="hero-description">
+
+        {!isOtherRoute &&  <div className="hero-description">
           <span>{loaderData?.aboutUsData.data?.aboutus.data.attributes.heroDescription}</span>
-        </div>
-        <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
+        </div> }
+       {!isOtherRoute &&    <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
           <button className="hue-btn-primary btn">Let's Talk</button>
-        </Link>
+        </Link> }
+     
       </div>
     </section>
   )
