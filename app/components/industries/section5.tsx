@@ -66,16 +66,16 @@ const Section5 = () => {
             <div className="flex flex-col-reverse lg:flex-col text-center  items-start lg:justify-between py-3 xl:p-3 gap-3 lg:h-full">
               <div className="flex flex-col gap-3 items-start text-start">
                 <strong className="flex text-base font-bold tracking-wide font-montserrat text-TinBlue ">
-                  {item.title}
+                  {item?.title}
                 </strong>
                 <div className="flex font-poppins 2xl:text-base lg:text-sm text-base font-normal text-left leading-5">
-                  {item.description}
+                  {item?.description}
                 </div>
               </div>
               <img
-                src={item.ornament}
+                src={item?.ornament}
                 className="w-8 h-8 lg:w-10 lg:h-10 lg:mx-auto mr-auto"
-                alt={item.ornament}
+                alt={item?.ornament}
               />
             </div>
           </div>

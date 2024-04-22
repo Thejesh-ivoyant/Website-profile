@@ -1,5 +1,6 @@
 import { useLoaderData, useLocation } from '@remix-run/react'
 import { useEffect, useState } from 'react'
+import DarkArrow from '../icons/dark-arrow'
 const Section4 = () => {
   const location = useLocation()
   const loaderData = useLoaderData() as any
@@ -20,37 +21,35 @@ const Section4 = () => {
     <section className="relative flex justify-center flex-col lg:flex-row lg:h-[600px] w-full">
       <div className="flex flex-1 flex-col h-full min-h-[16rem]" style={gradientStyle}>
         <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading text-center section-p-y px-4">
-          {loaderData.section4Title}
+          {loaderData?.section4Title}
         </h2>
       </div>
       <div className="flex flex-1 flex-col h-full font-montserrat justify-center">
         <div className="overflow-y-auto w-fit">
           {loaderData.servicesList?.map((service: any) => (
             <div
-              key={service.id}
+              key={service?.id}
               className={`flex flex-col items-center gap-1 w-full p-4 ${service.id === currState ? 'bg-white' : 'bg-[#F9F8FC]'}`}
             >
               <div
-                onClick={() => toggleExpansion(service.id)}
+                onClick={() => toggleExpansion(service?.id)}
                 className="flex justify-start items-start cursor-pointer font-medium sm:text-xl w-full service-title p-4"
               >
                 <span className="text-left" title={service?.name}>
                   {service?.name}
                 </span>
-                <img
-                  src={
-                    !(service.id === currState)
-                      ? `../assets/down-arrow.svg`
-                      : `../assets/up-arrow-Dbg.svg`
-                  }
-                  className="ml-auto my-auto block"
-                  alt="vector"
-                />
+                <button
+                  className="ml-auto my-auto"
+                  role="button"
+                  aria-label={`view details for ${service?.name}`}
+                  >
+                    {<DarkArrow active={(service?.id === currState)? false : true}/>}
+                  </button>
               </div>
               <div
-                className={`service-description ${service.id === currState ? 'open' : ''} font-poppins px-4`}
+                className={`service-description ${service?.id === currState ? 'open' : ''} font-poppins px-4`}
               >
-                <p>{service.description}</p>
+                <p>{service?.description}</p>
               </div>
             </div>
           ))}

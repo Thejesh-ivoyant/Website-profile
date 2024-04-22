@@ -78,7 +78,7 @@ const WhyChooseUs = ({
       >
         {description}
       </p>
-      <div className="grid xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise w-full place-items-center max-w-fit">
         {pairs?.map((pair, index) => (
           <div
             key={index}

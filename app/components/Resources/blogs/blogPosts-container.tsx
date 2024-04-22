@@ -16,22 +16,22 @@ const BlogPostsContainer = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="text-head-grape text-4xl  w-full justify-center flex h-fit">
+      <div className="text-head-grape section-title w-full justify-center flex h-fit">
         {isResourcesRoute ? (
           <p
             aria-level={1}
             role="heading"
-            className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
+            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
           >
-            Whats new in our Whitepapers
+            What's new in our Whitepapers
           </p>
         ) : (
           <p
             role="heading"
             aria-level={1}
-            className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
+            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
           >
-            Whats new in our Blogs
+            What's new in our Blogs
           </p>
         )}
       </div>
