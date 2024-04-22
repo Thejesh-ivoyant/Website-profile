@@ -86,7 +86,7 @@ export async function loader() {
 }
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any
-
+  
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
@@ -96,7 +96,6 @@ const Index = () => {
             heroTitle={data?.heroTitle}
             heroDescription={data?.heroDescription}
           />
-
           <Container />
           <Consultation />
           <Popup />

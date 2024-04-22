@@ -1172,6 +1172,7 @@ export const SearchCases = (category: string, tag: string, heroTitle: string, li
           publishedAt
           heroTitle
           heroDescription
+          maxReadTime
           heroBgImage{
             data{
               attributes{
