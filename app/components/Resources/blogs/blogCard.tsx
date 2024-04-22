@@ -18,7 +18,7 @@ const BlogCard = ({ blog, blogData }: { blog: IBlogMedia; blogData: any }) => {
         <Link
           prefetch="intent"
           className="line-clamp-3 lg:text-3xl sm:text-2xl text-lg self-stretch text-black  font-montserrat font-semibold whitespace-pre-wrap hover:underline"
-          to={`/resources/case-study/${blog?.id}`}
+          to={`/resources/blog/${blog?.id}`}
         >
           {blog.title}
         </Link>
