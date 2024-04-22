@@ -1,4 +1,4 @@
-import { Form, useLocation, useOutletContext } from '@remix-run/react'
+import { Form, useLocation, useMatch, useOutletContext } from '@remix-run/react'
 import line from '~/../public/assets/line.svg'
 import ReactFlagsSelect from 'react-flags-select'
 import { useEffect, useRef, useState } from 'react'
@@ -35,6 +35,8 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   }
 }
 const ContactUs = () => {
+  const matched = useMatch('/state-and-local-government-support')
+  const isRoute = matched !== null
   const outletCon: StrapiConfig = useOutletContext()
   const strapiUrl = outletCon?.STRAPI_URL
 
@@ -117,7 +119,12 @@ const ContactUs = () => {
       setBtnLoading(true)
       if (formType === 'contact') {
         const formData = new FormData(event.currentTarget)
-        formData.append('action', 'Contact')
+        if(!isRoute){
+          formData.append('action', 'Contact')
+        }else{
+          formData.append('action', 'Government-services')
+        }
+       
         formData.forEach((value, key) => {})
         const response = await fetch(
           'https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b',
@@ -485,9 +492,10 @@ const ContactUs = () => {
                   +1 (770) 274 4336
                 </a>
                 <br />
-                <a className="text-[0.8em]" href="tel:+919108564829">
+                {!isRoute && <a className="text-[0.8em]" href="tel:+919108564829">
                   +91 9108564829
-                </a>
+                </a>}
+                
               </div>
               <div
                 className={`col-span-1 text-white items-left md:mx-0 mx-4 ${location.pathname?.endsWith('state-and-local-government-support') ? 'hidden' : ''}`}
@@ -530,14 +538,15 @@ const ContactUs = () => {
                 Let's Talk
               </span>
             </button>
-            <button role="button" aria-label="Join us form">
+            {!isRoute && <button role="button" aria-label="Join us form">
               <span
                 className={toggleState === 2 ? 'tab' : 'tab text-gray-500'}
                 onClick={() => toggleTab(2)}
               >
                 Job Enquiry
               </span>
-            </button>
+            </button> }
+           
           </div>
           <div
             className={
@@ -582,8 +591,7 @@ const ContactUs = () => {
                     type="text"
                     id="email"
                     name="email"
-                    placeholder="Email*"
-                    required
+                    placeholder={ !isRoute ? 'Email*' : 'Vendor Email*' }                    required
                     value={email}
                     style={{ textTransform: 'none' }}
                     onChange={handleEmailChange}

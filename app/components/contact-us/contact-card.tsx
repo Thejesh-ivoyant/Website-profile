@@ -83,7 +83,7 @@ const ContactCard = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <a href="tel: +91 73997 80734"> +91 73997 80734</a>
+                <a href="tel: +91 9108564829">+91 9108564829</a>
               </div>
               <div className="flex font-medium leading-7 items-center gap-2 normal-case">
                 <svg
