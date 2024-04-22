@@ -819,6 +819,7 @@ pagination: {limit:3}
       attributes {
         publishedAt
         heroTitle
+        maxReadTime
         heroDescription
         heroBgImage{
           data{
@@ -1171,6 +1172,7 @@ export const SearchCases = (category: string, tag: string, heroTitle: string, li
           publishedAt
           heroTitle
           heroDescription
+          maxReadTime
           heroBgImage{
             data{
               attributes{
