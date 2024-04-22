@@ -5,7 +5,7 @@ const CaseCard = ({ blog, blogData }: { blog: any; blogData: any }) => {
     <div className="lg:h-96 w-full lg:flex grid gap-4 sm-card-p">
       <img
         src={blog?.bannerImage.url}
-        className="flex lg:h-full lg:w-fit w-full h-40 lg:aspect-square object-cover"
+        className="flex lg:h-full lg:w-96 w-full h-40 lg:aspect-square object-cover"
       />
       <div className="flex-1 flex flex-col h-full lg:pb-3 lg:px-2 gap-3 2xl:max-w-3xl xl:max-w-2xl lg:max-w-xl sm:max-w-sm max-w-xs sm:w-auto">
         <div className="text-blue-100 lg:text-base sm:text-sm text-xs w-fit italic font-medium justify-center font-montserrat items-stretch bg-gray-900 md:p-1 p-1">
