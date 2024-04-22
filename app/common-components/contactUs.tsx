@@ -504,8 +504,8 @@ const ContactUs = () => {
                   <img className="w-4 h-4 inline" src="../assets/info.svg" alt="info" />
                   <span className="text-[0.7em]">Information</span>
                 </div>
-                <a className="text-[0.8em]" href="mailto:info@ivoyant.com">
-                  info@ivoyant.com
+                <a className="text-[0.8em]" href={`mailto:${(toggleState == 1 ) ?"info@ivoyant.com": "jobs@ivoyant.com"}`}>
+                  {`${(toggleState == 1 ) ?"info@ivoyant.com": "jobs@ivoyant.com"}`}
                 </a>
               </div>
               {toggleState === 1 && (
