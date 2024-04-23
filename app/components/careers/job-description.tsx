@@ -51,7 +51,25 @@ const JobDescription = () => {
       setFromDate(dateString)
     }
   }
-
+function clearStateVariables() {
+  setPersonName('')
+  setNameError('')
+  setEmail('')
+  setEmailError('')
+  setPhone('')
+  setPhoneError('')
+  setInstitute('')
+  setinstErr('')
+  setDeg('')
+  setDegError('')
+  setFromDate(null)
+  setToDate(null)
+  setSelectedFile(null)
+  setSelectedFileName('')
+  setFileError('')
+  setIsCurrentlyAttend(false)
+  setTextAreaValue('')
+}
   const handleNameInput = (e) => {
     const value = e.target.value
     setPersonName(value.replace('  ', ' '))
@@ -125,23 +143,7 @@ const JobDescription = () => {
 
       if (response.ok) {
         success('Thank you for showing interest in us!', 2)
-        setPersonName('')
-        setNameError('')
-        setEmail('')
-        setEmailError('')
-        setPhone('')
-        setPhoneError('')
-        setInstitute('')
-        setinstErr('')
-        setDeg('')
-        setDegError('')
-        setFromDate(null)
-        setToDate(null)
-        setSelectedFile(null)
-        setSelectedFileName('')
-        setFileError('')
-        setIsCurrentlyAttend(false)
-        setTextAreaValue('')
+        clearStateVariables()
       } else {
         errorMessage('Error occured, please retry', 3)
       }
@@ -192,6 +194,7 @@ const JobDescription = () => {
   }
   const onClose = () => {
     setOpen(false)
+    clearStateVariables()
   }
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
