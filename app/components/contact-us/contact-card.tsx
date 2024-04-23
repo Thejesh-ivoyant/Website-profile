@@ -1,4 +1,4 @@
-const ContactCard = () => {
+const ContactCard = ({ toggleState }: { toggleState: number }) => {
   return (
     <div className="flex lg:flex-row flex-col gap-9 items-center justify-center xl:py-16 xl:px-10 lg:px-6 lg:py-12 py-8 px-5">
       <div className="grid font-montserrat tracking-wide py-5 px-5 max-w-[40rem] md:h-72 relative group w-full contact-card">
@@ -50,7 +50,7 @@ const ContactCard = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <a href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
+                <a href={`mailto:${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}>{`${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}</a>
               </div>
             </>
           </div>
@@ -105,7 +105,7 @@ const ContactCard = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <a href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
+                <a href={`mailto:${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}>{`${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}</a>
               </div>
             </>
           </div>
