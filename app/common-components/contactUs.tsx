@@ -612,6 +612,7 @@ const ContactUs = () => {
                         onSelect={(code) => setCountryCodeSelected(code)}
                         searchable
                         searchPlaceholder="Search countries"
+                        countries={["US", "IN"]}
                       />
                       <input
                         type="text"
