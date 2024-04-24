@@ -10,20 +10,17 @@ import ServicesStyle from '~/styles/Services.css'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: ServicesStyle }]
 import Hero from '~/common-components/Hero'
 import { Popup } from '~/common-components/social-media-popup'
-const ServiceContainer = React.lazy(
-  () => import('~/components/services/section-2/service-description-container')
-)
-const ProjectPortfolio = React.lazy(
-  () => import('~/components/services/section-3/project-portfolio')
-)
-const IndustryFocus = React.lazy(() => import('~/components/services/section-4/industry-focus'))
-const Phases = React.lazy(() => import('~/components/services/section-5/phases'))
-const ServiceCardContainer = React.lazy(
-  () => import('~/components/services/section-6/service-card-container')
-)
-const Technologies = React.lazy(() => import('~/components/services/section-7/technologies'))
-const Consultation = React.lazy(() => import('~/components/Homepage/consultation'))
-const Footer = React.lazy(() => import('~/common-components/footer'))
+import ServiceContainer from '~/components/services/section-2/service-description-container'
+
+import ProjectPortfolio from '~/components/services/section-3/project-portfolio'
+
+import IndustryFocus from '~/components/services/section-4/industry-focus'
+import Phases from '~/components/services/section-5/phases'
+import ServiceCardContainer from '~/components/services/section-6/service-card-container'
+import Technologies from '~/components/services/section-7/technologies'
+import Consultation from'~/components/Homepage/consultation'
+
+
 export const meta: MetaFunction = () => {
   return [
     { title: 'Ivoyant |  Services' },
