@@ -13,24 +13,59 @@ const GovSection4 = () => {
 
   return (
     <section className="tied-services">
-      <h2 className="staffing-services-title section-heading">{loaderData?.govPage.tie_ups_title}</h2>
-      <svg className='mx-auto' width="100%" height="25" viewBox="0 0 1200 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="13.0001" width="1" height="600" transform="rotate(-90 0 13.0001)" fill="url(#paint0_linear_13978_145744)"/>
-<rect x="1200" y="12.0001" width="1" height="600" transform="rotate(90 1200 12.0001)" fill="url(#paint1_linear_13978_145744)"/>
-<defs>
-<linearGradient id="paint0_linear_13978_145744" x1="1.5" y1="608.529" x2="1.49999" y2="2.2698" gradientUnits="userSpaceOnUse">
-<stop stop-color="#AEBEFF"/>
-<stop offset="1" stop-color="#A7B8FE" stop-opacity="0"/>
-</linearGradient>
-<linearGradient id="paint1_linear_13978_145744" x1="1201.5" y1="607.529" x2="1201.5" y2="1.26986" gradientUnits="userSpaceOnUse">
-<stop stop-color="#AEBEFF"/>
-<stop offset="1" stop-color="#A7B8FE" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
+      <h2 className="staffing-services-title section-heading">
+        {loaderData?.govPage.tie_ups_title}
+      </h2>
+      <svg
+        className="mx-auto"
+        width="100%"
+        height="25"
+        viewBox="0 0 1200 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          y="13.0001"
+          width="1"
+          height="600"
+          transform="rotate(-90 0 13.0001)"
+          fill="url(#paint0_linear_13978_145744)"
+        />
+        <rect
+          x="1200"
+          y="12.0001"
+          width="1"
+          height="600"
+          transform="rotate(90 1200 12.0001)"
+          fill="url(#paint1_linear_13978_145744)"
+        />
+        <defs>
+          <linearGradient
+            id="paint0_linear_13978_145744"
+            x1="1.5"
+            y1="608.529"
+            x2="1.49999"
+            y2="2.2698"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#AEBEFF" />
+            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_13978_145744"
+            x1="1201.5"
+            y1="607.529"
+            x2="1201.5"
+            y2="1.26986"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#AEBEFF" />
+            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-      <p className="staffing-services-description">
-      {loaderData?.govPage.tie_ups_desc} </p>
+      <p className="staffing-services-description">{loaderData?.govPage.tie_ups_desc} </p>
       <Tabs defaultActiveKey={activeTab} centered onChange={handleTabChange} tabBarGutter={0}>
         <Tabs.TabPane
           tab={
@@ -42,20 +77,18 @@ const GovSection4 = () => {
         >
           {/* content for tab1 */}
           <div className="tied-up-services-list">
-          {loaderData.govPage.states_tied_up?.map((service: any, index: number) => (
-
-            <div className="staffing-services-item">
-              <img
-                loading="lazy"
-                src={service.s7_techIcon?.data?.attributes?.url}  
-                alt={service.s7_techIconName}
-                className="staffing-services-item-image"
-              />
-              <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
-            </div>
-               ))}
+            {loaderData.govPage.states_tied_up?.map((service: any, index: number) => (
+              <div className="staffing-services-item">
+                <img
+                  loading="lazy"
+                  src={service.s7_techIcon?.data?.attributes?.url}
+                  alt={service.s7_techIconName}
+                  className="staffing-services-item-image"
+                />
+                <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
+              </div>
+            ))}
           </div>
-      
         </Tabs.TabPane>
         <Tabs.TabPane
           tab={
@@ -67,20 +100,18 @@ const GovSection4 = () => {
         >
           {/* content for tab2 */}
           <div className="tied-up-services-list">
-          {loaderData.govPage.counties_tied_up?.map((service: any, index: number) => (
-
-            <div className="staffing-services-item">
-              <img
-                loading="lazy"
-                src={service.s7_techIcon?.data?.attributes?.url}  
-                alt={service.s7_techIconName}
-                className="staffing-services-item-image"
-              />
-              <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
-            </div>
-              ))}
+            {loaderData.govPage.counties_tied_up?.map((service: any, index: number) => (
+              <div className="staffing-services-item">
+                <img
+                  loading="lazy"
+                  src={service.s7_techIcon?.data?.attributes?.url}
+                  alt={service.s7_techIconName}
+                  className="staffing-services-item-image"
+                />
+                <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
+              </div>
+            ))}
           </div>
-       
         </Tabs.TabPane>
 
         <Tabs.TabPane
@@ -93,20 +124,18 @@ const GovSection4 = () => {
         >
           {/* content for tab3 */}
           <div className="tied-up-services-list">
-          {loaderData.govPage.cities_tied_up?.map((service: any, index: number) => (
-
-            <div className="staffing-services-item">
-              <img
-                loading="lazy"
-                src={service.s7_techIcon?.data?.attributes?.url}  
-                alt={service.s7_techIconName}
-                className="staffing-services-item-image"
-              />
-              <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
-            </div>
-             ))}
+            {loaderData.govPage.cities_tied_up?.map((service: any, index: number) => (
+              <div className="staffing-services-item">
+                <img
+                  loading="lazy"
+                  src={service.s7_techIcon?.data?.attributes?.url}
+                  alt={service.s7_techIconName}
+                  className="staffing-services-item-image"
+                />
+                <h3 className="staffing-services-item-title">{service.s7_techIconName}</h3>
+              </div>
+            ))}
           </div>
-        
         </Tabs.TabPane>
       </Tabs>
     </section>

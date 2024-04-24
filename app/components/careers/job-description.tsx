@@ -51,25 +51,25 @@ const JobDescription = () => {
       setFromDate(dateString)
     }
   }
-function clearStateVariables() {
-  setPersonName('')
-  setNameError('')
-  setEmail('')
-  setEmailError('')
-  setPhone('')
-  setPhoneError('')
-  setInstitute('')
-  setinstErr('')
-  setDeg('')
-  setDegError('')
-  setFromDate(null)
-  setToDate(null)
-  setSelectedFile(null)
-  setSelectedFileName('')
-  setFileError('')
-  setIsCurrentlyAttend(false)
-  setTextAreaValue('')
-}
+  function clearStateVariables() {
+    setPersonName('')
+    setNameError('')
+    setEmail('')
+    setEmailError('')
+    setPhone('')
+    setPhoneError('')
+    setInstitute('')
+    setinstErr('')
+    setDeg('')
+    setDegError('')
+    setFromDate(null)
+    setToDate(null)
+    setSelectedFile(null)
+    setSelectedFileName('')
+    setFileError('')
+    setIsCurrentlyAttend(false)
+    setTextAreaValue('')
+  }
   const handleNameInput = (e) => {
     const value = e.target.value
     setPersonName(value.replace('  ', ' '))

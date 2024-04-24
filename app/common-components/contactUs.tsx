@@ -119,12 +119,12 @@ const ContactUs = () => {
       setBtnLoading(true)
       if (formType === 'contact') {
         const formData = new FormData(event.currentTarget)
-        if(!isRoute){
+        if (!isRoute) {
           formData.append('action', 'Contact')
-        }else{
+        } else {
           formData.append('action', 'Government-services')
         }
-       
+
         formData.forEach((value, key) => {})
         const response = await fetch(
           'https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b',
@@ -492,10 +492,11 @@ const ContactUs = () => {
                   +1 (770) 274 4336
                 </a>
                 <br />
-                {!isRoute && <a className="text-[0.8em]" href="tel:+919108564829">
-                  +91 9108564829
-                </a>}
-                
+                {!isRoute && (
+                  <a className="text-[0.8em]" href="tel:+919108564829">
+                    +91 9108564829
+                  </a>
+                )}
               </div>
               <div
                 className={`col-span-1 text-white items-left md:mx-0 mx-4 ${location.pathname?.endsWith('state-and-local-government-support') ? 'hidden' : ''}`}
@@ -504,8 +505,11 @@ const ContactUs = () => {
                   <img className="w-4 h-4 inline" src="../assets/info.svg" alt="info" />
                   <span className="text-[0.7em]">Information</span>
                 </div>
-                <a className="text-[0.8em]" href={`mailto:${(toggleState == 1 ) ?"info@ivoyant.com": "jobs@ivoyant.com"}`}>
-                  {`${(toggleState == 1 ) ?"info@ivoyant.com": "jobs@ivoyant.com"}`}
+                <a
+                  className="text-[0.8em]"
+                  href={`mailto:${toggleState == 1 ? 'info@ivoyant.com' : 'jobs@ivoyant.com'}`}
+                >
+                  {`${toggleState == 1 ? 'info@ivoyant.com' : 'jobs@ivoyant.com'}`}
                 </a>
               </div>
               {toggleState === 1 && (
@@ -538,15 +542,16 @@ const ContactUs = () => {
                 Let's Talk
               </span>
             </button>
-            {!isRoute && <button role="button" aria-label="Join us form">
-              <span
-                className={toggleState === 2 ? 'tab' : 'tab text-gray-500'}
-                onClick={() => toggleTab(2)}
-              >
-                Job Enquiry
-              </span>
-            </button> }
-           
+            {!isRoute && (
+              <button role="button" aria-label="Join us form">
+                <span
+                  className={toggleState === 2 ? 'tab' : 'tab text-gray-500'}
+                  onClick={() => toggleTab(2)}
+                >
+                  Job Enquiry
+                </span>
+              </button>
+            )}
           </div>
           <div
             className={
@@ -591,7 +596,8 @@ const ContactUs = () => {
                     type="text"
                     id="email"
                     name="email"
-                    placeholder={ !isRoute ? 'Email*' : 'Vendor Email*' }                    required
+                    placeholder={!isRoute ? 'Email*' : 'Vendor Email*'}
+                    required
                     value={email}
                     style={{ textTransform: 'none' }}
                     onChange={handleEmailChange}
@@ -612,7 +618,7 @@ const ContactUs = () => {
                         onSelect={(code) => setCountryCodeSelected(code)}
                         searchable
                         searchPlaceholder="Search countries"
-                        countries={["US", "IN"]}
+                        countries={['US', 'IN']}
                       />
                       <input
                         type="text"

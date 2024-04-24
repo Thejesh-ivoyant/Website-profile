@@ -2626,7 +2626,6 @@ hr {
 }
 
 .btn-purp-grad {
-
   cursor: pointer;
   display: flex;
   width: 10rem;
@@ -3237,7 +3236,6 @@ hr {
 }
 
 .hue-btn-blue-light:hover {
-  
   border: 2px solid transparent;
   -webkit-text-fill-color: white;
   background-clip: text;
@@ -3652,6 +3650,6 @@ hr {
   transition: background 0.2s;
   overflow-x: hidden;
 }
-.content{
+.content {
   width: 100%;
 }

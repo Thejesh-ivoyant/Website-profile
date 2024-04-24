@@ -1,5 +1,3 @@
-
-
 import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { aboutUsQuery, govQuery, homeQuery, topBlogQuery } from '~/graphql/queries'
@@ -35,7 +33,7 @@ export async function loader() {
   try {
     const govGql = await fetchGraphQL(govQuery)
     return defer({
-      govPage: govGql.data.govPage.data.attributes
+      govPage: govGql.data.govPage.data.attributes,
     })
   } catch (error) {
     console.warn('Error fetching data from contact API:', error)
@@ -44,7 +42,7 @@ export async function loader() {
 }
 
 const Index = () => {
-const data = useLoaderData<typeof loader>() as any
+  const data = useLoaderData<typeof loader>() as any
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
@@ -63,4 +61,3 @@ const data = useLoaderData<typeof loader>() as any
   )
 }
 export default Index
-

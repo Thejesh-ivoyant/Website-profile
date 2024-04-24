@@ -53,7 +53,6 @@ const Footer = () => {
   const handleSubEmailChange = (e: any) => {
     const emailValue = e.target.value.toLowerCase()
     setEmailSubscribe(emailValue)
- 
   }
   const handleEmailChange = (e: any) => {
     const emailValue = e.target.value.toLowerCase()
@@ -106,8 +105,8 @@ const Footer = () => {
       )
       if (response.ok) {
         success('Thank you for showing interest in us!', 2)
-        setPersonName('');
-        setEmail('');
+        setPersonName('')
+        setEmail('')
         setPhoneNumber('')
         handleDownload()
       } else {

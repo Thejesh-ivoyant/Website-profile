@@ -74,11 +74,8 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
                 >
                   {item.question}
                 </p>
-                <button
-                  className="float-right ml-auto"
-                  onClick={() => toggleExpansion(item.id)}
-                >
-                  {<PlusToggle active={(item?.id === currState)? true : false}/>}
+                <button className="float-right ml-auto" onClick={() => toggleExpansion(item.id)}>
+                  {<PlusToggle active={item?.id === currState ? true : false} />}
                 </button>
               </div>
               <div

@@ -42,9 +42,9 @@ const Section4 = () => {
                   className="ml-auto my-auto"
                   role="button"
                   aria-label={`view details for ${service?.name}`}
-                  >
-                    {<DarkArrow active={(service?.id === currState)? false : true}/>}
-                  </button>
+                >
+                  {<DarkArrow active={service?.id === currState ? false : true} />}
+                </button>
               </div>
               <div
                 className={`service-description ${service?.id === currState ? 'open' : ''} font-poppins px-4`}

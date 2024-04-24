@@ -399,14 +399,14 @@
   padding: 20px 32px;
   cursor: default;
 }
-.service-item:hover{
+.service-item:hover {
   background: rgba(150, 154, 251, 0.07);
 }
 .service-item:hover .service-name {
   color: white;
 }
 .service-item:hover .service-icon svg {
-  fill: #824BEA;
+  fill: #824bea;
 }
 @media (max-width: 991px) {
   .service-item {
@@ -520,12 +520,12 @@
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  padding: .65rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   color: var(--Flowkit-Charcoal, #222);
   text-align: center;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: .02rem;
+  letter-spacing: 0.02rem;
 }
 .active {
   cursor: pointer;
@@ -547,16 +547,16 @@
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
 }
-.ant-tabs>.ant-tabs-nav .ant-tabs-nav-list{
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
   position: relative;
-    display: flex;
-    transition: opacity 0.3s;
-    gap: 0;
+  display: flex;
+  transition: opacity 0.3s;
+  gap: 0;
 }
-@media (min-width:640px){
-  .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list {
-      gap: 1.5rem;
-    }
+@media (min-width: 640px) {
+  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+    gap: 1.5rem;
+  }
 }
 @media (max-width: 991px) {
   .service-name.devops {

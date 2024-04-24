@@ -18,8 +18,7 @@ import IndustryFocus from '~/components/services/section-4/industry-focus'
 import Phases from '~/components/services/section-5/phases'
 import ServiceCardContainer from '~/components/services/section-6/service-card-container'
 import Technologies from '~/components/services/section-7/technologies'
-import Consultation from'~/components/Homepage/consultation'
-
+import Consultation from '~/components/Homepage/consultation'
 
 export const meta: MetaFunction = () => {
   return [

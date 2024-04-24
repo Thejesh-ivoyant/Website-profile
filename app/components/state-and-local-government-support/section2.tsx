@@ -1,10 +1,12 @@
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData } from '@remix-run/react'
 
 const GovSection2 = () => {
   const loaderData = useLoaderData() as any
   return (
     <section className="staffing-services">
-      <h2 className="staffing-services-title section-heading">{loaderData?.govPage.staffing_service_title}</h2>
+      <h2 className="staffing-services-title section-heading">
+        {loaderData?.govPage.staffing_service_title}
+      </h2>
       <svg
         width="100%"
         height="25"
@@ -52,23 +54,18 @@ const GovSection2 = () => {
           </linearGradient>
         </defs>
       </svg>
-      <p className="staffing-services-description">
-      {loaderData?.govPage.staffing_service_desc}
-      </p>
+      <p className="staffing-services-description">{loaderData?.govPage.staffing_service_desc}</p>
       <div className="staffing-services-list">
-      {loaderData.govPage.staffing_service?.map((service: any, index: number) => (
-      <div className="staffing-services-item">
-          <img
-            loading="lazy"
-          src={service.s7_techIcon?.data?.attributes?.url}  
-          alt={service.s7_techIconName}
-          />
-          <span>{service.s7_techIconName}</span>
-        </div>
-      ))}
-       
-        
-       
+        {loaderData.govPage.staffing_service?.map((service: any, index: number) => (
+          <div className="staffing-services-item">
+            <img
+              loading="lazy"
+              src={service.s7_techIcon?.data?.attributes?.url}
+              alt={service.s7_techIconName}
+            />
+            <span>{service.s7_techIconName}</span>
+          </div>
+        ))}
       </div>
     </section>
   )
