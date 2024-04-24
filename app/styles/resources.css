@@ -43,6 +43,7 @@
 }
 
 .read-more-btn {
+  cursor: pointer;
   display: flex;
   height: 2.25rem;
   width: 9.4375rem;
@@ -396,6 +397,7 @@
 }
 
 .filter-btn-mob {
+  cursor: pointer;
   display: flex;
   padding: 0.5625rem 0.75rem;
   align-items: center;
@@ -439,6 +441,7 @@
 }
 
 .reset-form-btn {
+ 
   font-family: montserrat;
   font-style: normal;
   line-height: normal;
