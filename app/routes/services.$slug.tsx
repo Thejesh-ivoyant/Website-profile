@@ -26,7 +26,7 @@ const Consultation = React.lazy(() => import('~/components/Homepage/consultation
 const Footer = React.lazy(() => import('~/common-components/footer'))
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Ivoyant |  Service' },
+    { title: 'Ivoyant |  Services' },
     {
       property: 'og:title',
       content: 'Services Page',

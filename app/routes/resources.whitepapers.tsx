@@ -14,7 +14,7 @@ import { Popup } from '~/common-components/social-media-popup'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: ResourcesStyle }]
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Ivoyant | Whitepaper' },
+    { title: 'Ivoyant | Whitepapers' },
     {
       property: 'og:title',
       content: 'Whitepaper Page',

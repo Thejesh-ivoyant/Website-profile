@@ -52,7 +52,7 @@ const Section2 = () => {
               <span className=" font-light text-sm w-24">Projects Delivered</span>
             </div>
             <div className="ml-auto flex gap-4 items-center p-10">
-              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">350+</span>
+              <span className="lg:text-4xl font-extrabold  leading-[3.5rem] font-mplus">350</span>
               <span className=" font-light text-sm w-24">Total Projects</span>
             </div>
           </div>
