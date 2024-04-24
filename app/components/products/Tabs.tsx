@@ -11,7 +11,7 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
   return (
     <>
       <div className="w-full h-fit px-4 xl:px-16 section-p-y bg-slate grid gap-3">
-        <h3 className="lg:text-center font-montserrat xl:text-3xl lg:text-2xl sm:text-xl text-lg text-black lg:text-PurpBlue font-semibold">
+        <h3 className="lg:text-center capitalize font-montserrat xl:text-3xl lg:text-2xl sm:text-xl text-lg text-black lg:text-PurpBlue font-semibold">
           Our innovative integration suite
         </h3>
         <svg
