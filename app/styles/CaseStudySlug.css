@@ -34,12 +34,14 @@
 }
 .mob-feature-card-layout {
   white-space: normal;
+  margin-left: 0.5rem;
   display: flex;
   width: 20rem;
   height: 22rem;
   padding: 1.5rem;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
   align-items: flex-start;
   flex-shrink: 0;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
