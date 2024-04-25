@@ -372,6 +372,7 @@ font-style: normal;
 }
 
 .error-btn {
+  cursor: pointer;
   color: #fff;
   font-family: Montserrat;
   font-size: 14px;
@@ -423,6 +424,7 @@ font-style: normal;
 
 /* Show the button when scrolled halfway down the page */
 body.scrolled #scrollToTopBtn {
+  cursor: pointer;
   display: block;
 }
 
@@ -534,6 +536,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .reset-btn {
+  cursor: pointer;
   color: #2a1057;
   font-family: Montserrat;
   font-size: 16px;
@@ -737,6 +740,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .btn-white {
+  cursor: pointer;
   display: flex;
   height: 3.75rem;
   padding: 0px 1.5rem;
@@ -906,6 +910,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .drawer-close-btn {
+  cursor: pointer;
   display: grid;
   place-items: center;
   margin-right: auto;
@@ -949,10 +954,12 @@ body.scrolled #scrollToTopBtn {
 }
 
 .btn-small {
+  cursor: pointer;
   padding: 0.5rem 0.75rem !important;
 }
 
 .btn {
+  cursor: pointer;
   padding-left: 1.5rem;
 
   padding-right: 1.5rem;
@@ -1034,6 +1041,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .btn {
+    cursor: pointer;
     padding-left: 2.5rem;
 
     padding-right: 2.5rem;
@@ -1073,6 +1081,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .hero-btn {
+    cursor: pointer;
     width: 100px;
     height: 30px;
     align-items: center;
@@ -1114,6 +1123,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .btn-white {
+    cursor: pointer;
     font-size: 12px;
   }
 
@@ -1603,6 +1613,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .btn {
+  cursor: pointer;
   font-size: 1rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1922,6 +1933,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .ant-btn {
+  cursor: pointer;
   background-color: #000;
 }
 
@@ -2614,6 +2626,7 @@ hr {
 }
 
 .btn-purp-grad {
+  cursor: pointer;
   display: flex;
   width: 10rem;
   height: 3rem;
@@ -3289,6 +3302,7 @@ hr {
 }
 
 .hue-btn-download {
+  cursor: pointer;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 400;
@@ -3635,4 +3649,7 @@ hr {
   list-style: none;
   transition: background 0.2s;
   overflow-x: hidden;
+}
+.content {
+  width: 100%;
 }

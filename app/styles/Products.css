@@ -60,6 +60,7 @@
 }
 @media (min-width: 1024px) {
   .tabs-btn {
+    cursor: pointer;
     color: #000;
     font-family: Poppins;
     font-size: 1.2rem;
@@ -208,6 +209,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
+    cursor: pointer;
     border: 2px solid var(--CardDark, #360e81);
   }
 }
@@ -252,6 +254,7 @@
     font-weight: 600;
   }
   .tabs-btn {
+    cursor: pointer;
     display: flex;
     padding: 0.25rem 0.5rem;
     justify-content: center;

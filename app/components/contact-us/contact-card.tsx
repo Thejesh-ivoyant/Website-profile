@@ -50,7 +50,9 @@ const ContactCard = ({ toggleState }: { toggleState: number }) => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <a href={`mailto:${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}>{`${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}</a>
+                <a
+                  href={`mailto:${toggleState === 1 ? 'sales@ivoyant.com' : 'jobs@ivoyant.com'}`}
+                >{`${toggleState === 1 ? 'sales@ivoyant.com' : 'jobs@ivoyant.com'}`}</a>
               </div>
             </>
           </div>
@@ -105,7 +107,9 @@ const ContactCard = ({ toggleState }: { toggleState: number }) => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <a href={`mailto:${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}>{`${(toggleState === 1 ) ?"sales@ivoyant.com": "jobs@ivoyant.com"}`}</a>
+                <a
+                  href={`mailto:${toggleState === 1 ? 'sales@ivoyant.com' : 'jobs@ivoyant.com'}`}
+                >{`${toggleState === 1 ? 'sales@ivoyant.com' : 'jobs@ivoyant.com'}`}</a>
               </div>
             </>
           </div>
