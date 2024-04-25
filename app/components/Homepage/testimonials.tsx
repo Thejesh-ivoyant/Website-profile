@@ -41,7 +41,7 @@ const Testimonials = () => {
     setCurrentTestimonialIndex(current)
   }
   return (
-    <div role="complementary" className="section-container section-p-y">
+    <div id="testimonials" aria-label='testimonials' role="complementary" className="section-container section-p-y">
       <section className="section-heading">
         <p
           role="heading"
@@ -53,7 +53,7 @@ const Testimonials = () => {
       </section>
       <svg
         role="none"
-        aria-label="ornament"
+        aria-hidden="true"
         className="flex mx-auto my-3"
         width="100%"
         height="24"
