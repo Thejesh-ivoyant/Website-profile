@@ -862,7 +862,28 @@ const ContactUs = () => {
                     </span>
                   )}
                 </div>
-                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    
+                    style={{ textTransform: 'none' }}
+                    name="area_of_expertise"
+                    placeholder="Area of Expertise"
+                    // value={hireemail}
+                    // onChange={hirehandleEmailChange}
+                  
+                  
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                  {/* {hireemailerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hireemailerror}
+                    </span>
+                  )} */}
+
+
+                </div>
+                {/* <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
                   <Select
                     placeholder="Area of Expertise"
                     className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
@@ -880,8 +901,27 @@ const ContactUs = () => {
                     className="hidden"
                     name="area_of_expertise"
                   />
+                </div> */}
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    placeholder="Years of Experience"
+                    style={{ textTransform: 'none' }}
+                    // value={hireemail}
+                    // onChange={hirehandleEmailChange}
+                    name="hiring_duration"
+                  
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                  {/* {hireemailerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {hireemailerror}
+                    </span>
+                  )} */}
+
+
                 </div>
-                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                {/* <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
                   <Select
                     placeholder="Years of Experience"
                     className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
@@ -899,9 +939,22 @@ const ContactUs = () => {
                     className="hidden"
                     name="hiring_duration"
                   />
-                </div>
-                <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                  <Select
+                </div> */}
+               
+                <div className="w-full relative group sm:col-span-1 col-span-2">
+                  <input
+                    type="text"
+                    placeholder="Your Skillsets"
+                    style={{ textTransform: 'none' }}
+                    // value={hireemail}
+                    // onChange={hirehandleEmailChange}
+                    name="choose_skill_set"
+                  
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                  {/* 
+                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
+                   <Select
                     placeholder="Choose skillset"
                     className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                     suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
@@ -917,7 +970,7 @@ const ContactUs = () => {
                     value={selectedSkills || ''}
                     className="hidden"
                     name="choose_skill_set"
-                  />
+                  /> */}
                 </div>
                 <div className="w-full relative grid col-span-2">
                   <label className="py-2 text-xs">Your Message</label>
@@ -946,7 +999,7 @@ const ContactUs = () => {
                 </div>
               </div>
               <Space direction="horizontal" size={12} className="grid-cols-1 flex justify-between">
-                <div className="flex">
+                {/* <div className="flex">
                   <span className="">
                     <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
                   </span>
@@ -971,7 +1024,7 @@ const ContactUs = () => {
                     className="hidden"
                     name="date_hire"
                   />
-                </div>
+                </div> */}
                 <div className="flex flex-col gap-1 relative">
                   <div className="flex flex-col xl:text-sm text-xs">
                     <label
