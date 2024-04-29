@@ -12,10 +12,32 @@ const GovSection4 = () => {
   }
 
   return (
-    <section className="tied-services">
+    <section className="tied-services relative">
       <h2 className="staffing-services-title section-heading">
         {loaderData?.govPage.tie_ups_title}
       </h2>
+      <div className='absolute bg-center-shade'>
+        
+      </div>
+      <div className='absolute bg-shade'> 
+      <svg width="622" height="1024" viewBox="0 0 622 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.6" filter="url(#filter0_f_13978_145738)">
+<circle cx="89" cy="491" r="293" fill="url(#paint0_linear_13978_145738)" fill-opacity="0.24"/>
+</g>
+<defs>
+<filter id="filter0_f_13978_145738" x="-444" y="-42" width="1066" height="1066" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="120" result="effect1_foregroundBlur_13978_145738"/>
+</filter>
+<linearGradient id="paint0_linear_13978_145738" x1="0.999882" y1="314" x2="319" y2="652.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#6E9FFD"/>
+<stop offset="1" stop-color="#2F42A5" stop-opacity="0.52"/>
+</linearGradient>
+</defs>
+</svg>
+
+      </div>
       <svg
         className="mx-auto"
         width="100%"

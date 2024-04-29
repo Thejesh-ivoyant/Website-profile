@@ -523,17 +523,6 @@ body.scrolled #scrollToTopBtn {
   text-align: center;
 }
 
-.hero-subtitle {
-  color: #fff;
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 62px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.44px;
-  text-align: center;
-}
 
 .reset-btn {
   cursor: pointer;
