@@ -1,11 +1,11 @@
 // ScrollToTopIcon.tsx
 import React, { useEffect } from 'react'
 import { ArrowUpOutlined } from '@ant-design/icons'
+
 const ScrollToTopIcon: React.FC = () => {
   useEffect(() => {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn')
     if (!scrollToTopBtn) {
-      // Handle the case where the element is not found
       return
     }
     const handleScroll = () => {
@@ -24,16 +24,18 @@ const ScrollToTopIcon: React.FC = () => {
       document.documentElement.scrollTop = 0
     }
     window.addEventListener('scroll', handleScroll)
-    scrollToTopBtn.addEventListener('click', scrollToTop)
+    scrollToTopBtn?.addEventListener('click', scrollToTop) // Optional chaining here
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      scrollToTopBtn.removeEventListener('click', scrollToTop)
+      scrollToTopBtn?.removeEventListener('click', scrollToTop) // Optional chaining here
     }
   }, [])
+  
   return (
     <button id="scrollToTopBtn" className="z-50" title="Back to top">
       <ArrowUpOutlined />
     </button>
   )
 }
+
 export default ScrollToTopIcon
