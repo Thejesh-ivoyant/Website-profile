@@ -19,9 +19,10 @@ const GovSection3 = () => {
             <div className="service-name">{key.title}</div>
             <p>{key?.description}</p>
 
-            <Link className="service-icon" to={key?.link} target="_blank">
+            {/* <Link className="service-icon" to={key?.link} target="_blank">
               <ArrowCircle />
-            </Link>
+            </Link> */}
+
           </div>
         </div>
       ))}

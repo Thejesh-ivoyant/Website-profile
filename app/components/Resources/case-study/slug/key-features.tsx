@@ -1,55 +1,68 @@
 export const Features = ({ data }: { data: any }) => {
   return (
     <>
-      <div className="grid place-items-center gap-4 xl:mx-12 lg:mx-8 mx-4 p-7">
+      <div className="grid place-items-center gap-6 xl:mx-12 lg:mx-8 mx-4 p-7 my-6">
         <div className="italic font-montserrat md:mr-0 mr-auto bg-haiti w-fit text-white px-1">
           {data?.section4MiniTitle}
         </div>
         <div className="text-PurpBlue md:text-center  font-montserrat md:text-4xl text-3xl font-semibold">
           {data?.section_4_title}
         </div>
-        <svg
-          className="w-full mx-auto"
-          height="25"
-          viewBox="0 0 1200 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path transform="rotate(-90 0 13)" fill="url(#a)" d="M0 13h.5v600H0z" />
-          <path transform="rotate(90 1200 12.25)" fill="url(#b)" d="M1200 12.25h1v600h-1z" />
-          <defs>
-            <linearGradient
-              id="a"
-              x1=".75"
-              y1="608.529"
-              x2=".75"
-              y2="2.27"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient
-              id="b"
-              x1="1201.5"
-              y1="607.779"
-              x2="1201.5"
-              y2="1.52"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <p className="text-[#262626] md:text-center md:text-xl text-lg font-normal">
+         <svg
+                width="100%"
+                height="25"
+                viewBox="0 0 328 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  y="12.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(-90 0 12.5)"
+                  fill="url(#paint0_linear_13978_146117)"
+                />
+                <rect
+                  x="328"
+                  y="11.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(90 328 11.5)"
+                  fill="url(#paint1_linear_13978_146117)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_13978_146117"
+                    x1="1.5"
+                    y1="175.278"
+                    x2="1.5"
+                    y2="9.56706"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear_13978_146117"
+                    x1="329.5"
+                    y1="174.278"
+                    x2="329.5"
+                    y2="8.56706"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+        <p className="text-[#262626] md:text-center md:text-xl text-lg font-normal font-poppins">
           {data?.section_4_description}
         </p>
         <div className="w-full md:grid hidden place-items-center grid-cols-2 gap-6">
           {data?.section_4_cards?.map((item: any) => (
             <div
               key={item?.id}
-              className="col-span-1 xl:h-72 h-fit xl:max-w-[40rem] xl:w-full flex flex-col justify-around items-center p-6 lg:gap-4 gap-2 feature-card"
+              className="col-span-1 md:h-full h-fit xl:max-w-[40rem] xl:w-full flex flex-col lg:justify-around items-center p-6 gap-2 feature-card"
             >
               <h3 className="hue-blue-text-gradient text-center text-2xl font-montserrat font-medium">
                 {item?.name}
@@ -57,34 +70,47 @@ export const Features = ({ data }: { data: any }) => {
               <svg
                 width="100%"
                 height="25"
-                viewBox="0 0 588 25"
+                viewBox="0 0 328 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path transform="rotate(-90 0 12.5)" fill="url(#a)" d="M0 12.5h1v294H0z" />
-                <path transform="rotate(90 588 11.5)" fill="url(#b)" d="M588 11.5h1v294h-1z" />
+                <rect
+                  y="12.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(-90 0 12.5)"
+                  fill="url(#paint0_linear_13978_146117)"
+                />
+                <rect
+                  x="328"
+                  y="11.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(90 328 11.5)"
+                  fill="url(#paint1_linear_13978_146117)"
+                />
                 <defs>
                   <linearGradient
-                    id="a"
+                    id="paint0_linear_13978_146117"
                     x1="1.5"
-                    y1="304.309"
+                    y1="175.278"
                     x2="1.5"
-                    y2="7.242"
+                    y2="9.56706"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#AEBEFF" />
-                    <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
                   </linearGradient>
                   <linearGradient
-                    id="b"
-                    x1="589.5"
-                    y1="303.309"
-                    x2="589.5"
-                    y2="6.242"
+                    id="paint1_linear_13978_146117"
+                    x1="329.5"
+                    y1="174.278"
+                    x2="329.5"
+                    y2="8.56706"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#AEBEFF" />
-                    <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -94,41 +120,54 @@ export const Features = ({ data }: { data: any }) => {
             </div>
           ))}
         </div>
-        <div className="w-full md:hidden flex whitespace-nowrap overflow-x-scroll  gap-6">
+        <div className="w-full md:hidden flex whitespace-nowrap overflow-x-scroll snap-x  gap-6 py-2">
           {data?.section_4_cards?.map((item: any) => (
-            <div key={item?.id} className="mob-feature-card-layout ">
+            <div key={item?.id} className="mob-feature-card-layout snap-center">
               <h3 className="mob-feature-card-title whitespace-normal">{item?.name}</h3>
-              <svg
+               <svg
                 width="100%"
                 height="25"
-                viewBox="0 0 588 25"
+                viewBox="0 0 328 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path transform="rotate(-90 0 12.5)" fill="url(#a)" d="M0 12.5h1v294H0z" />
-                <path transform="rotate(90 588 11.5)" fill="url(#b)" d="M588 11.5h1v294h-1z" />
+                <rect
+                  y="12.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(-90 0 12.5)"
+                  fill="url(#paint0_linear_13978_146117)"
+                />
+                <rect
+                  x="328"
+                  y="11.5"
+                  width="1"
+                  height="164"
+                  transform="rotate(90 328 11.5)"
+                  fill="url(#paint1_linear_13978_146117)"
+                />
                 <defs>
                   <linearGradient
-                    id="a"
+                    id="paint0_linear_13978_146117"
                     x1="1.5"
-                    y1="304.309"
+                    y1="175.278"
                     x2="1.5"
-                    y2="7.242"
+                    y2="9.56706"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#AEBEFF" />
-                    <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
                   </linearGradient>
                   <linearGradient
-                    id="b"
-                    x1="589.5"
-                    y1="303.309"
-                    x2="589.5"
-                    y2="6.242"
+                    id="paint1_linear_13978_146117"
+                    x1="329.5"
+                    y1="174.278"
+                    x2="329.5"
+                    y2="8.56706"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#AEBEFF" />
-                    <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+                    <stop stop-color="#AEBEFF" />
+                    <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
                   </linearGradient>
                 </defs>
               </svg>
