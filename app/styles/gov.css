@@ -418,10 +418,18 @@
   left: 0;
 }
 .bg-center-shade{
-  top:0;
-  
+  opacity: 0.16;
+  filter: blur(150px);
+  top: 400px;
 
 }
+.tied-services .ant-tabs-top > .ant-tabs-nav::before,
+.tied-services .ant-tabs-bottom > .ant-tabs-nav::before,
+.tied-services .ant-tabs-top > div > .ant-tabs-nav::before,
+.tied-services .ant-tabs-bottom > div > .ant-tabs-nav::before {
+    border-bottom: 0px solid #f0f0f0;
+}
+
 .service-content {
   padding: 1.5rem 0rem;
   display: grid;
@@ -597,6 +605,7 @@
 
   justify-content: center;
   gap: 20px;
+  max-width: 852px;
   flex-wrap: wrap;
   margin-top: 44px;
   font-size: 16px;
