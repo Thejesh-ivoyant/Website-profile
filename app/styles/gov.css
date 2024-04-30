@@ -413,7 +413,15 @@
     padding: 0 20px;
   }
 }
+.bg-shade{
+  top: 0;
+  left: 0;
+}
+.bg-center-shade{
+  top:0;
+  
 
+}
 .service-content {
   padding: 1.5rem 0rem;
   display: grid;
