@@ -33,7 +33,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
     <div className="flex flex-col w-full max-h-fit lg:mx-0 lg:h-fit bg-haiti section-p-y">
       <div className="xl:text-3xl lg:text-2xl sm:text-xl text-lg w-full justify-center flex gradient-bottom">
         <p
-          role="heading"
+          role="contentinfo"
           aria-level={1}
           className="h-fit font-montserrat font-medium service-heading leading-10 md:mb-3"
           aria-label={attributes.servicesTitle}
@@ -106,11 +106,12 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
               width={800}
               height={630}
               src={serviceImage}
+              tabIndex={0}
               alt={currentSelectedService}
             />
             <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
               <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
-                <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex">
+                <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex" tabIndex={0}>
                   <i className="text-blue-100 lg:text-sm text-xs font-light">
                     {currentSelectedService}
                   </i>

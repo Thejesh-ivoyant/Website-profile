@@ -493,7 +493,7 @@ export default function Index() {
               }
             >
               <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
-                <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
+                <p role="heading" className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
                   Connect with us
                 </p>
                 <img src={line} alt="ornament" className="w-full sm:col-span-2"></img>

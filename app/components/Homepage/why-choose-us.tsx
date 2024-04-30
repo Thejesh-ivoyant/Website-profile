@@ -1,5 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import { Pair } from '~/interfaces/Homepage'
+import texture from '~/../public/assets/texture.png'
 const WhyChooseUs = ({
   pairs,
   title,
@@ -16,7 +17,7 @@ const WhyChooseUs = ({
       className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3"
     >
       <p
-        role="heading"
+        role="contentinfo"
         aria-level={1}
         aria-label="Why choose us section"
         className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold text-center"
@@ -78,7 +79,7 @@ const WhyChooseUs = ({
       >
         {description}
       </p>
-      <div className="grid xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise w-full place-items-center max-w-fit">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2  gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] w-full place-items-center max-w-fit">
         {pairs?.map((pair, index) => (
           <div
             key={index}

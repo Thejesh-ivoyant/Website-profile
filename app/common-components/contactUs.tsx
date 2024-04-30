@@ -467,7 +467,7 @@ const ContactUs = () => {
             }
           >
             <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
-              <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
+              <p role="heading" className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
                 Connect with us
               </p>
               <img src={line} alt="ornament" className="w-full sm:col-span-2"></img>
@@ -562,6 +562,7 @@ const ContactUs = () => {
           ></div>
           {toggleState === 1 ? (
             <Form
+            role="form"
               onSubmit={(event) => handleSubmit(event, 'contact')}
               method="post"
               encType="multipart/form-data"
@@ -580,6 +581,8 @@ const ContactUs = () => {
                     name="name"
                     placeholder="Full Name*"
                     required
+                    aria-label="name"
+                    aria-required = "true"
                     value={personname}
                     onChange={handleNameChange}
                     className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
@@ -593,6 +596,8 @@ const ContactUs = () => {
 
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
+                  aria-label="email"
+                    aria-required = "email"
                     type="text"
                     id="email"
                     name="email"
@@ -621,6 +626,8 @@ const ContactUs = () => {
                         countries={['US', 'IN']}
                       />
                       <input
+                      aria-label="Country code"
+                    aria-required = "true"
                         type="text"
                         placeholder=""
                         value={selectedCode}
@@ -631,6 +638,8 @@ const ContactUs = () => {
                     </div>
                   </div>
                   <input
+                  aria-label="Phone number"
+                    aria-required = "true"
                     type="tel"
                     placeholder="Phone Number*"
                     value={phoneNumber}
@@ -648,6 +657,8 @@ const ContactUs = () => {
                 </div>
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
+                  aria-label="Organization"
+                    aria-required = "false"
                     type="text"
                     id="organization"
                     name="organisation"
@@ -666,6 +677,7 @@ const ContactUs = () => {
                   <label className="py-2 text-xs">Your Message</label>
                   <textarea
                     aria-label="Your message for the Job request"
+                    aria-required="false"
                     minLength={3}
                     maxLength={250}
                     id="message"
@@ -691,7 +703,7 @@ const ContactUs = () => {
               <Space direction="horizontal" className="grid-cols-1 flex justify-between">
                 <div className="flex">
                   <span className="cursor-pointer">
-                    <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
+                    <CalendarOutlined tabIndex={0} className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
                   </span>
                   <DatePicker
                     inputReadOnly
@@ -711,6 +723,7 @@ const ContactUs = () => {
                     placeholder=""
                     value={selectedDate ? selectedDate : ''}
                     className="hidden"
+                    aria-label="Schedule a date"
                     name="date"
                   />
                 </div>
@@ -721,13 +734,14 @@ const ContactUs = () => {
                       className="font-montserrat whitespace-nowrap"
                       style={{ cursor: 'pointer' }}
                     >
-                      <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
+                      <FileAddOutlined tabIndex={0} className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
                       Attach File
                     </label>
                     <input
                       style={{ display: 'none' }}
                       type="file"
                       id="attachment"
+                      aria-label="attachment"
                       name="attachment"
                       onChange={handleFileChange}
                     />
@@ -747,6 +761,8 @@ const ContactUs = () => {
                       </span>
 
                       <button
+                      role="button"
+                      aria-label={`Remove ${selectedFileName}`}
                         title={`Remove ${selectedFileName}`}
                         onClick={handleClearFile}
                         className="ml-2"
@@ -758,6 +774,8 @@ const ContactUs = () => {
                 </div>
               </Space>
               <button
+              role="button"
+              aria-label="submit your request"
                 type="submit"
                 name="_action"
                 value="contact"
@@ -779,6 +797,7 @@ const ContactUs = () => {
             </Form>
           ) : (
             <Form
+            role="form"
               onSubmit={(event) => handleSubmit(event, 'hireus')}
               method="post"
               encType="multipart/form-data"
@@ -792,6 +811,8 @@ const ContactUs = () => {
               <div className="grid grid-cols-2 xl:gap-10 gap-6">
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
+                  aria-label="name"
+                  aria-required = "true"
                     type="text"
                     id="name"
                     name="name"
@@ -809,6 +830,8 @@ const ContactUs = () => {
                 </div>
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
+                  aria-label="email"
+                  aria-required = "true"
                     type="text"
                     id="email"
                     name="email"
@@ -837,6 +860,8 @@ const ContactUs = () => {
                         countries={['US', 'IN']}
                       />{' '}
                       <input
+                      aria-label="Country code"
+                      aria-required = "true"
                         type="text"
                         placeholder=""
                         value={selectedCode}
@@ -847,6 +872,8 @@ const ContactUs = () => {
                     </div>
                   </div>
                   <input
+                  aria-label="Phone number"
+                      aria-required = "true"
                     type="tel"
                     placeholder="Phone Number*"
                     value={hirephoneNumber}
@@ -865,7 +892,8 @@ const ContactUs = () => {
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
                     type="text"
-                    
+                    aria-required = "false"
+                    aria-label="Area of Expertise"
                     style={{ textTransform: 'none' }}
                     name="area_of_expertise"
                     placeholder="Area of Expertise"
@@ -910,7 +938,7 @@ const ContactUs = () => {
                     // value={hireemail}
                     // onChange={hirehandleEmailChange}
                     name="hiring_duration"
-                  
+                    aria-label="Hiring duration"
                     className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                   ></input>
                   {/* {hireemailerror && (
@@ -944,6 +972,7 @@ const ContactUs = () => {
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
                     type="text"
+                    aria-label="Your skillsets"
                     placeholder="Your Skillsets"
                     style={{ textTransform: 'none' }}
                     // value={hireemail}
@@ -1032,7 +1061,7 @@ const ContactUs = () => {
                       className="font-montserrat whitespace-nowrap"
                       style={{ cursor: 'pointer' }}
                     >
-                      <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black mr-2" />
+                      <FileAddOutlined tabIndex = {0} className="bg-[#D9C9FB] rounded-full p-2 text-black mr-2" />
                       Attach File
                     </label>
                     <input
@@ -1059,7 +1088,7 @@ const ContactUs = () => {
                         onClick={handlehireClearFile}
                         className="ml-2"
                       >
-                        <DeleteOutlined className="text-red-500" />
+                        <DeleteOutlined tabIndex = {0} className="text-red-500" />
                       </button>
                     </div>
                   )}

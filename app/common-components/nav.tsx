@@ -238,7 +238,7 @@ const Nav = () => {
           </div>
         </Form>
       </Modal>
-      <nav className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16">
+      <nav role="navigation" className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16">
         <div className="flex flex-row items-center justify-around">
           <Link role="link" aria-label="Ivoyant Home" to="/">
             {' '}
@@ -416,7 +416,7 @@ const Nav = () => {
           <div></div>
         )}
       </nav>
-      <nav className="fixed lg:hidden top-0 z-50 w-full bg-nav-dark pt-2 pb-1 h-16 flex px-4">
+      <nav role="navigation" className="fixed lg:hidden top-0 z-50 w-full bg-nav-dark pt-2 pb-1 h-16 flex px-4">
         <Link to="/" prefetch="intent" className=" mr-auto flex">
           <div className="flex flex-row justify-center items-center object-contain">
             <img

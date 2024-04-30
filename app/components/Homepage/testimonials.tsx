@@ -45,7 +45,7 @@ const Testimonials = () => {
       <span className="anchor" id="testimonials"></span>
       <section className="section-heading">
         <p
-          role="heading"
+          role="contentinfo"
           aria-level={1}
           className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
         >
@@ -122,7 +122,7 @@ const Testimonials = () => {
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">
                     <div
-                      role="heading"
+                      role="contentinfo"
                       aria-level={1}
                       className="industry flex items-start justify-start testimonial-industry"
                     >

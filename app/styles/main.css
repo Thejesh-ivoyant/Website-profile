@@ -3004,22 +3004,6 @@ hr {
   }
 }
 
-.moving-noise {
-  background-size: cover;
-  z-index: 10;
-  animation: moveBackground 4s linear infinite alternate;
-}
-
-@keyframes moveBackground {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 100% 0;
-  }
-}
-
 #nav-text-bg {
   background: var(--L3, linear-gradient(96deg, #b9c1ec 0.58%, #a3b1ff 93.87%));
   background-clip: text;
@@ -3645,4 +3629,23 @@ hr {
 .anchor {
   position: absolute;
   transform: translateY(0.1dvh);
+}
+.skip-main-cnt:focus,
+.skip-footer:focus{
+  transform: translateY(0);
+  color: #fff;
+}
+.skip-main-cnt{
+  font-family: poppins;
+  background: #df9926;
+  height: auto;
+  top: 4rem;
+  left: 0;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform .3s;
+  color: #fff;
+  z-index: 9999;
+  outline: 0 !important;
 }
