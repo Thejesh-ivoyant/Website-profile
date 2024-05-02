@@ -453,44 +453,56 @@ const Footer = () => {
                     </div>
                     <span className="flex gap-2 py-4 tablet-hidden">
                       <a
+                      aria-label="Link to Ivoyant's Facebook page"
                         href="https://www.facebook.com/ivoyantllc"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
+                        role="presentation"
+                        aria-hidden = "true"
                           src={fb}
                           alt="facebook-meta"
                           className=" xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
+                      aria-label="Link to Ivoyant's Twitter page"
                         href="https://twitter.com/i_voyant"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
+                        role="presentation"
+                        aria-hidden = "true"
                           src={mail}
                           alt="Mail"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
+                      aria-label="Link to Ivoyant's Linkedin page"
                         href="https://www.linkedin.com/company/ivoyant-llc/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
+                        role="presentation"
+                        aria-hidden = "true"
                           src={linkedin}
                           alt="Linked-in"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
+                      aria-label="Link to Ivoyant's Youtube page"
                         href="https://www.youtube.com/@ivoyant"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
+                        role="presentation"
+                        aria-hidden = "true"
                           src={yt}
                           alt="Youtube-channel"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
