@@ -573,6 +573,8 @@ const Footer = () => {
                   name="email"
                   type="email"
                   required
+                  aria-required = "true"
+                  aria-label="Enter an E-mail address to send the newsletters"
                   value={subemail}
                   onChange={handleSubEmailChange}
                   placeholder="Email*"

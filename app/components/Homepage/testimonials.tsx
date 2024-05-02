@@ -45,7 +45,7 @@ const Testimonials = () => {
       <span className="anchor" id="testimonials"></span>
       <section className="section-heading">
         <p
-          role="contentinfo"
+          role="heading"
           aria-level={1}
           className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
         >
@@ -128,7 +128,7 @@ const Testimonials = () => {
                     >
                       {testimonial?.title}
                     </div>
-                    <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
+                    <div role ="heading" className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
                       <div className="flex text-start">{testimonial.subtitle}</div>
                       <div className="flex mb-4">
                         <svg aria-hidden="true" role="presentation" width="44" height="33" viewBox="0 0 44 33" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="M0 0v16.5h11c0 6.064-4.93 11-11 11V33c9.098 0 16.5-7.402 16.5-16.5V0zm27.5 0v16.5h11c0 6.064-4.93 11-11 11V33C36.598 33 44 25.598 44 16.5V0z" fill="#fff" fill-opacity=".25"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h44v33H0z"/></clipPath></defs></svg>

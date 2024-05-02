@@ -1,6 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
 import { Pair } from '~/interfaces/Homepage'
-import texture from '~/../public/assets/texture.png'
 const WhyChooseUs = ({
   pairs,
   title,
@@ -17,7 +16,7 @@ const WhyChooseUs = ({
       className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3"
     >
       <p
-        role="contentinfo"
+        role="heading"
         aria-level={1}
         aria-label="Why choose us section"
         className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold text-center"

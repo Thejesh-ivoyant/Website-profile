@@ -33,7 +33,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
     <div className="flex flex-col w-full max-h-fit lg:mx-0 lg:h-fit bg-haiti section-p-y">
       <div className="xl:text-3xl lg:text-2xl sm:text-xl text-lg w-full justify-center flex gradient-bottom">
         <p
-          role="contentinfo"
+          role="heading"
           aria-level={1}
           className="h-fit font-montserrat font-medium service-heading leading-10 md:mb-3"
           aria-label={attributes.servicesTitle}
