@@ -1,7 +1,7 @@
 h1{
     color: #0D0B71;
     font-family: Montserrat;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
     line-height: 3.125rem;
@@ -9,9 +9,10 @@ h1{
 }
 .layout_sitemap{
     display: grid;
-    margin: 4.5rem 2.25rem 1.5rem;
+    margin: 4rem 2.25rem 1.5rem;
+    padding: 1.5rem 0rem;
     max-width: fit-content;
-    gap:2.5rem;
+    gap:1.5rem;
 }
 .layout_sitemap > ul{
     display: grid;
@@ -68,14 +69,19 @@ ul > li{
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .layout_sitemap {
-        margin: 4.5rem 3.25rem 1.5rem;
+        margin: 4rem 3.25rem 1.5rem;
         max-width: fit-content;
     }
 }
 @media (min-width: 768px){
+    h1{
+        font-size: 2.5rem;
+    }
     .layout_sitemap {
-        margin: 6.5rem 6.25rem 2.5rem;
+        margin: 4rem 6.25rem 2.5rem;
+        padding: 2.5rem 0rem;
         max-width: fit-content;
+        gap: 2.5rem;
     }
     .list_container{
         gap: 2rem 5rem;
