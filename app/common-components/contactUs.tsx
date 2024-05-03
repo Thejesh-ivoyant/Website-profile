@@ -12,6 +12,10 @@ import { errorMessage, success } from '~/utils/notifications'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
 import DropDownIcon from '~/components/Resources/case-study/arrow'
 import { StrapiConfig } from '~/utils/format'
+import enquire from '~/../public/assets/enquire.svg'
+import phone from '~/../public/assets/phone-outlined.svg'
+import info from '~/../public/assets/info.svg'
+import skype from '~/../public/assets/skype-outlined.svg'
 dayjs.extend(customParseFormat)
 const range = (start: number, end: number) => {
   const result = []
@@ -474,7 +478,7 @@ const ContactUs = () => {
               {toggleState === 1 && (
                 <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                   <div className="flex text-iv-purple items-left gap-2">
-                    <img className="w-4 h-4 inline" src="../assets/enquire.svg" alt="enquire" />
+                    <img className="w-4 h-4 inline" src={enquire} role="presentation" aria-hidden ="true"  alt="enquire" />
                     <span className="text-[0.7em]">Enquires</span>
                   </div>
                   <a className="text-[0.8em]" href="mailto:sales@ivoyant.com">
@@ -485,7 +489,7 @@ const ContactUs = () => {
 
               <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
-                  <img className="w-4 h-4 inline" src="../assets/phone-outlined.svg" alt="phone" />
+                  <img className="w-4 h-4 inline" src={phone} role="presentation" aria-hidden ="true"  alt="phone" />
                   <span className="text-[0.7em]">Phone</span>
                 </div>
                 <a className="text-[0.8em]" href="tel:+1 (770) 274 4336">
@@ -502,7 +506,7 @@ const ContactUs = () => {
                 className={`col-span-1 text-white items-left md:mx-0 mx-4 ${location.pathname?.endsWith('state-and-local-government-support') ? 'hidden' : ''}`}
               >
                 <div className="flex text-iv-purple items-left gap-2">
-                  <img className="w-4 h-4 inline" src="../assets/info.svg" alt="info" />
+                  <img className="w-4 h-4 inline" src={info} role="presentation" aria-hidden ="true" alt="info" />
                   <span className="text-[0.7em]">Information</span>
                 </div>
                 <a
@@ -518,8 +522,10 @@ const ContactUs = () => {
                 >
                   <div className="flex text-iv-purple items-left gap-2">
                     <img
+                    role="presentation"
+                    aria-hidden="true"
                       className="w-4 h-4 inline"
-                      src="../assets/skype-outlined.svg"
+                      src={skype}
                       alt="skype"
                     />
                     <span className="text-[0.7em]">Connect with us</span>
