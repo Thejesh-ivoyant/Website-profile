@@ -186,12 +186,7 @@ export default function Index() {
     setBtnLoading(false)
   }
 
-  const handleLabelClick = () => {
-    // Trigger click on the file input
-    if (fileInputRef.current) {
-      fileInputRef.current.click()
-    }
-  }
+
 
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     setDateSelected(dateString)
@@ -362,7 +357,6 @@ export default function Index() {
     '.ppt',
     '.pptx',
   ]
-  const acceptString = allowedFormats.map((format) => `.${format}`).join(',')
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0]
@@ -386,36 +380,6 @@ export default function Index() {
     }
   }
 
-  const AOEData = [
-    'Mobile App Development',
-    'UI/UX Designer',
-    'Website Development',
-    'Back End Coding',
-    'Front End Coding',
-    'DevOps',
-    'Sales',
-    'Marketing',
-    'Human Resources',
-    'Internship',
-    'Product Management',
-    'Scrum Master',
-  ]
-  const AOE = AOEData.map((aoe) => ({
-    value: aoe,
-    label: aoe,
-  }))
-
-  const HiringDuration = ['0 yr', '<1 yr', '1 yr', '2 yrs', '3 yrs', '4 yrs', '5 yrs', '6+ yrs']
-  const HD = HiringDuration.map((hd) => ({
-    value: hd,
-    label: hd,
-  }))
-
-  const SkillsetData = ['Python', 'Java', 'React', '.Net', 'Angular', 'Other']
-  const SkillSet = SkillsetData.map((skill) => ({
-    value: skill,
-    label: skill,
-  }))
 
   const handleClearFile = () => {
     setSelectedFileName(null)
@@ -648,6 +612,7 @@ export default function Index() {
                           onSelect={(code) => setCountryCodeSelected(code)}
                           searchable
                           searchPlaceholder="Search countries"
+                          countries={['US', 'IN']}
                         />
                         <input
                           type="text"
@@ -863,6 +828,7 @@ export default function Index() {
                           onSelect={(code) => setCountryCodeSelected(code)}
                           searchable
                           searchPlaceholder="Search countries"
+                           countries={['US', 'IN']}
                         />{' '}
                         <input
                           type="text"
@@ -891,61 +857,40 @@ export default function Index() {
                     )}
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                    <Select
-                      placeholder="Area of Expertise"
-                      className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                      suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
-                      onChange={(value) => setAreaofExpertiseTag(value)}
-                      allowClear
-                      value={selectedAOE}
-                      options={AOE}
-                    />
-
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedAOE || ''}
-                      className="hidden"
-                      name="area_of_expertise"
-                    />
+                  <input
+                    type="text"
+                    aria-required = "false"
+                    aria-label="Area of Expertise"
+                    style={{ textTransform: 'none' }}
+                    name="area_of_expertise"
+                    placeholder="Area of Expertise"
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                    ></input>
+                    
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                    <Select
-                      placeholder="Years of Experience"
-                      className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                      suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
-                      onChange={(value) => setHiringDuration(value)}
-                      allowClear
-                      value={selectedHiringDuration}
-                      options={HD}
-                    />
-
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedHiringDuration || ''}
-                      className="hidden"
-                      name="hiring_duration"
-                    />
+                  <input
+                    type="text"
+                    placeholder="Years of Experience"
+                    style={{ textTransform: 'none' }}
+                    name="hiring_duration"
+                    aria-label="Hiring duration"
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
+                    
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                    <Select
-                      placeholder="Choose skillset"
-                      className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                      suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
-                      onChange={(value) => setSkills(value)}
-                      allowClear
-                      value={selectedSkills}
-                      options={SkillSet}
-                    />
-
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedSkills || ''}
-                      className="hidden"
-                      name="choose_skill_set"
-                    />
+                   
+                  <input
+                    type="text"
+                    aria-label="Your skillsets"
+                    placeholder="Your Skillsets"
+                    style={{ textTransform: 'none' }}
+                  
+                    name="choose_skill_set"
+                  
+                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                  ></input>
                   </div>
                   <div className="w-full relative grid col-span-2">
                     <label className="py-2 text-xs">Your Message</label>
@@ -978,32 +923,7 @@ export default function Index() {
                   size={12}
                   className="grid-cols-1 flex justify-between"
                 >
-                  <div className="flex">
-                    <span className="">
-                      <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
-                    </span>
-                    <DatePicker
-                      inputReadOnly
-                      value={selectedhireDate ? dayjs(selectedhireDate) : null}
-                      size="large"
-                      placement="topRight"
-                      format="YYYY-MM-DD  HH:mm"
-                      className="text-xs"
-                      disabledDate={disabledDate}
-                      disabledTime={(current) => disabledDateTime(current)}
-                      placeholder="Schedule a Meet"
-                      showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
-                      suffixIcon={null}
-                      onChange={onhireChange}
-                    />
-                    <input
-                      type="text"
-                      placeholder=""
-                      value={selectedhireDate ? selectedhireDate : ''}
-                      className="hidden"
-                      name="date_hire"
-                    />
-                  </div>
+                
                   <div className="flex flex-col gap-1 relative">
                     <div className="flex flex-col xl:text-sm text-xs">
                       <label
