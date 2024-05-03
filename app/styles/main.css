@@ -3634,10 +3634,11 @@ hr {
 .skip-footer:focus{
   transform: translateY(0);
   color: #fff;
+  background: #df9926;
 }
 .skip-main-cnt{
   font-family: poppins;
-  background: #df9926;
+  background: transparent;
   height: auto;
   top: 4rem;
   left: 0;

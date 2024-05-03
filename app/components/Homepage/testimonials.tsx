@@ -45,7 +45,7 @@ const Testimonials = () => {
       <span className="anchor" id="testimonials"></span>
       <section className="section-heading">
         <p
-          role="heading"
+          role="contentinfo"
           aria-level={1}
           className="text-center xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider"
         >

@@ -1,0 +1,88 @@
+h1{
+    color: #0D0B71;
+    font-family: Montserrat;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.125rem;
+    letter-spacing: 0.05rem;
+}
+.layout_sitemap{
+    display: grid;
+    margin: 4.5rem 2.25rem 1.5rem;
+    max-width: fit-content;
+    gap:2.5rem;
+}
+.layout_sitemap > ul{
+    display: grid;
+    gap:2rem;
+}
+ul > li{
+    display: grid;
+    gap:0.5rem;
+    font-family: Poppins;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.01875rem;
+    background: var(--Button3, linear-gradient(97deg, #4C2997 0.62%, #150A35 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.layout_sitemap .item {
+    display: grid;  
+    padding:0rem;
+    grid-column: span 1 / span 1;
+    list-style: none;
+    color: var(--Gray-gray-8, #595959) !important;
+    text-transform: capitalize;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: none;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
+
+.layout_sitemap .item:hover{
+    background: var(--LinearCard, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.list_container {
+    padding: 0.75rem 0rem;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem 2rem;
+}
+@media (min-width: 425px) {
+    .list_container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .layout_sitemap {
+        margin: 4.5rem 3.25rem 1.5rem;
+        max-width: fit-content;
+    }
+}
+@media (min-width: 768px){
+    .layout_sitemap {
+        margin: 6.5rem 6.25rem 2.5rem;
+        max-width: fit-content;
+    }
+    .list_container{
+        gap: 2rem 5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .list_container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

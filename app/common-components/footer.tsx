@@ -192,6 +192,8 @@ const Footer = () => {
                 type="email"
                 className="text-box-form flex shrink-0 h-[29px] flex-col mt-1 max-md:max-w-full"
                 name="email"
+                aria-required = "true"
+                aria-label="Enter an E-mail address to send the newsletters"
                 value={email}
                 style={{ textTransform: 'none' }}
                 onChange={handleEmailChange}
@@ -425,6 +427,8 @@ const Footer = () => {
                 <input
                   name="email"
                   type="email"
+                  aria-required = "true"
+                  aria-label="Enter an E-mail address to send the newsletters"
                   value={subemail}
                   onChange={handleSubEmailChange}
                   required
@@ -787,6 +791,8 @@ const Footer = () => {
               <input
                 name="email"
                 type="email"
+                aria-required = "true"
+                aria-label="Enter an E-mail address to send the newsletters"
                 required
                 value={subemail}
                 onChange={handleSubEmailChange}
