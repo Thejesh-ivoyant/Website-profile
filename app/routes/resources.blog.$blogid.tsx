@@ -75,11 +75,11 @@ export async function loader({ params }: LoaderFunctionArgs) {
       name: item.attributes.category.data?.attributes.name,
     },
   }))
-  const tags = tagsdata?.map((item: any) => ({
+  const tags = tagsData?.map((item: any) => ({
     value: item.attributes.name,
     label: item.attributes.name,
   }))
-  const categoriesList = categoryListdata?.map((item: any) => ({
+  const categoriesList = categoryListData?.map((item: any) => ({
     value: item.attributes.name,
     label: item.attributes.name,
   }))

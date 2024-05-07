@@ -61,7 +61,7 @@ const WhitePaperCardContainer = () => {
             alt="ornament"
           />
           <div className="whitepaper-container-property">
-            {whitePaperdata?.map((paper: IWhitePaper) => (
+            {whitePaperData?.map((paper: IWhitePaper) => (
               <Link
                 to={`../resources/whitepaper/${paper.id}`}
                 key={paper.id}

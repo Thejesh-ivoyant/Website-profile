@@ -38,7 +38,7 @@ const BlogPostsContainer = () => {
       <img className="mx-auto" alt="ornament" src={line} />
       <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
-          {loaderData.blogdata?.map((blog: IBlogMedia) => (
+          {loaderData.blogData?.map((blog: IBlogMedia) => (
             <Link
               role="link"
               aria-label={`Link to navigate to Ivoyant's blog on the topic of : ${blog?.title}`}

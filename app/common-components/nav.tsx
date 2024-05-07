@@ -147,6 +147,9 @@ const Nav = () => {
     sidebarOpen ? setSidebarOpen(!sidebarOpen) : setSidebarOpen(sidebarOpen)
   }
   const handleCancel = () => {
+    setPersonName('')
+    setEmail('')
+    setPhoneNumber('')
     setOpen(false)
   }
   useEffect(() => {
