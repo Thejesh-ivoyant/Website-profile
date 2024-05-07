@@ -186,8 +186,6 @@ export default function Index() {
     setBtnLoading(false)
   }
 
-
-
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     setDateSelected(dateString)
   }
@@ -380,7 +378,6 @@ export default function Index() {
     }
   }
 
-
   const handleClearFile = () => {
     setSelectedFileName(null)
     const fileInput = document.getElementById('attachment') as HTMLInputElement
@@ -457,7 +454,10 @@ export default function Index() {
               }
             >
               <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
-                <p role="heading" className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
+                <p
+                  role="heading"
+                  className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2"
+                >
                   Connect with us
                 </p>
                 <img src={line} alt="ornament" className="w-full sm:col-span-2"></img>
@@ -828,7 +828,7 @@ export default function Index() {
                           onSelect={(code) => setCountryCodeSelected(code)}
                           searchable
                           searchPlaceholder="Search countries"
-                           countries={['US', 'IN']}
+                          countries={['US', 'IN']}
                         />{' '}
                         <input
                           type="text"
@@ -857,40 +857,35 @@ export default function Index() {
                     )}
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                  <input
-                    type="text"
-                    aria-required = "false"
-                    aria-label="Area of Expertise"
-                    style={{ textTransform: 'none' }}
-                    name="area_of_expertise"
-                    placeholder="Area of Expertise"
-                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                    <input
+                      type="text"
+                      aria-required="false"
+                      aria-label="Area of Expertise"
+                      style={{ textTransform: 'none' }}
+                      name="area_of_expertise"
+                      placeholder="Area of Expertise"
+                      className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                     ></input>
-                    
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                  <input
-                    type="text"
-                    placeholder="Years of Experience"
-                    style={{ textTransform: 'none' }}
-                    name="hiring_duration"
-                    aria-label="Hiring duration"
-                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
-                  ></input>
-                    
+                    <input
+                      type="text"
+                      placeholder="Years of Experience"
+                      style={{ textTransform: 'none' }}
+                      name="hiring_duration"
+                      aria-label="Hiring duration"
+                      className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                    ></input>
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                   
-                  <input
-                    type="text"
-                    aria-label="Your skillsets"
-                    placeholder="Your Skillsets"
-                    style={{ textTransform: 'none' }}
-                  
-                    name="choose_skill_set"
-                  
-                    className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
-                  ></input>
+                    <input
+                      type="text"
+                      aria-label="Your skillsets"
+                      placeholder="Your Skillsets"
+                      style={{ textTransform: 'none' }}
+                      name="choose_skill_set"
+                      className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
+                    ></input>
                   </div>
                   <div className="w-full relative grid col-span-2">
                     <label className="py-2 text-xs">Your Message</label>
@@ -923,7 +918,6 @@ export default function Index() {
                   size={12}
                   className="grid-cols-1 flex justify-between"
                 >
-                
                   <div className="flex flex-col gap-1 relative">
                     <div className="flex flex-col xl:text-sm text-xs">
                       <label

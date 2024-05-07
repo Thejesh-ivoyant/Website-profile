@@ -33,7 +33,7 @@ export async function loader() {
   try {
     const govGql = await fetchGraphQL(govQuery)
     return defer({
-      govPage: govGql.data.govPage.data.attributes,
+      govPage: govGql?.data?.govPage?.data?.attributes,
     })
   } catch (error) {
     console.warn('Error fetching data from contact API:', error)

@@ -413,21 +413,20 @@
     padding: 0 20px;
   }
 }
-.bg-shade{
+.bg-shade {
   top: 0;
   left: 0;
 }
-.bg-center-shade{
+.bg-center-shade {
   opacity: 0.16;
   filter: blur(150px);
   top: 400px;
-
 }
 .tied-services .ant-tabs-top > .ant-tabs-nav::before,
 .tied-services .ant-tabs-bottom > .ant-tabs-nav::before,
 .tied-services .ant-tabs-top > div > .ant-tabs-nav::before,
 .tied-services .ant-tabs-bottom > div > .ant-tabs-nav::before {
-    border-bottom: 0px solid #f0f0f0;
+  border-bottom: 0px solid #f0f0f0;
 }
 
 .service-content {

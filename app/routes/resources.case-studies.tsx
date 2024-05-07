@@ -37,11 +37,11 @@ export async function loader() {
 
     const tagsData = tagslist?.data?.topicTags?.data as Daum[]
     const categoryListData = categoryList?.data?.categories.data as Daum[]
-    const tags = tagsData.map((daum) => ({
+    const tags = tagsdata?.map((daum) => ({
       value: daum.attributes.name,
       label: daum.attributes.name,
     }))
-    const categoriesList = categoryListData.map((daum) => ({
+    const categoriesList = categoryListdata?.map((daum) => ({
       value: daum.attributes.name,
       label: daum.attributes.name,
     }))

@@ -274,7 +274,7 @@ const BlogCardContainer = () => {
             <>
               <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
-                {blogData.map((blog: IBlogMedia) => (
+                {blogdata?.map((blog: IBlogMedia) => (
                   <BlogCard key={blog.id} blog={blog} blogData={blogData} />
                 ))}
               </div>

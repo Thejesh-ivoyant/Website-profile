@@ -8,7 +8,7 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
   }
   return (
     <>
-    <span className="anchor" id="faq"></span>
+      <span className="anchor" id="faq"></span>
       <div className="w-full relative h-fit section-p-y bg-slate overflow-hidden">
         <div className="flex w-fit font-montserrat  h-fit mx-auto text-head-grape lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold">
           FAQs

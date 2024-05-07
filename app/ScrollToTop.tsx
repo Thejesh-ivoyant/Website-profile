@@ -30,7 +30,7 @@ const ScrollToTopIcon: React.FC = () => {
       scrollToTopBtn?.removeEventListener('click', scrollToTop) // Optional chaining here
     }
   }, [])
-  
+
   return (
     <button id="scrollToTopBtn" className="z-50" title="Back to top">
       <ArrowUpOutlined />

@@ -276,7 +276,7 @@ const Container = () => {
             <>
               <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
-                {caseData.map((casestudy: any) => (
+                {casedata?.map((casestudy: any) => (
                   <CaseCard key={casestudy.id} blog={casestudy} blogData={caseData} />
                 ))}
               </div>

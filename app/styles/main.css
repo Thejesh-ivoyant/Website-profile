@@ -523,7 +523,6 @@ body.scrolled #scrollToTopBtn {
   text-align: center;
 }
 
-
 .reset-btn {
   cursor: pointer;
   color: #2a1057;
@@ -3631,12 +3630,12 @@ hr {
   transform: translateY(0.1dvh);
 }
 .skip-main-cnt:focus,
-.skip-footer:focus{
+.skip-footer:focus {
   transform: translateY(0);
   color: #fff;
   background: #df9926;
 }
-.skip-main-cnt{
+.skip-main-cnt {
   font-family: poppins;
   background: transparent;
   height: auto;
@@ -3645,7 +3644,7 @@ hr {
   padding: 8px;
   position: absolute;
   transform: translateY(-100%);
-  transition: transform .3s;
+  transition: transform 0.3s;
   color: #fff;
   z-index: 9999;
   outline: 0 !important;

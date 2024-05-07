@@ -9,7 +9,7 @@ const Section6 = ({ partners }: { partners: Partners | undefined }) => {
       <img aria-hidden={true} className="mx-auto w-96" alt="ornament" src={line} />
       <div className="logos" role="complementary">
         <div className="logos-slide whitespace-nowrap" role="complementary">
-          {partners?.data.map((logo, index: number) => (
+          {partners?.data?.map((logo, index: number) => (
             <img
               src={`${logo.attributes.url}`}
               alt="Client Logo"
@@ -19,7 +19,7 @@ const Section6 = ({ partners }: { partners: Partners | undefined }) => {
           ))}
         </div>
         <div className="logos-slide">
-          {partners?.data.map((logo, index: number) => (
+          {partners?.data?.map((logo, index: number) => (
             <img
               src={`${logo.attributes.url}`}
               alt="Client Logo"
@@ -29,7 +29,7 @@ const Section6 = ({ partners }: { partners: Partners | undefined }) => {
           ))}
         </div>
         <div className="logos-slide">
-          {partners?.data.map((logo, index: number) => (
+          {partners?.data?.map((logo, index: number) => (
             <img
               src={`${logo.attributes.url}`}
               alt="Client Logo"

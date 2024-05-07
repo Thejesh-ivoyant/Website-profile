@@ -59,19 +59,19 @@ export async function loader() {
   const RolesData = JobRolesList?.data?.jobRoles.data
   const DepData = DepList?.data?.departments.data
   const ExpData = ExperienceList?.data?.experiences.data
-  const LocList = LocData.map((item: any) => ({
+  const LocList = Locdata?.map((item: any) => ({
     value: item.attributes.location,
     label: item.attributes.location,
   }))
-  const RolesList = RolesData.map((item: any) => ({
+  const RolesList = Rolesdata?.map((item: any) => ({
     value: item.attributes.role,
     label: item.attributes.role,
   }))
-  const DepartmentList = DepData.map((item: any) => ({
+  const DepartmentList = Depdata?.map((item: any) => ({
     value: item.attributes.DepartmentName,
     label: item.attributes.DepartmentName,
   }))
-  const ExpList = ExpData.map((item: any) => ({
+  const ExpList = Expdata?.map((item: any) => ({
     value: item.attributes.experienceRange,
     label: item.attributes.experienceRange,
   }))
