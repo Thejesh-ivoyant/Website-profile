@@ -82,7 +82,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
       name: item.attributes.category.data?.attributes.name,
     },
   }))
-  const IndustryFocus = industryComponentRes.s4_industryFocus.map((item: any) => ({
+  const IndustryFocus = industryComponentRes?.s4_industryFocus.map((item: any) => ({
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
@@ -151,7 +151,7 @@ const Service = () => {
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
-        <Await resolve={data.IndustryFocus}>
+        <Await resolve={data}>
           <Hero />
           <ServiceContainer />
           <ProjectPortfolio />

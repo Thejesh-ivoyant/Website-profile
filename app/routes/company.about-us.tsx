@@ -44,7 +44,7 @@ export default function Index() {
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
-        <Await resolve={data.aboutUsData}>
+        <Await resolve={data}>
           <Hero />
           <AboutCard />
           <MissionCard />

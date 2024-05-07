@@ -68,7 +68,7 @@ const Index = () => {
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
-        <Await resolve={data.heroImage}>
+        <Await resolve={data}>
           <PTCHero />
           <Terms />
           <Consultation />

@@ -32,7 +32,6 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
 }
 export async function loader() {
   try {
-    const homeGql = await fetchGraphQL(homeQuery)
     const blogGql = await fetchGraphQL(topBlogQuery)
     const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
@@ -53,7 +52,7 @@ export async function loader() {
     }))
     return defer({
       blogData: blogData,
-      homePage: homeGql.data,
+      homePage: (await fetchGraphQL(homeQuery)).data,
     })
   } catch (error) {
     console.warn('Error fetching data from contact API:', error)

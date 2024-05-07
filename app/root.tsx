@@ -4,6 +4,7 @@ import globalstyle from '~/styles/main.css'
 import Navstyle from '~/common-components/nav.css'
 import Sidebarstyle from '~/common-components/sidebar.css'
 import {
+  Await,
   Links,
   LiveReload,
   Meta,
@@ -20,6 +21,7 @@ import { fetchGraphQL } from './graphql/fetchGraphQl'
 import { navQuery } from './graphql/queries'
 import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
+import { Suspense } from 'react'
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'stylesheet', href: stylesheet },
@@ -51,10 +53,9 @@ export function scrollToSection(section: string) {
   }
 }
 export async function loader() {
-  const navGraphql = await fetchGraphQL(navQuery)
   return defer(
     {
-      navGraphql: navGraphql,
+      navGraphql: await fetchGraphQL(navQuery),
       ENV: {
         STRAPI_URL: process.env.STRAPI_URL,
       },
@@ -78,23 +79,23 @@ export default function App() {
       </head>
 
       <body className="lg:overscroll-y-none overscroll-y-auto">
-        <a
-          href="#main-cnt"
-          className="skip-main-cnt"
-          tabIndex={0}
-          aria-label="Navigate to main content"
-          title="Skip to main content"
-        >
-          Skip to main content
-        </a>
-        <Nav />
-        <LoadingTest />
-        <Outlet context={config.ENV} />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-        <Footer />
-        <ScrollToTopIcon />
+        <Suspense fallback={<LoadingTest/>}>
+          <Await resolve={config.navGraphql}>
+            {(resolvedValue) => 
+              <>
+                <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
+                <Nav />
+                <LoadingTest />
+                <Outlet context={config.ENV} />
+                <ScrollRestoration />
+                <Scripts />
+                <LiveReload />
+                <Footer />
+                <ScrollToTopIcon />
+              </>
+            }
+          </Await>
+        </Suspense>
       </body>
     </html>
   )
