@@ -56,7 +56,7 @@ const Section5 = () => {
         </defs>
       </svg>
       <div className="w-full h-fit flex justify-around flex-col lg:flex-row text-white px-10 gap-8">
-        {loaderData.PhasesList?.map((item: any, index: number) => (
+        {loaderData?.PhasesList?.map((item: any, index: number) => (
           <div key={item.id} className="flex sm:items-start gap-3 h-fit lg:h-[350px]">
             <img
               src={`../assets/${index + 1}.svg`}
