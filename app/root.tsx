@@ -1,5 +1,6 @@
 import { type LinksFunction } from '@remix-run/node'
 import stylesheet from '~/tailwind.css'
+
 import globalstyle from '~/styles/main.css'
 import Navstyle from '~/common-components/nav.css'
 import Sidebarstyle from '~/common-components/sidebar.css'
@@ -28,6 +29,7 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
   { rel: 'stylesheet', href: Sidebarstyle },
+ 
 ]
 export function scrollToSection(section: string) {
   const targetElement = document.getElementById(section)

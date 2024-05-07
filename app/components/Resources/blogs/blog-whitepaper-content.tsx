@@ -187,6 +187,9 @@ const Blog_WhitepaperContent = () => {
     setOpen(true)
   }
   const handleCancel = () => {
+    setPhoneError('')
+    setEmailError('')
+    setNameError('')
     setPersonName('')
     setEmail('')
     setPhoneNumber('')

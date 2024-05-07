@@ -1,8 +1,7 @@
 import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
-import { aboutUsQuery, govQuery, homeQuery, topBlogQuery } from '~/graphql/queries'
+import {  govQuery } from '~/graphql/queries'
 import ContactUs from '~/common-components/contactUs'
-import { Attributes } from '~/interfaces/Homepage'
 import Hero from '~/components/about-us/Hero'
 import { Popup } from '~/common-components/social-media-popup'
 import { Suspense } from 'react'
@@ -31,9 +30,9 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
 }
 export async function loader() {
   try {
-    const govGql = await fetchGraphQL(govQuery)
+    
     return defer({
-      govPage: govGql?.data?.govPage?.data?.attributes,
+      govPage: (await fetchGraphQL(govQuery))?.data?.govPage?.data?.attributes,
     })
   } catch (error) {
     console.warn('Error fetching data from contact API:', error)

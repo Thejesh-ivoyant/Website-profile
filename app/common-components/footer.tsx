@@ -126,6 +126,9 @@ const Footer = () => {
   }
   const handleCancel = () => {
     setOpen(false)
+    setPhoneError('')
+    setEmailError('')
+    setNameError('')
     setPersonName('')
     setEmail('')
     setPhoneNumber('')
@@ -384,7 +387,6 @@ const Footer = () => {
                       className="hover:font-medium"
                       to={item?.link}
                       key={index}
-                      aria-label={item?.name}
                     >
                       {item?.name}
                     </Link>
