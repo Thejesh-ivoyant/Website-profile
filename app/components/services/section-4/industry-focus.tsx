@@ -3,7 +3,7 @@ import { Carousel } from 'antd'
 import { CarouselItem } from '~/interfaces/ServicesType'
 const IndustryFocus = () => {
   const loaderData = useLoaderData() as any
-  const carouselContent = loaderData.IndustryFocus as CarouselItem[]
+  const carouselContent = loaderData?.IndustryFocus as CarouselItem[]
   return (
     <div className="section-p-y px-4">
       <div className="carousel-ornament"></div>

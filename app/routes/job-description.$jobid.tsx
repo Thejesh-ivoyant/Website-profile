@@ -62,7 +62,7 @@ const Index = () => {
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
-        <Await resolve={data.title}>
+        <Await resolve={data}>
           <JobDescription />
           <Popup />
           <Outlet />

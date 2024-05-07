@@ -64,7 +64,7 @@ const Index = () => {
   return (
     <>
       <Suspense fallback={<LoadingTest />}>
-        <Await resolve={data.heroBgImageURl}>
+        <Await resolve={data}>
           <Hero
             heroBgImageUrl={data?.heroBgImageURl}
             heroTitle={data?.heroTitle}
