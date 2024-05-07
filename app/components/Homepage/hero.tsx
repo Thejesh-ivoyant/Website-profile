@@ -40,7 +40,14 @@ const Hero = ({
         </video>
         <div className="hero-wrapper">
           <div>
-            <p className="hero-title  animated-text" aria-level={1} role="heading" aria-label="hero text">{heroText}</p>
+            <p
+              className="hero-title  animated-text"
+              aria-level={1}
+              role="heading"
+              aria-label="hero text"
+            >
+              {heroText}
+            </p>
             <h1 className="hero-title hero-subtitle mt-2">{heroTitle}</h1>
           </div>
           <svg

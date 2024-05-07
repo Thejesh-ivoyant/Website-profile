@@ -13,7 +13,7 @@ const WhitePaperPostsContainer = () => {
       <div className="w-full h-fit p-2 relative flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
         <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
-          {loaderData.blogData.map((blog: IBlogMedia) => (
+          {loaderData.blogdata?.map((blog: IBlogMedia) => (
             <Link to={`resources/blog/${blog.id}`} key={blog.id}>
               <WhitePaperPostCard key={blog.id} blog={blog} />
             </Link>

@@ -22,7 +22,6 @@ const GovSection3 = () => {
             {/* <Link className="service-icon" to={key?.link} target="_blank">
               <ArrowCircle />
             </Link> */}
-
           </div>
         </div>
       ))}

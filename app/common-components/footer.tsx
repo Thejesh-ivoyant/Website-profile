@@ -192,7 +192,7 @@ const Footer = () => {
                 type="email"
                 className="text-box-form flex shrink-0 h-[29px] flex-col mt-1 max-md:max-w-full"
                 name="email"
-                aria-required = "true"
+                aria-required="true"
                 aria-label="Enter an E-mail address to send the newsletters"
                 value={email}
                 style={{ textTransform: 'none' }}
@@ -427,7 +427,7 @@ const Footer = () => {
                 <input
                   name="email"
                   type="email"
-                  aria-required = "true"
+                  aria-required="true"
                   aria-label="Enter an E-mail address to send the newsletters"
                   value={subemail}
                   onChange={handleSubEmailChange}
@@ -457,56 +457,56 @@ const Footer = () => {
                     </div>
                     <span className="flex gap-2 py-4 tablet-hidden">
                       <a
-                      aria-label="Link to Ivoyant's Facebook page"
+                        aria-label="Link to Ivoyant's Facebook page"
                         href="https://www.facebook.com/ivoyantllc"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
-                        role="presentation"
-                        aria-hidden = "true"
+                          role="presentation"
+                          aria-hidden="true"
                           src={fb}
                           alt="facebook-meta"
                           className=" xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
-                      aria-label="Link to Ivoyant's Twitter page"
+                        aria-label="Link to Ivoyant's Twitter page"
                         href="https://twitter.com/i_voyant"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
-                        role="presentation"
-                        aria-hidden = "true"
+                          role="presentation"
+                          aria-hidden="true"
                           src={mail}
                           alt="Mail"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
-                      aria-label="Link to Ivoyant's Linkedin page"
+                        aria-label="Link to Ivoyant's Linkedin page"
                         href="https://www.linkedin.com/company/ivoyant-llc/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
-                        role="presentation"
-                        aria-hidden = "true"
+                          role="presentation"
+                          aria-hidden="true"
                           src={linkedin}
                           alt="Linked-in"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
                         />
                       </a>
                       <a
-                      aria-label="Link to Ivoyant's Youtube page"
+                        aria-label="Link to Ivoyant's Youtube page"
                         href="https://www.youtube.com/@ivoyant"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img
-                        role="presentation"
-                        aria-hidden = "true"
+                          role="presentation"
+                          aria-hidden="true"
                           src={yt}
                           alt="Youtube-channel"
                           className="xl:h-7 h-5 object-contain cursor-pointer"
@@ -577,7 +577,7 @@ const Footer = () => {
                   name="email"
                   type="email"
                   required
-                  aria-required = "true"
+                  aria-required="true"
                   aria-label="Enter an E-mail address to send the newsletters"
                   value={subemail}
                   onChange={handleSubEmailChange}
@@ -791,7 +791,7 @@ const Footer = () => {
               <input
                 name="email"
                 type="email"
-                aria-required = "true"
+                aria-required="true"
                 aria-label="Enter an E-mail address to send the newsletters"
                 required
                 value={subemail}

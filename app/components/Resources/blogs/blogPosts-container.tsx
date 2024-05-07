@@ -18,11 +18,19 @@ const BlogPostsContainer = () => {
     >
       <div className="text-head-grape section-title w-full justify-center flex h-fit">
         {isResourcesRoute ? (
-          <p aria-level={1} role="contentinfo" className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">
+          <p
+            aria-level={1}
+            role="contentinfo"
+            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
+          >
             What's new in our Whitepapers
           </p>
         ) : (
-          <p role="contentinfo" aria-level={1} className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">
+          <p
+            role="contentinfo"
+            aria-level={1}
+            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
+          >
             What's new in our Blogs
           </p>
         )}
@@ -30,7 +38,7 @@ const BlogPostsContainer = () => {
       <img className="mx-auto" alt="ornament" src={line} />
       <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
-          {loaderData.blogData.map((blog: IBlogMedia) => (
+          {loaderData.blogdata?.map((blog: IBlogMedia) => (
             <Link
               role="link"
               aria-label={`Link to navigate to Ivoyant's blog on the topic of : ${blog?.title}`}

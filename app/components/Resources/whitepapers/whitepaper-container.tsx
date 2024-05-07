@@ -24,7 +24,7 @@ const WhitePaperCardContainer = () => {
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3)
     const newWhitepaperData = await fetchGraphQLWithURL(updatedQuery, StrapiUrl)
     setWhitePaperData(() => [
-      ...newWhitepaperData.data.whitePapers.data.map((item: any) => ({
+      ...newWhitepaperData.data.whitePapers.data?.map((item: any) => ({
         id: item.id,
         title: item.attributes.title,
         description1: item.attributes.description1,
@@ -61,7 +61,7 @@ const WhitePaperCardContainer = () => {
             alt="ornament"
           />
           <div className="whitepaper-container-property">
-            {whitePaperData.map((paper: IWhitePaper) => (
+            {whitePaperdata?.map((paper: IWhitePaper) => (
               <Link
                 to={`../resources/whitepaper/${paper.id}`}
                 key={paper.id}

@@ -111,7 +111,10 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
             />
             <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
               <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
-                <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex" tabIndex={0}>
+                <div
+                  className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex"
+                  tabIndex={0}
+                >
                   <i className="text-blue-100 lg:text-sm text-xs font-light">
                     {currentSelectedService}
                   </i>
