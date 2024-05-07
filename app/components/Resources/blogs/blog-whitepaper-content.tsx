@@ -187,6 +187,9 @@ const Blog_WhitepaperContent = () => {
     setOpen(true)
   }
   const handleCancel = () => {
+    setPersonName('')
+    setEmail('')
+    setPhoneNumber('')
     setOpen(false)
   }
   function findcount(name: string): number {

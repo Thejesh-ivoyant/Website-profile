@@ -101,6 +101,9 @@ const Sitemaps = ({ attributes }: { attributes: Attributes }) => {
   }
   const handleCancel = () => {
     setOpen(false)
+    setPersonName('')
+    setEmail('')
+    setPhoneNumber('')
   }
   return (
     <>

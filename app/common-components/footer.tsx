@@ -126,6 +126,9 @@ const Footer = () => {
   }
   const handleCancel = () => {
     setOpen(false)
+    setPersonName('')
+    setEmail('')
+    setPhoneNumber('')
   }
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
