@@ -613,6 +613,7 @@ export default function Index() {
                           searchable
                           searchPlaceholder="Search countries"
                           countries={['US', 'IN']}
+                          countries={['US', 'IN']}
                         />
                         <input
                           type="text"
