@@ -2963,14 +2963,14 @@ hr {
 
 .service-description {
   max-height: 0;
+  transition: max-height 0.25s ease-out;
   overflow: hidden;
   font-size: 0.9em;
-  transition: max-height 2s;
 }
 
 .service-description.open {
-  max-height: fit-content;
-  transition: max-height 2s;
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
 }
 
 .service-title {

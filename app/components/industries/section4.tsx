@@ -4,8 +4,6 @@ import DarkArrow from '../icons/dark-arrow'
 const Section4 = () => {
   const location = useLocation()
   const loaderData = useLoaderData() as any
-  const [openServices, setOpenServices] = useState<number[]>([])
-  const [toggleState, setToggleState] = useState(1)
   const [currState, setCurrState] = useState<number>(-1)
   useEffect(() => {
     setCurrState(-1)
@@ -25,11 +23,11 @@ const Section4 = () => {
         </h2>
       </div>
       <div className="flex flex-1 flex-col h-full font-montserrat justify-center">
-        <div className="overflow-y-auto w-fit">
+        <div className="overflow-y-auto w-fit snap-y">
           {loaderData.servicesList?.map((service: any) => (
             <div
               key={service?.id}
-              className={`flex flex-col items-center gap-1 w-full p-4 ${service.id === currState ? 'bg-white' : 'bg-[#F9F8FC]'}`}
+              className={`flex flex-col items-center gap-1 w-full p-4 ${service.id === currState ? 'bg-white snap-center' : 'bg-[#F9F8FC]'}`}
             >
               <div
                 onClick={() => toggleExpansion(service?.id)}
