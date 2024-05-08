@@ -1,5 +1,5 @@
 import Tabs from '~/components/products/Tabs'
-import { useLoaderData } from '@remix-run/react'
+import { Await, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { productsQuery } from '~/graphql/queries'
 import Hero from '~/components/products/Hero'
@@ -11,6 +11,8 @@ import { LinksFunction } from '@remix-run/node'
 import Consultation from '~/components/Homepage/consultation'
 import WhyChooseUs from '~/components/Homepage/why-choose-us'
 import { Popup } from '~/common-components/social-media-popup'
+import { Suspense } from 'react'
+import LoadingTest from '~/common-components/loading-test'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: ProductStyle }]
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
@@ -45,24 +47,28 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     sortedTabContents.unshift(matchingItem)
   }
   name = name?.replace(/\b\w/g, (c) => c.toUpperCase()) ?? name
-  return { productsResponse: productsData, sortedCarousels, sortedTabContents, name }
+  return defer({ productsResponse: productsData, sortedCarousels, sortedTabContents, name })
 }
 export default function Index() {
   const data = useLoaderData() as any
   const attributes = data?.productsResponse?.data?.product?.data?.attributes as Attributes
   return (
     <>
-      <Hero carousel={data?.sortedCarousels} />
-      <Consultation />
-      <Tabs tabContents={data?.sortedTabContents} />
-      <WhyChooseUs
-        pairs={attributes?.pairs || []}
-        title={attributes?.section_4_title as string}
-        description={attributes?.section_4_description as string}
-      />
-      <Technologies title={attributes.techTitle} pairs={attributes.technologies} />
-      <ContactUs />
-      <Popup />
+    <Suspense fallback={<LoadingTest />}>
+       <Await resolve={data}>
+        <Hero carousel={data?.sortedCarousels} />
+        <Consultation />
+        <Tabs tabContents={data?.sortedTabContents} />
+        <WhyChooseUs
+          pairs={attributes?.pairs || []}
+          title={attributes?.section_4_title as string}
+          description={attributes?.section_4_description as string}
+        />
+        <Technologies title={attributes?.techTitle} pairs={attributes?.technologies} />
+        <ContactUs />
+        <Popup />
+       </Await>
+    </Suspense>
     </>
   )
 }

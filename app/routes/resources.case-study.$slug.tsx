@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react'
+import { Await, useLoaderData } from '@remix-run/react'
 import Section2 from '~/components/Resources/case-study/slug/Section2'
 import Section3 from '~/components/Resources/case-study/slug/Section3'
 import Hero from '~/components/Resources/case-study/slug/hero'
@@ -13,6 +13,8 @@ import { Features } from '~/components/Resources/case-study/slug/key-features'
 import CaseStyle from '~/styles/CaseStudySlug.css'
 import Consultation from '~/components/Homepage/consultation'
 import { Popup } from '~/common-components/social-media-popup'
+import { Suspense } from 'react'
+import LoadingTest from '~/common-components/loading-test'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: CaseStyle }]
 export async function loader({ params }: LoaderFunctionArgs) {
   const dynamicQuery = generateDynamicQuery(case_study_query, ['id'])
@@ -37,15 +39,19 @@ const sample = () => {
   const attributes = data?.data.data?.caseStudies?.data[0].attributes
   return (
     <>
-      <Hero data={attributes} />
-      <Section2 data={attributes} />
-      <Section3 data={attributes} />
-      <Section4 data={attributes} />
-      <Features data={attributes} />
-      <Section5 data={attributes} />
-      <Section6 data={attributes} />
-      <Consultation />
-      <Popup />
+    <Suspense fallback={<LoadingTest/>}>
+      <Await resolve={data}>
+        <Hero data={attributes} />
+        <Section2 data={attributes} />
+        <Section3 data={attributes} />
+        <Section4 data={attributes} />
+        <Features data={attributes} />
+        <Section5 data={attributes} />
+        <Section6 data={attributes} />
+        <Consultation />
+        <Popup />
+      </Await>
+    </Suspense>
     </>
   )
 }

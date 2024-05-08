@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, defer, json } from '@remix-run/node'
-import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, Outlet, redirect, useLoaderData } from '@remix-run/react'
 import { Suspense } from 'react'
 import Hero from '~/common-components/Hero'
 import LoadingTest from '~/common-components/loading-test'
@@ -13,9 +13,14 @@ import { LinksFunction } from '@remix-run/node'
 import WhyChooseUs from '~/components/Homepage/why-choose-us'
 import { Technologies } from '~/components/products/technologies'
 import { Popup } from '~/common-components/social-media-popup'
+import { slugToIndustriesMap } from '~/utils/validRoutes'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: ProductStyle }]
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
+    const industrySlug = slugToIndustriesMap[`${params.slug}`]
+    if (!industrySlug) {
+      return redirect('/404-not-found')
+    }
     const industry = `${params.slug}`
     const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
       fetchData(`/api/${industry}/?populate=%2A`),

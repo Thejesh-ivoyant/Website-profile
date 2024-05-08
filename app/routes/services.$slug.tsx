@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, Outlet, redirect, useLoaderData } from '@remix-run/react'
 import BlogPostsContainer from '~/components/Resources/blogs/blogPosts-container'
 import { topBlogQuery } from '~/graphql/queries'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
@@ -46,6 +46,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
     websitedev: 's-website-development',
   }
   const service = slugToServiceMap[`${params.slug}`]
+  if (!service) {
+    return redirect('/404-not-found')
+  }
   const [
     res,
     keyComponentRes,
@@ -88,24 +91,24 @@ export async function loader({ params }: LoaderFunctionArgs) {
     s4_industryFocusDescription: item.s4_industryFocusDescription,
     s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.url,
   }))
-  const PhasesList = phasesComponentRes.s5_phasesOfDevelopment.map((item: any) => ({
+  const PhasesList = phasesComponentRes?.s5_phasesOfDevelopment.map((item: any) => ({
     id: item.id,
     s5_phasesTitle: item.s5_phasesTitle,
     s5_phasesDescription: item.s5_phasesDescription,
     s5_phasesImage: item.s5_phasesImage.data?.attributes.url,
   }))
-  const KeyPoints = keyComponentRes.s2_keyPoints.map((item: any) => ({
+  const KeyPoints = keyComponentRes?.s2_keyPoints.map((item: any) => ({
     id: item.id,
     keyPoints: item.keyPoints,
     keyPointsImage: item.keyPointsImage.data?.attributes.url,
   }))
-  const ServicesCard = serviceComponentRes.s6_serviceCard.map((item: any) => ({
+  const ServicesCard = serviceComponentRes?.s6_serviceCard.map((item: any) => ({
     id: item.id,
     s6_serviceCardTitle: item.s6_serviceCardTitle,
     s6_serviceCardDescription: item.s6_serviceCardDescription,
     s6_serviceCardImage: item.s6_serviceCardImage.data?.attributes.formats.medium.url,
   }))
-  const Technologies = techComponentRes.s7_techIcons.map((item: any) => ({
+  const Technologies = techComponentRes?.s7_techIcons.map((item: any) => ({
     id: item.id,
     s7_techIcon: item.s7_techIcon.data?.attributes.url,
     s7_techIconName: item.s7_techIconName,

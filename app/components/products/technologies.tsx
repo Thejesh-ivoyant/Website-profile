@@ -57,8 +57,8 @@ export const Technologies = ({ title, pairs }: { title: string; pairs: Technolog
         <div className="w-full flex justify-around flex-wrap text-black">
           {pairs.map((pair, index) => (
             <div key={index} className="flex flex-col items-center m-4">
-              <img src={pair?.pic.data.attributes.url} alt={pair.text} className="w-16 h-16" />
-              <figcaption className="text-black mt-2">{pair.text}</figcaption>
+              <img src={pair?.pic.data.attributes.url} alt={pair?.text} className="w-16 h-16" />
+              <figcaption className="text-black mt-2">{pair?.text}</figcaption>
             </div>
           ))}
         </div>
