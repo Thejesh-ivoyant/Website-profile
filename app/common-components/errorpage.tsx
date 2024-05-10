@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react'
 const ErrorBoundaryPage = ({ error }: { error: any }) => {
+  console.warn("Error Occured ",error?.message);
   return (
     <div className="bg-white flex flex-col">
       <div className="self-center w-[913px] max-w-full mt-10 max-md:mt-10">
@@ -9,7 +10,7 @@ const ErrorBoundaryPage = ({ error }: { error: any }) => {
               <div className="text-zinc-600 text-3xl font-bold leading-10">Oops....</div>
               <div className="text-zinc-600 text-2xl leading-8  mt-3 ">{error?.name} {error?.status} </div>
               <div className=" text-zinc-600 text-base leading-6 tracking-wide  mt-4 max-md:max-w-full">
-                {error?.message}   {error && error.status === 404
+                {error && error?.message? "Something Went Wrong":""}   {error && error.status === 404
                   ? "This Page doesn't exist or was removed!"
                   : error?.statusText}
               </div>{' '}
@@ -47,7 +48,7 @@ const ErrorBoundaryPage = ({ error }: { error: any }) => {
             <div className="text-neutral-800 text-base leading-8  whitespace-nowrap">
               Here are some helpful links instead
             </div>{' '}
-            <Link to="/">
+            <Link to="/contact-us">
               <div className="text-blue-600 text-sm whitespace-nowrap mt-2.5 self-start">Contact us</div>{' '}
             </Link>
             <Link to="/company/sitemap">
