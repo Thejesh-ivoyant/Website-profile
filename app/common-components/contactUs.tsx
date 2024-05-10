@@ -57,6 +57,18 @@ const ContactUs = () => {
   const [hireemail, sethireEmail] = useState('')
   const [hireemailerror, sethireEmailError] = useState('')
 
+  
+  const [skill, setskills] = useState('')
+  const [skillerror, setskillError] = useState('')
+  
+  const [AOE, setAOE] = useState('')
+  const [AOEerror, setAOEError] = useState('')
+
+  
+  const [Exp, setExp] = useState('')
+  const [experror, setexpError] = useState('')
+
+
   const [org, setOrg] = useState('')
   const [orgerror, setOrgError] = useState('')
 
@@ -75,9 +87,6 @@ const ContactUs = () => {
 
   const [msg, setMsg] = useState('')
   const [msgerror, setMsgError] = useState('')
-  const [selectedAOE, setAreaofExpertiseTag] = useState<'' | null>(null)
-  const [selectedHiringDuration, setHiringDuration] = useState<'' | null>(null)
-  const [selectedSkills, setSkills] = useState<'' | null>(null)
 
   const [msgcount, setMsgCount] = useState('1000')
 
@@ -100,9 +109,9 @@ const ContactUs = () => {
     sethirePhoneNumber('')
     sethireMsg('')
     sethireSelectedFileName('')
-    setSkills(null)
-    setAreaofExpertiseTag(null)
-    setHiringDuration(null)
+    setskills('')
+    setAOE('')
+    setExp('')
     sethireSelectedFileName('')
     sethireDateSelected(null)
   }
@@ -303,6 +312,35 @@ const ContactUs = () => {
     }
   }
 
+  
+  const hireexpChange = (e: any) => {
+    const exp = e.target.value
+    setExp(e.target.value)
+    setexpError('')
+    if (exp.length > 301) {
+      setexpError(`Should be less than 301 characters`)
+    }
+    
+  }
+  const hireAOEChange = (e: any) => {
+    const aoe = e.target.value
+    setAOE(e.target.value)
+    setAOEError('')
+    if (aoe.length > 301) {
+      setAOEError(`Should be less than 301 characters`)
+    }
+   
+  }
+  const hireSkillChange = (e: any) => {
+    const skill = e.target.value
+    setskills(e.target.value)
+    setskillError('')
+    if (skill.length > 301) {
+      setskillError(`Should be less than 301 characters`)
+    }
+   
+  }
+
   const handleMessageChange = (e: any) => {
     const msg = e.target.value
     setMsg(e.target.value)
@@ -346,7 +384,6 @@ const ContactUs = () => {
     '.ppt',
     '.pptx',
   ]
-  const acceptString = allowedFormats.map((format) => `.${format}`).join(',')
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0]
@@ -370,20 +407,7 @@ const ContactUs = () => {
     }
   }
 
-  const AOEData = [
-    'Mobile App Development',
-    'UI/UX Designer',
-    'Website Development',
-    'Back End Coding',
-    'Front End Coding',
-    'DevOps',
-    'Sales',
-    'Marketing',
-    'Human Resources',
-    'Internship',
-    'Product Management',
-    'Scrum Master',
-  ]
+  
 
   const handleClearFile = () => {
     setSelectedFileName(null)
@@ -914,72 +938,36 @@ const ContactUs = () => {
                     style={{ textTransform: 'none' }}
                     name="area_of_expertise"
                     placeholder="Area of Expertise"
-                    // value={hireemail}
-                    // onChange={hirehandleEmailChange}
+                    value={AOE}
+                    onChange={hireAOEChange}
 
                     className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                   ></input>
-                  {/* {hireemailerror && (
+                  {AOEerror && (
                     <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {hireemailerror}
+                      {AOEerror}
                     </span>
-                  )} */}
+                  )}
                 </div>
-                {/* <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                  <Select
-                    placeholder="Area of Expertise"
-                    className="w-full xl:h-10 text-box   h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                    suffixIcon={selectedAOE == null ? <DropDownIcon /> : null}
-                    onChange={(value) => setAreaofExpertiseTag(value)}
-                    allowClear
-                    value={selectedAOE}
-                    options={AOE}
-                  />
-
-                  <input
-                    type="text"
-                    placeholder=""
-                    value={selectedAOE || ''}
-                    className="hidden"
-                    name="area_of_expertise"
-                  />
-                </div> */}
+               
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
                     type="text"
                     placeholder="Years of Experience"
                     style={{ textTransform: 'none' }}
-                    // value={hireemail}
-                    // onChange={hirehandleEmailChange}
+                    value={Exp}
+                    onChange={hireexpChange}
                     name="hiring_duration"
                     aria-label="Hiring duration"
                     className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                   ></input>
-                  {/* {hireemailerror && (
+                  {experror && (
                     <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {hireemailerror}
+                      {experror}
                     </span>
-                  )} */}
+                  )}
                 </div>
-                {/* <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                  <Select
-                    placeholder="Years of Experience"
-                    className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                    suffixIcon={selectedHiringDuration == null ? <DropDownIcon /> : null}
-                    onChange={(value) => setHiringDuration(value)}
-                    allowClear
-                    value={selectedHiringDuration}
-                    options={HD}
-                  />
-
-                  <input
-                    type="text"
-                    placeholder=""
-                    value={selectedHiringDuration || ''}
-                    className="hidden"
-                    name="hiring_duration"
-                  />
-                </div> */}
+               
 
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
@@ -987,30 +975,17 @@ const ContactUs = () => {
                     aria-label="Your skillsets"
                     placeholder="Your Skillsets"
                     style={{ textTransform: 'none' }}
-                    // value={hireemail}
-                    // onChange={hirehandleEmailChange}
+                    value={skill}
+                    onChange={hireSkillChange}
                     name="choose_skill_set"
                     className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                   ></input>
-                  {/* 
-                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
-                   <Select
-                    placeholder="Choose skillset"
-                    className="w-full text-box xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-                    suffixIcon={selectedSkills == null ? <DropDownIcon /> : null}
-                    onChange={(value) => setSkills(value)}
-                    allowClear
-                    value={selectedSkills}
-                    options={SkillSet}
-                  />
-
-                  <input
-                    type="text"
-                    placeholder=""
-                    value={selectedSkills || ''}
-                    className="hidden"
-                    name="choose_skill_set"
-                  /> */}
+                  {skillerror && (
+                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                      {skillerror}
+                    </span>
+                  )}
+                  
                 </div>
                 <div className="w-full relative grid col-span-2">
                   <label className="py-2 text-xs">Your Message</label>
@@ -1039,32 +1014,7 @@ const ContactUs = () => {
                 </div>
               </div>
               <Space direction="horizontal" size={12} className="grid-cols-1 flex justify-between">
-                {/* <div className="flex">
-                  <span className="">
-                    <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
-                  </span>
-                  <DatePicker
-                    inputReadOnly
-                    value={selectedhireDate ? dayjs(selectedhireDate) : null}
-                    size="large"
-                    placement="topRight"
-                    format="YYYY-MM-DD  HH:mm"
-                    className="text-xs"
-                    disabledDate={disabledDate}
-                    disabledTime={(current) => disabledDateTime(current)}
-                    placeholder="Schedule a Meet"
-                    showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
-                    suffixIcon={null}
-                    onChange={onhireChange}
-                  />
-                  <input
-                    type="text"
-                    placeholder=""
-                    value={selectedhireDate ? selectedhireDate : ''}
-                    className="hidden"
-                    name="date_hire"
-                  />
-                </div> */}
+               
                 <div className="flex flex-col gap-1 relative">
                   <div className="flex flex-col xl:text-sm text-xs">
                     <label
@@ -1121,7 +1071,10 @@ const ContactUs = () => {
                   !!hirephoneerror ||
                   !!hireemailerror ||
                   !!hirenameerror ||
-                  !!hiremsgerror
+                  !!hiremsgerror ||
+                  !!AOEerror ||
+                  !!experror ||
+                  !!skillerror
                 }
               >
                 Send my message

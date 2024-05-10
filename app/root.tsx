@@ -128,11 +128,14 @@ export function ErrorBoundary() {
             {(resolvedError) => (
               <>
                 <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
+                
+                <Nav />
                 <LoadingTest />
                 <ErrorBoundaryPage error={resolvedError} />
                 <ScrollRestoration />
                 <Scripts />
                 <ScrollToTopIcon />
+                <Footer/>
               </>
             )}
           </Await>

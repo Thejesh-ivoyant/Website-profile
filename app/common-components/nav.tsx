@@ -35,7 +35,6 @@ const Nav = () => {
   const CaseStudyRoute = CaseStudymatched !== null
   const navdata = useRouteLoaderData('root') as any
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [key, setKey] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [open, setOpen] = useState(false)
   const [download, setDownload] = useState<string>('')
@@ -67,9 +66,8 @@ const Nav = () => {
   const handleEmailChange = (e: any) => {
     const emailValue = e.target.value.toLowerCase()
     setEmail(emailValue)
-    // Reset email error
+
     setEmailError('')
-    // Validate email
     if (!emailValue.trim()) {
       setEmailError('Email is required')
     } else if (!emailPattern.test(emailValue)) {
