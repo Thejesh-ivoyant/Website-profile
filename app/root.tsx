@@ -6,6 +6,7 @@ import Navstyle from '~/common-components/nav.css'
 import Sidebarstyle from '~/common-components/sidebar.css'
 import {
   Await,
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -13,7 +14,9 @@ import {
   Scripts,
   ScrollRestoration,
   defer,
+  isRouteErrorResponse,
   useLoaderData,
+  useRouteError,
 } from '@remix-run/react'
 import ClarityScript from './clarityScript'
 import Nav from './common-components/nav'
@@ -23,13 +26,16 @@ import { navQuery } from './graphql/queries'
 import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 import { Suspense } from 'react'
+import errorStyles from './styles/error.css'
+import ErrorBoundaryPage from './common-components/errorpage'
+
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'stylesheet', href: stylesheet },
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
   { rel: 'stylesheet', href: Sidebarstyle },
- 
+  {rel: 'stylesheet', href: errorStyles },
 ]
 export function scrollToSection(section: string) {
   const targetElement = document.getElementById(section)
@@ -82,7 +88,7 @@ export default function App() {
 
       <body className="lg:overscroll-y-none overscroll-y-auto">
         <Suspense fallback={<LoadingTest/>}>
-          <Await resolve={config.navGraphql}>
+          <Await resolve={config}>
             {(resolvedValue) => 
               <>
                 <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
@@ -96,6 +102,39 @@ export default function App() {
                 <ScrollToTopIcon />
               </>
             }
+          </Await>
+        </Suspense>
+      </body>
+    </html>
+  )
+}
+
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <html lang="en">
+       <head>
+        <ClarityScript />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="Crafting Customer-Driven Digital Experiences" />
+        <Meta />
+        <Links />
+      </head>
+      <body className="lg:overscroll-y-none overscroll-y-auto">
+        <Suspense fallback={<LoadingTest />}>
+          <Await resolve={error}>
+            {(resolvedError) => (
+              <>
+                <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
+                <LoadingTest />
+                <ErrorBoundaryPage error={resolvedError} />
+                <ScrollRestoration />
+                <Scripts />
+                <ScrollToTopIcon />
+              </>
+            )}
           </Await>
         </Suspense>
       </body>
