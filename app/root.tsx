@@ -7,6 +7,7 @@ import Sidebarstyle from '~/common-components/sidebar.css'
 import {
   Await,
   Link,
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -15,7 +16,9 @@ import {
   ScrollRestoration,
   defer,
   isRouteErrorResponse,
+  isRouteErrorResponse,
   useLoaderData,
+  useRouteError,
   useRouteError,
 } from '@remix-run/react'
 import ClarityScript from './clarityScript'
@@ -29,12 +32,16 @@ import { Suspense } from 'react'
 import errorStyles from './styles/error.css'
 import ErrorBoundaryPage from './common-components/errorpage'
 
+import errorStyles from './styles/error.css'
+import ErrorBoundaryPage from './common-components/errorpage'
+
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'stylesheet', href: stylesheet },
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
   { rel: 'stylesheet', href: Sidebarstyle },
+  {rel: 'stylesheet', href: errorStyles },
   {rel: 'stylesheet', href: errorStyles },
 ]
 export function scrollToSection(section: string) {
@@ -88,6 +95,7 @@ export default function App() {
 
       <body className="lg:overscroll-y-none overscroll-y-auto">
         <Suspense fallback={<LoadingTest/>}>
+          <Await resolve={config}>
           <Await resolve={config}>
             {(resolvedValue) => 
               <>
