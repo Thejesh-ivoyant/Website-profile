@@ -6,7 +6,7 @@ import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { SearchJobs } from '~/graphql/queries'
 import CustomDrawer from '~/utils/customDrawer'
 import { StrapiConfig } from '~/utils/format'
-import { success } from '~/utils/notifications'
+import { errorMessage, success } from '~/utils/notifications'
 const JobCards = () => {
   const outletCon: StrapiConfig = useOutletContext()
   const StrapiUrl = outletCon?.STRAPI_URL
@@ -118,7 +118,7 @@ const JobCards = () => {
     setLimit(limit + 3)
     setLoading(false)
     if (JobDesc.length <= limit) {
-      success('No more Jobs available', 3)
+      errorMessage('No more Jobs available', 3)
     }
   }
   return (

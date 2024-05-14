@@ -7,7 +7,7 @@ import { SearchBlogs } from '~/graphql/queries'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
-import { success } from '~/utils/notifications'
+import { errorMessage, success } from '~/utils/notifications'
 import { StrapiConfig } from '~/utils/format'
 const BlogCardContainer = () => {
   const outletCon: StrapiConfig = useOutletContext()
@@ -113,7 +113,7 @@ const BlogCardContainer = () => {
     setLimit(limit + 3)
     setLoading(false)
     if (blogData.length <= limit) {
-      success('No more Blogs available', 3)
+      errorMessage('No more Blogs available', 3)
     }
   }
 

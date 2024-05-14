@@ -6,7 +6,7 @@ import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
-import { success } from '~/utils/notifications'
+import { errorMessage, success } from '~/utils/notifications'
 import CaseCard from './caseStudyCard'
 import { SearchCases } from '~/graphql/queries'
 import { StrapiConfig } from '~/utils/format'
@@ -115,7 +115,7 @@ const Container = () => {
     setLimit(limit + 3)
     setLoading(false)
     if (caseData.length <= limit) {
-      success('No more Case studies available', 3)
+      errorMessage('No more Case studies available', 3)
     }
   }
 
