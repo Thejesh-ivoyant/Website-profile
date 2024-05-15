@@ -38,7 +38,7 @@ const CaseCard = ({ blog, blogData }: { blog: any; blogData: any }) => {
           />
           <div className="grid lg:gap-2 gap-1 capitalize lg:text-base text-xs">
             <span className="font-medium">{blog.author.name}</span>
-            <span>{blog?.maxReadTime} Min read</span>
+            <span>{blog?.maxReadTime} Mins read</span>
           </div>
           <Link
             className="lg:hidden flex ml-auto"
@@ -46,7 +46,7 @@ const CaseCard = ({ blog, blogData }: { blog: any; blogData: any }) => {
             key={blog.id}
             state={{ blogData: blogData }}
           >
-            <button className="hue-btn-blue-light btn-small">Read More</button>
+            <button className="hue-btn-blue-light btn-small">See More</button>
           </Link>
         </div>
       </div>
