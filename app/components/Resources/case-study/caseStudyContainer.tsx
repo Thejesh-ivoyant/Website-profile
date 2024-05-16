@@ -183,13 +183,13 @@ const Container = () => {
         {/* <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
         </div> */}
-        <div className="filter flex w-full font-montserrat justify-center gap-2 my-2">
+        <div className="filter flex w-full font-montserrat justify-center gap-2 mt-2">
           <div className="flex flex-col gap-1">
             <div className="flex">
               <label className="text-haiti font-normal">Filter by:</label>
             </div>
             {/* Category select */}
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 top-filters">
               <Select
                 placeholder="All Categories"
                 className="w-full rounded-none category-dropdown"
@@ -200,6 +200,7 @@ const Container = () => {
                 options={loaderData.categoriesList}
                 style={{
                   width: '190px',
+                  height: '100%',
                 }}
               />
               <Select
@@ -212,6 +213,7 @@ const Container = () => {
                 options={loaderData.tags}
                 style={{
                   width: '190px',
+                  height: '100%',
                 }}
               />
               {/* Search input */}
@@ -272,7 +274,7 @@ const Container = () => {
               )}
             />
           )}
-          {!loading && (
+            {!loading && caseData.length >= 1 && (
             <>
               <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
@@ -282,6 +284,18 @@ const Container = () => {
               </div>
             </>
           )}
+           {!loading && caseData.length === 0 && (
+          <section className="container-no-content mt-8">
+            <img
+              loading="lazy"
+              src='../assets/no-case-study.svg'
+              alt=""
+              className="centered-image-no-content"
+            />
+            <p className="title-no-content">No CaseStudy found</p>
+            <p className="description-no-content">Currently no casestudy found with the selected filters.</p>
+          </section>
+  )}
         </div>
 
         <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
