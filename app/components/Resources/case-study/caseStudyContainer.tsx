@@ -285,28 +285,47 @@ const Container = () => {
             </>
           )}
            {!loading && caseData.length === 0 && (
-          <section className="container-no-content mt-8">
-            <img
-              loading="lazy"
-              src='../assets/no-case-study.svg'
-              alt=""
-              className="centered-image-no-content"
-            />
-            <p className="title-no-content">No CaseStudy found</p>
-            <p className="description-no-content">Currently no casestudy found with the selected filters.</p>
-          </section>
-  )}
+            <section className="container-no-content mt-8">
+              <img
+                loading="lazy"
+                src='../assets/no-blog.svg'
+                alt=""
+                className="centered-image-no-content"
+              />
+              <p className="title-no-content">No Case Study found</p>
+              {(!tag && !searchValue && !category) ? (
+                <p className="description-no-content">Currently no case study found.</p>
+              ) : (
+                <p className="description-no-content">Currently no case study found with the selected filters.</p>
+              )}
+            </section>
+          )}
         </div>
 
-        <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
-          <button
-            className="hue-btn-blue btn uppercase font-montserrat"
-            onClick={fetchMoreData}
-            disabled={loading}
-          >
-            <span>Show More</span>
-          </button>
-        </div>
+        {caseData.length > 0 && (
+          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+            <button
+              className="hue-btn-blue btn uppercase font-montserrat"
+              onClick={fetchMoreData}
+              disabled={loading}
+            >
+              <span>See More</span>
+            </button>
+          </div>
+        )}
+
+        {caseData.length === 0 && (
+          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+            {(tag || searchValue || category) && (<button
+              className="hue-btn-blue btn uppercase font-montserrat"
+              onClick={handleResetFilters}
+              disabled={loading}
+            >
+              <span>View All</span>
+            </button>)}
+
+          </div>
+        )}
       </div>
     </>
   )
