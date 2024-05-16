@@ -23,14 +23,14 @@ const JobCards = () => {
     onClose()
   }
   const handleResetFilters = () => {
-    setSelectedRole('')
-    setSelectedDep('')
-    setSelectedExp('')
-    setSelectedLoc('')
-    setLoc('')
-    setExp('')
-    setDep('')
-    setRole('')
+    setSelectedRole(null)
+    setSelectedDep(null)
+    setSelectedExp(null)
+    setSelectedLoc(null)
+    setLoc(null)
+    setExp(null)
+    setDep(null)
+    setRole(null)
   }
   const showDrawer = () => {
     setState((prevState) => ({
@@ -303,7 +303,7 @@ const JobCards = () => {
                       // Trigger filtering when category changes
                     }}
                     placeholder="Search"
-                    className="border-haiti h-[1.875rem] xl:w-60 lg:w-52 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
+                    className="border-haiti  xl:w-60 lg:w-52 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
                   />
                 </div>
                 <button
@@ -322,7 +322,7 @@ const JobCards = () => {
           {/* Tag select */}
         </div>
         <section className=" py-8 ">
-          <div className="flex flex-col space-y-4 py-4 relative">
+          <div className="flex flex-col space-y-4 py-4 relative ">
             {/* <img
             src="../assets/Ornament.png"
             className="absolute top-4 left-4"
@@ -341,7 +341,7 @@ const JobCards = () => {
                 )}
               />
             )}
-            {!loading && (
+        {!loading && JobDesc.length >= 1 && (
               <>
                 {JobDesc.map((jobs: any) => (
                   <div className="flex flex-col job-card-container relative font-montserrat">
@@ -414,15 +414,56 @@ const JobCards = () => {
                 ))}
               </>
             )}
+            {!loading && JobDesc.length === 0 && (
+              <div className='items-center'>
+
+            <section className="container-no-content mt-8">
+              <div><img
+                loading="lazy"
+                src='../assets/no-blog.svg'
+                alt=""
+                className="centered-image-no-content"
+              /></div>
+              <div>
+              <p className="title-no-content">No Jobs available</p>
+              {(!dep && !exp && !loc && !role && !searchValue ) ? (
+                <p className="description-no-content">Currently no jobs available.</p>
+              ) : (
+                <p className="description-no-content">Currently no jobs available with the selected filters.</p>
+              )}
+              </div>
+              
+            </section>
+            </div>
+          )}
           </div>
-          <div
-            className="mx-auto w-full flex justify-center items-center lg:mt-16 mt-12"
-            onClick={fetchMoreData}
-          >
-            <button className="hue-btn-blue btn uppercase font-montserrat max-w-fit">
-              Show More
+
+          {JobDesc.length > 0 && (
+          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+            <button
+              className="hue-btn-blue btn uppercase font-montserrat"
+              onClick={fetchMoreData}
+              disabled={loading}
+            >
+              <span>See More</span>
             </button>
           </div>
+        )}
+         
+         
+          {JobDesc.length === 0 && (
+          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+            {(role || exp ||loc || dep || searchValue ) && (<button
+              className="hue-btn-blue btn uppercase font-montserrat"
+              onClick={handleResetFilters}
+              disabled={loading}
+            >
+              <span>View All</span>
+            </button>)}
+
+          </div>
+        )}
+
         </section>
       </div>
     </>
