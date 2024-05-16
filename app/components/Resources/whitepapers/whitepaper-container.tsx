@@ -43,7 +43,7 @@ const WhitePaperCardContainer = () => {
     setLimit(limit + 3)
     setLoading(false)
     if (whitePaperData.length <= limit) {
-      errorMessage('No more white papers available here', 4)
+      errorMessage('No more whitepapers available.', 4)
     }
   }
 
@@ -60,24 +60,47 @@ const WhitePaperCardContainer = () => {
             className="absolute top-4 left-4 -z-20"
             alt="ornament"
           />
-          <div className="whitepaper-container-property">
-            {whitePaperData?.map((paper: IWhitePaper) => (
-              <Link
-                to={`../resources/whitepaper/${paper.id}`}
-                key={paper.id}
-                state={{ whitePaperData: whitePaperData }}
-              >
-                <WhitePaperCard key={paper.id} paper={paper} isLoading={loading} />
-              </Link>
-            ))}
+          { whitePaperData.length >= 1 && (
+            <div className="whitepaper-container-property">
+              {whitePaperData?.map((paper: IWhitePaper) => (
+                <Link
+                  to={`../resources/whitepaper/${paper.id}`}
+                  key={paper.id}
+                  state={{ whitePaperData: whitePaperData }}
+                >
+                  <WhitePaperCard key={paper.id} paper={paper} isLoading={loading} />
+                </Link>
+              ))}
+            </div>
+          )}
+          
+          {!loading && whitePaperData.length === 0 && (
+            <section className="container-no-content mt-8">
+              <img
+                loading="lazy"
+                src='../assets/no-whitepaper.svg'
+                alt=""
+                className="centered-image-no-content"
+              />
+              <p className="title-no-content">No Whitepapers found</p>
+             <p className="description-no-content " style={{paddingBottom:'48px'}}>Currently no whitepapers found.</p>
+             
+            </section>
+          )}
+        </div>
+     
+        {whitePaperData.length > 0 && (
+          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+            <button
+              className="hue-btn-blue btn uppercase font-montserrat"
+              onClick={fetchMoreData}
+              disabled={loading}
+            >
+              <span>See More</span>
+            </button>
           </div>
-        </div>
-
-        <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
-          <button className="hue-btn-blue btn uppercase" onClick={fetchMoreData} disabled={loading}>
-            <span>Explore More</span>
-          </button>
-        </div>
+        )}
+       
       </div>
     </>
   )

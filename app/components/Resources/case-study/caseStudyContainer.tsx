@@ -288,7 +288,7 @@ const Container = () => {
             <section className="container-no-content mt-8">
               <img
                 loading="lazy"
-                src='../assets/no-blog.svg'
+                src='../assets/no-case-study.svg'
                 alt=""
                 className="centered-image-no-content"
               />
