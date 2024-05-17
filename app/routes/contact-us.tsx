@@ -88,20 +88,19 @@ export default function Index() {
   const [fileerror, setFileError] = useState('')
 
   const [hirefileerror, sethireFileError] = useState('')
-  
+
   const [skill, setskills] = useState('')
   const [skillerror, setskillError] = useState('')
-  
+
   const [AOE, setAOE] = useState('')
   const [AOEerror, setAOEError] = useState('')
 
-  
   const [Exp, setExp] = useState('')
   const [experror, setexpError] = useState('')
 
   const [msg, setMsg] = useState('')
   const [msgerror, setMsgError] = useState('')
-  
+
   const [msgcount, setMsgCount] = useState('1000')
 
   const [hiremsgcount, sethireMsgCount] = useState('1000')
@@ -231,7 +230,6 @@ export default function Index() {
     if (exp.length > 301) {
       setexpError(`Should be less than 301 characters`)
     }
-    
   }
   const hireAOEChange = (e: any) => {
     const aoe = e.target.value
@@ -240,7 +238,6 @@ export default function Index() {
     if (aoe.length > 301) {
       setAOEError(`Should be less than 301 characters`)
     }
-   
   }
   const hireSkillChange = (e: any) => {
     const skill = e.target.value
@@ -249,7 +246,6 @@ export default function Index() {
     if (skill.length > 301) {
       setskillError(`Should be less than 301 characters`)
     }
-   
   }
 
   const hirehandleNameChange = (e: any) => {
@@ -648,7 +644,6 @@ export default function Index() {
                           searchable
                           searchPlaceholder="Search countries"
                           countries={['US', 'IN']}
-                        
                         />
                         <input
                           type="text"
@@ -905,11 +900,10 @@ export default function Index() {
                       className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                     ></input>
                     {AOEerror && (
-                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {AOEerror}
-                    </span>
-                  )}
-
+                      <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                        {AOEerror}
+                      </span>
+                    )}
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
                     <input
@@ -923,10 +917,10 @@ export default function Index() {
                       className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                     ></input>
                     {experror && (
-                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {experror}
-                    </span>
-                  )}
+                      <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                        {experror}
+                      </span>
+                    )}
                   </div>
                   <div className="w-full relative group sm:col-span-1 col-span-2 dropdown-hire">
                     <input
@@ -940,10 +934,10 @@ export default function Index() {
                       className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                     ></input>
                     {skillerror && (
-                    <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
-                      {skillerror}
-                    </span>
-                  )}
+                      <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">
+                        {skillerror}
+                      </span>
+                    )}
                   </div>
                   <div className="w-full relative grid col-span-2">
                     <label className="py-2 text-xs">Your Message</label>

@@ -35,7 +35,7 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalstyle },
   { rel: 'stylesheet', href: Navstyle },
   { rel: 'stylesheet', href: Sidebarstyle },
-  {rel: 'stylesheet', href: errorStyles },
+  { rel: 'stylesheet', href: errorStyles },
 ]
 export function scrollToSection(section: string) {
   const targetElement = document.getElementById(section)
@@ -87,11 +87,19 @@ export default function App() {
       </head>
 
       <body className="lg:overscroll-y-none overscroll-y-auto">
-        <Suspense fallback={<LoadingTest/>}>
+        <Suspense fallback={<LoadingTest />}>
           <Await resolve={config}>
-            {(resolvedValue) => 
+            {(resolvedValue) => (
               <>
-                <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
+                <a
+                  href="#main-cnt"
+                  className="skip-main-cnt"
+                  tabIndex={0}
+                  aria-label="Navigate to main content"
+                  title="Skip to main content"
+                >
+                  Skip to main content
+                </a>
                 <Nav />
                 <LoadingTest />
                 <Outlet context={config.ENV} />
@@ -101,7 +109,7 @@ export default function App() {
                 <Footer />
                 <ScrollToTopIcon />
               </>
-            }
+            )}
           </Await>
         </Suspense>
       </body>
@@ -109,12 +117,11 @@ export default function App() {
   )
 }
 
-
 export function ErrorBoundary() {
-  const error = useRouteError();
+  const error = useRouteError()
   return (
     <html lang="en">
-       <head>
+      <head>
         <ClarityScript />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -127,7 +134,15 @@ export function ErrorBoundary() {
           <Await resolve={error}>
             {(resolvedError) => (
               <>
-                <a href="#main-cnt" className="skip-main-cnt" tabIndex={0} aria-label="Navigate to main content" title="Skip to main content">Skip to main content</a>
+                <a
+                  href="#main-cnt"
+                  className="skip-main-cnt"
+                  tabIndex={0}
+                  aria-label="Navigate to main content"
+                  title="Skip to main content"
+                >
+                  Skip to main content
+                </a>
                 <LoadingTest />
                 <ErrorBoundaryPage error={resolvedError} />
                 <ScrollRestoration />

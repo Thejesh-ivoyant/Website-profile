@@ -60,7 +60,7 @@ const WhitePaperCardContainer = () => {
             className="absolute top-4 left-4 -z-20"
             alt="ornament"
           />
-          { whitePaperData.length >= 1 && (
+          {whitePaperData.length >= 1 && (
             <div className="whitepaper-container-property">
               {whitePaperData?.map((paper: IWhitePaper) => (
                 <Link
@@ -73,22 +73,23 @@ const WhitePaperCardContainer = () => {
               ))}
             </div>
           )}
-          
+
           {!loading && whitePaperData.length === 0 && (
             <section className="container-no-content mt-8">
               <img
                 loading="lazy"
-                src='../assets/no-whitepaper.svg'
+                src="../assets/no-whitepaper.svg"
                 alt=""
                 className="centered-image-no-content"
               />
               <p className="title-no-content">No Whitepapers found</p>
-             <p className="description-no-content " style={{paddingBottom:'48px'}}>Currently no whitepapers found.</p>
-             
+              <p className="description-no-content " style={{ paddingBottom: '48px' }}>
+                Currently no whitepapers found.
+              </p>
             </section>
           )}
         </div>
-     
+
         {whitePaperData.length > 0 && (
           <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
             <button
@@ -100,7 +101,6 @@ const WhitePaperCardContainer = () => {
             </button>
           </div>
         )}
-       
       </div>
     </>
   )

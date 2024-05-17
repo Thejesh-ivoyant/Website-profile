@@ -83,7 +83,7 @@ const WhyChooseUs = ({
         {pairs?.map((pair, index) => (
           <div
             key={index}
-            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] cursor-pointer"
+            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] "
           >
             <img
               src={pair.pic.data.attributes.url}

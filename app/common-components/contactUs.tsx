@@ -57,17 +57,14 @@ const ContactUs = () => {
   const [hireemail, sethireEmail] = useState('')
   const [hireemailerror, sethireEmailError] = useState('')
 
-  
   const [skill, setskills] = useState('')
   const [skillerror, setskillError] = useState('')
-  
+
   const [AOE, setAOE] = useState('')
   const [AOEerror, setAOEError] = useState('')
 
-  
   const [Exp, setExp] = useState('')
   const [experror, setexpError] = useState('')
-
 
   const [org, setOrg] = useState('')
   const [orgerror, setOrgError] = useState('')
@@ -312,7 +309,6 @@ const ContactUs = () => {
     }
   }
 
-  
   const hireexpChange = (e: any) => {
     const exp = e.target.value
     setExp(e.target.value)
@@ -320,7 +316,6 @@ const ContactUs = () => {
     if (exp.length > 301) {
       setexpError(`Should be less than 301 characters`)
     }
-    
   }
   const hireAOEChange = (e: any) => {
     const aoe = e.target.value
@@ -329,7 +324,6 @@ const ContactUs = () => {
     if (aoe.length > 301) {
       setAOEError(`Should be less than 301 characters`)
     }
-   
   }
   const hireSkillChange = (e: any) => {
     const skill = e.target.value
@@ -338,7 +332,6 @@ const ContactUs = () => {
     if (skill.length > 301) {
       setskillError(`Should be less than 301 characters`)
     }
-   
   }
 
   const handleMessageChange = (e: any) => {
@@ -406,8 +399,6 @@ const ContactUs = () => {
       setFileError('')
     }
   }
-
-  
 
   const handleClearFile = () => {
     setSelectedFileName(null)
@@ -940,7 +931,6 @@ const ContactUs = () => {
                     placeholder="Area of Expertise"
                     value={AOE}
                     onChange={hireAOEChange}
-
                     className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                   ></input>
                   {AOEerror && (
@@ -949,7 +939,7 @@ const ContactUs = () => {
                     </span>
                   )}
                 </div>
-               
+
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
                     type="text"
@@ -967,7 +957,6 @@ const ContactUs = () => {
                     </span>
                   )}
                 </div>
-               
 
                 <div className="w-full relative group sm:col-span-1 col-span-2">
                   <input
@@ -985,7 +974,6 @@ const ContactUs = () => {
                       {skillerror}
                     </span>
                   )}
-                  
                 </div>
                 <div className="w-full relative grid col-span-2">
                   <label className="py-2 text-xs">Your Message</label>
@@ -1014,7 +1002,6 @@ const ContactUs = () => {
                 </div>
               </div>
               <Space direction="horizontal" size={12} className="grid-cols-1 flex justify-between">
-               
                 <div className="flex flex-col gap-1 relative">
                   <div className="flex flex-col xl:text-sm text-xs">
                     <label

@@ -1,6 +1,6 @@
 import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
-import {  govQuery } from '~/graphql/queries'
+import { govQuery } from '~/graphql/queries'
 import ContactUs from '~/common-components/contactUs'
 import Hero from '~/components/about-us/Hero'
 import { Popup } from '~/common-components/social-media-popup'
@@ -30,7 +30,6 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
 }
 export async function loader() {
   try {
-    
     return defer({
       govPage: (await fetchGraphQL(govQuery))?.data?.govPage?.data?.attributes,
     })

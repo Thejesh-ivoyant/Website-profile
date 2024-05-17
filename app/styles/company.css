@@ -14,6 +14,9 @@
 .ant-drawer-header {
   display: none !important;
 }
+.jobs-filter .ant-select-single {
+  height: 100% !important;
+}
 
 .drop-zone {
   border: 0.5px dashed var(--Gray-gray-7, #8c8c8c);

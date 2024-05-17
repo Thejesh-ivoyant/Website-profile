@@ -60,7 +60,7 @@ const Why_Join_Us = () => {
         {loaderData.JoinUsCard.map((item: any, index: any) => (
           <div
             key={item.id}
-            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] cursor-pointer"
+            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] "
           >
             <img
               src={item.bgImage}

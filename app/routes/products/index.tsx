@@ -54,21 +54,21 @@ export default function Index() {
   const attributes = data?.productsResponse?.data?.product?.data?.attributes as Attributes
   return (
     <>
-    <Suspense fallback={<LoadingTest />}>
-       <Await resolve={data}>
-        <Hero carousel={data?.sortedCarousels} />
-        <Consultation />
-        <Tabs tabContents={data?.sortedTabContents} />
-        <WhyChooseUs
-          pairs={attributes?.pairs || []}
-          title={attributes?.section_4_title as string}
-          description={attributes?.section_4_description as string}
-        />
-        <Technologies title={attributes?.techTitle} pairs={attributes?.technologies} />
-        <ContactUs />
-        <Popup />
-       </Await>
-    </Suspense>
+      <Suspense fallback={<LoadingTest />}>
+        <Await resolve={data}>
+          <Hero carousel={data?.sortedCarousels} />
+          <Consultation />
+          <Tabs tabContents={data?.sortedTabContents} />
+          <WhyChooseUs
+            pairs={attributes?.pairs || []}
+            title={attributes?.section_4_title as string}
+            description={attributes?.section_4_description as string}
+          />
+          <Technologies title={attributes?.techTitle} pairs={attributes?.technologies} />
+          <ContactUs />
+          <Popup />
+        </Await>
+      </Suspense>
     </>
   )
 }

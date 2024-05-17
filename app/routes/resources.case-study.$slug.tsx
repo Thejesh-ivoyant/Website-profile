@@ -39,19 +39,19 @@ const sample = () => {
   const attributes = data?.data.data?.caseStudies?.data[0].attributes
   return (
     <>
-    <Suspense fallback={<LoadingTest/>}>
-      <Await resolve={data}>
-        <Hero data={attributes} />
-        <Section2 data={attributes} />
-        <Section3 data={attributes} />
-        <Section4 data={attributes} />
-        <Features data={attributes} />
-        <Section5 data={attributes} />
-        <Section6 data={attributes} />
-        <Consultation />
-        <Popup />
-      </Await>
-    </Suspense>
+      <Suspense fallback={<LoadingTest />}>
+        <Await resolve={data}>
+          <Hero data={attributes} />
+          <Section2 data={attributes} />
+          <Section3 data={attributes} />
+          <Section4 data={attributes} />
+          <Features data={attributes} />
+          <Section5 data={attributes} />
+          <Section6 data={attributes} />
+          <Consultation />
+          <Popup />
+        </Await>
+      </Suspense>
     </>
   )
 }

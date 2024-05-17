@@ -156,9 +156,7 @@ const JobCards = () => {
             allowClear
             value={selectedRole}
             options={loaderData.RolesList}
-            // style={{
-            //   width: "190px",
-            // }}
+            
           />
 
           <Select
@@ -168,9 +166,7 @@ const JobCards = () => {
             allowClear
             value={selectedDep}
             options={loaderData.DepartmentList}
-            // style={{
-            //   width: "190px",
-            // }}
+           
           />
 
           <Select
@@ -180,9 +176,7 @@ const JobCards = () => {
             allowClear
             value={selectedLoc}
             options={loaderData.LocList}
-            // style={{
-            //   width: "190px",
-            // }}
+            
           />
 
           <Select
@@ -192,9 +186,7 @@ const JobCards = () => {
             allowClear
             value={selectedExp}
             options={loaderData.ExpList}
-            // style={{
-            //   width: "190px",
-            // }}
+           
           />
 
           <div className="flex flex-row justify-between gap-4 items-center">
@@ -217,11 +209,11 @@ const JobCards = () => {
         </section>
         <div className="filter flex w-full font-montserrat justify-center gap-2">
           <div className="flex flex-col gap-1 w-full lg:px-28 px-4">
-            {/* Category select */}
+            
 
             <div className="grid gap-4 mx-auto">
               <label className="text-haiti font-normal w-full">Filter by:</label>
-              <div className="flex gap-4">
+              <div className="flex gap-4 jobs-filter">
                 <Select
                   dropdownMatchSelectWidth
                   popupMatchSelectWidth={false}
@@ -231,9 +223,6 @@ const JobCards = () => {
                   allowClear
                   value={role}
                   options={loaderData.RolesList}
-                  // style={{
-                  //   width: "190px",
-                  // }}
                 />
                 <Select
                   dropdownMatchSelectWidth
@@ -244,9 +233,7 @@ const JobCards = () => {
                   allowClear
                   value={dep}
                   options={loaderData.DepartmentList}
-                  // style={{
-                  //   width: "190px",
-                  // }}
+                  
                 />
 
                 <Select
@@ -258,9 +245,7 @@ const JobCards = () => {
                   allowClear
                   value={loc}
                   options={loaderData.LocList}
-                  // style={{
-                  //   width: "190px",
-                  // }}
+                  
                 />
 
                 <Select
@@ -272,9 +257,7 @@ const JobCards = () => {
                   allowClear
                   value={exp}
                   options={loaderData.ExpList}
-                  // style={{
-                  //   width: "190px",
-                  // }}
+                  
                 />
 
                 {/* Search input */}
@@ -321,13 +304,9 @@ const JobCards = () => {
           </div>
           {/* Tag select */}
         </div>
-        <section className=" py-8 ">
+        <section className=" pb-8 pt-[4px]">
           <div className="flex flex-col space-y-4 py-4 relative ">
-            {/* <img
-            src="../assets/Ornament.png"
-            className="absolute top-4 left-4"
-            alt="icons"
-          /> */}
+            
             {loading && (
               <List
                 className="w-full job-card-container z-10 h-full"
@@ -341,7 +320,7 @@ const JobCards = () => {
                 )}
               />
             )}
-        {!loading && JobDesc.length >= 1 && (
+            {!loading && JobDesc.length >= 1 && (
               <>
                 {JobDesc.map((jobs: any) => (
                   <div className="flex flex-col job-card-container relative font-montserrat">
@@ -415,55 +394,53 @@ const JobCards = () => {
               </>
             )}
             {!loading && JobDesc.length === 0 && (
-              <div className='items-center'>
+              <div className="flex justify-center">
+                <section className="container-no-content mt-8 ">
+                  <img
+                    loading="lazy"
+                    src="../assets/no-jobs.svg"
+                    alt=""
+                    className="centered-image-no-content"
+                  />
 
-            <section className="container-no-content mt-8">
-              <div><img
-                loading="lazy"
-                src='../assets/no-blog.svg'
-                alt=""
-                className="centered-image-no-content"
-              /></div>
-              <div>
-              <p className="title-no-content">No Jobs available</p>
-              {(!dep && !exp && !loc && !role && !searchValue ) ? (
-                <p className="description-no-content">Currently no jobs available.</p>
-              ) : (
-                <p className="description-no-content">Currently no jobs available with the selected filters.</p>
-              )}
+                  <p className="title-no-content" style={{textAlign:'center'}}>No Jobs available</p>
+                  {!dep && !exp && !loc && !role && !searchValue ? (
+                    <p className="description-no-content px-[1rem]" >Currently no jobs available.</p>
+                  ) : (
+                    <p className="description-no-content px-[1rem]">
+                      Currently no jobs available with the selected filters.
+                    </p>
+                  )}
+                </section>
               </div>
-              
-            </section>
-            </div>
-          )}
+            )}
           </div>
 
           {JobDesc.length > 0 && (
-          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
-            <button
-              className="hue-btn-blue btn uppercase font-montserrat"
-              onClick={fetchMoreData}
-              disabled={loading}
-            >
-              <span>See More</span>
-            </button>
-          </div>
-        )}
-         
-         
+            <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+              <button
+                className="hue-btn-blue btn uppercase font-montserrat"
+                onClick={fetchMoreData}
+                disabled={loading}
+              >
+                <span>See More</span>
+              </button>
+            </div>
+          )}
+
           {JobDesc.length === 0 && (
-          <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
-            {(role || exp ||loc || dep || searchValue ) && (<button
-              className="hue-btn-blue btn uppercase font-montserrat"
-              onClick={handleResetFilters}
-              disabled={loading}
-            >
-              <span>View All</span>
-            </button>)}
-
-          </div>
-        )}
-
+            <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
+              {(role || exp || loc || dep || searchValue) && (
+                <button
+                  className="hue-btn-blue btn uppercase font-montserrat"
+                  onClick={handleResetFilters}
+                  disabled={loading}
+                >
+                  <span>View All</span>
+                </button>
+              )}
+            </div>
+          )}
         </section>
       </div>
     </>

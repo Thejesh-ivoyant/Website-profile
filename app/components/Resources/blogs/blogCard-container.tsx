@@ -272,7 +272,7 @@ const BlogCardContainer = () => {
               )}
             />
           )}
-           {!loading && blogData.length >= 1 && (
+          {!loading && blogData.length >= 1 && (
             <>
               <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
               <div className="blog-main-card items-center w-fit z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
@@ -286,15 +286,17 @@ const BlogCardContainer = () => {
             <section className="container-no-content mt-8">
               <img
                 loading="lazy"
-                src='../assets/no-blog.svg'
+                src="../assets/no-blog.svg"
                 alt=""
                 className="centered-image-no-content"
               />
               <p className="title-no-content">No Blog found</p>
-              {(!tag && !searchValue && !category) ? (
+              {!tag && !searchValue && !category ? (
                 <p className="description-no-content">Currently no blogs found.</p>
               ) : (
-                <p className="description-no-content">Currently no blogs found with the selected filters.</p>
+                <p className="description-no-content">
+                  Currently no blogs found with the selected filters.
+                </p>
               )}
             </section>
           )}
@@ -314,14 +316,15 @@ const BlogCardContainer = () => {
 
         {blogData.length === 0 && (
           <div className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center">
-            {(tag || searchValue || category) && (<button
-              className="hue-btn-blue btn uppercase font-montserrat"
-              onClick={handleResetFilters}
-              disabled={loading}
-            >
-              <span>View All</span>
-            </button>)}
-
+            {(tag || searchValue || category) && (
+              <button
+                className="hue-btn-blue btn uppercase font-montserrat"
+                onClick={handleResetFilters}
+                disabled={loading}
+              >
+                <span>View All</span>
+              </button>
+            )}
           </div>
         )}
       </div>
