@@ -156,7 +156,6 @@ const JobCards = () => {
             allowClear
             value={selectedRole}
             options={loaderData.RolesList}
-            
           />
 
           <Select
@@ -166,7 +165,6 @@ const JobCards = () => {
             allowClear
             value={selectedDep}
             options={loaderData.DepartmentList}
-           
           />
 
           <Select
@@ -176,7 +174,6 @@ const JobCards = () => {
             allowClear
             value={selectedLoc}
             options={loaderData.LocList}
-            
           />
 
           <Select
@@ -186,7 +183,6 @@ const JobCards = () => {
             allowClear
             value={selectedExp}
             options={loaderData.ExpList}
-           
           />
 
           <div className="flex flex-row justify-between gap-4 items-center">
@@ -209,8 +205,6 @@ const JobCards = () => {
         </section>
         <div className="filter flex w-full font-montserrat justify-center gap-2">
           <div className="flex flex-col gap-1 w-full lg:px-28 px-4">
-            
-
             <div className="grid gap-4 mx-auto">
               <label className="text-haiti font-normal w-full">Filter by:</label>
               <div className="flex gap-4 jobs-filter">
@@ -233,7 +227,6 @@ const JobCards = () => {
                   allowClear
                   value={dep}
                   options={loaderData.DepartmentList}
-                  
                 />
 
                 <Select
@@ -245,7 +238,6 @@ const JobCards = () => {
                   allowClear
                   value={loc}
                   options={loaderData.LocList}
-                  
                 />
 
                 <Select
@@ -257,7 +249,6 @@ const JobCards = () => {
                   allowClear
                   value={exp}
                   options={loaderData.ExpList}
-                  
                 />
 
                 {/* Search input */}
@@ -306,7 +297,6 @@ const JobCards = () => {
         </div>
         <section className=" pb-8 pt-[4px]">
           <div className="flex flex-col space-y-4 py-4 relative ">
-            
             {loading && (
               <List
                 className="w-full job-card-container z-10 h-full"
@@ -403,9 +393,11 @@ const JobCards = () => {
                     className="centered-image-no-content"
                   />
 
-                  <p className="title-no-content" style={{textAlign:'center'}}>No Jobs available</p>
+                  <p className="title-no-content" style={{ textAlign: 'center' }}>
+                    No Jobs available
+                  </p>
                   {!dep && !exp && !loc && !role && !searchValue ? (
-                    <p className="description-no-content px-[1rem]" >Currently no jobs available.</p>
+                    <p className="description-no-content px-[1rem]">Currently no jobs available.</p>
                   ) : (
                     <p className="description-no-content px-[1rem]">
                       Currently no jobs available with the selected filters.
