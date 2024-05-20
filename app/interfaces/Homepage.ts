@@ -63,7 +63,7 @@ export interface Data4 {
   attributes: Attributes2
 }
 export interface IndustriesTab {
-  id: string
+  id: number
   title: string
   description: string
   image: Image

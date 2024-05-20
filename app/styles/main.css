@@ -21,6 +21,7 @@
     padding: 0;
     width: 100%;
     height: 100%;
+    scroll-padding-top: 4rem;
     /* overflow-x: auto; Never use this, this will effect the scroll of remix*/
   }
   
@@ -2275,6 +2276,7 @@
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
+    min-height: 34rem;
   }
   
   .phases-container {
@@ -3627,7 +3629,8 @@
   }
   .anchor {
     position: absolute;
-    transform: translateY(0.2dvh);
+    /* transform: translateY(0.2dvh); */
+    scroll-padding-top: 4rem;
   }
   .skip-main-cnt:focus,
   .skip-footer:focus {

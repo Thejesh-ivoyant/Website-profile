@@ -134,45 +134,50 @@ const Services = ({
             </svg>
           </button>
         </div>
-        <div className="flex flex-col xl:w-full lg:w-fit h-full p-4">
-          <div className="flex flex-1 flex-col h-full items-center justify-center mx-4">
-            <div className="flex flex-col w-fit gap-4  justify-center items-center">
-              <span className="flex bg-black px-1 text-white font-montserrat w-fit capitalize text-sm italic mr-auto">
-                {activeButton?.title}
-              </span>
-              <div className="flex max-w-[40rem] font-poppins text-xs font-normal geekblue-1">
-                {activeButton?.description}
-              </div>
-              <Link
-                to={activeButton?.link}
-                className="flex flex-row justify-end ml-auto items-center gap-2"
-              >
-                <span className="text-[#B9C1EC] text-sm">Learn more.</span>
-                <span className="w-6 h-6 rounded-full learn-more-ind flex items-center justify-center">
-                  <svg
-                    width="17"
-                    height="18"
-                    viewBox="0 0 17 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+        {industries?.map((item: IndustriesTab)=>(
+          <>
+            <div className={`flex flex-col xl:w-full lg:w-fit h-full p-4 ${(item.id === activeButton.id) ? "block" : "hidden"}`} aria-label={`${item.id}`} key={item.id}>
+              <div className="flex flex-1 flex-col h-full items-center justify-center mx-4">
+                <div className="flex flex-col w-fit gap-4  justify-center items-center">
+                  <span className="flex bg-black px-1 text-white font-montserrat w-fit capitalize text-sm italic mr-auto">
+                    {item?.title}
+                  </span>
+                  <div className="flex max-w-[40rem] font-poppins text-xs font-normal geekblue-1">
+                    {item?.description}
+                  </div>
+                  <Link
+                    to={item?.link}
+                    className="flex flex-row justify-end ml-auto items-center gap-2"
                   >
-                    <path
-                      d="M6.88544 5.71047L6.72021 6.44063L10.6578 7.28491L4.32058 11.4003L4.72906 12.0293L11.0663 7.91391L10.229 11.8438L10.9702 12.0005L12.0729 6.81309L6.88544 5.71047Z"
-                      fill="#F0F5FF"
-                    />
-                  </svg>
-                </span>
-              </Link>
+                    <span className="text-[#B9C1EC] text-sm">Learn more.</span>
+                    <span className="w-6 h-6 rounded-full learn-more-ind flex items-center justify-center">
+                      <svg
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.88544 5.71047L6.72021 6.44063L10.6578 7.28491L4.32058 11.4003L4.72906 12.0293L11.0663 7.91391L10.229 11.8438L10.9702 12.0005L12.0729 6.81309L6.88544 5.71047Z"
+                          fill="#F0F5FF"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex h-72 mx-auto">
+                <img
+                  src={activeButton?.image?.data?.attributes.url}
+                  alt={activeButton.title}
+                  className="object-contain"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex h-72 mx-auto">
-            <img
-              src={activeButton?.image?.data?.attributes.url}
-              alt={activeButton.title}
-              className="object-contain"
-            />
-          </div>
-        </div>
+          </>
+        ))}
+        
       </div>
       <div className="md:flex hidden flex-col mx-auto  w-fit max-h-[33.5rem] h-[30rem] my-6">
         <div className="flex flex-row flex-wrap justify-between">
