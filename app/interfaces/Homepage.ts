@@ -50,7 +50,7 @@ export interface Attributes2 {
   url: string
 }
 export interface Service {
-  id: string
+  id: number
   title: string
   description: string
   bgImage: BgImage

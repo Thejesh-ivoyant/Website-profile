@@ -1,32 +1,21 @@
 import { useState, useEffect } from 'react'
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link } from '@remix-run/react'
 import { Attributes } from '~/interfaces/Homepage'
 import { Image } from '@unpic/react'
-
+import { Service } from '~/interfaces/Homepage'
 const Services = ({ attributes }: { attributes: Attributes }) => {
-  const servicesData = useLoaderData() as any
-  const servicesArray = servicesData?.homePage?.homepage?.data?.attributes?.services || []
-  const [currentSelectedService, setCurrentService] = useState<string>('')
-  const [serviceImage, setServiceImage] = useState('')
-  const [description, setDescription] = useState<string>('')
-  const [link, setLink] = useState('#')
-  const serviceDescription = servicesData?.homePage?.homepage?.data?.attributes?.serviceDescription
+  const servicesArray = attributes?.services || []
+  const [currentSelectedService, setCurrentService] = useState<Service>(servicesArray[0])
+  
   useEffect(() => {
     if (servicesArray.length > 0) {
-      const defaultService = servicesArray[0]
-      setCurrentService(defaultService.title)
-      setServiceImage(defaultService.bgImage.data.attributes.url)
-      setDescription(defaultService.description)
-      setLink(defaultService.link)
+      setCurrentService(servicesArray[0])
     }
   }, [servicesArray])
   const handleServiceClick = (serviceTitle: string) => {
     const selectedService = servicesArray.find((service: any) => service.title === serviceTitle)
     if (selectedService) {
-      setCurrentService(serviceTitle)
-      setServiceImage(selectedService.bgImage.data.attributes.url)
-      setDescription(selectedService.description)
-      setLink(selectedService.link)
+      setCurrentService(selectedService)
     }
   }
   return (
@@ -69,22 +58,21 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
       </div>
       <div className="w-fit hidden md:flex md:flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
         <div className="float-right  w-fit flex flex-col overflow-y-auto items-center p-4 font-poppins cursor-pointer">
-          {servicesArray.map((service: any) => (
+          {servicesArray.map((service) => (
             <button
               role="checkbox"
               key={service.id}
               id={service.title}
               aria-label={service?.title}
-              aria-checked={currentSelectedService === service.title}
               className={
-                currentSelectedService === service.title ? 'service-list-cur' : 'service-list'
+                currentSelectedService?.title === service.title ? 'service-list-cur' : 'service-list'
               }
               onClick={() => handleServiceClick(service.title)}
             >
               {service.title}
               <svg
                 className={
-                  currentSelectedService === service.title
+                  currentSelectedService.title === service.title
                     ? 'material-symbols-outlined text-xl font-extrabold arrow mr-4'
                     : 'material-symbols-outlined text-xl opacity-0 font-extrabold arrow mr-4'
                 }
@@ -100,52 +88,56 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
           ))}
         </div>
         <div className="flex items-center">
-          <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
-            <Image
-              aria-label="Ornament image for selected service"
-              width={800}
-              height={630}
-              src={serviceImage}
-              tabIndex={0}
-              alt={currentSelectedService}
-            />
-            <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
-              <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
-                <div
-                  className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex"
+          {servicesArray.map((service) => (
+          <>
+              <figure key={service.id} className={`object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img ${(service.id === currentSelectedService.id) ? "flex" : "hidden"}`}>
+                <Image
+                  aria-label="Ornament image for selected service"
+                  width={800}
+                  height={630}
+                  src={service?.bgImage?.data?.attributes.url}
                   tabIndex={0}
-                >
-                  <i className="text-blue-100 lg:text-sm text-xs font-light">
-                    {currentSelectedService}
-                  </i>
+                  alt={service?.title + " Image"}
+                />
+                <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
+                  <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
+                    <div
+                      className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex"
+                      tabIndex={0}
+                    >
+                      <i className="text-blue-100 lg:text-sm text-xs font-light">
+                        {service?.title}
+                      </i>
+                    </div>
+                    {service.description}
+                    <div
+                      className="flex flex-row justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2"
+                      role="navigation"
+                      aria-label={`Click on the underlying link to navigate to ${currentSelectedService.title}`}
+                    >
+                      <Link to={`${service?.link}`} className="flex flex-row justify-end ml-auto items-center gap-4" aria-label={`Link to ${service?.title} page`} >
+                        <span className="text-HeaderGray text-lg flex">Learn more.</span>
+                        <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
+                          <svg
+                            width="24"
+                            height="25"
+                            viewBox="0 0 24 25"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.5 5L12.4275 6.04475L18.1125 11.75H3V13.25H18.1125L12.4275 18.9297L13.5 20L21 12.5L13.5 5Z"
+                              fill="#F0F5FF"
+                            />
+                          </svg>
+                        </span>
+                      </Link>
+                    </div>
+                  </figcaption>
                 </div>
-                {description}
-                <div
-                  className="flex flex-row justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2"
-                  role="navigation"
-                  aria-label={`Click on the underlyingI link to navigate to ${currentSelectedService}`}
-                >
-                  <Link to={link} className="flex flex-row justify-end ml-auto items-center gap-4">
-                    <span className="text-HeaderGray text-lg flex">Learn more.</span>
-                    <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
-                      <svg
-                        width="24"
-                        height="25"
-                        viewBox="0 0 24 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.5 5L12.4275 6.04475L18.1125 11.75H3V13.25H18.1125L12.4275 18.9297L13.5 20L21 12.5L13.5 5Z"
-                          fill="#F0F5FF"
-                        />
-                      </svg>
-                    </span>
-                  </Link>
-                </div>
-              </figcaption>
-            </div>
-          </figure>
+              </figure>
+          </>
+          ))}
         </div>
       </div>
     </div>
