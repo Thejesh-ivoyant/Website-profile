@@ -1,6 +1,6 @@
 import SummaryCard from '../Homepage/summary-card'
 import { useLoaderData } from '@remix-run/react'
-import { loader } from '~/routes/company.about-us'
+import { loader } from '~/routes/_main.company.about-us'
 const AboutCard = () => {
   const loaderData = useLoaderData<typeof loader>()
   const data = loaderData?.aboutUsData.data?.aboutus.data.attributes

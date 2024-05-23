@@ -19,7 +19,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industrySlug = slugToIndustriesMap[`${params.slug}`]
     if (!industrySlug) {
-      return redirect('/404-not-found')
+      throw redirect('/404-not-found')
     }
     const industry = `${params.slug}`
     const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
