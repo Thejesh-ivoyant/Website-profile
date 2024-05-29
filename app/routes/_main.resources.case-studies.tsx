@@ -3,8 +3,7 @@ import Consultation from '~/components/Homepage/consultation'
 import { Await, MetaFunction, Outlet, useLoaderData } from '@remix-run/react'
 import { LinksFunction, defer } from '@remix-run/node'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
-import { blogQuery, caseQuery, categories, tagsQuery } from '~/graphql/queries'
-import BlogCardContainer from '~/components/Resources/blogs/blogCard-container'
+import { caseQuery, categories, tagsQuery } from '~/graphql/queries';
 
 import LoadingTest from '~/common-components/loading-test'
 import { Daum } from '~/interfaces/CategoriesType'

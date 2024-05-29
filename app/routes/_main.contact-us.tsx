@@ -1,5 +1,4 @@
 import ContactCard from '~/components/contact-us/contact-card'
-import ContactUs from '~/common-components/contactUs'
 import { MetaFunction } from '@remix-run/react'
 import { Popup } from '~/common-components/social-media-popup'
 import { useEffect } from 'react'
@@ -10,12 +9,11 @@ import { useRef, useState } from 'react'
 import React from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-import { DatePicker, Select, Space } from 'antd'
+import { DatePicker, Space } from 'antd';
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from '@ant-design/icons'
 import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker'
 import { errorMessage, success } from '~/utils/notifications'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
-import DropDownIcon from '~/components/Resources/case-study/arrow'
 import { StrapiConfig } from '~/utils/format'
 
 dayjs.extend(customParseFormat)

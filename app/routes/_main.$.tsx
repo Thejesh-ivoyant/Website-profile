@@ -1,5 +1,3 @@
-import { Outlet, useRouteLoaderData } from "@remix-run/react"
-import { loader } from "~/root"
 import {
     isRouteErrorResponse,
     useRouteError,

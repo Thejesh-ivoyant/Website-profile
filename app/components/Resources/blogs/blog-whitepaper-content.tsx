@@ -9,7 +9,7 @@ import {
 import { Modal } from 'antd'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
 import { blogQuery, whitepaperQuery } from '~/graphql/queries'
 import { dateFormatTxt } from '~/utils/date-format-util'
 import { errorMessage, success } from '~/utils/notifications'

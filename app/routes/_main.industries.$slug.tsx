@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, defer, json } from '@remix-run/node'
-import { Await, MetaFunction, Outlet, redirect, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, redirect, useLoaderData } from '@remix-run/react';
 import { Suspense } from 'react'
 import Hero from '~/common-components/Hero'
 import LoadingTest from '~/common-components/loading-test'

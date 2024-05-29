@@ -1,5 +1,4 @@
 import { useLoaderData } from '@remix-run/react'
-import { ellipsis } from '~/utils/format'
 const Phases = () => {
   const loaderData = useLoaderData() as any
   return (

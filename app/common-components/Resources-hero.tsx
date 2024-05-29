@@ -1,4 +1,3 @@
-import { Link } from '@remix-run/react'
 const Hero = ({
   heroBgImageUrl,
   heroTitle,

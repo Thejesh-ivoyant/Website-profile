@@ -6,7 +6,6 @@ import Navstyle from '~/common-components/nav.css'
 import Sidebarstyle from '~/common-components/sidebar.css'
 import {
   Await,
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -14,10 +13,8 @@ import {
   Scripts,
   ScrollRestoration,
   defer,
-  isRouteErrorResponse,
   useLoaderData,
-  useRouteError,
-} from '@remix-run/react'
+} from '@remix-run/react';
 import ClarityScript from './clarityScript'
 import Nav from './common-components/nav'
 import Footer from './common-components/footer'
@@ -27,7 +24,6 @@ import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 import { Suspense } from 'react'
 import errorStyles from './styles/error.css'
-import ErrorBoundaryPage from './common-components/errorpage'
 
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },

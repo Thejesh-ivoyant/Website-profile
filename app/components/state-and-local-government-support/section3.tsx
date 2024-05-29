@@ -1,5 +1,4 @@
-import { Link, useLoaderData } from '@remix-run/react'
-import ArrowCircle from '../icons/arrow'
+import { useLoaderData } from '@remix-run/react';
 
 const GovSection3 = () => {
   const loaderData = useLoaderData() as any

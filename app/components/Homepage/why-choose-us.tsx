@@ -1,6 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
 import { Pair } from '~/interfaces/Homepage'
-import texture from '~/../public/assets/texture.png'
 const WhyChooseUs = ({
   pairs,
   title,

@@ -4,7 +4,7 @@ import { useLoaderData } from '@remix-run/react'
 import { Form } from '@remix-run/react'
 import { errorMessage, success } from '~/utils/notifications'
 import { FileRejection, useDropzone } from 'react-dropzone'
-import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined } from '@ant-design/icons';
 import React from 'react'
 import dayjs from 'dayjs'
 import { emailPattern, namePattern, phonePattern } from '~/DTO/form-schemas/patterns'

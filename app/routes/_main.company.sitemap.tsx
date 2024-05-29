@@ -1,4 +1,4 @@
-import { MetaFunction, defer, useLoaderData, useRouteLoaderData } from '@remix-run/react'
+import { MetaFunction, useRouteLoaderData } from '@remix-run/react';
 import Consultation from '~/components/Homepage/consultation'
 import { Popup } from '~/common-components/social-media-popup'
 import styles from '~/styles/Sitemap.css'

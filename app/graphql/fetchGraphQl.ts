@@ -1,6 +1,3 @@
-import { useOutletContext } from '@remix-run/react'
-import { StrapiConfig } from '~/utils/format'
-
 export interface GraphQLResponse {
   data?: any
   errors?: any[]

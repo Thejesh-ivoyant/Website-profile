@@ -1,12 +1,11 @@
 import { useLoaderData, useOutletContext } from '@remix-run/react'
-import IBlogMedia from '../../../interfaces/IBlogMedia'
 
 import { useEffect, useState } from 'react'
-import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
-import { errorMessage, success } from '~/utils/notifications'
+import { errorMessage } from '~/utils/notifications';
 import CaseCard from './caseStudyCard'
 import { SearchCases } from '~/graphql/queries'
 import { StrapiConfig } from '~/utils/format'

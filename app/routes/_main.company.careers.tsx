@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Await, MetaFunction, Outlet, defer, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react';
 
 import Why_Join_Us from '~/components/careers/section-2/why-join-us'
 import JobCards from '~/components/careers/section-3/job-cards'

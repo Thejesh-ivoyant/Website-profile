@@ -2,12 +2,12 @@ import { useLoaderData, useOutletContext } from '@remix-run/react'
 import IBlogMedia from '../../../interfaces/IBlogMedia'
 import BlogCard from './blogCard'
 import { useEffect, useState } from 'react'
-import { fetchGraphQL, fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
 import { SearchBlogs } from '~/graphql/queries'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
-import { errorMessage, success } from '~/utils/notifications'
+import { errorMessage } from '~/utils/notifications';
 import { StrapiConfig } from '~/utils/format'
 const BlogCardContainer = () => {
   const outletCon: StrapiConfig = useOutletContext()
