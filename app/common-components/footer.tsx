@@ -24,10 +24,8 @@ const Footer = () => {
   const [open, setOpen] = useState(false)
   const [subemail, setEmailSubscribe] = useState<string>('')
   const [download, setDownload] = useState<string>('')
-  const [toggleNav, setToggleNav] = useState<boolean>(false)
   const [clicked, setClicked] = useState(-1)
 
-  let $form = useRef<HTMLFormElement>(null)
   const handleToggle = (index: number) => {
     if (clicked === index) {
       return setClicked(-1)

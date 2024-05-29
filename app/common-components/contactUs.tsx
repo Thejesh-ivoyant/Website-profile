@@ -46,48 +46,32 @@ const ContactUs = () => {
   const location = useLocation()
   const [personname, setPersonName] = useState('')
   const [nameerror, setNameError] = useState('')
-
   const [email, setEmail] = useState('')
   const [emailerror, setEmailError] = useState('')
-
   const [hirepersonname, sethirePersonName] = useState('')
   const [hirenameerror, sethireNameError] = useState('')
-
   const [hireemail, sethireEmail] = useState('')
   const [hireemailerror, sethireEmailError] = useState('')
-
   const [skill, setskills] = useState('')
   const [skillerror, setskillError] = useState('')
-
   const [AOE, setAOE] = useState('')
   const [AOEerror, setAOEError] = useState('')
-
   const [Exp, setExp] = useState('')
   const [experror, setexpError] = useState('')
-
   const [org, setOrg] = useState('')
   const [orgerror, setOrgError] = useState('')
-
   const [hirephoneNumber, sethirePhoneNumber] = useState('')
   const [hirephoneerror, sethirePhoneError] = useState('')
-
   const [hiremsg, sethireMsg] = useState('')
   const [hiremsgerror, sethireMsgError] = useState('')
-
   const [phoneNumber, setPhoneNumber] = useState('')
   const [phoneerror, setPhoneError] = useState('')
-
   const [fileerror, setFileError] = useState('')
-
   const [hirefileerror, sethireFileError] = useState('')
-
   const [msg, setMsg] = useState('')
   const [msgerror, setMsgError] = useState('')
-
   const [msgcount, setMsgCount] = useState('1000')
-
   const [hiremsgcount, sethireMsgCount] = useState('1000')
-
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const [selectedCode, setCountryCodeSelected] = useState('US')
   const [selectedDate, setDateSelected] = useState<string | null>(null)
@@ -175,20 +159,12 @@ const ContactUs = () => {
     setBtnLoading(false)
   }
 
-  const handleLabelClick = () => {
-    // Trigger click on the file input
-    if (fileInputRef.current) {
-      fileInputRef.current.click()
-    }
-  }
+  
 
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     setDateSelected(dateString)
   }
-  const onhireChange: DatePickerProps['onChange'] = (date, dateString) => {
-    sethireDateSelected(dateString)
-  }
-
+  
   const handlePhoneNumberChange = (e: any) => {
     const phone = e.target.value
     setPhoneNumber(phone)
