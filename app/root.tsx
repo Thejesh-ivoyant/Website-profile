@@ -92,7 +92,7 @@ export default function App() {
             {(resolvedValue) => (
               <>
                 <a
-                  href="#main-cnt"
+                  href="/"
                   className="skip-main-cnt"
                   tabIndex={0}
                   aria-label="Navigate to main content"

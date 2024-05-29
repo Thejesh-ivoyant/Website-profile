@@ -2374,8 +2374,6 @@
     justify-content: center;
   }
   
-  /* Add your existing CSS styles here */
-  /* Style for the row number divs */
   .row-number-divs {
     display: flex;
     flex-direction: column;
@@ -3664,9 +3662,8 @@
     /* transform: translateY(0.2dvh); */
     scroll-padding-top: 4rem;
   }
-  .skip-main-cnt:focus,
-  .skip-footer:focus {
-    transform: translateY(0);
+  .skip-main-cnt:hover,
+  .skip-footer:hover {
     color: #fff;
     background: #df9926;
   }
