@@ -553,6 +553,19 @@
     width: 100%;
     color: #ffffff;
   }
+  .ptc-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.875rem; /* 30px */
+    font-weight: 800;
+    color: #1B0740; /* Haiti color */
+    font-style: italic;
+  }
+  
+  @media (min-width: 1024px) {
+    .ptc-hero-title {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
   
   .hero-title {
     font-weight: 500;

@@ -16,8 +16,8 @@ const PTCHero = () => {
         style={gradientStyle}
       >
         <div className="w-1/2 grid place-items-center px-6">
-          <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
-            <h1 className="font-montserrat text-3xl lg:text-4xl font-extrabold text-haiti italic">
+          <div className=" flex flex-col my-auto max-w-lg">
+            <h1 className="ptc-hero-title">
               {loaderData?.heroTitle}
             </h1>
             <p className="font-poppins text-base lg:text-lg font-normal lg:leading-8 leading-6 text-justify mt-5">
@@ -26,9 +26,8 @@ const PTCHero = () => {
           </div>
         </div>
       </div>
-      {/* Mobile */}
       <section className=" md:hidden flex py-12 px-10 mt-16 flex-row ">
-        <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
+        <div className=" flex flex-col my-auto max-w-lg">
           <h1 className="font-montserrat text-4xl font-bold text-haiti italic leading-10">
             {loaderData?.heroTitle}
           </h1>
@@ -45,12 +44,7 @@ const PTCHero = () => {
         height={500}
         className="h-72 w-full object-cover object-right md:hidden block"
       />
-      {/* <img
-        src={loaderData?.heroImage}
-        loading="eager"
-        className="h-72 w-full object-cover object-right"
-        alt="privacy-policy"
-      /> */}
+      
     </>
   )
 }
