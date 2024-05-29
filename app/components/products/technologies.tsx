@@ -3,7 +3,7 @@ export const Technologies = ({ title, pairs }: { title: string; pairs: Technolog
   return (
     <>
       <div className="bg-white section-p-y md:py-6 py-4 px-4 grid lg:gap-3">
-        <h1 className="text-PurpBlue section-title flex items-center justify-center font-montserrat font-semibold xl:text-3xl lg:text-2xl sm:text-xl text-lg">
+        <h1 className="section-title-blue section-title flex items-center justify-center font-montserrat font-semibold xl:text-3xl lg:text-2xl sm:text-xl text-lg">
           {title}
         </h1>
         <svg

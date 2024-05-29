@@ -66,7 +66,46 @@
   ::-webkit-scrollbar-thumb {
     background-color: transparent;
   }
-  
+.section-title-blue{
+  color: #0D0B71;
+}
+.section-title-black{
+  color:#433C4A;
+}
+.section-title-white{
+  color: var(--HeadingGray, #E9E9EC);
+}
+
+
+
+
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 3.75rem;
+  letter-spacing: 0.05em; /* adjust as needed */
+}
+
+@media (min-width: 1280px) { /* xl */
+  .section-title {
+    font-size: 1.875rem; /* equivalent to 3xl */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) { /* lg */
+  .section-title {
+    font-size: 1.5rem; /* equivalent to 2xl */
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-title {
+    font-size: 1.25rem; /* equivalent to xl */
+  }
+}
+
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     #safari-black {
       background-color: #000;
@@ -643,14 +682,7 @@
     /* 175% */
   }
   
-  .section-title {
-    color: #0d0b71;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-align: center;
-  }
+
   
   .container-card {
     display: flex;

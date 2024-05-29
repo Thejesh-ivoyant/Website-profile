@@ -51,8 +51,8 @@ const WhitePaperCardContainer = () => {
     <>
       {contextHolder}
       <div className="w-full bg-white pb-8 h-fit">
-        <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-          <span className="section-title">{loaderData.s2_title}</span>
+        <div className=" text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
+          <span className="section-title section-title-black">{loaderData.s2_title}</span>
         </div>
         <div className="whitepaper-grid-container mt-[1rem] w-full h-fit   flex flex-row justify-around">
           <img

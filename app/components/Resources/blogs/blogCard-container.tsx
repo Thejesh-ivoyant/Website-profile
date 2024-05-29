@@ -179,7 +179,7 @@ const BlogCardContainer = () => {
 
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
         <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-          <span className="section-title">{loaderData.s2_title}</span>
+          <span className="section-title section-title-blue">{loaderData.s2_title}</span>
         </div>
         <div className="filter flex w-full font-montserrat justify-center gap-2 mt-2">
           <div className="flex flex-col gap-1">

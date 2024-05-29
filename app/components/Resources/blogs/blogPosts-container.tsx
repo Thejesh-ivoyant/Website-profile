@@ -16,7 +16,7 @@ const BlogPostsContainer = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="text-head-grape section-title w-full justify-center flex h-fit">
+      <div className="section-title-black section-title w-full justify-center flex h-fit">
         {isResourcesRoute ? (
           <p
             aria-level={1}

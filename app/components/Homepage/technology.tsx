@@ -64,7 +64,7 @@ const Technology = () => {
       aria-label="Technologies we adopt section"
       className="technology-section lg:py-8 md:py-6 py-4 lg:gap-6 md:gap-4 gap-3"
     >
-      <section className="section-title">
+      <section className="section-title section-title-blue">
         <p role="complementary" className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">
           Technology Expertise
         </p>
