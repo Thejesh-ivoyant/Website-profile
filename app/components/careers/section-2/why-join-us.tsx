@@ -56,7 +56,7 @@ const Why_Join_Us = () => {
       <p className="md:text-center md:w-3/4  leading-6 lg:text-base text-sm tracking-wider font-poppins">
         {loaderData.s2_description}
       </p>
-      <div className="grid w-full  xl:grid-cols-3 md:grid-cols-2 justify-items-center gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      <div className="grid w-full join-card-gap xl:grid-cols-3 md:grid-cols-2 justify-items-center gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
         {loaderData.JoinUsCard.map((item: any, index: any) => (
           <div
             key={item.id}

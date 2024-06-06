@@ -291,6 +291,12 @@
   .filter-mobile {
     display: none;
   }
+ 
+}
+@media (min-width: 993px) and (max-width: 1279px) {
+  .join-card-gap{
+    max-width: 1000px;
+  }
 }
 
 /* Media query for extra-large screens (e.g., large desktops) */
