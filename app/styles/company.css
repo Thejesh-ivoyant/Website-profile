@@ -349,7 +349,11 @@
   max-width: 100%;
   width: 100%;
 }
-
+.intern-input:focus-within{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border-radius: 0;
+}
 /* .ant-picker .ant-picker-input{
   border: 0.5px solid #8C8C8C;
   border-radius: 0;
