@@ -396,7 +396,13 @@
   .text-box-form {
     text-transform: capitalize;
   }
-  
+
+  .text-box-form:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-radius: 0;
+  }
+
   .text-box {
     text-transform: capitalize;
     border-bottom: 0.5px solid rgba(64, 66, 88, 0.5);
