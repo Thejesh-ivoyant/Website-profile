@@ -71,11 +71,11 @@
 }
 .section-title-black{
   color:#433C4A;
+  font-weight: 600!important;
 }
 .section-title-white{
   color: var(--HeadingGray, #E9E9EC);
 }
-
 
 
 

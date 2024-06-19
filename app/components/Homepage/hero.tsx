@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { HeroBg } from '~/interfaces/Homepage'
 import { scrollToSection } from '~/root'
 const Hero = ({
@@ -12,13 +11,6 @@ const Hero = ({
   heroDescription: string
   heroBgImage: HeroBg
 }) => {
-  const [c, setC] = useState(0)
-  const closeChats = () => {
-    setC(0)
-  }
-  const openChats = () => {
-    setC(1)
-  }
   return (
     <>
       <div

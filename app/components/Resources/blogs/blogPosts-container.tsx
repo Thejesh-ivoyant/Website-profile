@@ -21,7 +21,6 @@ const BlogPostsContainer = () => {
           <p
             aria-level={1}
             role="contentinfo"
-            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
           >
             What's new in our Whitepapers
           </p>
@@ -29,7 +28,6 @@ const BlogPostsContainer = () => {
           <p
             role="contentinfo"
             aria-level={1}
-            className="xl:text-3xl lg:text-2xl sm:text-xl text-lg"
           >
             What's new in our Blogs
           </p>

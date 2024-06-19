@@ -20,9 +20,9 @@ import ServiceCardContainer from '~/components/services/section-6/service-card-c
 import Technologies from '~/components/services/section-7/technologies'
 import Consultation from '~/components/Homepage/consultation'
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({ data }: { data: any }) => {
   return [
-    { title: 'Ivoyant |  Services' },
+    { title: `Ivoyant | Service | ${data.heroTitle}` },
     {
       property: 'og:title',
       content: 'Services Page',

@@ -8,14 +8,14 @@ import { Popup } from '~/common-components/social-media-popup'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: CompanyStyle }]
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Ivoyant | Mobile App Development' },
+    { title: 'Ivoyant | Jobs' },
     {
       property: 'og:title',
-      content: 'Services Page',
+      content: 'Jobs Page',
     },
     {
       name: 'description',
-      content: 'Ivoyant Services section describing all services offered',
+      content: 'Ivoyant Jobs section describing all jobs offered',
     },
   ]
 }

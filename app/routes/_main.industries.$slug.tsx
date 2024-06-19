@@ -61,9 +61,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return json({})
   }
 }
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }:{ data: any }) => {
   return [
-    { title: data?.heroTitle as string },
+    { title: `Ivoyant | Industry | ${data?.heroTitle}` },
     {
       name: 'description',
       content: data?.heroDescription,

@@ -1,4 +1,4 @@
-import { Await, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, useLoaderData } from '@remix-run/react'
 import Section2 from '~/components/Resources/case-study/slug/Section2'
 import Section3 from '~/components/Resources/case-study/slug/Section3'
 import Hero from '~/components/Resources/case-study/slug/hero'
@@ -24,7 +24,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     data,
   })
 }
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }: { data: any }) => {
   const attributes = data?.data.data?.caseStudies?.data[0].attributes
   return [
     { title: ('Ivoyant | ' + attributes?.heroTitle) as string },

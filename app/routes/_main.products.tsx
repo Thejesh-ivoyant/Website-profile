@@ -1,5 +1,5 @@
 import Tabs from '~/components/products/Tabs'
-import { Await, defer, useLoaderData } from '@remix-run/react'
+import { Await, MetaFunction, defer, useLoaderData } from '@remix-run/react'
 import { fetchGraphQL } from '~/graphql/fetchGraphQl'
 import { productsQuery } from '~/graphql/queries'
 import Hero from '~/components/products/Hero'
@@ -14,7 +14,7 @@ import { Popup } from '~/common-components/social-media-popup'
 import { Suspense } from 'react'
 import LoadingTest from '~/common-components/loading-test'
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: ProductStyle }]
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }: { data: any }) => {
   return [
     { title: (data?.name as string) || 'Ivoyant | Products' },
     {
