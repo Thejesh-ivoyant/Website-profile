@@ -81,7 +81,6 @@ const ContactUs = () => {
   const [contactImage, setcontactImage] = useState<string>('')
   const [hireImage, sethireImage] = useState<string>('')
 
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
 
   const resethireFormState = async () => {
     sethirePersonName('')

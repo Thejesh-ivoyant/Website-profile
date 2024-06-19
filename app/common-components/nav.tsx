@@ -18,17 +18,15 @@ import ivurl from '../../public/assets/ivoyant.svg'
 import defaultsvg from '../../public/assets/default.svg'
 import { success, errorMessage } from '~/utils/notifications'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
+
 const Nav = () => {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [phoneerror, setPhoneError] = useState('')
   const [personname, setPersonName] = useState('')
   const [nameerror, setNameError] = useState('')
-
   const [email, setEmail] = useState('')
   const [emailerror, setEmailError] = useState('')
-
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
-
   const Blogmatched = useMatch('/resources/blog/:id')
   const isBlogRoute = Blogmatched !== null
   const CaseStudymatched = useMatch('/resources/case-study/:id')
