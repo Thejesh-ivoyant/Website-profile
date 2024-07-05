@@ -24,6 +24,9 @@ import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 import { Suspense } from 'react'
 import errorStyles from './styles/error.css'
+import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/utils/theme-provider';
+import clsx from 'clsx';
+import { getThemeSession } from './utils/theme.server'
 
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
@@ -56,25 +59,30 @@ export function scrollToSection(section: string) {
     console.error(`Element with ID '${section}' not found.`)
   }
 }
-export async function loader() {
+
+export async function loader({request}) {
+  const themeSession = await getThemeSession(request);
   return defer(
     {
       navGraphql: await fetchGraphQL(navQuery),
       ENV: {
         STRAPI_URL: process.env.STRAPI_URL,
       },
+      theme: themeSession.getTheme()
     },
     {
       headers: { 'Cache-Control': 'public, s-maxage=300' },
     }
   )
 }
-export default function App() {
+export function App() {
+  const [theme] = useTheme();
   const config = useLoaderData<typeof loader>()
   return (
-    <html lang="en">
+    <html lang="en" className={clsx(theme) }>
       <head>
         <ClarityScript />
+        <NonFlashOfWrongThemeEls ssrTheme={Boolean(config.theme)} />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content="Crafting Customer-Driven Digital Experiences" />
@@ -111,4 +119,12 @@ export default function App() {
       </body>
     </html>
   )
+}
+export default function AppWithProviders() {
+  const data = useLoaderData<typeof loader>()
+  return (
+    <ThemeProvider specifiedTheme={data.theme}>
+      <App />
+    </ThemeProvider>
+  );
 }

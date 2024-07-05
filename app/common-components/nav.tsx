@@ -18,6 +18,7 @@ import ivurl from '../../public/assets/ivoyant.svg'
 import defaultsvg from '../../public/assets/default.svg'
 import { success, errorMessage } from '~/utils/notifications'
 import { emailPattern } from '~/DTO/form-schemas/patterns'
+import ToggleTheme from './themeToggle'
 
 const Nav = () => {
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -245,6 +246,7 @@ const Nav = () => {
         className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16"
       >
         <div className="flex flex-row items-center justify-around">
+          <ToggleTheme  />
           <Link role="link" aria-label="Ivoyant Home" to="/">
             {' '}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">

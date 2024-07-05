@@ -9,8 +9,19 @@
     -webkit-tap-highlight-color: transparent;
     /* scroll-behavior: smooth; */
     /* or smooth */
+    --text-colour: white;
+      --background-colour: black
   }
-  
+  html.dark {
+    --text-colour: black;
+    --background-colour: white;
+  }
+  .toggleButton{ 
+    /* --EXPERIMENTAL-- to see the changes to toggle theme */
+    color : var(--text-colour);
+    background-color: var(--background-colour);
+    background: var(--background-colour);
+  }
   nav {
     z-index: 999999999 !important;
   }
