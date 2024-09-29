@@ -72,7 +72,7 @@ const App = () => {
             heroTitle={attributes.heroTitle}
             heroDescription={attributes.heroDescription}
           />
-          <AboutCardContainer attributes={attributes} />
+          {/* <AboutCardContainer attributes={attributes} /> */}
           <Services attributes={attributes} />
           <Section4 clients={attributes?.clients} />
           <Section5
