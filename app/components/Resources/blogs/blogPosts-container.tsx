@@ -18,17 +18,11 @@ const BlogPostsContainer = () => {
     >
       <div className="section-title-black section-title w-full justify-center flex h-fit">
         {isResourcesRoute ? (
-          <p
-            aria-level={1}
-            role="contentinfo"
-          >
+          <p aria-level={1} role="contentinfo">
             What's new in our Whitepapers
           </p>
         ) : (
-          <p
-            role="contentinfo"
-            aria-level={1}
-          >
+          <p role="contentinfo" aria-level={1}>
             What's new in our Blogs
           </p>
         )}

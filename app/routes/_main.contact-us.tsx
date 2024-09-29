@@ -9,7 +9,7 @@ import { useRef, useState } from 'react'
 import React from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'antd'
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from '@ant-design/icons'
 import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker'
 import { errorMessage, success } from '~/utils/notifications'

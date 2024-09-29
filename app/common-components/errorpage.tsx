@@ -1,5 +1,13 @@
 import { Link } from '@remix-run/react'
-const ErrorBoundaryPage = ({ statusCode, statusText, data }: { statusCode?: number, statusText?:string, data? :any}) => {
+const ErrorBoundaryPage = ({
+  statusCode,
+  statusText,
+  data,
+}: {
+  statusCode?: number
+  statusText?: string
+  data?: any
+}) => {
   return (
     <div className="bg-white flex flex-col">
       <div className="self-center w-[913px] max-w-full mt-10 max-md:mt-10">
@@ -8,13 +16,11 @@ const ErrorBoundaryPage = ({ statusCode, statusText, data }: { statusCode?: numb
             <div className="error-left-container  flex flex-col my-auto px-5 max-md:max-w-full max-md:mt-10 font-poppins">
               <div className="text-zinc-600 text-3xl font-bold leading-10">Oops....</div>
               <div className="text-zinc-600 text-2xl leading-8  mt-3">
-                {statusText} {' '} {statusCode} {' '}
+                {statusText} {statusCode}{' '}
               </div>
               <div className=" text-zinc-600 text-base leading-6 tracking-wide  mt-4 max-md:max-w-full">
-                { data ? 'Something Went Wrong' : ''}{' '}
-                { statusCode === 404
-                  ? "This Page doesn't exist or was removed!"
-                  : data}
+                {data ? 'Something Went Wrong' : ''}{' '}
+                {statusCode === 404 ? "This Page doesn't exist or was removed!" : data}
               </div>{' '}
               <Link to="/">
                 <div className="justify-centeritems-center flex gap-1 mt-1 py-2 self-start">
@@ -44,8 +50,8 @@ const ErrorBoundaryPage = ({ statusCode, statusText, data }: { statusCode?: numb
           </div>
         </div>
       </div>{' '}
-      <div className='err-bottom-container p-6'>
-        <div className='grid my-auto'>
+      <div className="err-bottom-container p-6">
+        <div className="grid my-auto">
           <div className="text-neutral-800 text-base leading-8  whitespace-nowrap">
             Here are some helpful links instead
           </div>{' '}
@@ -55,9 +61,7 @@ const ErrorBoundaryPage = ({ statusCode, statusText, data }: { statusCode?: numb
             </div>{' '}
           </Link>
           <Link to="/company/sitemap">
-            <div className="text-blue-600 text-sm whitespace-nowrap mt-1.5 self-start">
-              Sitemap
-            </div>{' '}
+            <div className="text-blue-600 text-sm whitespace-nowrap mt-1.5 self-start">Sitemap</div>{' '}
           </Link>
           <Link to="/company/about-us">
             <div className="text-blue-600 text-sm whitespace-nowrap mt-1.5 self-start">
@@ -75,22 +79,29 @@ const ErrorBoundaryPage = ({ statusCode, statusText, data }: { statusCode?: numb
             </div>
           </Link>
         </div>
-        <svg className='h-full my-12 lg:block hidden' width="1" viewBox="0 0 1 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="h-full my-12 lg:block hidden"
+          width="1"
+          viewBox="0 0 1 144"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="1" height="144" transform="matrix(-1 0 0 1 1 0)" fill="#E8E8E8" />
         </svg>
-        <div className='info lg:my-auto my-10'>
+        <div className="info lg:my-auto my-10">
           <h2>Download our latest Website accessibility Guide</h2>
-          <p>We have curated a Web accessibility guide for you, prepared by our Accessibility experts. </p>
-          <button className='hue-btn-primary'>
-            Download Guide
-          </button>
+          <p>
+            We have curated a Web accessibility guide for you, prepared by our Accessibility
+            experts.{' '}
+          </p>
+          <button className="hue-btn-primary">Download Guide</button>
         </div>
         <div className="image-container">
           <img
             alt="error"
             loading="eager"
             src="../assets/error-mobile.png"
-          className="object-contain overflow-x-hidden"
+            className="object-contain overflow-x-hidden"
           />
         </div>
       </div>

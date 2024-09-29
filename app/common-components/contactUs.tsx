@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'antd'
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from '@ant-design/icons'
 import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker'
 import { errorMessage, success } from '~/utils/notifications'
@@ -80,7 +80,6 @@ const ContactUs = () => {
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`
   const [contactImage, setcontactImage] = useState<string>('')
   const [hireImage, sethireImage] = useState<string>('')
-
 
   const resethireFormState = async () => {
     sethirePersonName('')
@@ -158,12 +157,10 @@ const ContactUs = () => {
     setBtnLoading(false)
   }
 
-  
-
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     setDateSelected(dateString)
   }
-  
+
   const handlePhoneNumberChange = (e: any) => {
     const phone = e.target.value
     setPhoneNumber(phone)

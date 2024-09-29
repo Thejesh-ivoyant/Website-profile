@@ -134,9 +134,13 @@ const Services = ({
             </svg>
           </button>
         </div>
-        {industries?.map((item: IndustriesTab)=>(
+        {industries?.map((item: IndustriesTab) => (
           <>
-            <div className={`flex flex-col xl:w-full lg:w-fit h-full p-4 ${(item.id === activeButton.id) ? "block" : "hidden"}`} aria-label={`${item.id}`} key={item.id}>
+            <div
+              className={`flex flex-col xl:w-full lg:w-fit h-full p-4 ${item.id === activeButton.id ? 'block' : 'hidden'}`}
+              aria-label={`${item.id}`}
+              key={item.id}
+            >
               <div className="flex flex-1 flex-col h-full items-center justify-center mx-4">
                 <div className="flex flex-col w-fit gap-4  justify-center items-center">
                   <span className="flex bg-black px-1 text-white font-montserrat w-fit capitalize text-sm italic mr-auto">
@@ -177,7 +181,6 @@ const Services = ({
             </div>
           </>
         ))}
-        
       </div>
       <div className="md:flex hidden flex-col mx-auto  w-fit max-h-[33.5rem] h-[30rem] my-6">
         <div className="flex flex-row flex-wrap justify-between">

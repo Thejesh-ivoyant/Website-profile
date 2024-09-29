@@ -65,9 +65,7 @@ const Technology = () => {
       className="technology-section lg:py-8 md:py-6 py-4 lg:gap-6 md:gap-4 gap-3"
     >
       <section className="section-title section-title-blue">
-        <p role="complementary">
-          Technology Expertise
-        </p>
+        <p role="complementary">Technology Expertise</p>
       </section>
       <section
         className="px-4 py-2"

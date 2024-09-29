@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, defer, json } from '@remix-run/node'
-import { Await, MetaFunction, redirect, useLoaderData } from '@remix-run/react';
+import { Await, MetaFunction, redirect, useLoaderData } from '@remix-run/react'
 import { Suspense } from 'react'
 import Hero from '~/common-components/Hero'
 import LoadingTest from '~/common-components/loading-test'
@@ -61,7 +61,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return json({})
   }
 }
-export const meta: MetaFunction<typeof loader> = ({ data }:{ data: any }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }: { data: any }) => {
   return [
     { title: `Ivoyant | Industry | ${data?.heroTitle}` },
     {

@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense } from 'react'
 import { Await, MetaFunction, Outlet, redirect, useLoaderData } from '@remix-run/react'
 import BlogPostsContainer from '~/components/Resources/blogs/blogPosts-container'
 import { topBlogQuery } from '~/graphql/queries'

@@ -17,9 +17,7 @@ const PTCHero = () => {
       >
         <div className="w-1/2 grid place-items-center px-6">
           <div className=" flex flex-col my-auto max-w-lg">
-            <h1 className="ptc-hero-title">
-              {loaderData?.heroTitle}
-            </h1>
+            <h1 className="ptc-hero-title">{loaderData?.heroTitle}</h1>
             <p className="font-poppins text-base lg:text-lg font-normal lg:leading-8 leading-6 text-justify mt-5">
               {loaderData?.heroDescription}
             </p>
@@ -44,7 +42,6 @@ const PTCHero = () => {
         height={500}
         className="h-72 w-full object-cover object-right md:hidden block"
       />
-      
     </>
   )
 }

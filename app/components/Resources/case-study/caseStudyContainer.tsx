@@ -1,11 +1,11 @@
 import { useLoaderData, useOutletContext } from '@remix-run/react'
 
 import { useEffect, useState } from 'react'
-import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { List, Select, Skeleton } from 'antd'
 import CustomDrawer from '~/utils/customDrawer'
 import DropDownIcon from '../case-study/arrow'
-import { errorMessage } from '~/utils/notifications';
+import { errorMessage } from '~/utils/notifications'
 import CaseCard from './caseStudyCard'
 import { SearchCases } from '~/graphql/queries'
 import { StrapiConfig } from '~/utils/format'
@@ -179,7 +179,6 @@ const Container = () => {
       </CustomDrawer>
 
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
-        
         <div className="filter flex w-full font-montserrat justify-center gap-2 mt-2">
           <div className="flex flex-col gap-1">
             <div className="flex">

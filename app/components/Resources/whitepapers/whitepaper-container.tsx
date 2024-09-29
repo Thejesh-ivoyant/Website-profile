@@ -2,11 +2,11 @@ import { Link, useLoaderData, useOutletContext } from '@remix-run/react'
 import WhitePaperCard from './whitepaper'
 import IWhitePaper from '~/interfaces/IWhitePaper'
 import { useState } from 'react'
-import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { getWhitepaperBasedonLimit } from '~/graphql/queries'
 
 import { message } from 'antd'
-import { errorMessage } from '~/utils/notifications';
+import { errorMessage } from '~/utils/notifications'
 import { StrapiConfig } from '~/utils/format'
 const WhitePaperCardContainer = () => {
   const outletCon: StrapiConfig = useOutletContext()

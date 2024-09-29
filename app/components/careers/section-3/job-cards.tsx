@@ -1,11 +1,11 @@
 import { Link, useLoaderData, useOutletContext } from '@remix-run/react'
 import { List, Select, Skeleton } from 'antd'
 import { useEffect, useState } from 'react'
-import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl';
+import { fetchGraphQLWithURL } from '~/graphql/fetchGraphQl'
 import { SearchJobs } from '~/graphql/queries'
 import CustomDrawer from '~/utils/customDrawer'
 import { StrapiConfig } from '~/utils/format'
-import { errorMessage } from '~/utils/notifications';
+import { errorMessage } from '~/utils/notifications'
 const JobCards = () => {
   const outletCon: StrapiConfig = useOutletContext()
   const StrapiUrl = outletCon?.STRAPI_URL

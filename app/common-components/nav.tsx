@@ -246,7 +246,7 @@ const Nav = () => {
         className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16"
       >
         <div className="flex flex-row items-center justify-around">
-          <ToggleTheme  />
+          <ToggleTheme />
           <Link role="link" aria-label="Ivoyant Home" to="/">
             {' '}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">

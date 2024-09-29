@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react';
+import { useLoaderData } from '@remix-run/react'
 
 const GovSection3 = () => {
   const loaderData = useLoaderData() as any

@@ -14,7 +14,7 @@ import {
   ScrollRestoration,
   defer,
   useLoaderData,
-} from '@remix-run/react';
+} from '@remix-run/react'
 import ClarityScript from './clarityScript'
 import Nav from './common-components/nav'
 import Footer from './common-components/footer'
@@ -24,8 +24,8 @@ import ScrollToTopIcon from './ScrollToTop'
 import LoadingTest from './common-components/loading-test'
 import { Suspense } from 'react'
 import errorStyles from './styles/error.css'
-import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/utils/theme-provider';
-import clsx from 'clsx';
+import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/utils/theme-provider'
+import clsx from 'clsx'
 import { getThemeSession } from './utils/theme.server'
 
 export const links: LinksFunction = () => [
@@ -60,15 +60,15 @@ export function scrollToSection(section: string) {
   }
 }
 
-export async function loader({request}) {
-  const themeSession = await getThemeSession(request);
+export async function loader({ request }) {
+  const themeSession = await getThemeSession(request)
   return defer(
     {
       navGraphql: await fetchGraphQL(navQuery),
       ENV: {
         STRAPI_URL: process.env.STRAPI_URL,
       },
-      theme: themeSession.getTheme()
+      theme: themeSession.getTheme(),
     },
     {
       headers: { 'Cache-Control': 'public, s-maxage=300' },
@@ -76,10 +76,10 @@ export async function loader({request}) {
   )
 }
 export function App() {
-  const [theme] = useTheme();
+  const [theme] = useTheme()
   const config = useLoaderData<typeof loader>()
   return (
-    <html lang="en" className={clsx(theme) }>
+    <html lang="en" className={clsx(theme)}>
       <head>
         <ClarityScript />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(config.theme)} />
@@ -126,5 +126,5 @@ export default function AppWithProviders() {
     <ThemeProvider specifiedTheme={data.theme}>
       <App />
     </ThemeProvider>
-  );
+  )
 }

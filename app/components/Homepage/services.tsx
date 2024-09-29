@@ -6,7 +6,7 @@ import { Service } from '~/interfaces/Homepage'
 const Services = ({ attributes }: { attributes: Attributes }) => {
   const servicesArray = attributes?.services || []
   const [currentSelectedService, setCurrentService] = useState<Service>(servicesArray[0])
-  
+
   useEffect(() => {
     if (servicesArray.length > 0) {
       setCurrentService(servicesArray[0])
@@ -65,7 +65,9 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
               id={service.title}
               aria-label={service?.title}
               className={
-                currentSelectedService?.title === service.title ? 'service-list-cur' : 'service-list'
+                currentSelectedService?.title === service.title
+                  ? 'service-list-cur'
+                  : 'service-list'
               }
               onClick={() => handleServiceClick(service.title)}
             >
@@ -89,15 +91,18 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
         </div>
         <div className="flex items-center">
           {servicesArray.map((service) => (
-          <>
-              <figure key={service.id} className={`object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img ${(service.id === currentSelectedService.id) ? "flex" : "hidden"}`}>
+            <>
+              <figure
+                key={service.id}
+                className={`object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img ${service.id === currentSelectedService.id ? 'flex' : 'hidden'}`}
+              >
                 <Image
                   aria-label="Ornament image for selected service"
                   width={800}
                   height={630}
                   src={service?.bgImage?.data?.attributes.url}
                   tabIndex={0}
-                  alt={service?.title + " Image"}
+                  alt={service?.title + ' Image'}
                 />
                 <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
                   <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
@@ -115,7 +120,11 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
                       role="navigation"
                       aria-label={`Click on the underlying link to navigate to ${currentSelectedService.title}`}
                     >
-                      <Link to={`${service?.link}`} className="flex flex-row justify-end ml-auto items-center gap-4" aria-label={`Link to ${service?.title} page`} >
+                      <Link
+                        to={`${service?.link}`}
+                        className="flex flex-row justify-end ml-auto items-center gap-4"
+                        aria-label={`Link to ${service?.title} page`}
+                      >
                         <span className="text-HeaderGray text-lg flex">Learn more.</span>
                         <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
                           <svg
@@ -136,7 +145,7 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
                   </figcaption>
                 </div>
               </figure>
-          </>
+            </>
           ))}
         </div>
       </div>
